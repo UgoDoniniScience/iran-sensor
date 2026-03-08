@@ -1,0 +1,14 @@
+ Il volume nell'unit… C Š Windows
+ Numero di serie del volume: C415-6D95
+
+ Directory di c:\Users\ugodo\Desktop\iran-sensor
+
+08/03/2026  20:13    <DIR>          .
+08/03/2026  19:54    <DIR>          ..
+08/03/2026  20:13                 0 lista.txt
+08/03/2026  19:54                68 README.md
+08/03/2026  19:11             7.850 scorer_gemini.py
+08/03/2026  20:09            54.109 sensor-live.html
+08/03/2026  19:54             1.435 temp.json
+               5 File         63.462 byte
+               2 Directory  67.647.721.472 byte disponibili

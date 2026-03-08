@@ -1,194 +1,182 @@
 #!/usr/bin/env python3
 """
-GEOPOLITICAL TEMPERATURE SCORER — versione GRATUITA
-Usa Google Gemini 1.5 Flash (gratis, 1500 req/giorno)
-Aggiornamento ogni 120 minuti — costo: €0
+GEOPOLITICAL TEMPERATURE SCORER — versione GRATUITA + AUTO-PUSH
+─────────────────────────────────────────────────────────────────
+Ogni 120 minuti:
+  1. Chiama Google Gemini 1.5 Flash (gratis, 1.500 req/giorno)
+  2. Riscrive sensor-live.html con i nuovi dati
+  3. Push automatico su GitHub Pages → YouTube live si aggiorna
+Costo totale: €0/mese
+─────────────────────────────────────────────────────────────────
 """
+import json, time, re, datetime, os, subprocess, urllib.request
 
-import json, time, datetime, os, urllib.request, urllib.error
-
-# ─── CONFIGURAZIONE ────────────────────────────────────────────
 INTERVAL_MINUTES = 120
-OUTPUT_FILE      = "temp.json"
+HTML_FILE        = "sensor-live.html"
 MAX_HISTORY      = 48
-
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
-GEMINI_URL = (
+REPO_DIR         = os.path.dirname(os.path.abspath(__file__))
+GEMINI_API_KEY   = os.environ.get("GEMINI_API_KEY", "")
+GEMINI_URL       = (
     "https://generativelanguage.googleapis.com/v1beta/models/"
     "gemini-1.5-flash:generateContent?key={key}"
 )
 
-# ─── PROMPT ────────────────────────────────────────────────────
-SYSTEM_INSTRUCTION = """Sei un analista geopolitico specializzato nel conflitto Iran 2026.
-Analizza le ultime notizie e assegna una TEMPERATURA DI CONFLITTO su scala APERTA (non limitata a 100).
+SYSTEM_INSTRUCTION = """\
+Sei un analista geopolitico specializzato nel conflitto Iran 2026.
+Analizza le ultime notizie e assegna una TEMPERATURA DI CONFLITTO su scala aperta.
 
-SCALA:
-0-20   Tensione diplomatica, sanzioni
-21-50  Attacchi proxy, escalation limitata
-51-80  Guerra aperta, raid aerei, scambio missilistico
-81-100 Guerra totale attiva (stato attuale circa 87)
-101-150 Escalation nucleare o NATO diretto
-150+   Conflitto globale
+SCALA: 0-20 diplomazia | 21-50 proxy | 51-80 guerra aperta | 81-100 guerra totale | 101+ nucleare/NATO
 
-Rispondi SOLO con JSON valido senza testo aggiuntivo e senza backtick:
-{"temperatura":<float>,"trend":"salita|stabile|discesa","titolo":"<max 80 car>","sommario":"<max 200 car in italiano>","attori_caldi":["att1","att2","att3"],"evento_chiave":"<evento principale>","rischio_nucleare":<0-10>,"stretto_hormuz":"aperto|parziale|chiuso"}"""
+Rispondi SOLO con JSON valido, zero testo aggiuntivo, zero backtick:
+{"temperatura":<float>,"trend":"salita|stabile|discesa","titolo":"<max80car>","sommario":"<max200car>","attori_caldi":["a1","a2","a3"],"evento_chiave":"<evento principale>","rischio_nucleare":<0-10>,"stretto_hormuz":"aperto|parziale|chiuso","tickers":["<notizia1 max120car>","<notizia2>","<notizia3>","<notizia4>","<notizia5>"]}"""
 
 def user_prompt():
     return (
-        "Cerca e analizza le ultimissime notizie sulla guerra Iran-USA-Israele. "
-        "Considera: attacchi in corso, vittime, escalation, dichiarazioni ufficiali, "
-        "movimenti militari, Stretto di Hormuz, coinvolgimento di nuovi attori. "
-        "Data: " + datetime.datetime.now().strftime("%d/%m/%Y %H:%M") + ". "
-        "Rispondi SOLO con il JSON."
+        "Cerca le ultimissime notizie guerra Iran-USA-Israele. "
+        "Considera: attacchi in corso, vittime, escalation, dichiarazioni, movimenti militari, Hormuz, nuovi attori. "
+        "Data: " + datetime.datetime.now().strftime("%d/%m/%Y %H:%M") +
+        ". Rispondi SOLO con il JSON."
     )
 
-# ─── GEMINI CALL ───────────────────────────────────────────────
 def fetch_temperature():
-    print(f"[{now()}] Chiamata Gemini API con Google Search grounding...")
-
+    print(f"[{ts()}] Gemini API call con Google Search grounding...")
     payload = {
         "system_instruction": {"parts": [{"text": SYSTEM_INSTRUCTION}]},
-        "contents": [{"parts": [{"text": user_prompt()}]}],
-        "tools": [{"google_search": {}}],
-        "generationConfig": {
-            "temperature": 0.2,
-            "maxOutputTokens": 800
-        }
+        "contents":           [{"parts": [{"text": user_prompt()}]}],
+        "tools":              [{"google_search": {}}],
+        "generationConfig":   {"temperature": 0.2, "maxOutputTokens": 1000}
     }
-
     url  = GEMINI_URL.format(key=GEMINI_API_KEY)
     body = json.dumps(payload).encode("utf-8")
-    req  = urllib.request.Request(
-        url, data=body,
-        headers={"Content-Type": "application/json"},
-        method="POST"
-    )
-
+    req  = urllib.request.Request(url, data=body, headers={"Content-Type":"application/json"}, method="POST")
     try:
-        with urllib.request.urlopen(req, timeout=30) as resp:
+        with urllib.request.urlopen(req, timeout=40) as resp:
             raw = json.loads(resp.read().decode("utf-8"))
-
         text = raw["candidates"][0]["content"]["parts"][0]["text"].strip()
-        # Pulizia: rimuovi eventuali backtick residui
         text = text.strip("`").lstrip("json").strip()
-        # Estrai solo il blocco JSON se c'è testo prima/dopo
-        start = text.find("{")
-        end   = text.rfind("}") + 1
-        if start >= 0 and end > start:
-            text = text[start:end]
-
+        s = text.find("{"); e = text.rfind("}") + 1
+        if s >= 0 and e > s: text = text[s:e]
         data = json.loads(text)
-        t = data.get("temperatura", "?")
-        print(f"[{now()}] Temperatura: {t}C  "
-              f"trend={data.get('trend','?')}  "
-              f"hormuz={data.get('stretto_hormuz','?')}")
+        print(f"[{ts()}] OK  {data['temperatura']}C  {data['trend']}  {data['titolo'][:55]}")
         return data
+    except Exception as exc:
+        print(f"[{ts()}] ERR {exc}")
+        return None
 
-    except urllib.error.HTTPError as e:
-        print(f"[{now()}] HTTP {e.code}: {e.read().decode('utf-8','ignore')[:300]}")
-    except (KeyError, json.JSONDecodeError) as e:
-        print(f"[{now()}] Parsing fallito: {e}")
-    except Exception as e:
-        print(f"[{now()}] Errore: {e}")
-    return None
+def load_html():
+    with open(os.path.join(REPO_DIR, HTML_FILE), "r", encoding="utf-8") as f:
+        return f.read()
 
-# ─── FILE I/O ──────────────────────────────────────────────────
-def load_existing():
-    if os.path.exists(OUTPUT_FILE):
-        try:
-            with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
-                return json.load(f)
-        except Exception:
-            pass
-    return {
-        "temperatura": 87.4, "trend": "salita",
-        "titolo": "In attesa del primo aggiornamento...",
-        "sommario": "Avvia scorer_gemini.py per iniziare.",
-        "attori_caldi": ["USA", "IRAN", "ISRAELE"],
-        "evento_chiave": "Sistema avviato",
-        "rischio_nucleare": 4, "stretto_hormuz": "chiuso",
-        "ultimo_aggiornamento": now_iso(),
-        "prossimo_aggiornamento": next_upd_iso(INTERVAL_MINUTES),
-        "storico": [], "giorno_conflitto": 5
-    }
+def save_html(c):
+    with open(os.path.join(REPO_DIR, HTML_FILE), "w", encoding="utf-8") as f:
+        f.write(c)
 
-def save_output(existing, history, scoring):
-    start  = datetime.datetime(2026, 2, 28)
-    giorno = max(1, (datetime.datetime.now() - start).days + 1)
+def update_html(html, scoring, history):
+    temp   = round(float(scoring["temperatura"]), 1)
+    giorno = max(1, (datetime.datetime.now() - datetime.datetime(2026, 2, 28)).days + 1)
+    ora    = datetime.datetime.now().strftime("ORE %H:%M")
+    arrow  = {"salita":"↑","discesa":"↓","stabile":"→"}.get(scoring.get("trend","stabile"),"→")
+    evento = scoring.get("evento_chiave","")[:65]
 
-    history.append({"ts": now_iso(), "t": scoring.get("temperatura", 87.4)})
-    if len(history) > MAX_HISTORY:
-        history = history[-MAX_HISTORY:]
+    # storico
+    hist_str = ", ".join(str(v) for v in history)
+    html = re.sub(r'const history = \[[\s\S]*?\];', f'const history = [\n  {hist_str}\n];', html)
 
-    out = {
-        "temperatura":            scoring.get("temperatura", existing.get("temperatura")),
-        "trend":                  scoring.get("trend", "stabile"),
-        "titolo":                 scoring.get("titolo", ""),
-        "sommario":               scoring.get("sommario", ""),
-        "attori_caldi":           scoring.get("attori_caldi", []),
-        "evento_chiave":          scoring.get("evento_chiave", ""),
-        "rischio_nucleare":       scoring.get("rischio_nucleare", 0),
-        "stretto_hormuz":         scoring.get("stretto_hormuz", "parziale"),
-        "ultimo_aggiornamento":   now_iso(),
-        "prossimo_aggiornamento": next_upd_iso(INTERVAL_MINUTES),
-        "storico":                history,
-        "giorno_conflitto":       giorno
-    }
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(out, f, ensure_ascii=False, indent=2)
-    print(f"[{now()}] Salvato {OUTPUT_FILE}  T={out['temperatura']}C")
-    return out, history
+    # currentTemp
+    html = re.sub(r'let currentTemp = [\d.]+;', f'let currentTemp = {temp};', html)
 
-# ─── HELPERS ───────────────────────────────────────────────────
-def now():          return datetime.datetime.now().strftime("%H:%M:%S")
-def now_iso():      return datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
-def next_upd_iso(m):
-    return (datetime.datetime.now() + datetime.timedelta(minutes=m)).strftime("%Y-%m-%dT%H:%M:%S")
-def fmt_t(s):
-    try:    return datetime.datetime.fromisoformat(s).strftime("%H:%M")
-    except: return "--:--"
+    # SVG display
+    html = re.sub(r'id="svg-temp-disp">[^<]*°C', f'id="svg-temp-disp">{temp}°C', html)
 
-# ─── MAIN ──────────────────────────────────────────────────────
+    # header giorno/ora
+    html = re.sub(r'LIVE · GIORNO \d+ · ORE \d+:\d+', f'LIVE · GIORNO {giorno} · {ora}', html)
+
+    # formula box prima riga
+    html = re.sub(r'OUTPUT: [\d.]+\s*°C\s*[↑↓→][^\n<]*', f'OUTPUT: {temp} °C {arrow} {evento}', html)
+
+    # tickers
+    new_tickers = scoring.get("tickers", [])
+    if len(new_tickers) >= 3:
+        tj = "const TICKERS = [\n"
+        for t in new_tickers:
+            tj += f"  {json.dumps(t, ensure_ascii=False)},\n"
+        tj += "];"
+        html = re.sub(r'const TICKERS = \[[\s\S]*?\];', tj, html)
+
+    return html
+
+def load_history():
+    try:
+        m = re.search(r'const history = \[([\s\S]*?)\];', load_html())
+        if m:
+            return [float(v.strip()) for v in m.group(1).split(",") if v.strip()]
+    except: pass
+    return []
+
+def git_push():
+    print(f"[{ts()}] Git push...")
+    try:
+        ora = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+        subprocess.run(["git","-C",REPO_DIR,"add",HTML_FILE],  check=True, capture_output=True)
+        subprocess.run(["git","-C",REPO_DIR,"commit","-m",f"auto: {ora}"], check=True, capture_output=True)
+        subprocess.run(["git","-C",REPO_DIR,"push"],           check=True, capture_output=True)
+        print(f"[{ts()}] OK  GitHub Pages aggiornato")
+    except subprocess.CalledProcessError as e:
+        msg = e.stderr.decode() if e.stderr else str(e)
+        if "nothing to commit" in msg:
+            print(f"[{ts()}] --  nessuna modifica")
+        else:
+            print(f"[{ts()}] ERR git push: {msg[:150]}")
+    except FileNotFoundError:
+        print(f"[{ts()}] ERR Git non installato — vai su git-scm.com")
+
+def ts():   return datetime.datetime.now().strftime("%H:%M:%S")
+def nxt(m): return (datetime.datetime.now()+datetime.timedelta(minutes=m)).strftime("%H:%M")
+
 def main():
     if not GEMINI_API_KEY:
-        print("\n" + "="*60)
-        print("  CHIAVE GEMINI NON TROVATA!")
-        print("  Mac/Linux:  export GEMINI_API_KEY='AIza...'")
-        print("  Windows:    $env:GEMINI_API_KEY='AIza...'")
-        print("  Vedi SETUP_GRATUITO.md per ottenere la chiave gratis")
-        print("="*60 + "\n")
+        print("\n" + "="*58)
+        print("  CHIAVE GEMINI MANCANTE")
+        print()
+        print("  1. Vai su: https://aistudio.google.com/apikey")
+        print("  2. Crea una chiave (gratis, nessuna carta)")
+        print("  3. Esporta la variabile:")
+        print()
+        print("     Mac/Linux:  export GEMINI_API_KEY='AIza...'")
+        print("     Windows:    $env:GEMINI_API_KEY='AIza...'")
+        print()
+        print("  4. Riesegui: python3 scorer_gemini.py")
+        print("="*58 + "\n")
         return
 
-    print("="*60)
-    print("  GEOPOLITICAL SCORER — versione GRATUITA")
-    print(f"  Motore: Google Gemini 1.5 Flash  |  Costo: 0 euro")
-    print(f"  Intervallo: {INTERVAL_MINUTES} min  |  Output: {OUTPUT_FILE}")
-    print("="*60)
+    print("="*58)
+    print("  GEOPOLITICAL SCORER  ·  Gemini Flash + Auto Git Push")
+    print(f"  Repo:     {REPO_DIR}")
+    print(f"  Display:  {HTML_FILE}")
+    print(f"  Ciclo:    ogni {INTERVAL_MINUTES} min  |  Costo: 0 euro/mese")
+    print("="*58)
 
-    existing = load_existing()
-    history  = existing.get("storico", [])
+    history = load_history()
+    print(f"[{ts()}] Storico: {len(history)} punti caricati dall'HTML")
 
-    # Prima lettura immediata all'avvio
     scoring = fetch_temperature()
     if scoring:
-        existing, history = save_output(existing, history, scoring)
-    else:
-        print(f"[{now()}] Prima lettura fallita, riprovo tra {INTERVAL_MINUTES} min")
-        existing["prossimo_aggiornamento"] = next_upd_iso(INTERVAL_MINUTES)
-        with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-            json.dump(existing, f, ensure_ascii=False, indent=2)
+        history.append(round(float(scoring["temperatura"]),1))
+        if len(history) > MAX_HISTORY: history = history[-MAX_HISTORY:]
+        html = update_html(load_html(), scoring, history)
+        save_html(html)
+        git_push()
 
-    # Loop principale ogni 120 minuti
     while True:
-        prossimo = fmt_t(next_upd_iso(INTERVAL_MINUTES))
-        print(f"[{now()}] Pausa {INTERVAL_MINUTES} min — prossimo aggiornamento ore {prossimo}")
+        print(f"[{ts()}] Pausa {INTERVAL_MINUTES} min — prossimo: {nxt(INTERVAL_MINUTES)}")
         time.sleep(INTERVAL_MINUTES * 60)
-
         scoring = fetch_temperature()
         if scoring:
-            existing, history = save_output(existing, history, scoring)
-        else:
-            print(f"[{now()}] Lettura fallita, riprovo al prossimo ciclo")
+            history.append(round(float(scoring["temperatura"]),1))
+            if len(history) > MAX_HISTORY: history = history[-MAX_HISTORY:]
+            html = update_html(load_html(), scoring, history)
+            save_html(html)
+            git_push()
 
 if __name__ == "__main__":
     main()
