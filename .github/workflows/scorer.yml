@@ -2,8 +2,8 @@ name: Iran Sensor Scorer
 
 on:
   schedule:
-    - cron: '0 */2 * * *'  # ogni 2 ore
-  workflow_dispatch:        # avvio manuale
+    - cron: '0 */2 * * *'
+  workflow_dispatch:
 
 jobs:
   score:
@@ -19,6 +19,11 @@ jobs:
       - name: Install dependencies
         run: pip install anthropic requests
 
+      - name: Configure git
+        run: |
+          git config --global user.email "dott.ugo.donini@gmail.com"
+          git config --global user.name "UgoDoniniScience"
+
       - name: Run scorer
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -26,8 +31,6 @@ jobs:
 
       - name: Commit and push
         run: |
-          git config user.email "dott.ugo.donini@gmail.com"
-          git config user.name "UgoDoniniScience"
           git add sensor-live.html
           git diff --cached --quiet || git commit -m "auto: $(date +'%Y-%m-%d %H:%M')"
           git push
