@@ -1,6 +1,5 @@
-import json,time,re,datetime,os,subprocess,urllib.request
+import json,re,datetime,os,subprocess,urllib.request
 
-INTERVAL_MINUTES=120
 HTML_FILE="sensor-live.html"
 MAX_HISTORY=48
 REPO_DIR=os.path.dirname(os.path.abspath(__file__))
@@ -15,7 +14,6 @@ SCALA TEMPERATURA:
 0-20 diplomazia | 21-50 proxy | 51-80 guerra aperta | 81-100 guerra totale | 101+ nucleare/NATO"""
 
 def ts(): return datetime.datetime.now().strftime("%H:%M:%S")
-def nxt(m): return (datetime.datetime.now()+datetime.timedelta(minutes=m)).strftime("%H:%M")
 
 def fetch():
     print(f"[{ts()}] Claude API call...")
@@ -27,7 +25,7 @@ def fetch():
        f"fronti attivi (Libano/Hezbollah, curdi, Golfo), diplomazia in corso. "
        f"Rispondi SOLO con il JSON.")
     payload={
-        "model":"claude-haiku-4-5",
+        "model":"claude-haiku-4-5-20251001",
         "max_tokens":1000,
         "messages":[{"role":"user","content":PROMPT+"\n\n"+q}]
     }
@@ -41,18 +39,14 @@ def fetch():
         },
         method="POST"
     )
-    try:
-        with urllib.request.urlopen(req,timeout=40) as r:
-            raw=json.loads(r.read().decode("utf-8"))
-        text=raw["content"][0]["text"].strip().strip("`").lstrip("json").strip()
-        s=text.find("{"); e=text.rfind("}")+1
-        if s>=0 and e>s: text=text[s:e]
-        data=json.loads(text)
-        print(f"[{ts()}] OK  {data['temperatura']}C  {data['trend']}  {data['titolo'][:50]}")
-        return data
-    except Exception as ex:
-        print(f"[{ts()}] ERR {ex.__class__.__name__}: {ex.read().decode() if hasattr(ex, chr(114)+chr(101)+chr(97)+chr(100)) else ex}")
-        return None
+    with urllib.request.urlopen(req,timeout=40) as r:
+        raw=json.loads(r.read().decode("utf-8"))
+    text=raw["content"][0]["text"].strip().strip("`").lstrip("json").strip()
+    s=text.find("{"); e=text.rfind("}")+1
+    if s>=0 and e>s: text=text[s:e]
+    data=json.loads(text)
+    print(f"[{ts()}] OK  {data['temperatura']}C  {data['trend']}  {data['titolo'][:50]}")
+    return data
 
 def load_html():
     with open(os.path.join(REPO_DIR,HTML_FILE),"r",encoding="utf-8") as f: return f.read()
@@ -60,9 +54,9 @@ def load_html():
 def save_html(c):
     with open(os.path.join(REPO_DIR,HTML_FILE),"w",encoding="utf-8") as f: f.write(c)
 
-def load_history():
+def load_history(html):
     try:
-        m=re.search(r'const history = \[([\s\S]*?)\];',load_html())
+        m=re.search(r'const history = \[([^\]]*)\]',html)
         if m: return [float(v.strip()) for v in m.group(1).split(",") if v.strip()]
     except: pass
     return []
@@ -74,7 +68,7 @@ def update_html(html,scoring,history):
     arrow={"salita":"↑","discesa":"↓","stabile":"→"}.get(scoring.get("trend","stabile"),"→")
     evento=scoring.get("evento_chiave","")[:65]
     hist_str=", ".join(str(v) for v in history)
-    html=re.sub(r'const history = \[[\s\S]*?\];',f'const history = [\n  {hist_str}\n];',html)
+    html=re.sub(r'const history = \[[^\]]*\]',f'const history = [{hist_str}]',html)
     html=re.sub(r'let currentTemp = [\d.]+;',f'let currentTemp = {temp};',html)
     html=re.sub(r'id="svg-temp-disp">[^<]*°C',f'id="svg-temp-disp">{temp}°C',html)
     html=re.sub(r'LIVE · GIORNO \d+ · ORE \d+:\d+',f'LIVE · GIORNO {giorno} · {ora}',html)
@@ -87,50 +81,23 @@ def update_html(html,scoring,history):
 
 def git_push():
     print(f"[{ts()}] Git push...")
-    try:
-        ora=datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
-        subprocess.run(["git","-C",REPO_DIR,"add",HTML_FILE],check=True,capture_output=True)
-        subprocess.run(["git","-C",REPO_DIR,"commit","-m",f"auto: {ora}"],check=True,capture_output=True)
-        subprocess.run(["git","-C",REPO_DIR,"push"],check=True,capture_output=True)
-        print(f"[{ts()}] OK  GitHub Pages aggiornato")
-    except subprocess.CalledProcessError as e:
-        msg=e.stderr.decode() if e.stderr else str(e)
-        if "nothing to commit" in msg: print(f"[{ts()}] --  nessuna modifica")
-        else: print(f"[{ts()}] ERR git: {msg[:150]}")
-    except FileNotFoundError:
-        print(f"[{ts()}] ERR Git non installato")
+    ora=datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+    subprocess.run(["git","-C",REPO_DIR,"add",HTML_FILE],check=True)
+    subprocess.run(["git","-C",REPO_DIR,"commit","-m",f"auto: {ora}"],check=True)
+    subprocess.run(["git","-C",REPO_DIR,"push"],check=True)
+    print(f"[{ts()}] OK  GitHub Pages aggiornato")
 
-def main():
+if __name__=="__main__":
     if not ANTHROPIC_API_KEY:
-        print("\n"+"="*55)
-        print("  CHIAVE ANTHROPIC MANCANTE")
-        print()
-        print("  Windows PowerShell:")
-        print("  $env:ANTHROPIC_API_KEY='sk-ant-...'")
-        print("  python scorer_gemini.py")
-        print("="*55+"\n")
-        return
-    print("="*55)
-    print("  GEOPOLITICAL SCORER  ·  Claude Haiku + Git Push")
-    print(f"  Repo:    {REPO_DIR}")
-    print(f"  Ciclo:   ogni {INTERVAL_MINUTES} min")
-    print("="*55)
-    history=load_history()
+        print("ERRORE: ANTHROPIC_API_KEY non impostata")
+        exit(1)
+    print(f"[{ts()}] Avvio one-shot scorer")
+    html=load_html()
+    history=load_history(html)
     print(f"[{ts()}] Storico: {len(history)} punti")
     scoring=fetch()
-    if scoring:
-        history.append(round(float(scoring["temperatura"]),1))
-        if len(history)>MAX_HISTORY: history=history[-MAX_HISTORY:]
-        save_html(update_html(load_html(),scoring,history))
-        git_push()
-    while True:
-        print(f"[{ts()}] Pausa {INTERVAL_MINUTES} min — prossimo: {nxt(INTERVAL_MINUTES)}")
-        time.sleep(INTERVAL_MINUTES*60)
-        scoring=fetch()
-        if scoring:
-            history.append(round(float(scoring["temperatura"]),1))
-            if len(history)>MAX_HISTORY: history=history[-MAX_HISTORY:]
-            save_html(update_html(load_html(),scoring,history))
-            git_push()
-
-if __name__=="__main__": main()
+    history.append(round(float(scoring["temperatura"]),1))
+    if len(history)>MAX_HISTORY: history=history[-MAX_HISTORY:]
+    save_html(update_html(html,scoring,history))
+    git_push()
+    print(f"[{ts()}] Done.")
