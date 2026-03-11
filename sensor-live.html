@@ -328,7 +328,7 @@ svg#circuit { width:100%; height:auto; display:block; cursor:crosshair; }
     <div class="hdr-right">
       <span class="clock" id="clk"></span>
       <div class="live-dot"></div>
-      <span class="live-txt">LIVE · GIORNO 12 · ORE 10:09</span>
+      <span class="live-txt">LIVE · GIORNO 12 · ORE 14:38</span>
     </div>
   </div>
 
@@ -603,7 +603,7 @@ svg#circuit { width:100%; height:auto; display:block; cursor:crosshair; }
           <!-- Display header -->
           <text x="640" y="285" style="font-family:Share Tech Mono;font-size:7px;fill:rgba(0,255,136,0.25)">SSD1306 · I2C</text>
           <!-- Temperature reading -->
-          <text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">72.5°C</text>
+          <text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">67.5°C</text>
           <!-- Labels -->
           <text x="695" y="378" class="lc">OLED 0.96" I2C</text>
           <text x="695" y="390" class="lcr">U4 · SSD1306</text>
@@ -673,7 +673,7 @@ svg#circuit { width:100%; height:auto; display:block; cursor:crosshair; }
         <text x="194" y="476" class="lc" style="font-size:8px">T = 1/(A + B·ln R + C·ln³R)</text>
         <text x="194" y="492" class="lcr">R = R_ref × (Vcc/Vout − 1)</text>
         <text x="194" y="508" class="lca" style="font-size:8px">T ATTUALE → SSD1306 I2C</text>
-        <text x="194" y="528" class="lc" style="font-size:8px;fill:rgba(255,170,0,0.9)" id="formula-temp">OUTPUT: 72.5 °C ↑ Risposta missilistica iraniana ai raid IDF; blocco parziale dello</text>
+        <text x="194" y="528" class="lc" style="font-size:8px;fill:rgba(255,170,0,0.9)" id="formula-temp">OUTPUT: 67.5 °C ↑ Risposta missilistica iraniana ai raid IDF e blocco parziale dell</text>
         <text x="194" y="544" class="lcr">TRUMP: RESA INCONDIZIONATA · IDF: "NUOVA FASE" · WTI +35% · RUSSIA DIETRO LE QUINTE</text>
 
         <!-- ══ GROUND SYMBOLS ══ -->
@@ -869,9 +869,9 @@ function closeTooltip() {
 }
 
 // ── TEMPERATURE ANIMATION ──────────────────────────────────────
-const history = [85.9, 87.0, 86.5, 88.1, 87.8, 89.3, 88.6, 87.4, 89.0, 90.1, 91.2, 91.8, 92.4, 91.9, 93.1, 93.8, 93.2, 92.7, 92.1, 92.9, 93.4, 94.1, 95.0, 94.6, 95.8, 96.8, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5];
+const history = [87.0, 86.5, 88.1, 87.8, 89.3, 88.6, 87.4, 89.0, 90.1, 91.2, 91.8, 92.4, 91.9, 93.1, 93.8, 93.2, 92.7, 92.1, 92.9, 93.4, 94.1, 95.0, 94.6, 95.8, 96.8, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 67.5];
 
-let currentTemp = 72.5;
+let currentTemp = 67.5;
 
 function tempColor(t) {
   if (t < 50)  return '#00ff88';
@@ -976,11 +976,11 @@ function updateClock() {
 
 // ── TICKER ROTATION ────────────────────────────────────────────
 const TICKERS = [
-  "IDF continua operazioni aeree su basi iraniane e posizioni Hezbollah in Libano",
-  "Iran lancia decine di missili balistici verso basi USA e israeliane nel Golfo",
-  "Navi commerciali evitano lo Stretto di Hormuz; assicurazioni marittime aumentano",
-  "Hezbollah intensifica attacchi con droni e razzi dal sud Libano verso nord Israele",
-  "Negoziati USA-Iran tramite mediatori regionali; tregua temporanea ipotizzata",
+  "IDF conduce raid su infrastrutture militari iraniane in Siria e Libano",
+  "Iran lancia missili balistici verso obiettivi israeliani e USA in Golfo",
+  "Navi iraniane bloccano parzialmente traffico commerciale nello Stretto di Hormuz",
+  "Hezbollah intensifica attacchi da Libano mentre USA rinforza presenza nel Golfo",
+  "Colloqui ONU frammentati: Russia e Cina bloccano risoluzioni di cessate il fuoco",
 ];
 let tickerIdx = 0;
 function rotateTicker() {
