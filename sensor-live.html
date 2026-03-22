@@ -328,7 +328,7 @@ svg#circuit { width:100%; height:auto; display:block; cursor:crosshair; }
     <div class="hdr-right">
       <span class="clock" id="clk"></span>
       <div class="live-dot"></div>
-      <span class="live-txt">LIVE · GIORNO 23 · ORE 07:52</span>
+      <span class="live-txt">LIVE · GIORNO 23 · ORE 09:04</span>
     </div>
   </div>
 
@@ -673,7 +673,7 @@ svg#circuit { width:100%; height:auto; display:block; cursor:crosshair; }
         <text x="194" y="476" class="lc" style="font-size:8px">T = 1/(A + B·ln R + C·ln³R)</text>
         <text x="194" y="492" class="lcr">R = R_ref × (Vcc/Vout − 1)</text>
         <text x="194" y="508" class="lca" style="font-size:8px">T ATTUALE → SSD1306 I2C</text>
-        <text x="194" y="528" class="lc" style="font-size:8px;fill:rgba(255,170,0,0.9)" id="formula-temp">OUTPUT: 72.5 °C ↑ Risposta missilistica iraniana ai raid IDF; blocco parziale Stret</text>
+        <text x="194" y="528" class="lc" style="font-size:8px;fill:rgba(255,170,0,0.9)" id="formula-temp">OUTPUT: 72.5 °C ↑ Escalation da proxy war a guerra aperta con raid IDF su territori</text>
         <text x="194" y="544" class="lcr">TRUMP: RESA INCONDIZIONATA · IDF: "NUOVA FASE" · WTI +35% · RUSSIA DIETRO LE QUINTE</text>
 
         <!-- ══ GROUND SYMBOLS ══ -->
@@ -869,7 +869,7 @@ function closeTooltip() {
 }
 
 // ── TEMPERATURE ANIMATION ──────────────────────────────────────
-const history = [72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5];
+const history = [72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 72.5];
 
 let currentTemp = 72.5;
 
@@ -976,11 +976,11 @@ function updateClock() {
 
 // ── TICKER ROTATION ────────────────────────────────────────────
 const TICKERS = [
-  "IDF intensifica operazioni aeree su obiettivi iraniani; vittime civili segnalate a Teheran e Isfahan",
-  "Iran lancia 150+ missili balistici verso basi USA in Iraq e Golfo; 12 abbattuti, danni moderati",
-  "Hezbollah aumenta fuoco su nord Israele; 40+ razzi al giorno; civili evacuati da Galilea",
-  "Navi commerciali evitano Stretto di Hormuz; assicurazioni marittime raddoppiate; petrolio a 115 USD/barile",
-  "Mediatori QAT-USA chiedono tregua; Iran pone ultimatum su ritiro aerei USA; negoziati sospesi",
+  "IDF conduce raids su basi militari iraniane e posizioni Hezbollah in Libano, causando vittime significative",
+  "Iran lancia attacco missilistico multiplo con decine di missili balistici verso Israele e basi USA",
+  "Stretto di Hormuz: traffico marittimo ridotto del 40%, assicurazioni marittime aumentate, navi militari USA schierate",
+  "Hezbollah intensifica razzi verso Israele; curdi iracheni denunciano raid aerei; tensioni Qatar-Arabia Saudita",
+  "Negoziati ONU e diplomatici europei tentano tregua, ma ostacoli significativi su ritiro truppe e sanzioni",
 ];
 let tickerIdx = 0;
 function rotateTicker() {
