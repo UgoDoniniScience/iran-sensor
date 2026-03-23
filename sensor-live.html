@@ -328,7 +328,7 @@ svg#circuit { width:100%; height:auto; display:block; cursor:crosshair; }
     <div class="hdr-right">
       <span class="clock" id="clk"></span>
       <div class="live-dot"></div>
-      <span class="live-txt">LIVE · GIORNO 24 · ORE 15:40</span>
+      <span class="live-txt">LIVE · DAY 24 · TIME 16:28</span>
     </div>
   </div>
 
@@ -603,7 +603,7 @@ svg#circuit { width:100%; height:auto; display:block; cursor:crosshair; }
           <!-- Display header -->
           <text x="640" y="285" style="font-family:Share Tech Mono;font-size:7px;fill:rgba(0,255,136,0.25)">SSD1306 · I2C</text>
           <!-- Temperature reading -->
-          <text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">72.5°C</text>
+          <text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">68.5°C</text>
           <!-- Labels -->
           <text x="695" y="378" class="lc">OLED 0.96" I2C</text>
           <text x="695" y="390" class="lcr">U4 · SSD1306</text>
@@ -673,7 +673,7 @@ svg#circuit { width:100%; height:auto; display:block; cursor:crosshair; }
         <text x="194" y="476" class="lc" style="font-size:8px">T = 1/(A + B·ln R + C·ln³R)</text>
         <text x="194" y="492" class="lcr">R = R_ref × (Vcc/Vout − 1)</text>
         <text x="194" y="508" class="lca" style="font-size:8px">T ATTUALE → SSD1306 I2C</text>
-        <text x="194" y="528" class="lc" style="font-size:8px;fill:rgba(255,170,0,0.9)" id="formula-temp">OUTPUT: 72.5 °C ↑ Attacco missilistico iraniano su obiettivi israeliani e americani</text>
+        <text x="194" y="528" class="lc" style="font-size:8px;fill:rgba(255,170,0,0.9)" id="formula-temp">OUTPUT: 68.5 °C ↑ IDF airstrikes on Iranian missile facilities; IRGC launches asymm</text>
         <text x="194" y="544" class="lcr">TRUMP: RESA INCONDIZIONATA · IDF: "NUOVA FASE" · WTI +35% · RUSSIA DIETRO LE QUINTE</text>
 
         <!-- ══ GROUND SYMBOLS ══ -->
@@ -869,9 +869,9 @@ function closeTooltip() {
 }
 
 // ── TEMPERATURE ANIMATION ──────────────────────────────────────
-const history = [72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5, 72.5];
+const history = [72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5, 72.5, 68.5];
 
-let currentTemp = 72.5;
+let currentTemp = 68.5;
 
 function tempColor(t) {
   if (t < 50)  return '#00ff88';
@@ -904,7 +904,7 @@ function updateTemp() {
   document.getElementById('svg-temp-disp').textContent = t + '°C';
 
   // Formula
-  const trend = delta > 0 ? '↑ ESCALATION' : delta < -0.1 ? '↓ CALO' : '→ STABILE';
+  const trend = delta > 0 ? '↑ ESCALATION' : delta < -0.1 ? '↓ CALO' : '→ OPEN WAR';
   document.getElementById('formula-temp').textContent = `OUTPUT: ${t} °C ${trend}`;
 
   // Bar
@@ -976,11 +976,11 @@ function updateClock() {
 
 // ── TICKER ROTATION ────────────────────────────────────────────
 const TICKERS = [
-  "IDF continua bombardamenti su posizioni Hezbollah in Libano meridionale; perdite civili crescenti",
-  "Iran lancia 200+ missili balistici verso Israele e basi USA nel Golfo; intercettazioni parziali",
-  "Stretto di Hormuz: 40% traffico mercantile ridotto; premi assicurativi per navi in salita",
-  "USA rinforza presenza militare con portaerei; negoziati indiretti falliscono",
-  "Curdi siriani attaccano postazioni iraniane; guerra per procura si allarga geograficamente",
+  "Day 24: IDF confirms strikes on IRGC air defense infrastructure near Isfah and Shiraz facilities",
+  "Iranian IRGC declares 'proportional response underway'; multiple drone/missile waves detected by US radar",
+  "Hezbollah escalates northern border: 40+ rocket/drone strikes into Israel, IDF retaliation ongoing",
+  "Saudi Arabia and UAE maintain official neutrality but hosting US military operations and logistical support",
+  "Oil markets: WTI $125-130/barrel; Brent $135+; shipping insurance premiums doubled in Hormuz corridor",
 ];
 let tickerIdx = 0;
 function rotateTicker() {
@@ -1008,5 +1008,6 @@ setInterval(rotateTicker, 7000);
   <span style="font-family:'Share Tech Mono',monospace;font-size:13px;color:#ffffff;letter-spacing:1px;">You can view the monitor updated every 2 hours with real data at this link: </span>
   <span style="font-family:'Share Tech Mono',monospace;font-size:13px;color:#00ff88;letter-spacing:1px;">https://is.gd/WorldTemperature</span>
 </div>
+<!-- SENSOR_DATA:{"last_update": "2026-03-23 16:28:59", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "Two carrier strike groups forward-deployed in Arabian Sea and Persian Gulf; 15,000+ additional personnel deployed; THAAD/Patriot batteries active across Gulf partners", "oil_impact": "WTI crude elevated 15-18% from conflict baseline; LNG prices spiking; insurance premiums rising on tanker transits", "diplomacy": "Qatar/Oman mediation attempts ongoing but ineffective; no active US-Iran backchannel"} -->
 </body>
 </html>
