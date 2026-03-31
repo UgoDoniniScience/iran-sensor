@@ -675,7 +675,7 @@ display:flex; gap:12px; align-items:center;
     <text x="194" y="476" class="lc" style="font-size:8px">T = 1/(A + B·ln R + C·ln³R)</text>
     <text x="194" y="492" class="lcr">R = R_ref × (Vcc/Vout − 1)</text>
     <text x="194" y="508" class="lca" style="font-size:8px">T ATTUALE → SSD1306 I2C</text>
-    <text x="194" y="528" class="lc" style="font-size:8px;fill:rgba(255,170,0,0.9)" id="formula-temp">OUTPUT: 72.5 °C ↑ IDF sustained air campaign into Iranian airspace; IRGC ballistic </text>
+    <text x="194" y="528" class="lc" style="font-size:8px;fill:rgba(255,170,0,0.9)" id="formula-temp">OUTPUT: 72.5 °C ↑ IDF sustained air campaign into Iranian territory; ballistic miss</text>
     <text x="194" y="544" class="lcr">TRUMP: RESA INCONDIZIONATA · IDF: "NUOVA FASE" · WTI +35% · RUSSIA DIETRO LE QUINTE</text>
 
     <!-- ══ GROUND SYMBOLS ══ -->
@@ -874,7 +874,7 @@ function closeTooltip() {
 }
 
 // ── TEMPERATURE ANIMATION ──────────────────────────────────────
-const history = [45.0, 72.0, 80.5, 83.2, 81.8, 84.5, 85.1, 83.7, 86.2, 85.9, 87.0, 86.5, 88.1, 87.8, 89.3, 88.6, 87.4, 89.0, 90.1, 91.2, 91.8, 92.4, 91.9, 93.1, 93.8, 93.2, 92.7, 92.1, 92.9, 93.4, 94.1, 95.0, 94.6, 95.8, 96.8, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 68.5, 72.5, 68.5, 68.0, 68.5, 72.5, 72.5];
+const history = [72.0, 80.5, 83.2, 81.8, 84.5, 85.1, 83.7, 86.2, 85.9, 87.0, 86.5, 88.1, 87.8, 89.3, 88.6, 87.4, 89.0, 90.1, 91.2, 91.8, 92.4, 91.9, 93.1, 93.8, 93.2, 92.7, 92.1, 92.9, 93.4, 94.1, 95.0, 94.6, 95.8, 96.8, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 68.5, 72.5, 68.5, 68.0, 68.5, 72.5, 72.5, 72.5];
 
 let currentTemp = 72.5;
 
@@ -981,11 +981,11 @@ function updateClock() {
 
 // ── TICKER ROTATION ────────────────────────────────────────────
 const TICKERS = [
-  "IDF reports 127 combat sorties over Iranian military sites; air defense losses mounting; IRGC underground bunkers targeted",
-  "Iran launches 2 ballistic missile test near Strait of Hormuz; CENTCOM confirms 12 merchant ships delayed or rerouted",
-  "Hezbollah cross-border fire into northern Israel continues; 23 Israeli communities under evacuation orders",
-  "US sanctions Iranian oil sector further; crude production estimates drop 300k bpd; global market volatility peaks",
-  "Russian intelligence officers mediate in Baghdad; China calls for UN Security Council session; Saudi Arabia cautiously neutral",
+  "IDF airstrikes hit Iranian IRGC facilities in Isfahan, Khuzestan provinces; limited air defense interception reported",
+  "Iran launches 2nd wave ballistic missiles toward Israel; Iron Dome, Arrow intercepts claimed; civilian damage in Tel Aviv suburbs",
+  "Hezbollah sustains cross-border rocket fire into northern Israel; limited IDF ground incursion into Lebanon",
+  "Saudi/UAE maintaining cautious neutrality; allowing US access but avoiding direct participation in strike operations",
+  "Russian naval assets repositioned in Eastern Mediterranean; Chinese diplomatic calls for UN intervention dismissed by Security Council",
 ];
 let tickerIdx = 0;
 function rotateTicker() {
@@ -1026,6 +1026,7 @@ setInterval(rotateTicker, 7000);
 
 
 
-<!-- SENSOR_DATA:{"last_update": "2026-03-31 17:34:26", "nuclear_risk": 6, "hormuz": "partial", "us_forces": "Two carrier strike groups operational in Persian Gulf; 8,500 troops deployed to Qatar/UAE bases; active air defense posture", "oil_impact": "WTI crude $118-124/bbl; LNG futures +45%; Hormuz partial closure drives energy hedging spike", "diplomacy": "Qatari and Omani mediation attempts ongoing but minimal progress; back-channel talks through Switzerland"} -->
+
+<!-- SENSOR_DATA:{"last_update": "2026-03-31 20:03:35", "nuclear_risk": 6, "hormuz": "partial", "us_forces": "CENTCOM posture: 2 carrier strike groups (5th/6th Fleet), enhanced air defense, 35K+ personnel deployed across Gulf theater, active ISR operations", "oil_impact": "WTI crude $118-125/bbl (32-day high); Brent $125-132/bbl. Hormuz partial closure driving supply uncertainty; LNG spot prices elevated 40% YoY", "diplomacy": "Qatar/Oman back-channel talks stalled; indirect US-Iran messaging via Swiss intermediaries showing minimal progress"} -->
 </body>
 </html>
