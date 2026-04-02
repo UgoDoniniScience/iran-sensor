@@ -675,7 +675,7 @@ display:flex; gap:12px; align-items:center;
     <text x="194" y="476" class="lc" style="font-size:8px">T = 1/(A + B·ln R + C·ln³R)</text>
     <text x="194" y="492" class="lcr">R = R_ref × (Vcc/Vout − 1)</text>
     <text x="194" y="508" class="lca" style="font-size:8px">T ATTUALE → SSD1306 I2C</text>
-    <text x="194" y="528" class="lc" style="font-size:8px;fill:rgba(255,170,0,0.9)" id="formula-temp">OUTPUT: 72.5 °C ↑ IDF strikes Iranian nuclear facilities; Iran vows response; Hormu</text>
+    <text x="194" y="528" class="lc" style="font-size:8px;fill:rgba(255,170,0,0.9)" id="formula-temp">OUTPUT: 72.5 °C ↑ IDF airstrikes on Iranian nuclear facilities; IRGC ballistic miss</text>
     <text x="194" y="544" class="lcr">TRUMP: RESA INCONDIZIONATA · IDF: "NUOVA FASE" · WTI +35% · RUSSIA DIETRO LE QUINTE</text>
 
     <!-- ══ GROUND SYMBOLS ══ -->
@@ -874,7 +874,7 @@ function closeTooltip() {
 }
 
 // ── TEMPERATURE ANIMATION ──────────────────────────────────────
-const history = [86.2, 85.9, 87.0, 86.5, 88.1, 87.8, 89.3, 88.6, 87.4, 89.0, 90.1, 91.2, 91.8, 92.4, 91.9, 93.1, 93.8, 93.2, 92.7, 92.1, 92.9, 93.4, 94.1, 95.0, 94.6, 95.8, 96.8, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 68.5, 72.5, 68.5, 68.0, 68.5, 72.5, 72.5, 72.5, 74.5, 72.5, 68.5, 72.5, 72.5, 72.5, 72.5];
+const history = [85.9, 87.0, 86.5, 88.1, 87.8, 89.3, 88.6, 87.4, 89.0, 90.1, 91.2, 91.8, 92.4, 91.9, 93.1, 93.8, 93.2, 92.7, 92.1, 92.9, 93.4, 94.1, 95.0, 94.6, 95.8, 96.8, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 68.5, 72.5, 68.5, 68.0, 68.5, 72.5, 72.5, 72.5, 74.5, 72.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5];
 
 let currentTemp = 72.5;
 
@@ -981,11 +981,11 @@ function updateClock() {
 
 // ── TICKER ROTATION ────────────────────────────────────────────
 const TICKERS = [
-  "IDF confirms strikes on Natanz enrichment facility; Iran mobilizes air defenses; US B-52s positioned for response",
-  "Hezbollah launches 200+ rockets into northern Israel; IDF retaliatory strikes on southern Lebanon; civilian displacement ongoing",
-  "Iranian oil tankers diverted; shipping insurance costs spike; Houthis attack vessel in Red Sea; Saudi ARAMCO facilities on alert",
-  "Russia deploys naval assets to Eastern Mediterranean in show of support; China calls for UN intervention; neither backs direct action",
-  "Saudi Arabia, UAE maintain official neutrality but expand defense deals with USA; Israeli procurement accelerating for sustained ops",
+  "IDF confirms sustained bombing campaign in Iran; intelligence claims 40% of air defense degraded",
+  "IRGC launches 150+ drones, 40+ ballistic missiles toward Israeli/US targets; Patriot intercepts reported",
+  "Hormuz shipping: 23% fewer tankers transiting; insurers raise war-risk premiums to 5% of cargo value",
+  "Hezbollah rockets strike northern Israel daily; 8,000+ displaced civilians on Israeli-Lebanese border",
+  "US submarine detected launching Tomahawk strikes; Russia protests military escalation at UN Security Council",
 ];
 let tickerIdx = 0;
 function rotateTicker() {
@@ -1034,6 +1034,7 @@ setInterval(rotateTicker, 7000);
 
 
 
-<!-- SENSOR_DATA:{"last_update": "2026-04-02 05:51:43", "nuclear_risk": 6, "hormuz": "partial", "us_forces": "Two carrier strike groups (CSG) in Arabian Sea/Gulf; 45,000+ troops across region; F-22s/F-35s deployed Qatar, Kuwait; missile defense systems active", "oil_impact": "WTI crude $118-125/barrel; 30% above pre-conflict levels; LNG prices elevated; market pricing in sustained supply disruption risk", "diplomacy": "Qatar mediation efforts stalled; Oman back-channel minimal; UN Security Council deadlocked; no active ceasefire talks"} -->
+
+<!-- SENSOR_DATA:{"last_update": "2026-04-02 09:41:24", "nuclear_risk": 6, "hormuz": "partial", "us_forces": "3 carrier strike groups deployed, CENTCOM headquarters on high alert, 15k+ troops in region, advanced air defense systems active", "oil_impact": "WTI crude at $118/barrel; Brent at $125/barrel; 15-20% supply disruption from Hormuz traffic slowdown; LNG spot prices elevated 40%", "diplomacy": "Qatar mediation stalled; Oman backchannel active but minimal progress; Turkey offered neutral venue rejected"} -->
 </body>
 </html>
