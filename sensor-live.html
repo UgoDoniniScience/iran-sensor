@@ -605,7 +605,7 @@ display:flex; gap:12px; align-items:center;
       <!-- Display header -->
       <text x="640" y="285" style="font-family:Share Tech Mono;font-size:7px;fill:rgba(0,255,136,0.25)">SSD1306 · I2C</text>
       <!-- Temperature reading -->
-      <text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">68.5°C</text>
+      <text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">72.5°C</text>
       <!-- Labels -->
       <text x="695" y="378" class="lc">OLED 0.96" I2C</text>
       <text x="695" y="390" class="lcr">U4 · SSD1306</text>
@@ -675,7 +675,7 @@ display:flex; gap:12px; align-items:center;
     <text x="194" y="476" class="lc" style="font-size:8px">T = 1/(A + B·ln R + C·ln³R)</text>
     <text x="194" y="492" class="lcr">R = R_ref × (Vcc/Vout − 1)</text>
     <text x="194" y="508" class="lca" style="font-size:8px">T ATTUALE → SSD1306 I2C</text>
-    <text x="194" y="528" class="lc" style="font-size:8px;fill:rgba(255,170,0,0.9)" id="formula-temp">OUTPUT: 68.5 °C ↑ IDF strikes Iranian air defense network; IRGC launches 120+ drone</text>
+    <text x="194" y="528" class="lc" style="font-size:8px;fill:rgba(255,170,0,0.9)" id="formula-temp">OUTPUT: 72.5 °C ↑ IDF sustained air campaign over central Iran; Iranian ballistic m</text>
     <text x="194" y="544" class="lcr">TRUMP: RESA INCONDIZIONATA · IDF: "NUOVA FASE" · WTI +35% · RUSSIA DIETRO LE QUINTE</text>
 
     <!-- ══ GROUND SYMBOLS ══ -->
@@ -874,9 +874,9 @@ function closeTooltip() {
 }
 
 // ── TEMPERATURE ANIMATION ──────────────────────────────────────
-const history = [72.5, 72.5, 68.5, 72.5, 68.5, 72.5, 68.5, 68.0, 68.5, 72.5, 72.5, 72.5, 74.5, 72.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 73.5, 68.5, 68.5, 68.5, 72.5, 72.5, 68.5, 67.5, 72.5, 72.5, 72.5, 67.5, 72.0, 73.5, 68.5, 68.5, 72.5, 68.5, 67.5, 72.5, 68.5, 67.5, 73.5, 68.5, 67.5, 67.5, 67.5, 68.5];
+const history = [72.5, 68.5, 72.5, 68.5, 72.5, 68.5, 68.0, 68.5, 72.5, 72.5, 72.5, 74.5, 72.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 73.5, 68.5, 68.5, 68.5, 72.5, 72.5, 68.5, 67.5, 72.5, 72.5, 72.5, 67.5, 72.0, 73.5, 68.5, 68.5, 72.5, 68.5, 67.5, 72.5, 68.5, 67.5, 73.5, 68.5, 67.5, 67.5, 67.5, 68.5, 72.5];
 
-let currentTemp = 68.5;
+let currentTemp = 72.5;
 
 function tempColor(t) {
   if (t < 50)  return '#00ff88';
@@ -981,11 +981,11 @@ function updateClock() {
 
 // ── TICKER ROTATION ────────────────────────────────────────────
 const TICKERS = [
-  "Israeli Air Force conducts sustained bombing campaign against Iranian military infrastructure across three nations simultaneously",
-  "Iranian Revolutionary Guards launch coordinated drone and ballistic missile strikes on Israeli and US-aligned targets in Gulf",
-  "Hezbollah intensifies rocket barrage on northern Israel; IDF responds with massive artillery and air strikes in Lebanon",
-  "Saudi Arabia and UAE maintain defensive posture; Riyadh signals willingness to mediate but pressure from both sides mounting",
-  "US Navy implements maritime security operations; partial Hormuz closure begins affecting global energy markets and shipping routes",
+  "IDF reports 200+ sorties over Iran this week targeting IRGC facilities and missile production sites in Isfahan region",
+  "Iran fires 180+ ballistic missiles at Israeli and US targets; 40% interception rate via US-Israeli air defense integration",
+  "Hezbollah artillery barrages escalate across Lebanon-Israel border; 8,000+ rockets/mortars fired; Israeli civilian evacuation ongoing",
+  "Saudi Arabia reinforces eastern border defenses; UAE reduces commercial ties with Iran; GCC unity fractured over response strategy",
+  "Russia supplies air defense systems to Syria; Chinese diplomatic statement urges restraint but avoids condemning any party directly",
 ];
 let tickerIdx = 0;
 function rotateTicker() {
@@ -1063,6 +1063,7 @@ setInterval(rotateTicker, 7000);
 
 
 
-<!-- SENSOR_DATA:{"last_update": "2026-04-05 10:33:29", "nuclear_risk": 5, "hormuz": "partial", "us_forces": "Two carrier strike groups operational (USS Eisenhower, USS Lincoln); 15,000+ troops deployed across Gulf region; advanced air defense systems active", "oil_impact": "WTI crude at $97/barrel; Hormuz partial closure creating supply disruption fears; LNG prices elevated 35% above baseline", "diplomacy": "Qatar-Oman shuttle diplomacy ongoing but ineffective; Russia/China signaling non-intervention but monitoring"} -->
+
+<!-- SENSOR_DATA:{"last_update": "2026-04-05 12:57:08", "nuclear_risk": 6, "hormuz": "partial", "us_forces": "Two carrier strike groups deployed in Arabian Sea/Persian Gulf; 8,500+ additional troops in theater; enhanced air defense systems operational", "oil_impact": "WTI crude at $118/barrel (+35% since Feb 28); LNG spot prices elevated; shipping insurance premiums tripled; downstream market volatility high", "diplomacy": "Qatar/Oman backchannel communications minimal; Turkey attempting shuttle diplomacy with limited success; no active ceasefire negotiations"} -->
 </body>
 </html>
