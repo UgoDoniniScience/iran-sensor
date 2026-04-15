@@ -110,7 +110,8 @@ def update_html(html, scoring, history):
     html = re.sub(r'const history = \[[^\]]*\]', 'const history = [' + hist_str + ']', html)
     html = re.sub(r'let currentTemp = [\d.]+;', 'let currentTemp = ' + str(temp) + ';', html)
     html = re.sub(r'id="svg-temp-disp">[^<]*', 'id="svg-temp-disp">' + str(temp) + '\u00b0C', html)
-    html = re.sub(r'LIVE \u00b7 DAY \d+ \u00b7 TIME \d+:\d+', 'LIVE \u00b7 DAY ' + str(day) + ' \u00b7 ' + time_str, html)
+    html = html.replace('LIVE · DAY -- · TIME --:--', 'LIVE · DAY ' + str(day) + ' · ' + time_str)
+    html = re.sub(r'LIVE .{1,5} DAY \d+ .{1,5} TIME \d+:\d+', 'LIVE · DAY ' + str(day) + ' · ' + time_str, html)
 
     tickers = scoring.get('tickers', [])
     if len(tickers) >= 3:
