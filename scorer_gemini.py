@@ -1,4 +1,4 @@
-import json, re, datetime, os, subprocess, urllib.request, time, sys
+﻿import json, re, datetime, os, subprocess, urllib.request, time, sys
 
 HTML_FILE = 'sensor-live.html'
 MAX_HISTORY = 48
