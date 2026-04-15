@@ -1,0 +1,27 @@
+﻿name: Iran Sensor Scorer
+on:
+  schedule:
+    - cron: '0 */2 * * *'
+  workflow_dispatch:
+jobs:
+  score:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Configure git
+        run: |
+          git config --global user.email "dott.ugo.donini@gmail.com"
+          git config --global user.name "UgoDoniniScience"
+      - name: Run scorer
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scorer_gemini.py
+      - name: Commit and push
+        run: |
+          git add sensor-live.html
+          git diff --cached --quiet || git commit -m "auto: $(date +'%Y-%m-%d %H:%M')"
+          git push
