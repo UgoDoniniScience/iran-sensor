@@ -1,1008 +1,647 @@
 <!DOCTYPE html>
-<html lang="it">
+
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CIRCUITO IRAN — LIVE SIMULATION</title>
+<meta http-equiv="refresh" content="7200">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>IRAN WAR CIRCUIT — LIVE SIMULATION</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap');
-
-:root {
-  --bg: #04080b;
-  --pcb: #050e08;
-  --green: #00ff88;
-  --green2: #00cc66;
-  --green3: #006633;
-  --red: #ff2233;
-  --amber: #ffaa00;
-  --blue: #00bbff;
-  --purple: #aa44ff;
-  --dim: #112211;
-  --white: #dff0e8;
+:root{--bg:#04080b;--pcb:#050e08;--green:#00ff88;--green2:#00cc66;--green3:#006633;--red:#ff2233;--amber:#ffaa00;--blue:#00bbff;--purple:#aa44ff;--dim:#112211;--white:#dff0e8;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);font-family:'Rajdhani',sans-serif;color:var(--white);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(0,255,136,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,136,0.02) 1px,transparent 1px);background-size:36px 36px;pointer-events:none;}
+body::after{content:'';position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse at 50% 40%,transparent 35%,rgba(0,0,0,0.75) 100%);pointer-events:none;}
+.scanlines{position:fixed;inset:0;z-index:1;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.06) 2px,rgba(0,0,0,0.06) 3px);}
+.wrap{position:relative;z-index:5;max-width:1400px;margin:0 auto;padding:20px;}
+.hdr{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;margin-bottom:20px;border:1px solid var(--dim);border-top:2px solid var(--green3);background:linear-gradient(90deg,rgba(0,255,136,0.03),transparent);position:relative;}
+.hdr::before{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--green3) 0%,transparent 70%);}
+.hdr-title{font-family:'Orbitron',monospace;font-size:clamp(11px,1.8vw,16px);font-weight:900;color:var(--green);text-shadow:0 0 20px rgba(0,255,136,0.5);letter-spacing:5px;}
+.hdr-right{display:flex;align-items:center;gap:20px;}
+.live-dot{width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 8px var(--red),0 0 16px var(--red);animation:ldot 1s ease-in-out infinite;}
+@keyframes ldot{0%,100%{opacity:1}50%{opacity:0.2}}
+.live-txt{font-family:'Orbitron',monospace;font-size:11px;color:var(--red);letter-spacing:4px;}
+.clock{font-family:'Share Tech Mono',monospace;font-size:12px;color:rgba(0,255,136,0.5);}
+.main-grid{display:grid;grid-template-columns:1fr 320px;grid-template-rows:auto auto;gap:16px;}
+.circuit-area{grid-column:1;grid-row:1/3;border:1px solid var(--dim);background:var(--pcb);border-radius:4px;padding:20px;position:relative;overflow:hidden;}
+.circuit-area::before{content:'PCB REV.5 — IRAN THEATER 2026';position:absolute;top:8px;right:12px;font-family:'Share Tech Mono',monospace;font-size:8px;color:rgba(0,255,136,0.15);letter-spacing:2px;}
+.side-panel{display:flex;flex-direction:column;gap:14px;grid-column:2;grid-row:1/3;}
+.temp-box{border:1px solid var(--dim);background:rgba(0,5,2,0.9);border-radius:3px;padding:18px 20px;text-align:center;position:relative;overflow:hidden;}
+.temp-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(255,80,0,0.06),transparent 70%);}
+.temp-label{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--green3);letter-spacing:3px;margin-bottom:8px;}
+.temp-val{font-family:'Orbitron',monospace;font-size:clamp(48px,6vw,72px);font-weight:900;line-height:1;letter-spacing:-2px;transition:color 1.5s,text-shadow 1.5s;}
+.temp-unit{font-family:'Orbitron',monospace;font-size:24px;color:rgba(0,255,136,0.4);}
+.temp-trend{margin-top:10px;font-family:'Share Tech Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center;gap:8px;}
+.trend-arrow{font-size:18px;}
+.bar-wrap{margin-top:12px;height:8px;background:rgba(0,255,136,0.06);border:1px solid var(--dim);border-radius:4px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:4px;transition:width 2s ease,background 2s ease;}
+.info-box{border:1px solid var(--dim);border-radius:3px;padding:14px 16px;background:rgba(0,5,2,0.6);}
+.ib-label{font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--green3);letter-spacing:2px;margin-bottom:8px;}
+.comp-list{display:flex;flex-direction:column;gap:7px;}
+.comp-item{display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:2px;cursor:pointer;transition:background 0.2s;border-left:2px solid transparent;}
+.comp-item:hover{background:rgba(0,255,136,0.04);}
+.comp-item.selected{background:rgba(0,255,136,0.06);border-left-color:var(--green);}
+.comp-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;box-shadow:0 0 5px currentColor;}
+.cd-green{background:var(--green);color:var(--green);}
+.cd-red{background:var(--red);color:var(--red);}
+.cd-amber{background:var(--amber);color:var(--amber);}
+.cd-blue{background:var(--blue);color:var(--blue);}
+.cd-purple{background:var(--purple);color:var(--purple);}
+.cd-dim{background:#556;color:#556;}
+.comp-name{font-size:11px;font-weight:700;flex:1;}
+.comp-ref{font-family:'Share Tech Mono',monospace;font-size:8px;color:rgba(0,255,136,0.4);}
+.comp-state{font-family:'Share Tech Mono',monospace;font-size:7px;padding:2px 6px;border-radius:2px;letter-spacing:1px;}
+.cs-hot{background:rgba(255,34,51,0.15);color:var(--red);border:1px solid rgba(255,34,51,0.3);animation:cs-blink 1.5s step-end infinite;}
+@keyframes cs-blink{0%,100%{opacity:1}50%{opacity:0.4}}
+.cs-warn{background:rgba(255,170,0,0.15);color:var(--amber);border:1px solid rgba(255,170,0,0.3);}
+.cs-ok{background:rgba(0,255,136,0.08);color:var(--green);border:1px solid rgba(0,255,136,0.2);}
+.cs-stby{background:rgba(0,187,255,0.1);color:var(--blue);border:1px solid rgba(0,187,255,0.2);}
+.tooltip-panel{position:absolute;bottom:16px;left:16px;right:16px;background:rgba(4,8,11,0.97);border:1px solid var(--green3);border-radius:4px;padding:14px 16px;transition:opacity 0.3s;opacity:0;pointer-events:none;z-index:20;}
+.tooltip-panel.vis{opacity:1;pointer-events:all;}
+.tp-title{font-family:'Orbitron',monospace;font-size:11px;color:var(--green);letter-spacing:2px;margin-bottom:6px;}
+.tp-body{font-size:12px;line-height:1.6;color:rgba(232,240,235,0.85);}
+.tp-actor{font-size:11px;font-weight:700;color:var(--amber);margin-top:6px;}
+.tp-status{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--red);margin-top:3px;}
+.tp-close{position:absolute;top:8px;right:10px;font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--green3);cursor:pointer;}
+.hormuz-alarm{border:1px solid var(--red);border-radius:3px;padding:10px 14px;background:rgba(30,0,0,0.4);animation:hz-anim 2.5s ease-in-out infinite;}
+@keyframes hz-anim{0%,100%{border-color:rgba(255,34,51,0.3)}50%{border-color:rgba(255,34,51,1);box-shadow:0 0 12px rgba(255,34,51,0.3)}}
+.hz-label{font-family:'Share Tech Mono',monospace;font-size:8px;color:rgba(255,34,51,0.6);letter-spacing:2px;margin-bottom:4px;}
+.hz-val{font-family:'Orbitron',monospace;font-size:14px;font-weight:700;color:var(--red);text-shadow:0 0 8px rgba(255,34,51,0.5);}
+#spark{width:100%;height:55px;}
+.nuke-dots{display:flex;gap:5px;flex-wrap:wrap;}
+.nd{width:20px;height:20px;border-radius:2px;border:1px solid var(--dim);background:rgba(0,20,10,0.4);transition:all 0.8s;}
+.nd.low{background:rgba(0,255,136,0.55);border-color:#00ff88;box-shadow:0 0 4px rgba(0,255,136,0.4);}
+.nd.mid{background:rgba(255,170,0,0.65);border-color:#ffaa00;box-shadow:0 0 6px rgba(255,170,0,0.5);}
+.nd.high{background:rgba(255,34,51,0.75);border-color:#ff2233;box-shadow:0 0 10px rgba(255,34,51,0.6);animation:nd-blink 0.7s step-end infinite;}
+@keyframes nd-blink{0%,100%{opacity:1}50%{opacity:0.3}}
+svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
+.pcb-bg{fill:#050e08;stroke:#0d2a12;stroke-width:2;}
+.trace{fill:none;stroke:#1a5c2a;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+.trace-pwr{fill:none;stroke:#7a1500;stroke-width:3.5;stroke-linecap:round;}
+.trace-gnd{fill:none;stroke:#0a3d1a;stroke-width:3.5;stroke-linecap:round;}
+.trace-sig{fill:none;stroke:#007733;stroke-width:2.5;stroke-linecap:round;stroke-dasharray:8 4;animation:sig-flow 2s linear infinite;}
+.trace-hot{fill:none;stroke:#cc2200;stroke-width:2.5;stroke-linecap:round;stroke-dasharray:5 3;animation:hot-flow 1.2s linear infinite;}
+.trace-diplo{fill:none;stroke:#0066aa;stroke-width:2;stroke-linecap:round;stroke-dasharray:6 4;animation:diplo-flow 3s linear infinite;}
+@keyframes sig-flow{to{stroke-dashoffset:-24}}
+@keyframes hot-flow{to{stroke-dashoffset:-16}}
+@keyframes diplo-flow{to{stroke-dashoffset:-20}}
+.pad{fill:#c8952a;stroke:#7a5510;stroke-width:0.8;}
+.cb-ntc{fill:#6b3008;stroke:#3a1804;}
+.cb-res{fill:#7a3508;stroke:#3a1804;}
+.cb-cap{fill:#0a1840;stroke:#1a3088;}
+.cb-cap2{fill:#0d2040;stroke:#2244aa;}
+.cb-chip{fill:#0a1008;stroke:#00ff88;stroke-width:1.5;}
+.cb-chip2{fill:#080e06;stroke:#00cc66;stroke-width:1.2;}
+.cb-trans{fill:#111;stroke:#444;stroke-width:1.2;}
+.cb-disp{fill:#030a05;stroke:#00ff88;stroke-width:2;}
+.cb-fuse{fill:#200000;stroke:#ff2200;stroke-width:1.5;}
+.cb-pwr{fill:#1a0500;stroke:#cc3300;stroke-width:1.2;}
+.lc{font-family:'Share Tech Mono',monospace;font-size:9px;fill:#00ff88;text-anchor:middle;}
+.lca{font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;fill:#ffaa00;text-anchor:middle;}
+.lcr{font-family:'Share Tech Mono',monospace;font-size:7px;fill:rgba(0,255,136,0.35);text-anchor:middle;}
+.lv{font-family:'Share Tech Mono',monospace;font-size:9px;fill:#cc3300;font-weight:bold;}
+.lg{font-family:'Share Tech Mono',monospace;font-size:9px;fill:#007733;}
+.lpin{font-family:'Share Tech Mono',monospace;font-size:7px;fill:rgba(0,255,136,0.45);}
+.glow-g{filter:drop-shadow(0 0 4px #00ff88) drop-shadow(0 0 8px rgba(0,255,136,0.4));}
+.glow-r{filter:drop-shadow(0 0 4px #ff2233) drop-shadow(0 0 8px rgba(255,34,51,0.4));}
+.led-blink{animation:led-r 1.1s ease-in-out infinite;}
+@keyframes led-r{0%,100%{opacity:1;filter:drop-shadow(0 0 6px #ff2233)}50%{opacity:0.2;filter:none}}
+.disp-val{font-family:'Share Tech Mono',monospace;fill:#00ff88;text-anchor:middle;animation:dflk 9s ease infinite;}
+@keyframes dflk{0%,92%,94%,100%{opacity:1}93%{opacity:0.3}}
+.comp-g{cursor:pointer;}
+.comp-g:hover .cb-chip,.comp-g:hover .cb-chip2{stroke:#00ffaa;stroke-width:2;}
+.comp-g:hover .cb-res{stroke:#ffcc44;}
+.comp-g:hover .cb-ntc{stroke:#ff6644;}
+.comp-g:hover .cb-cap,.comp-g:hover .cb-cap2{stroke:#44ccff;}
+.comp-g:hover .cb-trans{stroke:#ffaa00;}
+.fdot-g{fill:#00ff88;r:4;filter:drop-shadow(0 0 4px #00ff88);}
+.fdot-r{fill:#ff3300;r:3.5;filter:drop-shadow(0 0 4px #ff3300);}
+.fdot-a{fill:#ffaa00;r:3;filter:drop-shadow(0 0 3px #ffaa00);}
+.fdot-b{fill:#00bbff;r:3;filter:drop-shadow(0 0 3px #00bbff);}
+.ticker-grid{
+  margin-bottom:16px;
+  padding:0 0 0 16px;
+  border:1px solid var(--dim);border-left:4px solid var(--red);
+  border-radius:3px;background:rgba(0,5,2,0.85);
+  display:flex;align-items:center;min-height:60px;overflow:hidden;
+  gap:12px;
 }
-
-* { margin:0; padding:0; box-sizing:border-box; }
-
-body {
-  background: var(--bg);
-  font-family: 'Rajdhani', sans-serif;
-  color: var(--white);
-  min-height: 100vh;
-  overflow-x: hidden;
+.update-badge{
+  font-family:'Share Tech Mono',monospace;font-size:9px;
+  color:rgba(0,255,136,0.6);letter-spacing:1px;flex-shrink:0;
+  padding:3px 8px;border:1px solid rgba(0,255,136,0.2);
+  border-radius:2px;background:rgba(0,255,136,0.04);
+  white-space:nowrap;
 }
-
-/* PCB grid */
-body::before {
-  content:'';
-  position:fixed; inset:0; z-index:0;
-  background-image:
-    linear-gradient(rgba(0,255,136,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,255,136,0.02) 1px, transparent 1px);
-  background-size: 36px 36px;
-  pointer-events:none;
+.ticker-badge{
+  font-family:'Orbitron',monospace;font-size:10px;color:var(--red);
+  letter-spacing:3px;flex-shrink:0;padding:4px 10px;
+  border:1px solid rgba(255,34,51,0.4);border-radius:2px;
+  background:rgba(255,34,51,0.08);animation:ldot 1s step-end infinite;
 }
-
-/* Vignette */
-body::after {
-  content:'';
-  position:fixed; inset:0; z-index:0;
-  background: radial-gradient(ellipse at 50% 40%, transparent 35%, rgba(0,0,0,0.75) 100%);
-  pointer-events:none;
+.marquee-wrap{overflow:hidden;flex:1;height:100%;display:flex;align-items:center;}
+.marquee-inner{
+  display:inline-block;white-space:nowrap;
+  font-family:'Share Tech Mono',monospace;
+  font-size:16px;font-weight:600;
+  color:rgba(232,240,235,0.95);letter-spacing:0.4px;
+  animation:scroll-left 55s linear infinite;
 }
-
-/* Scanlines */
-.scanlines {
-  position:fixed; inset:0; z-index:1; pointer-events:none;
-  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.06) 2px, rgba(0,0,0,0.06) 3px);
+.marquee-inner:hover{animation-play-state:paused;}
+@keyframes scroll-left{
+  0%{transform:translateX(0);}
+  100%{transform:translateX(-50%);}
 }
-
-.wrap { position:relative; z-index:5; max-width:1400px; margin:0 auto; padding:20px; }
-
-/* HEADER */
-.hdr {
-  display:flex; align-items:center; justify-content:space-between;
-  padding:16px 28px; margin-bottom:20px;
-  border:1px solid var(--dim);
-  border-top:2px solid var(--green3);
-  background:linear-gradient(90deg, rgba(0,255,136,0.03), transparent);
-  position:relative;
-}
-.hdr::before {
-  content:'';
-  position:absolute; bottom:0; left:0; right:0; height:1px;
-  background:linear-gradient(90deg, var(--green3) 0%, transparent 70%);
-}
-.hdr-title {
-  font-family:'Orbitron', monospace; font-size:clamp(11px,1.8vw,16px);
-  font-weight:900; color:var(--green);
-  text-shadow:0 0 20px rgba(0,255,136,0.5);
-  letter-spacing:5px;
-}
-.hdr-right { display:flex; align-items:center; gap:20px; }
-.live-dot {
-  width:9px; height:9px; border-radius:50%;
-  background:var(--red); box-shadow:0 0 8px var(--red),0 0 16px var(--red);
-  animation:ldot 1s ease-in-out infinite;
-}
-@keyframes ldot { 0%,100%{opacity:1}50%{opacity:0.2} }
-.live-txt { font-family:'Orbitron',monospace; font-size:11px; color:var(--red); letter-spacing:4px; }
-.clock { font-family:'Share Tech Mono',monospace; font-size:12px; color:rgba(0,255,136,0.5); }
-
-/* MAIN GRID */
-.main-grid {
-  display:grid;
-  grid-template-columns: 1fr 320px;
-  grid-template-rows: auto auto;
-  gap:16px;
-}
-
-/* CIRCUIT AREA */
-.circuit-area {
-  grid-column:1; grid-row:1/3;
-  border:1px solid var(--dim);
-  background:var(--pcb);
-  border-radius:4px;
-  padding:20px;
-  position:relative;
-  overflow:hidden;
-}
-.circuit-area::before {
-  content:'PCB REV.5 — IRAN THEATER 2026';
-  position:absolute; top:8px; right:12px;
-  font-family:'Share Tech Mono',monospace; font-size:8px;
-  color:rgba(0,255,136,0.15); letter-spacing:2px;
-}
-
-/* SIDE PANEL */
-.side-panel {
-  display:flex; flex-direction:column; gap:14px;
-}
-
-/* TEMP BOX */
-.temp-box {
-  border:1px solid var(--dim);
-  background:rgba(0,5,2,0.9);
-  border-radius:3px; padding:18px 20px;
-  text-align:center;
-  position:relative; overflow:hidden;
-}
-.temp-box::before {
-  content:'';
-  position:absolute; inset:0;
-  background:radial-gradient(ellipse at 50% 0%, rgba(255,80,0,0.06), transparent 70%);
-}
-.temp-label { font-family:'Share Tech Mono',monospace; font-size:9px; color:var(--green3); letter-spacing:3px; margin-bottom:8px; }
-.temp-val {
-  font-family:'Orbitron',monospace; font-size:clamp(48px,6vw,72px); font-weight:900;
-  line-height:1; letter-spacing:-2px;
-  transition:color 1.5s, text-shadow 1.5s;
-}
-.temp-unit { font-family:'Orbitron',monospace; font-size:24px; color:rgba(0,255,136,0.4); }
-.temp-trend {
-  margin-top:10px; font-family:'Share Tech Mono',monospace; font-size:12px;
-  display:flex; align-items:center; justify-content:center; gap:8px;
-}
-.trend-arrow { font-size:18px; }
-.bar-wrap {
-  margin-top:12px; height:8px; background:rgba(0,255,136,0.06);
-  border:1px solid var(--dim); border-radius:4px; overflow:hidden;
-}
-.bar-fill { height:100%; border-radius:4px; transition:width 2s ease, background 2s ease; }
-
-/* INFO BOXES */
-.info-box {
-  border:1px solid var(--dim); border-radius:3px; padding:14px 16px;
-  background:rgba(0,5,2,0.6);
-}
-.ib-label { font-family:'Share Tech Mono',monospace; font-size:8px; color:var(--green3); letter-spacing:2px; margin-bottom:8px; }
-
-/* Component status list */
-.comp-list { display:flex; flex-direction:column; gap:7px; }
-.comp-item {
-  display:flex; align-items:center; gap:8px;
-  padding:5px 8px; border-radius:2px;
-  cursor:pointer; transition:background 0.2s;
-  border-left:2px solid transparent;
-}
-.comp-item:hover { background:rgba(0,255,136,0.04); }
-.comp-item.selected { background:rgba(0,255,136,0.06); border-left-color:var(--green); }
-.comp-dot { width:7px; height:7px; border-radius:50%; flex-shrink:0; box-shadow:0 0 5px currentColor; }
-.cd-green { background:var(--green); color:var(--green); }
-.cd-red { background:var(--red); color:var(--red); }
-.cd-amber { background:var(--amber); color:var(--amber); }
-.cd-blue { background:var(--blue); color:var(--blue); }
-.cd-purple { background:var(--purple); color:var(--purple); }
-.cd-dim { background:#556; color:#556; }
-.comp-name { font-size:11px; font-weight:700; flex:1; }
-.comp-ref { font-family:'Share Tech Mono',monospace; font-size:8px; color:rgba(0,255,136,0.4); }
-.comp-state {
-  font-family:'Share Tech Mono',monospace; font-size:7px;
-  padding:2px 6px; border-radius:2px; letter-spacing:1px;
-}
-.cs-hot { background:rgba(255,34,51,0.15); color:var(--red); border:1px solid rgba(255,34,51,0.3); animation:cs-blink 1.5s step-end infinite; }
-@keyframes cs-blink { 0%,100%{opacity:1}50%{opacity:0.4} }
-.cs-warn { background:rgba(255,170,0,0.15); color:var(--amber); border:1px solid rgba(255,170,0,0.3); }
-.cs-ok { background:rgba(0,255,136,0.08); color:var(--green); border:1px solid rgba(0,255,136,0.2); }
-.cs-stby { background:rgba(0,187,255,0.1); color:var(--blue); border:1px solid rgba(0,187,255,0.2); }
-
-/* Tooltip overlay */
-.tooltip-panel {
-  position:absolute; bottom:16px; left:16px; right:16px;
-  background:rgba(4,8,11,0.97); border:1px solid var(--green3);
-  border-radius:4px; padding:14px 16px;
-  transition:opacity 0.3s; opacity:0; pointer-events:none;
-  z-index:20;
-}
-.tooltip-panel.vis { opacity:1; pointer-events:all; }
-.tp-title { font-family:'Orbitron',monospace; font-size:11px; color:var(--green); letter-spacing:2px; margin-bottom:6px; }
-.tp-body { font-size:12px; line-height:1.6; color:rgba(232,240,235,0.85); }
-.tp-actor { font-size:11px; font-weight:700; color:var(--amber); margin-top:6px; }
-.tp-status { font-family:'Share Tech Mono',monospace; font-size:9px; color:var(--red); margin-top:3px; }
-.tp-close {
-  position:absolute; top:8px; right:10px;
-  font-family:'Share Tech Mono',monospace; font-size:10px; color:var(--green3);
-  cursor:pointer;
-}
-
-/* Hormuz alarm */
-.hormuz-alarm {
-  border:1px solid var(--red); border-radius:3px; padding:10px 14px;
-  background:rgba(30,0,0,0.4);
-  animation:hz-anim 2.5s ease-in-out infinite;
-}
-@keyframes hz-anim { 0%,100%{border-color:rgba(255,34,51,0.3)}50%{border-color:rgba(255,34,51,1);box-shadow:0 0 12px rgba(255,34,51,0.3)} }
-.hz-label { font-family:'Share Tech Mono',monospace; font-size:8px; color:rgba(255,34,51,0.6); letter-spacing:2px; margin-bottom:4px; }
-.hz-val { font-family:'Orbitron',monospace; font-size:14px; font-weight:700; color:var(--red); text-shadow:0 0 8px rgba(255,34,51,0.5); }
-
-/* Sparkline */
-#spark { width:100%; height:55px; }
-
-/* Nuclear */
-.nuke-dots { display:flex; gap:5px; flex-wrap:wrap; }
-.nd {
-  width:20px; height:20px; border-radius:2px;
-  border:1px solid var(--dim); background:rgba(0,20,10,0.4);
-  transition:all 0.8s;
-}
-.nd.low  { background:rgba(0,255,136,0.25); border-color:var(--green3); }
-.nd.mid  { background:rgba(255,170,0,0.35); border-color:var(--amber); box-shadow:0 0 5px rgba(255,170,0,0.3); }
-.nd.high { background:rgba(255,34,51,0.45); border-color:var(--red); box-shadow:0 0 8px rgba(255,34,51,0.4); animation:nd-blink 0.7s step-end infinite; }
-@keyframes nd-blink { 0%,100%{opacity:1}50%{opacity:0.3} }
-
-/* SVG styles */
-svg#circuit { width:100%; height:auto; display:block; cursor:crosshair; }
-
-.pcb-bg { fill:#050e08; stroke:#0d2a12; stroke-width:2; }
-.trace { fill:none; stroke:#1a5c2a; stroke-width:3; stroke-linecap:round; stroke-linejoin:round; }
-.trace-pwr { fill:none; stroke:#7a1500; stroke-width:3.5; stroke-linecap:round; }
-.trace-gnd { fill:none; stroke:#0a3d1a; stroke-width:3.5; stroke-linecap:round; }
-.trace-sig { fill:none; stroke:#007733; stroke-width:2.5; stroke-linecap:round; stroke-dasharray:8 4; animation:sig-flow 2s linear infinite; }
-.trace-hot { fill:none; stroke:#cc2200; stroke-width:2.5; stroke-linecap:round; stroke-dasharray:5 3; animation:hot-flow 1.2s linear infinite; }
-.trace-diplo { fill:none; stroke:#0066aa; stroke-width:2; stroke-linecap:round; stroke-dasharray:6 4; animation:diplo-flow 3s linear infinite; }
-@keyframes sig-flow { to{stroke-dashoffset:-24} }
-@keyframes hot-flow { to{stroke-dashoffset:-16} }
-@keyframes diplo-flow { to{stroke-dashoffset:-20} }
-
-/* Pads */
-.pad { fill:#c8952a; stroke:#7a5510; stroke-width:0.8; }
-
-/* Component bodies */
-.cb-ntc  { fill:#6b3008; stroke:#3a1804; }
-.cb-res  { fill:#7a3508; stroke:#3a1804; }
-.cb-cap  { fill:#0a1840; stroke:#1a3088; }
-.cb-cap2 { fill:#0d2040; stroke:#2244aa; }
-.cb-chip { fill:#0a1008; stroke:#00ff88; stroke-width:1.5; }
-.cb-chip2{ fill:#080e06; stroke:#00cc66; stroke-width:1.2; }
-.cb-trans{ fill:#111; stroke:#444; stroke-width:1.2; }
-.cb-disp { fill:#030a05; stroke:#00ff88; stroke-width:2; }
-.cb-fuse { fill:#200000; stroke:#ff2200; stroke-width:1.5; }
-.cb-pwr  { fill:#1a0500; stroke:#cc3300; stroke-width:1.2; }
-
-/* Labels */
-.lc  { font-family:'Share Tech Mono',monospace; font-size:9px; fill:#00ff88; text-anchor:middle; }
-.lca { font-family:'Rajdhani',sans-serif; font-size:10px; font-weight:700; fill:#ffaa00; text-anchor:middle; }
-.lcr { font-family:'Share Tech Mono',monospace; font-size:7px; fill:rgba(0,255,136,0.35); text-anchor:middle; }
-.lv  { font-family:'Share Tech Mono',monospace; font-size:9px; fill:#cc3300; font-weight:bold; }
-.lg  { font-family:'Share Tech Mono',monospace; font-size:9px; fill:#007733; }
-.lpin{ font-family:'Share Tech Mono',monospace; font-size:7px; fill:rgba(0,255,136,0.45); }
-
-/* Glow filters — applied via class */
-.glow-g { filter:drop-shadow(0 0 4px #00ff88) drop-shadow(0 0 8px rgba(0,255,136,0.4)); }
-.glow-r { filter:drop-shadow(0 0 4px #ff2233) drop-shadow(0 0 8px rgba(255,34,51,0.4)); }
-.glow-a { filter:drop-shadow(0 0 4px #ffaa00) drop-shadow(0 0 6px rgba(255,170,0,0.3)); }
-.glow-b { filter:drop-shadow(0 0 4px #00bbff); }
-
-/* LED blink */
-.led-blink { animation:led-r 1.1s ease-in-out infinite; }
-@keyframes led-r { 0%,100%{opacity:1;filter:drop-shadow(0 0 6px #ff2233)}50%{opacity:0.2;filter:none} }
-.led-blink-g { animation:led-g 2s ease-in-out infinite; }
-@keyframes led-g { 0%,100%{opacity:1;filter:drop-shadow(0 0 6px #00ff88)}50%{opacity:0.4;filter:none} }
-
-/* Display flicker */
-.disp-val { font-family:'Share Tech Mono',monospace; fill:#00ff88; text-anchor:middle; animation:dflk 9s ease infinite; }
-@keyframes dflk { 0%,92%,94%,100%{opacity:1}93%{opacity:0.3} }
-
-/* Selectable components */
-.comp-g { cursor:pointer; }
-.comp-g:hover .cb-chip,
-.comp-g:hover .cb-chip2 { stroke:#00ffaa; stroke-width:2; }
-.comp-g:hover .cb-res { stroke:#ffcc44; }
-.comp-g:hover .cb-ntc { stroke:#ff6644; }
-.comp-g:hover .cb-cap,
-.comp-g:hover .cb-cap2 { stroke:#44ccff; }
-.comp-g:hover .cb-trans { stroke:#ffaa00; }
-
-/* Highlight ring on selection */
-.comp-g.active rect,
-.comp-g.active ellipse,
-.comp-g.active polygon,
-.comp-g.active path { stroke-width:2.5 !important; }
-
-/* Current flow dots — via animateMotion */
-.fdot-g { fill:#00ff88; r:4; filter:drop-shadow(0 0 4px #00ff88); }
-.fdot-r { fill:#ff3300; r:3.5; filter:drop-shadow(0 0 4px #ff3300); }
-.fdot-a { fill:#ffaa00; r:3; filter:drop-shadow(0 0 3px #ffaa00); }
-.fdot-b { fill:#00bbff; r:3; filter:drop-shadow(0 0 3px #00bbff); }
-
-/* Event ticker bottom */
-.ticker {
-  margin-top:14px; padding:10px 16px;
-  border:1px solid var(--dim); border-left:3px solid var(--red);
-  border-radius:3px; background:rgba(0,5,2,0.7);
-  display:flex; gap:12px; align-items:center;
-}
-.ticker-icon { font-size:14px; animation:ldot 1s step-end infinite; }
-.ticker-txt { font-size:13px; font-weight:600; color:rgba(232,240,235,0.9); }
-
 </style>
 </head>
 <body>
 <div class="scanlines"></div>
-
 <div class="wrap">
-
-  <!-- HEADER -->
-  <div class="hdr">
-    <div class="hdr-title">⬡ SENSORE DI TEMPERATURA — TEATRO IRAN 2026</div>
-    <div class="hdr-right">
-      <span class="clock" id="clk"></span>
-      <div class="live-dot"></div>
-      <span class="live-txt">LIVE · GIORNO 8 · ORE 09:45</span>
-    </div>
+<div class="hdr">
+  <div class="hdr-title">&#x2B21; TEMPERATURE SENSOR &mdash; IRAN THEATER 2026</div>
+  <div class="hdr-right">
+    <span class="clock" id="clk"></span>
+    <div class="live-dot"></div>
+    <span class="live-txt" id="live-txt">LIVE · DAY -- · TIME --:--</span>
   </div>
-
-  <div class="main-grid">
-
-    <!-- ═══ CIRCUIT ═══ -->
-    <div class="circuit-area">
-
-      <svg id="circuit" viewBox="0 0 900 640" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="fg"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-          <filter id="fr"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-          <filter id="fa"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-          <filter id="fb"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-        </defs>
-
-        <!-- PCB board -->
-        <rect x="4" y="4" width="892" height="632" rx="8" class="pcb-bg"/>
-
-        <!-- Mounting holes -->
-        <circle cx="20" cy="20" r="6" fill="#040c06" stroke="#0d2a12" stroke-width="1"/>
-        <circle cx="880" cy="20" r="6" fill="#040c06" stroke="#0d2a12" stroke-width="1"/>
-        <circle cx="20" cy="620" r="6" fill="#040c06" stroke="#0d2a12" stroke-width="1"/>
-        <circle cx="880" cy="620" r="6" fill="#040c06" stroke="#0d2a12" stroke-width="1"/>
-
-        <!-- ══ VCC RAIL (top) ══ -->
-        <line x1="40" y1="38" x2="860" y2="38" class="trace-pwr" filter="url(#fr)"/>
-        <text x="48" y="32" class="lv">+12V VCC</text>
-        <text x="600" y="32" class="lv" style="font-size:8px">ALIMENTAZIONE GLOBALE — RISORSE BELLICHE</text>
-
-        <!-- ══ GND RAIL (bottom) ══ -->
-        <line x1="40" y1="612" x2="860" y2="612" class="trace-gnd"/>
-        <text x="48" y="626" class="lg">GND ⏚</text>
-        <text x="580" y="626" class="lg" style="font-size:8px">POPOLAZIONE IRANIANA — MASSA CRITICA</text>
-
-        <!-- ══ FUSE F1 — HORMUZ ══ -->
-        <g class="comp-g" id="cmp-fuse" onclick="selectComp('fuse')" title="Fusibile Hormuz">
-          <rect x="220" y="28" width="50" height="20" rx="3" class="cb-fuse"/>
-          <path d="M223,38 Q232,30 240,38 Q248,46 257,38 Q262,32 267,38" fill="none" stroke="rgba(255,80,0,0.7)" stroke-width="1.5"/>
-          <text x="245" y="22" style="font-size:8px;fill:#ff3300;font-family:Share Tech Mono;text-anchor:middle">⚠ F1 HORMUZ</text>
-          <text x="245" y="57" class="lcr">FUSIBILE APERTO</text>
-        </g>
-        <!-- Hormuz broken trace -->
-        <line x1="270" y1="38" x2="310" y2="38" class="trace-hot"/>
-
-        <!-- ══ U1: NTC THERMISTOR — IRAN/IRGC ══ -->
-        <g class="comp-g" id="cmp-ntc" onclick="selectComp('ntc')">
-          <rect x="44" y="68" width="96" height="52" rx="4" class="cb-ntc"/>
-          <!-- Stripes -->
-          <line x1="62" y1="68" x2="62" y2="120" stroke="#4a1804" stroke-width="4"/>
-          <line x1="76" y1="68" x2="76" y2="120" stroke="#111" stroke-width="4"/>
-          <line x1="90" y1="68" x2="90" y2="120" stroke="#aa2200" stroke-width="4"/>
-          <line x1="104" y1="68" x2="104" y2="120" stroke="#cc8800" stroke-width="4"/>
-          <line x1="118" y1="68" x2="118" y2="120" stroke="#4a1804" stroke-width="4"/>
-          <!-- NTC symbol -->
-          <text x="92" y="98" class="lc" style="font-size:10px;fill:rgba(255,180,100,0.7)">NTC</text>
-          <!-- Leads -->
-          <line x1="44" y1="94" x2="34" y2="94" class="trace" stroke-width="2.5"/>
-          <line x1="140" y1="94" x2="160" y2="94" class="trace" stroke-width="2.5"/>
-          <!-- VCC connection -->
-          <line x1="92" y1="38" x2="92" y2="68" class="trace-pwr" stroke-width="2.5"/>
-          <!-- Labels -->
-          <text x="92" y="136" class="lc">NTC 10kΩ · B=3950</text>
-          <text x="92" y="148" class="lcr">U1</text>
-          <text x="92" y="160" class="lca">IRAN / IRGC</text>
-          <circle cx="44" cy="94" r="4" class="pad"/>
-          <circle cx="140" cy="94" r="4" class="pad"/>
-        </g>
-
-        <!-- ══ R1: Resistor — NATO ══ -->
-        <g class="comp-g" id="cmp-r1" onclick="selectComp('r1')">
-          <rect x="160" y="76" width="80" height="36" rx="3" class="cb-res"/>
-          <line x1="174" y1="76" x2="174" y2="112" stroke="#3a1204" stroke-width="3.5"/>
-          <line x1="188" y1="76" x2="188" y2="112" stroke="#111" stroke-width="3.5"/>
-          <line x1="202" y1="76" x2="202" y2="112" stroke="#111" stroke-width="3.5"/>
-          <line x1="216" y1="76" x2="216" y2="112" stroke="#cc8800" stroke-width="3.5"/>
-          <line x1="230" y1="76" x2="230" y2="112" stroke="#222" stroke-width="3.5"/>
-          <line x1="240" y1="94" x2="265" y2="94" class="trace" stroke-width="2.5"/>
-          <line x1="200" y1="112" x2="200" y2="612" class="trace-gnd" stroke-width="2"/>
-          <text x="200" y="125" class="lc">10kΩ ¼W</text>
-          <text x="200" y="136" class="lcr">R1</text>
-          <text x="200" y="148" class="lca">NATO</text>
-          <circle cx="160" cy="94" r="3.5" class="pad"/>
-          <circle cx="240" cy="94" r="3.5" class="pad"/>
-        </g>
-
-        <!-- Midpoint node -->
-        <circle cx="265" cy="94" r="6" fill="#00ff88" filter="url(#fg)" class="glow-g"/>
-
-        <!-- ══ C1: Decoupling — RUSSIA ══ -->
-        <g class="comp-g" id="cmp-c1" onclick="selectComp('c1')">
-          <rect x="253" y="118" width="24" height="38" rx="2" class="cb-cap"/>
-          <line x1="253" y1="130" x2="277" y2="130" stroke="#3355aa" stroke-width="3"/>
-          <line x1="253" y1="142" x2="277" y2="142" stroke="#3355aa" stroke-width="3"/>
-          <line x1="265" y1="94" x2="265" y2="118" class="trace" stroke-width="2"/>
-          <line x1="265" y1="156" x2="265" y2="612" class="trace-gnd" stroke-width="1.5"/>
-          <text x="265" y="172" class="lc">100nF</text>
-          <text x="265" y="183" class="lcr">C1 X7R</text>
-          <text x="265" y="195" class="lca">RUSSIA</text>
-          <circle cx="265" cy="118" r="3" class="pad"/>
-          <circle cx="265" cy="156" r="3" class="pad"/>
-        </g>
-
-        <!-- ══ C2: Big Electrolytic — CINA ══ -->
-        <g class="comp-g" id="cmp-c2" onclick="selectComp('c2')">
-          <rect x="305" y="48" width="30" height="58" rx="3" class="cb-cap2"/>
-          <rect x="305" y="48" width="15" height="58" rx="3 0 0 3" fill="rgba(60,100,200,0.1)"/>
-          <text x="311" y="68" style="font-size:9px;fill:#5577cc;font-family:Share Tech Mono">+</text>
-          <line x1="320" y1="38" x2="320" y2="48" class="trace-pwr" stroke-width="2.5"/>
-          <line x1="320" y1="106" x2="320" y2="612" class="trace-gnd" stroke-width="2"/>
-          <text x="320" y="125" class="lc">100µF 25V</text>
-          <text x="320" y="136" class="lcr">C2 ELYT</text>
-          <text x="320" y="148" class="lca">CINA</text>
-          <circle cx="320" cy="48" r="3.5" class="pad"/>
-          <circle cx="320" cy="106" r="3.5" class="pad"/>
-        </g>
-
-        <!-- ══ U2: Op-Amp LM358 — USA/CENTCOM ══ -->
-        <g class="comp-g" id="cmp-opamp" onclick="selectComp('opamp')">
-          <polygon points="380,55 380,145 460,100" class="cb-chip" filter="url(#fg)"/>
-          <!-- Input pins -->
-          <line x1="380" y1="72" x2="358" y2="72" class="trace" stroke-width="2"/>
-          <line x1="380" y1="128" x2="358" y2="128" class="trace" stroke-width="2"/>
-          <!-- Output -->
-          <line x1="460" y1="100" x2="490" y2="100" class="trace-sig"/>
-          <!-- Power -->
-          <line x1="420" y1="55" x2="420" y2="38" class="trace-pwr" stroke-width="2"/>
-          <line x1="420" y1="145" x2="420" y2="612" class="trace-gnd" stroke-width="2"/>
-          <!-- +/- -->
-          <text x="370" y="76" style="font-size:9px;fill:#00ff88;font-family:Share Tech Mono">+</text>
-          <text x="370" y="132" style="font-size:9px;fill:#00ff88;font-family:Share Tech Mono">−</text>
-          <text x="420" y="170" class="lc">LM358N</text>
-          <text x="420" y="182" class="lcr">U2 OP-AMP</text>
-          <text x="420" y="194" class="lca">USA / CENTCOM</text>
-        </g>
-
-        <!-- Signal from midpoint to + input -->
-        <path d="M265,94 L310,94 L310,72 L358,72" class="trace-sig"/>
-
-        <!-- ══ R2: Trimmer — ISRAELE ══ -->
-        <g class="comp-g" id="cmp-r2" onclick="selectComp('r2')">
-          <rect x="318" y="120" width="50" height="24" rx="2" class="cb-res"/>
-          <!-- Wiper arrow -->
-          <line x1="343" y1="112" x2="343" y2="120" stroke="#ffaa00" stroke-width="2"/>
-          <polygon points="338,116 348,116 343,120" fill="#ffaa00"/>
-          <line x1="318" y1="132" x2="306" y2="132" class="trace" stroke-width="2"/>
-          <line x1="368" y1="132" x2="358" y2="128" class="trace" stroke-width="1.5"/>
-          <line x1="306" y1="132" x2="306" y2="612" class="trace-gnd" stroke-width="1.5"/>
-          <line x1="306" y1="132" x2="306" y2="38" class="trace-pwr" stroke-width="1.5"/>
-          <text x="343" y="155" class="lc">TRIM 10kΩ</text>
-          <text x="343" y="166" class="lcr">R2</text>
-          <text x="343" y="178" class="lca">ISRAELE</text>
-        </g>
-
-        <!-- ══ U5: LM7805 Regulator — ARABIA SAUDITA ══ -->
-        <g class="comp-g" id="cmp-reg" onclick="selectComp('reg')">
-          <rect x="50" y="250" width="74" height="42" rx="2" class="cb-trans"/>
-          <rect x="50" y="238" width="74" height="14" rx="1" fill="#2a2a2a" stroke="#555" stroke-width="1"/>
-          <!-- 3 pins -->
-          <line x1="68" y1="292" x2="68" y2="320" class="trace-pwr" stroke-width="2.5"/>
-          <line x1="87" y1="292" x2="87" y2="612" class="trace-gnd" stroke-width="2"/>
-          <line x1="106" y1="292" x2="106" y2="320" class="trace" stroke-width="2.5"/>
-          <line x1="68" y1="238" x2="68" y2="38" class="trace-pwr" stroke-width="2"/>
-          <text x="65" y="309" class="lpin" style="fill:rgba(255,80,0,0.7)">IN</text>
-          <text x="83" y="309" class="lpin" style="fill:rgba(0,255,136,0.4)">G</text>
-          <text x="100" y="309" class="lpin" style="fill:rgba(0,255,136,0.8)">5V</text>
-          <text x="87" y="340" class="lc">LM7805</text>
-          <text x="87" y="351" class="lcr">U5 TO-220</text>
-          <text x="87" y="363" class="lca">ARABIA SAUDITA</text>
-        </g>
-
-        <!-- ══ Q1: NPN Transistor — HEZBOLLAH ══ -->
-        <g class="comp-g" id="cmp-q1" onclick="selectComp('q1')">
-          <rect x="492" y="72" width="34" height="52" rx="2" class="cb-trans"/>
-          <path d="M522,72 A24,24 0 0,1 522,124 Z" class="cb-trans"/>
-          <!-- Leads -->
-          <line x1="522" y1="83" x2="522" y2="58" class="trace" stroke-width="2"/>
-          <line x1="522" y1="113" x2="522" y2="138" class="trace" stroke-width="2"/>
-          <line x1="522" y1="138" x2="522" y2="612" class="trace-gnd" stroke-width="2"/>
-          <line x1="522" y1="58" x2="522" y2="38" class="trace" stroke-width="2"/>
-          <!-- Base from op-amp -->
-          <line x1="492" y1="98" x2="490" y2="100" class="trace-sig"/>
-          <text x="514" y="155" class="lc">BC547B</text>
-          <text x="514" y="166" class="lcr">Q1 NPN</text>
-          <text x="514" y="178" class="lca">HEZBOLLAH</text>
-          <text x="525" y="78" class="lpin" style="fill:rgba(255,170,0,0.7)">C</text>
-          <text x="525" y="120" class="lpin" style="fill:rgba(255,170,0,0.7)">E</text>
-          <text x="489" y="103" class="lpin" style="fill:rgba(255,170,0,0.7)">B</text>
-        </g>
-
-        <!-- ══ R3: Current Limiter — GIORDANIA ══ -->
-        <g class="comp-g" id="cmp-r3" onclick="selectComp('r3')">
-          <rect x="568" y="32" width="60" height="24" rx="2" class="cb-res"/>
-          <line x1="580" y1="32" x2="580" y2="56" stroke="#3a1204" stroke-width="3"/>
-          <line x1="592" y1="32" x2="592" y2="56" stroke="#111" stroke-width="3"/>
-          <line x1="604" y1="32" x2="604" y2="56" stroke="#cc8800" stroke-width="3"/>
-          <line x1="616" y1="32" x2="616" y2="56" stroke="#222" stroke-width="3"/>
-          <line x1="522" y1="38" x2="568" y2="44" class="trace" stroke-width="2"/>
-          <line x1="628" y1="44" x2="660" y2="44" class="trace" stroke-width="2"/>
-          <line x1="660" y1="44" x2="660" y2="38" class="trace-pwr" stroke-width="2"/>
-          <text x="598" y="72" class="lc">470Ω ¼W</text>
-          <text x="598" y="83" class="lcr">R3</text>
-          <text x="598" y="95" class="lca">GIORDANIA</text>
-        </g>
-
-        <!-- ══ D1: LED — ALLARME GOLFO ══ -->
-        <g class="comp-g" id="cmp-led" onclick="selectComp('led')">
-          <!-- connessione alla traccia principale -->
-          <line x1="660" y1="38" x2="700" y2="38" class="trace-pwr" stroke-width="2"/>
-          <line x1="700" y1="38" x2="700" y2="55" class="trace-pwr" stroke-width="2"/>
-          <ellipse cx="700" cy="70" rx="14" ry="16" fill="rgba(255,34,51,0.25)" stroke="#ff2233" stroke-width="1.5" class="led-blink"/>
-          <!-- Light rays -->
-          <line x1="690" y1="61" x2="682" y2="52" stroke="rgba(255,34,51,0.4)" stroke-width="1.2" class="led-blink"/>
-          <line x1="694" y1="58" x2="686" y2="49" stroke="rgba(255,34,51,0.4)" stroke-width="1.2" class="led-blink"/>
-          <line x1="698" y1="56" x2="692" y2="46" stroke="rgba(255,34,51,0.3)" stroke-width="1" class="led-blink"/>
-          <line x1="700" y1="86" x2="700" y2="100" class="trace" stroke-width="2"/>
-          <text x="700" y="115" class="lc">LED 3mm</text>
-          <text x="700" y="126" class="lcr">D1 ROSSA</text>
-          <text x="700" y="138" class="lca">ALLARME GOLFO</text>
-        </g>
-
-        <!-- ══ U3: MCU ATmega328 — CIA/MOSSAD ══ -->
-        <g class="comp-g" id="cmp-mcu" onclick="selectComp('mcu')">
-          <rect x="390" y="270" width="150" height="160" rx="4" class="cb-chip" filter="url(#fg)"/>
-          <!-- Left pins -->
-          <line x1="390" y1="296" x2="370" y2="296" class="trace" stroke-width="1.5"/>
-          <line x1="390" y1="312" x2="370" y2="312" class="trace" stroke-width="1.5"/>
-          <line x1="390" y1="328" x2="370" y2="328" class="trace-sig" stroke-width="1.5"/>
-          <line x1="390" y1="344" x2="370" y2="344" class="trace" stroke-width="1.5"/>
-          <line x1="390" y1="360" x2="370" y2="360" class="trace-sig" stroke-width="1.5"/>
-          <!-- Right pins -->
-          <line x1="540" y1="296" x2="560" y2="296" class="trace-sig"/>
-          <line x1="540" y1="312" x2="560" y2="312" class="trace-sig"/>
-          <line x1="540" y1="328" x2="560" y2="328" class="trace" stroke-width="1.5"/>
-          <line x1="540" y1="344" x2="560" y2="344" class="trace" stroke-width="1.5"/>
-          <!-- Pin labels -->
-          <text x="368" y="300" class="lpin" style="text-anchor:end">VCC</text>
-          <text x="368" y="316" class="lpin" style="text-anchor:end">GND</text>
-          <text x="368" y="332" class="lpin" style="text-anchor:end;fill:rgba(255,170,0,0.7)">A0</text>
-          <text x="368" y="348" class="lpin" style="text-anchor:end">RST</text>
-          <text x="368" y="364" class="lpin" style="text-anchor:end;fill:rgba(255,170,0,0.7)">D2</text>
-          <text x="562" y="300" class="lpin" style="fill:rgba(255,170,0,0.7)">SDA</text>
-          <text x="562" y="316" class="lpin" style="fill:rgba(255,170,0,0.7)">SCL</text>
-          <text x="562" y="332" class="lpin">TX</text>
-          <text x="562" y="348" class="lpin">RX</text>
-          <!-- VCC/GND to pins -->
-          <line x1="370" y1="296" x2="355" y2="296" class="trace-pwr" stroke-width="1.5"/>
-          <line x1="355" y1="296" x2="355" y2="38" class="trace-pwr" stroke-width="1.5"/>
-          <line x1="370" y1="312" x2="350" y2="312" class="trace-gnd" stroke-width="1.5"/>
-          <line x1="350" y1="312" x2="350" y2="612" class="trace-gnd" stroke-width="1.5"/>
-          <!-- A0 from midpoint -->
-          <line x1="370" y1="328" x2="265" y2="328" class="trace-sig"/>
-          <line x1="265" y1="328" x2="265" y2="94" class="trace-sig"/>
-          <!-- Chip labels -->
-          <text x="465" y="348" class="lc" style="font-size:11px">ATmega328P</text>
-          <text x="465" y="364" class="lcr" style="font-size:8px">ARDUINO NANO</text>
-          <!-- Notch -->
-          <circle cx="396" cy="274" r="3" fill="rgba(0,255,136,0.3)"/>
-          <text x="465" y="398" class="lca" style="font-size:11px">CIA / MOSSAD</text>
-          <text x="465" y="412" class="lcr">INTELLIGENCE</text>
-        </g>
-
-        <!-- ══ U4: OLED Display — OUTPUT ══ -->
-        <g class="comp-g" id="cmp-oled" onclick="selectComp('oled')">
-          <rect x="615" y="265" width="160" height="90" rx="4" class="cb-disp" filter="url(#fg)"/>
-          <!-- I2C connections -->
-          <line x1="615" y1="286" x2="560" y2="296" class="trace-sig"/>
-          <line x1="615" y1="300" x2="560" y2="312" class="trace-sig"/>
-          <!-- VCC/GND -->
-          <line x1="695" y1="265" x2="695" y2="38" class="trace-pwr" stroke-width="2"/>
-          <line x1="720" y1="355" x2="720" y2="612" class="trace-gnd" stroke-width="2"/>
-          <!-- Display header -->
-          <text x="640" y="285" style="font-family:Share Tech Mono;font-size:7px;fill:rgba(0,255,136,0.25)">SSD1306 · I2C</text>
-          <!-- Temperature reading -->
-          <text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">72.5°C</text>
-          <!-- Labels -->
-          <text x="695" y="378" class="lc">OLED 0.96" I2C</text>
-          <text x="695" y="390" class="lcr">U4 · SSD1306</text>
-          <text x="695" y="403" class="lca">OUTPUT GLOBALE</text>
-        </g>
-
-        <!-- ══ CINA DIPLOMATIC CHANNEL — new trace ══ -->
-        <g class="comp-g" id="cmp-diplo" onclick="selectComp('diplo')">
-          <!-- Diplomacy module box -->
-          <rect x="600" y="460" width="140" height="60" rx="3" fill="#030a14" stroke="#0066aa" stroke-width="1.5"/>
-          <text x="670" y="482" style="font-family:Share Tech Mono;font-size:8px;fill:#0088cc;text-anchor:middle">CANALE DIPLOMATICO</text>
-          <text x="670" y="495" class="lcr">CIA ↔ IRAN 007</text>
-          <text x="670" y="509" class="lca" style="font-size:9px">CINA · MEDIAZIONE</text>
-          <!-- Diplo trace from MCU TX -->
-          <line x1="560" y1="332" x2="590" y2="332" class="trace-diplo"/>
-          <line x1="590" y1="332" x2="590" y2="490" class="trace-diplo"/>
-          <line x1="590" y1="490" x2="600" y2="490" class="trace-diplo"/>
-        </g>
-
-        <!-- ══ ANIMATED CURRENT FLOW DOTS ══ -->
-
-        <!-- NTC → R1 → midpoint -->
-        <circle class="fdot-r" r="4">
-          <animateMotion dur="2.5s" repeatCount="indefinite"
-            path="M92,60 L92,38 L200,38 L200,94 L265,94"/>
-        </circle>
-
-        <!-- Midpoint → Op-amp + input -->
-        <circle class="fdot-g" r="4">
-          <animateMotion dur="2s" repeatCount="indefinite" begin="0.5s"
-            path="M265,94 L310,94 L310,72 L380,72"/>
-        </circle>
-
-        <!-- Op-amp → Q1 base -->
-        <circle class="fdot-a" r="3.5">
-          <animateMotion dur="1.8s" repeatCount="indefinite" begin="0.3s"
-            path="M460,100 L490,100 L492,98"/>
-        </circle>
-
-        <!-- Q1 collector → LED -->
-        <circle class="fdot-r" r="3.5">
-          <animateMotion dur="1.5s" repeatCount="indefinite"
-            path="M522,58 L522,38 L568,44 L628,44 L660,44 L700,44"/>
-        </circle>
-
-        <!-- Signal → MCU A0 -->
-        <circle class="fdot-g" r="3">
-          <animateMotion dur="3s" repeatCount="indefinite" begin="1s"
-            path="M265,94 L265,328 L390,328"/>
-        </circle>
-
-        <!-- MCU → OLED via I2C -->
-        <circle class="fdot-b" r="3">
-          <animateMotion dur="2.5s" repeatCount="indefinite" begin="1.5s"
-            path="M540,296 L560,296 L615,286"/>
-        </circle>
-
-        <!-- Diplomatic channel -->
-        <circle r="3" fill="#0088cc" filter="url(#fb)">
-          <animateMotion dur="4s" repeatCount="indefinite" begin="0s"
-            path="M560,332 L590,332 L590,490 L600,490"/>
-        </circle>
-
-        <!-- ══ FORMULA BOX ══ -->
-        <rect x="44" y="440" width="300" height="120" rx="4" fill="rgba(0,15,6,0.85)" stroke="rgba(0,255,136,0.12)" stroke-width="1"/>
-        <text x="194" y="460" class="lcr" style="font-size:8px">// STEINHART-HART</text>
-        <text x="194" y="476" class="lc" style="font-size:8px">T = 1/(A + B·ln R + C·ln³R)</text>
-        <text x="194" y="492" class="lcr">R = R_ref × (Vcc/Vout − 1)</text>
-        <text x="194" y="508" class="lca" style="font-size:8px">T ATTUALE → SSD1306 I2C</text>
-        <text x="194" y="528" class="lc" style="font-size:8px;fill:rgba(255,170,0,0.9)" id="formula-temp">OUTPUT: 96.8 °C ↑↑ 1332 MORTI TEHERAN · MEHRABAD BOMBARDATO · DUBAI COLPITA</text>
-        <text x="194" y="544" class="lcr">TRUMP: RESA INCONDIZIONATA · IDF: "NUOVA FASE" · WTI +35% · RUSSIA DIETRO LE QUINTE</text>
-
-        <!-- ══ GROUND SYMBOLS ══ -->
-        <g stroke="#006633" stroke-width="1.5" fill="none">
-          <line x1="200" y1="607" x2="200" y2="612"/>
-          <line x1="193" y1="612" x2="207" y2="612"/>
-          <line x1="196" y1="616" x2="204" y2="616"/>
-          <line x1="198" y1="620" x2="202" y2="620"/>
-        </g>
-        <g stroke="#006633" stroke-width="1.5" fill="none">
-          <line x1="522" y1="607" x2="522" y2="612"/>
-          <line x1="515" y1="612" x2="529" y2="612"/>
-          <line x1="518" y1="616" x2="526" y2="616"/>
-          <line x1="520" y1="620" x2="524" y2="620"/>
-        </g>
-
-      </svg>
-
-      <!-- Tooltip overlay -->
-      <div class="tooltip-panel" id="tooltip">
-        <span class="tp-close" onclick="closeTooltip()">✕ chiudi</span>
-        <div class="tp-title" id="tp-title">—</div>
-        <div class="tp-body" id="tp-body">—</div>
-        <div class="tp-actor" id="tp-actor">—</div>
-        <div class="tp-status" id="tp-status">—</div>
-      </div>
-    </div>
-
-    <!-- ═══ SIDE PANEL ═══ -->
-    <div class="side-panel">
-
-      <!-- Temperature -->
-      <div class="temp-box">
-        <div class="temp-label">// TEMPERATURA CONFLITTO</div>
-        <div>
-          <span class="temp-val" id="temp-val" style="color:#ff6600">91.2</span>
-          <span class="temp-unit">°C</span>
-        </div>
-        <div class="temp-trend">
-          <span class="trend-arrow" id="trend-arrow" style="color:#ff2233">▲</span>
-          <span id="trend-txt" style="color:#ff2233;font-family:Share Tech Mono;font-size:11px;letter-spacing:2px">ESCALATION</span>
-        </div>
-        <div class="bar-wrap">
-          <div class="bar-fill" id="bar-fill" style="width:61%;background:linear-gradient(90deg,#ff4400,#ff2200)"></div>
-        </div>
-        <div style="display:flex;justify-content:space-between;font-family:'Share Tech Mono',monospace;font-size:7px;color:rgba(0,255,136,0.25);margin-top:4px">
-          <span>0° PACE</span><span>50° CRISI</span><span>100°+ NUCLEARE</span>
-        </div>
-      </div>
-
-      <!-- Components status -->
-      <div class="info-box">
-        <div class="ib-label">// STATO COMPONENTI — clicca per dettagli</div>
-        <div class="comp-list">
-          <div class="comp-item" id="li-ntc" onclick="selectComp('ntc')">
-            <div class="comp-dot cd-red"></div>
-            <div><div class="comp-name">IRAN / IRGC</div><div class="comp-ref">NTC U1 · 10kΩ</div></div>
-            <span class="comp-state cs-hot">ATTIVO</span>
-          </div>
-          <div class="comp-item" id="li-opamp" onclick="selectComp('opamp')">
-            <div class="comp-dot cd-green"></div>
-            <div><div class="comp-name">USA / CENTCOM</div><div class="comp-ref">LM358N U2</div></div>
-            <span class="comp-state cs-hot">PIENA POT.</span>
-          </div>
-          <div class="comp-item" id="li-r2" onclick="selectComp('r2')">
-            <div class="comp-dot cd-amber"></div>
-            <div><div class="comp-name">ISRAELE</div><div class="comp-ref">Trimmer R2</div></div>
-            <span class="comp-state cs-hot">SOGLIA CRITICA</span>
-          </div>
-          <div class="comp-item" id="li-q1" onclick="selectComp('q1')">
-            <div class="comp-dot cd-amber"></div>
-            <div><div class="comp-name">HEZBOLLAH</div><div class="comp-ref">BC547B Q1</div></div>
-            <span class="comp-state cs-hot">IN CONDUZIONE</span>
-          </div>
-          <div class="comp-item" id="li-mcu" onclick="selectComp('mcu')">
-            <div class="comp-dot cd-green"></div>
-            <div><div class="comp-name">CIA / MOSSAD</div><div class="comp-ref">ATmega328P U3</div></div>
-            <span class="comp-state cs-ok">ADC ATTIVO</span>
-          </div>
-          <div class="comp-item" id="li-c2" onclick="selectComp('c2')">
-            <div class="comp-dot cd-blue"></div>
-            <div><div class="comp-name">CINA</div><div class="comp-ref">100µF C2</div></div>
-            <span class="comp-state cs-warn">MEDIAZIONE</span>
-          </div>
-          <div class="comp-item" id="li-c1" onclick="selectComp('c1')">
-            <div class="comp-dot cd-blue"></div>
-            <div><div class="comp-name">RUSSIA</div><div class="comp-ref">100nF C1</div></div>
-            <span class="comp-state cs-stby">STANDBY</span>
-          </div>
-          <div class="comp-item" id="li-r1" onclick="selectComp('r1')">
-            <div class="comp-dot cd-blue"></div>
-            <div><div class="comp-name">NATO</div><div class="comp-ref">10kΩ R1</div></div>
-            <span class="comp-state cs-warn">ALERT</span>
-          </div>
-          <div class="comp-item" id="li-reg" onclick="selectComp('reg')">
-            <div class="comp-dot cd-amber"></div>
-            <div><div class="comp-name">ARABIA SAUDITA</div><div class="comp-ref">LM7805 U5</div></div>
-            <span class="comp-state cs-warn">SOTTO ATTACCO</span>
-          </div>
-          <div class="comp-item" id="li-fuse" onclick="selectComp('fuse')">
-            <div class="comp-dot cd-red"></div>
-            <div><div class="comp-name">STRETTO HORMUZ</div><div class="comp-ref">Fuse F1 · 1A</div></div>
-            <span class="comp-state cs-hot">⚠ APERTO</span>
-          </div>
-          <div class="comp-item" id="li-diplo" onclick="selectComp('diplo')">
-            <div class="comp-dot cd-purple" style="background:#0088cc;color:#0088cc"></div>
-            <div><div class="comp-name">CANALE DIPLOMATICO</div><div class="comp-ref">CIA ↔ 007 Iran</div></div>
-            <span class="comp-state" style="background:rgba(255,170,0,0.15);color:#ffaa00;border:1px solid rgba(255,170,0,0.3)">INCERTO</span>
-          </div>
-          <div class="comp-item" onclick="selectComp('led')">
-            <div class="comp-dot cd-red"></div>
-            <div><div class="comp-name">CURDI — NUOVO FRONTE</div><div class="comp-ref">Offensiva terra vs Iran</div></div>
-            <span class="comp-state cs-hot">⚠ ATTIVO</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Hormuz -->
-      <div class="hormuz-alarm">
-        <div class="hz-label">⚓ STRETTO DI HORMUZ</div>
-        <div class="hz-val">⛔ CHIUSO — IRGC</div>
-        <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:rgba(255,80,0,0.6);margin-top:4px">3.000+ NAVI BLOCCATE · GAS TTF +40% · 20+ NAVI AFFONDATE</div>
-      </div>
-
-      <!-- Nuclear -->
-      <div class="info-box">
-        <div class="ib-label">// ☢ RISCHIO NUCLEARE</div>
-        <div class="nuke-dots" id="nuke-dots"></div>
-      </div>
-
-      <!-- Sparkline -->
-      <div class="info-box">
-        <div class="ib-label">// STORICO TEMPERATURA (°C)</div>
-        <svg id="spark" viewBox="0 0 280 55" preserveAspectRatio="none">
-          <polyline id="spark-line" fill="none" stroke="#00ff88" stroke-width="2" style="filter:drop-shadow(0 0 3px #00ff88)"/>
-          <polyline id="spark-area" fill="rgba(0,255,136,0.07)" stroke="none"/>
-        </svg>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- TICKER -->
-  <div class="ticker">
-    <span class="ticker-icon">⚡</span>
-    <span class="ticker-txt" id="ticker-txt">GIORNO 8 · 09:45 · 1.332 MORTI TEHERAN · Mehrabad bombardato · Dubai colpita · WTI +35% · Russia dietro le quinte · Trump: MIGA · IDF: nuova fase del conflitto in corso.</span>
-  </div>
-
 </div>
-
+<div class="ticker-grid">
+<span class="ticker-badge">&#x26A1; LIVE</span>
+<span class="update-badge" id="update-badge">UPDATED: --</span>
+<div class="marquee-wrap">
+  <span class="marquee-inner" id="marquee-inner"></span>
+</div>
+</div>
+<div class="main-grid">
+<div class="circuit-area">
+<svg id="circuit" viewBox="0 0 900 640" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter id="fg"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="fr"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="fa"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="fb"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect x="4" y="4" width="892" height="632" rx="8" class="pcb-bg"/>
+<circle cx="20" cy="20" r="6" fill="#040c06" stroke="#0d2a12" stroke-width="1"/>
+<circle cx="880" cy="20" r="6" fill="#040c06" stroke="#0d2a12" stroke-width="1"/>
+<circle cx="20" cy="620" r="6" fill="#040c06" stroke="#0d2a12" stroke-width="1"/>
+<circle cx="880" cy="620" r="6" fill="#040c06" stroke="#0d2a12" stroke-width="1"/>
+<line x1="40" y1="38" x2="860" y2="38" class="trace-pwr" filter="url(#fr)"/>
+<text x="48" y="32" class="lv">+12V VCC</text>
+<text x="600" y="32" class="lv" style="font-size:8px">GLOBAL POWER &mdash; WAR RESOURCES</text>
+<line x1="40" y1="612" x2="860" y2="612" class="trace-gnd"/>
+<text x="48" y="626" class="lg">GND &#x23EB;</text>
+<text x="580" y="626" class="lg" style="font-size:8px">IRANIAN POPULATION &mdash; CRITICAL MASS</text>
+<g class="comp-g" id="cmp-fuse" onclick="selectComp('fuse')">
+<rect x="220" y="28" width="50" height="20" rx="3" class="cb-fuse"/>
+<path d="M223,38 Q232,30 240,38 Q248,46 257,38 Q262,32 267,38" fill="none" stroke="rgba(255,80,0,0.7)" stroke-width="1.5"/>
+<text x="245" y="22" style="font-size:8px;fill:#ff3300;font-family:Share Tech Mono;text-anchor:middle">&#x26A0; F1 HORMUZ</text>
+<text x="245" y="57" class="lcr">FUSE OPEN</text>
+</g>
+<line x1="270" y1="38" x2="310" y2="38" class="trace-hot"/>
+<g class="comp-g" id="cmp-ntc" onclick="selectComp('ntc')">
+<rect x="44" y="68" width="96" height="52" rx="4" class="cb-ntc"/>
+<line x1="62" y1="68" x2="62" y2="120" stroke="#4a1804" stroke-width="4"/>
+<line x1="76" y1="68" x2="76" y2="120" stroke="#111" stroke-width="4"/>
+<line x1="90" y1="68" x2="90" y2="120" stroke="#aa2200" stroke-width="4"/>
+<line x1="104" y1="68" x2="104" y2="120" stroke="#cc8800" stroke-width="4"/>
+<line x1="118" y1="68" x2="118" y2="120" stroke="#4a1804" stroke-width="4"/>
+<text x="92" y="98" class="lc" style="font-size:10px;fill:rgba(255,180,100,0.7)">NTC</text>
+<line x1="44" y1="94" x2="34" y2="94" class="trace" stroke-width="2.5"/>
+<line x1="140" y1="94" x2="160" y2="94" class="trace" stroke-width="2.5"/>
+<line x1="92" y1="38" x2="92" y2="68" class="trace-pwr" stroke-width="2.5"/>
+<text x="92" y="136" class="lc">NTC 10k&#x3A9; B=3950</text>
+<text x="92" y="148" class="lcr">U1</text>
+<text x="92" y="160" class="lca">IRAN / IRGC</text>
+<circle cx="44" cy="94" r="4" class="pad"/>
+<circle cx="140" cy="94" r="4" class="pad"/>
+</g>
+<g class="comp-g" id="cmp-r1" onclick="selectComp('r1')">
+<rect x="160" y="76" width="80" height="36" rx="3" class="cb-res"/>
+<line x1="174" y1="76" x2="174" y2="112" stroke="#3a1204" stroke-width="3.5"/>
+<line x1="188" y1="76" x2="188" y2="112" stroke="#111" stroke-width="3.5"/>
+<line x1="202" y1="76" x2="202" y2="112" stroke="#111" stroke-width="3.5"/>
+<line x1="216" y1="76" x2="216" y2="112" stroke="#cc8800" stroke-width="3.5"/>
+<line x1="230" y1="76" x2="230" y2="112" stroke="#222" stroke-width="3.5"/>
+<line x1="240" y1="94" x2="265" y2="94" class="trace" stroke-width="2.5"/>
+<line x1="200" y1="112" x2="200" y2="612" class="trace-gnd" stroke-width="2"/>
+<text x="200" y="125" class="lc">10k&#x3A9; 1/4W</text>
+<text x="200" y="136" class="lcr">R1</text>
+<text x="200" y="148" class="lca">NATO</text>
+<circle cx="160" cy="94" r="3.5" class="pad"/>
+<circle cx="240" cy="94" r="3.5" class="pad"/>
+</g>
+<circle cx="265" cy="94" r="6" fill="#00ff88" filter="url(#fg)" class="glow-g"/>
+<g class="comp-g" id="cmp-c1" onclick="selectComp('c1')">
+<rect x="253" y="118" width="24" height="38" rx="2" class="cb-cap"/>
+<line x1="253" y1="130" x2="277" y2="130" stroke="#3355aa" stroke-width="3"/>
+<line x1="253" y1="142" x2="277" y2="142" stroke="#3355aa" stroke-width="3"/>
+<line x1="265" y1="94" x2="265" y2="118" class="trace" stroke-width="2"/>
+<line x1="265" y1="156" x2="265" y2="612" class="trace-gnd" stroke-width="1.5"/>
+<text x="265" y="172" class="lc">100nF</text>
+<text x="265" y="183" class="lcr">C1 X7R</text>
+<text x="265" y="195" class="lca">RUSSIA</text>
+<circle cx="265" cy="118" r="3" class="pad"/>
+<circle cx="265" cy="156" r="3" class="pad"/>
+</g>
+<g class="comp-g" id="cmp-c2" onclick="selectComp('c2')">
+<rect x="305" y="48" width="30" height="58" rx="3" class="cb-cap2"/>
+<rect x="305" y="48" width="15" height="58" rx="3 0 0 3" fill="rgba(60,100,200,0.1)"/>
+<text x="311" y="68" style="font-size:9px;fill:#5577cc;font-family:Share Tech Mono">+</text>
+<line x1="320" y1="38" x2="320" y2="48" class="trace-pwr" stroke-width="2.5"/>
+<line x1="320" y1="106" x2="320" y2="612" class="trace-gnd" stroke-width="2"/>
+<text x="320" y="125" class="lc">100&#x3BC;F 25V</text>
+<text x="320" y="136" class="lcr">C2 ELYT</text>
+<text x="320" y="148" class="lca">CHINA</text>
+<circle cx="320" cy="48" r="3.5" class="pad"/>
+<circle cx="320" cy="106" r="3.5" class="pad"/>
+</g>
+<g class="comp-g" id="cmp-opamp" onclick="selectComp('opamp')">
+<polygon points="380,55 380,145 460,100" class="cb-chip" filter="url(#fg)"/>
+<line x1="380" y1="72" x2="358" y2="72" class="trace" stroke-width="2"/>
+<line x1="380" y1="128" x2="358" y2="128" class="trace" stroke-width="2"/>
+<line x1="460" y1="100" x2="490" y2="100" class="trace-sig"/>
+<line x1="420" y1="55" x2="420" y2="38" class="trace-pwr" stroke-width="2"/>
+<line x1="420" y1="145" x2="420" y2="612" class="trace-gnd" stroke-width="2"/>
+<text x="370" y="76" style="font-size:9px;fill:#00ff88;font-family:Share Tech Mono">+</text>
+<text x="370" y="132" style="font-size:9px;fill:#00ff88;font-family:Share Tech Mono">&#x2212;</text>
+<text x="420" y="170" class="lc">LM358N</text>
+<text x="420" y="182" class="lcr">U2 OP-AMP</text>
+<text x="420" y="194" class="lca">USA / CENTCOM</text>
+</g>
+<path d="M265,94 L310,94 L310,72 L358,72" class="trace-sig"/>
+<g class="comp-g" id="cmp-r2" onclick="selectComp('r2')">
+<rect x="318" y="120" width="50" height="24" rx="2" class="cb-res"/>
+<line x1="343" y1="112" x2="343" y2="120" stroke="#ffaa00" stroke-width="2"/>
+<polygon points="338,116 348,116 343,120" fill="#ffaa00"/>
+<line x1="318" y1="132" x2="306" y2="132" class="trace" stroke-width="2"/>
+<line x1="368" y1="132" x2="358" y2="128" class="trace" stroke-width="1.5"/>
+<line x1="306" y1="132" x2="306" y2="612" class="trace-gnd" stroke-width="1.5"/>
+<line x1="306" y1="132" x2="306" y2="38" class="trace-pwr" stroke-width="1.5"/>
+<text x="343" y="155" class="lc">TRIM 10k&#x3A9;</text>
+<text x="343" y="166" class="lcr">R2</text>
+<text x="343" y="178" class="lca">ISRAEL</text>
+</g>
+<g class="comp-g" id="cmp-reg" onclick="selectComp('reg')">
+<rect x="50" y="250" width="74" height="42" rx="2" class="cb-trans"/>
+<rect x="50" y="238" width="74" height="14" rx="1" fill="#2a2a2a" stroke="#555" stroke-width="1"/>
+<line x1="68" y1="292" x2="68" y2="320" class="trace-pwr" stroke-width="2.5"/>
+<line x1="87" y1="292" x2="87" y2="612" class="trace-gnd" stroke-width="2"/>
+<line x1="106" y1="292" x2="106" y2="320" class="trace" stroke-width="2.5"/>
+<line x1="68" y1="238" x2="68" y2="38" class="trace-pwr" stroke-width="2"/>
+<text x="65" y="309" class="lpin" style="fill:rgba(255,80,0,0.7)">IN</text>
+<text x="83" y="309" class="lpin" style="fill:rgba(0,255,136,0.4)">G</text>
+<text x="100" y="309" class="lpin" style="fill:rgba(0,255,136,0.8)">5V</text>
+<text x="87" y="340" class="lc">LM7805</text>
+<text x="87" y="351" class="lcr">U5 TO-220</text>
+<text x="87" y="363" class="lca">SAUDI ARABIA</text>
+</g>
+<g class="comp-g" id="cmp-q1" onclick="selectComp('q1')">
+<rect x="492" y="72" width="34" height="52" rx="2" class="cb-trans"/>
+<path d="M522,72 A24,24 0 0,1 522,124 Z" class="cb-trans"/>
+<line x1="522" y1="83" x2="522" y2="58" class="trace" stroke-width="2"/>
+<line x1="522" y1="113" x2="522" y2="138" class="trace" stroke-width="2"/>
+<line x1="522" y1="138" x2="522" y2="612" class="trace-gnd" stroke-width="2"/>
+<line x1="522" y1="58" x2="522" y2="38" class="trace" stroke-width="2"/>
+<line x1="492" y1="98" x2="490" y2="100" class="trace-sig"/>
+<text x="514" y="155" class="lc">BC547B</text>
+<text x="514" y="166" class="lcr">Q1 NPN</text>
+<text x="514" y="178" class="lca">HEZBOLLAH</text>
+<text x="525" y="78" class="lpin" style="fill:rgba(255,170,0,0.7)">C</text>
+<text x="525" y="120" class="lpin" style="fill:rgba(255,170,0,0.7)">E</text>
+<text x="489" y="103" class="lpin" style="fill:rgba(255,170,0,0.7)">B</text>
+</g>
+<g class="comp-g" id="cmp-r3" onclick="selectComp('r3')">
+<rect x="568" y="32" width="60" height="24" rx="2" class="cb-res"/>
+<line x1="580" y1="32" x2="580" y2="56" stroke="#3a1204" stroke-width="3"/>
+<line x1="592" y1="32" x2="592" y2="56" stroke="#111" stroke-width="3"/>
+<line x1="604" y1="32" x2="604" y2="56" stroke="#cc8800" stroke-width="3"/>
+<line x1="616" y1="32" x2="616" y2="56" stroke="#222" stroke-width="3"/>
+<line x1="522" y1="38" x2="568" y2="44" class="trace" stroke-width="2"/>
+<line x1="628" y1="44" x2="660" y2="44" class="trace" stroke-width="2"/>
+<line x1="660" y1="44" x2="660" y2="38" class="trace-pwr" stroke-width="2"/>
+<text x="598" y="72" class="lc">470&#x3A9; 1/4W</text>
+<text x="598" y="83" class="lcr">R3</text>
+<text x="598" y="95" class="lca">JORDAN</text>
+</g>
+<g class="comp-g" id="cmp-led" onclick="selectComp('led')">
+<line x1="660" y1="38" x2="700" y2="38" class="trace-pwr" stroke-width="2"/>
+<line x1="700" y1="38" x2="700" y2="55" class="trace-pwr" stroke-width="2"/>
+<ellipse cx="700" cy="70" rx="14" ry="16" fill="rgba(255,34,51,0.25)" stroke="#ff2233" stroke-width="1.5" class="led-blink"/>
+<line x1="690" y1="61" x2="682" y2="52" stroke="rgba(255,34,51,0.4)" stroke-width="1.2" class="led-blink"/>
+<line x1="694" y1="58" x2="686" y2="49" stroke="rgba(255,34,51,0.4)" stroke-width="1.2" class="led-blink"/>
+<line x1="698" y1="56" x2="692" y2="46" stroke="rgba(255,34,51,0.3)" stroke-width="1" class="led-blink"/>
+<line x1="700" y1="86" x2="700" y2="100" class="trace" stroke-width="2"/>
+<text x="700" y="115" class="lc">LED 3mm</text>
+<text x="700" y="126" class="lcr">D1 RED</text>
+<text x="700" y="138" class="lca">GULF ALARM</text>
+</g>
+<g class="comp-g" id="cmp-mcu" onclick="selectComp('mcu')">
+<rect x="390" y="270" width="150" height="160" rx="4" class="cb-chip" filter="url(#fg)"/>
+<line x1="390" y1="296" x2="370" y2="296" class="trace" stroke-width="1.5"/>
+<line x1="390" y1="312" x2="370" y2="312" class="trace" stroke-width="1.5"/>
+<line x1="390" y1="328" x2="370" y2="328" class="trace-sig" stroke-width="1.5"/>
+<line x1="390" y1="344" x2="370" y2="344" class="trace" stroke-width="1.5"/>
+<line x1="390" y1="360" x2="370" y2="360" class="trace-sig" stroke-width="1.5"/>
+<line x1="540" y1="296" x2="560" y2="296" class="trace-sig"/>
+<line x1="540" y1="312" x2="560" y2="312" class="trace-sig"/>
+<line x1="540" y1="328" x2="560" y2="328" class="trace" stroke-width="1.5"/>
+<line x1="540" y1="344" x2="560" y2="344" class="trace" stroke-width="1.5"/>
+<text x="368" y="300" class="lpin" style="text-anchor:end">VCC</text>
+<text x="368" y="316" class="lpin" style="text-anchor:end">GND</text>
+<text x="368" y="332" class="lpin" style="text-anchor:end;fill:rgba(255,170,0,0.7)">A0</text>
+<text x="368" y="348" class="lpin" style="text-anchor:end">RST</text>
+<text x="368" y="364" class="lpin" style="text-anchor:end;fill:rgba(255,170,0,0.7)">D2</text>
+<text x="562" y="300" class="lpin" style="fill:rgba(255,170,0,0.7)">SDA</text>
+<text x="562" y="316" class="lpin" style="fill:rgba(255,170,0,0.7)">SCL</text>
+<text x="562" y="332" class="lpin">TX</text>
+<text x="562" y="348" class="lpin">RX</text>
+<line x1="370" y1="296" x2="355" y2="296" class="trace-pwr" stroke-width="1.5"/>
+<line x1="355" y1="296" x2="355" y2="38" class="trace-pwr" stroke-width="1.5"/>
+<line x1="370" y1="312" x2="350" y2="312" class="trace-gnd" stroke-width="1.5"/>
+<line x1="350" y1="312" x2="350" y2="612" class="trace-gnd" stroke-width="1.5"/>
+<line x1="370" y1="328" x2="265" y2="328" class="trace-sig"/>
+<line x1="265" y1="328" x2="265" y2="94" class="trace-sig"/>
+<text x="465" y="348" class="lc" style="font-size:11px">ATmega328P</text>
+<text x="465" y="364" class="lcr" style="font-size:8px">ARDUINO NANO</text>
+<circle cx="396" cy="274" r="3" fill="rgba(0,255,136,0.3)"/>
+<text x="465" y="398" class="lca" style="font-size:11px">CIA / MOSSAD</text>
+<text x="465" y="412" class="lcr">INTELLIGENCE</text>
+</g>
+<g class="comp-g" id="cmp-oled" onclick="selectComp('oled')">
+<rect x="615" y="265" width="160" height="90" rx="4" class="cb-disp" filter="url(#fg)"/>
+<line x1="615" y1="286" x2="560" y2="296" class="trace-sig"/>
+<line x1="615" y1="300" x2="560" y2="312" class="trace-sig"/>
+<line x1="695" y1="265" x2="695" y2="38" class="trace-pwr" stroke-width="2"/>
+<line x1="720" y1="355" x2="720" y2="612" class="trace-gnd" stroke-width="2"/>
+<text x="640" y="285" style="font-family:Share Tech Mono;font-size:7px;fill:rgba(0,255,136,0.25)">SSD1306 I2C</text>
+<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">68.5°C</text>
+<text x="695" y="378" class="lc">OLED 0.96" I2C</text>
+<text x="695" y="390" class="lcr">U4 SSD1306</text>
+<text x="695" y="403" class="lca">GLOBAL OUTPUT</text>
+</g>
+<g class="comp-g" id="cmp-diplo" onclick="selectComp('diplo')">
+<rect x="600" y="460" width="140" height="60" rx="3" fill="#030a14" stroke="#0066aa" stroke-width="1.5"/>
+<text x="670" y="482" style="font-family:Share Tech Mono;font-size:8px;fill:#0088cc;text-anchor:middle">DIPLOMATIC CHANNEL</text>
+<text x="670" y="495" class="lcr">CIA &#x2194; IRAN 007</text>
+<text x="670" y="509" class="lca" style="font-size:9px">CHINA MEDIATION</text>
+<line x1="560" y1="332" x2="590" y2="332" class="trace-diplo"/>
+<line x1="590" y1="332" x2="590" y2="490" class="trace-diplo"/>
+<line x1="590" y1="490" x2="600" y2="490" class="trace-diplo"/>
+</g>
+<circle class="fdot-r" r="4"><animateMotion dur="2.5s" repeatCount="indefinite" path="M92,60 L92,38 L200,38 L200,94 L265,94"/></circle>
+<circle class="fdot-g" r="4"><animateMotion dur="2s" repeatCount="indefinite" begin="0.5s" path="M265,94 L310,94 L310,72 L380,72"/></circle>
+<circle class="fdot-a" r="3.5"><animateMotion dur="1.8s" repeatCount="indefinite" begin="0.3s" path="M460,100 L490,100 L492,98"/></circle>
+<circle class="fdot-r" r="3.5"><animateMotion dur="1.5s" repeatCount="indefinite" path="M522,58 L522,38 L568,44 L628,44 L660,44 L700,44"/></circle>
+<circle class="fdot-g" r="3"><animateMotion dur="3s" repeatCount="indefinite" begin="1s" path="M265,94 L265,328 L390,328"/></circle>
+<circle class="fdot-b" r="3"><animateMotion dur="2.5s" repeatCount="indefinite" begin="1.5s" path="M540,296 L560,296 L615,286"/></circle>
+<circle r="3" fill="#0088cc" filter="url(#fb)"><animateMotion dur="4s" repeatCount="indefinite" begin="0s" path="M560,332 L590,332 L590,490 L600,490"/></circle>
+<rect x="44" y="440" width="300" height="120" rx="4" fill="rgba(0,15,6,0.85)" stroke="rgba(0,255,136,0.12)" stroke-width="1"/>
+<text x="194" y="460" class="lcr" style="font-size:8px">// STEINHART-HART</text>
+<text x="194" y="476" class="lc" style="font-size:8px">T = 1/(A + B&#xB7;ln R + C&#xB7;ln&#xB3;R)</text>
+<text x="194" y="492" class="lcr">R = R_ref x (Vcc/Vout - 1)</text>
+<text x="194" y="508" class="lca" style="font-size:8px">CURRENT T &#x2192; SSD1306 I2C</text>
+<text x="194" y="528" class="lc" style="font-size:8px;fill:rgba(255,170,0,0.9)" id="formula-temp">OUTPUT: 68.5 °C &#x2192; Loading...</text>
+<text x="194" y="544" class="lcr" id="formula-sub">INITIALIZING SENSOR DATA...</text>
+<g stroke="#006633" stroke-width="1.5" fill="none">
+<line x1="200" y1="607" x2="200" y2="612"/><line x1="193" y1="612" x2="207" y2="612"/>
+<line x1="196" y1="616" x2="204" y2="616"/><line x1="198" y1="620" x2="202" y2="620"/>
+</g>
+<g stroke="#006633" stroke-width="1.5" fill="none">
+<line x1="522" y1="607" x2="522" y2="612"/><line x1="515" y1="612" x2="529" y2="612"/>
+<line x1="518" y1="616" x2="526" y2="616"/><line x1="520" y1="620" x2="524" y2="620"/>
+</g>
+</svg>
+<div class="tooltip-panel" id="tooltip">
+<span class="tp-close" onclick="closeTooltip()">&#x2715; close</span>
+<div class="tp-title" id="tp-title">&#x2014;</div>
+<div class="tp-body" id="tp-body">&#x2014;</div>
+<div class="tp-actor" id="tp-actor">&#x2014;</div>
+<div class="tp-status" id="tp-status">&#x2014;</div>
+</div>
+</div>
+<div class="side-panel">
+<div class="temp-box">
+<div class="temp-label">// CONFLICT TEMPERATURE</div>
+<div><span class="temp-val" id="temp-val" style="color:#ff6600">68.5</span><span class="temp-unit">&#xB0;C</span></div>
+<div class="temp-trend">
+<span class="trend-arrow" id="trend-arrow" style="color:#ff2233">&#x25B2;</span>
+<span id="trend-txt" style="color:#ff2233;font-family:Share Tech Mono;font-size:11px;letter-spacing:2px">ESCALATION</span>
+</div>
+<div class="bar-wrap"><div class="bar-fill" id="bar-fill" style="width:50%;background:linear-gradient(90deg,#ff4400,#ff6600)"></div></div>
+<div style="display:flex;justify-content:space-between;font-family:'Share Tech Mono',monospace;font-size:7px;color:rgba(0,255,136,0.25);margin-top:4px">
+<span>0&#xB0; PEACE</span><span>50&#xB0; CRISIS</span><span>100&#xB0;+ NUCLEAR</span>
+</div>
+</div>
+<div class="info-box">
+<div class="ib-label">// COMPONENT STATUS &mdash; click for details</div>
+<div class="comp-list">
+<div class="comp-item" id="li-ntc" onclick="selectComp('ntc')"><div class="comp-dot cd-red"></div><div><div class="comp-name">IRAN / IRGC</div><div class="comp-ref">NTC U1 10k&#x3A9;</div></div><span class="comp-state cs-hot">ACTIVE</span></div>
+<div class="comp-item" id="li-opamp" onclick="selectComp('opamp')"><div class="comp-dot cd-green"></div><div><div class="comp-name">USA / CENTCOM</div><div class="comp-ref">LM358N U2</div></div><span class="comp-state cs-hot">FULL POWER</span></div>
+<div class="comp-item" id="li-r2" onclick="selectComp('r2')"><div class="comp-dot cd-amber"></div><div><div class="comp-name">ISRAEL</div><div class="comp-ref">Trimmer R2</div></div><span class="comp-state cs-hot">CRITICAL THRESHOLD</span></div>
+<div class="comp-item" id="li-q1" onclick="selectComp('q1')"><div class="comp-dot cd-amber"></div><div><div class="comp-name">HEZBOLLAH</div><div class="comp-ref">BC547B Q1</div></div><span class="comp-state cs-hot">CONDUCTING</span></div>
+<div class="comp-item" id="li-mcu" onclick="selectComp('mcu')"><div class="comp-dot cd-green"></div><div><div class="comp-name">CIA / MOSSAD</div><div class="comp-ref">ATmega328P U3</div></div><span class="comp-state cs-ok">ADC ACTIVE</span></div>
+<div class="comp-item" id="li-c2" onclick="selectComp('c2')"><div class="comp-dot cd-blue"></div><div><div class="comp-name">CHINA</div><div class="comp-ref">100&#x3BC;F C2</div></div><span class="comp-state cs-warn">MEDIATION</span></div>
+<div class="comp-item" id="li-c1" onclick="selectComp('c1')"><div class="comp-dot cd-blue"></div><div><div class="comp-name">RUSSIA</div><div class="comp-ref">100nF C1</div></div><span class="comp-state cs-stby">STANDBY</span></div>
+<div class="comp-item" id="li-r1" onclick="selectComp('r1')"><div class="comp-dot cd-blue"></div><div><div class="comp-name">NATO</div><div class="comp-ref">10k&#x3A9; R1</div></div><span class="comp-state cs-warn">ALERT</span></div>
+<div class="comp-item" id="li-reg" onclick="selectComp('reg')"><div class="comp-dot cd-amber"></div><div><div class="comp-name">SAUDI ARABIA</div><div class="comp-ref">LM7805 U5</div></div><span class="comp-state cs-warn">UNDER ATTACK</span></div>
+<div class="comp-item" id="li-fuse" onclick="selectComp('fuse')"><div class="comp-dot cd-red"></div><div><div class="comp-name">STRAIT OF HORMUZ</div><div class="comp-ref">Fuse F1 1A</div></div><span class="comp-state cs-hot">&#x26A0; OPEN</span></div>
+<div class="comp-item" id="li-diplo" onclick="selectComp('diplo')"><div class="comp-dot cd-purple" style="background:#0088cc;color:#0088cc"></div><div><div class="comp-name">DIPLOMATIC CHANNEL</div><div class="comp-ref">CIA &#x2194; 007 Iran</div></div><span class="comp-state" style="background:rgba(255,170,0,0.15);color:#ffaa00;border:1px solid rgba(255,170,0,0.3)">UNCERTAIN</span></div>
+<div class="comp-item" onclick="selectComp('led')"><div class="comp-dot cd-red"></div><div><div class="comp-name">KURDS &mdash; NEW FRONT</div><div class="comp-ref">Ground offensive vs Iran</div></div><span class="comp-state cs-hot">&#x26A0; ACTIVE</span></div>
+</div>
+</div>
+<div class="hormuz-alarm">
+<div class="hz-label">&#x2693; STRAIT OF HORMUZ</div>
+<div class="hz-val" id="hormuz-val">&#x26D4; CLOSED &mdash; IRGC</div>
+<div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:rgba(255,80,0,0.6);margin-top:4px">3,000+ SHIPS BLOCKED &middot; GAS TTF +40% &middot; 20+ SHIPS SUNK</div>
+</div>
+<div class="info-box">
+<div class="ib-label">// &#x2622; NUCLEAR RISK</div>
+<div class="nuke-dots" id="nuke-dots"></div>
+</div>
+<div class="info-box">
+<div class="ib-label">// TEMPERATURE HISTORY (&#xB0;C)</div>
+<svg id="spark" viewBox="0 0 280 55" preserveAspectRatio="none">
+<polyline id="spark-line" fill="none" stroke="#00ff88" stroke-width="2.5" style="filter:drop-shadow(0 0 5px #00ff88) drop-shadow(0 0 2px #00ff88)"/>
+<polyline id="spark-area" fill="rgba(0,255,136,0.15)" stroke="none"/>
+</svg>
+</div>
+</div>
+</div>
+</div>
 <script>
-// ── DATI COMPONENTI ────────────────────────────────────────────
-const COMPS = {
-  ntc:   { title:'NTC THERMISTOR — U1', comp:'NTC 10kΩ B=3950', actor:'Iran / IRGC', status:'Missili -86% ma Larijani minaccia: siamo pronti a infliggere migliaia di vittime agli americani. EAU: nuova ondata missilistica su Abu Dhabi. Petroliera USA in fiamme nel Golfo. Droni su Nakhchivan. Il NTC non si raffredda — il calore si sposta dai missili balistici agli attacchi asimmetrici.' },
-  opamp: { title:'OP-AMP LM358N — U2', comp:'Amplificatore operazionale DIP-8', actor:'USA / CENTCOM', status:'IDF: oltre 5.000 bombe sganciate sull\'Iran in 6 giorni. IDF: operazione durerà almeno un\'altra settimana o due, migliaia di obiettivi. Francia autorizza aerei USA in basi mediorientali. Consiglio Atlantico riunito a Bruxelles. Amplificazione invariata — piena potenza.' },
-  r2:    { title:'TRIMMER 10kΩ — R2', comp:'Potenziometro di riferimento', actor:'Israele / IDF', status:'Ordine di evacuazione senza precedenti: 400.000 persone nella periferia sud di Beirut (Dahiyeh) invitate a fuggire immediatamente. IDF avanza nel sud Libano oltre il fiume Leonte. Funzionario Hamas ucciso a Tripoli. La soglia di scatto è al minimo assoluto.' },
-  q1:    { title:'TRANSISTOR NPN BC547B — Q1', comp:'TO-92 · hFE=200-450', actor:'Hezbollah', status:'IDF ordina evacuazione 400.000 abitanti periferia sud Beirut — imminente grande offensiva. Hezbollah: forze israeliane si sono ritirate da Khiam dopo intensi combattimenti. 80.000+ sfollati in Libano, 16.000+ minori (Save the Children). Transistor in oscillazione: perde terreno ma resta in conduzione.' },
-  mcu:   { title:'MICROCONTROLLORE ATmega328P — U3', comp:'Arduino Nano · 5V 16MHz', actor:'CIA / Mossad — Intelligence', status:'Canale CIA-Iran formalmente negato da Larijani che minaccia migliaia di vittime USA. Canada non esclude partecipazione militare. Guida Suprema: ancora in transizione. Ayatollah in TV: spargete il sangue di Trump. L\'MCU riceve segnali sempre più contraddittori — il firmware del regime si avvicina al riavvio.' },
-  c2:    { title:'CONDENSATORE ELETTROLITICO — C2', comp:'100µF 25V', actor:'Cina', status:'Inviato speciale mobilizzato. Analisti IAI: curdi iraniani come possibili attori di un fronte interno destabilizzante. La Cina teme l\'interruzione delle forniture energetiche dal Golfo. Il condensatore si scarica verso mediazione attiva.' },
-  c1:    { title:'CONDENSATORE CERAMICO — C1', comp:'100nF X7R 0805', actor:'Russia', status:'Silenzio. L\'Azerbaigian — alleato russo — colpito da droni iraniani su aeroporto Nakhchivan. La Turchia condanna con forza. Il condensatore russo inizia a caricarsi: pressione sul fianco nord del circuito in crescita.' },
-  r1:    { title:'RESISTENZA FISSA — R1', comp:'10kΩ ¼W · resistenza NATO', actor:'NATO', status:'Rutte (NATO): pieno sostegno all\'operazione USA-Israele. UK invia 4 ulteriori caccia Typhoon in Qatar. Consiglio Atlantico riunito a Bruxelles. Francia deploying difese aeree nel Golfo e Mar Rosso. Spagna invia fregata verso Cipro ma ribadisce opposizione alla guerra. La resistenza NATO scende ancora.' },
-  reg:   { title:'REGOLATORE LM7805 — U5', comp:'TO-220 · 5V 1A', actor:'Arabia Saudita / EAU', status:'Arabia Saudita intercetta 3 missili cruise iraniani vicino ad Al-Kharj. IRGC colpisce petroliera nel Golfo. Snam: scorte gas Italia al 45%, nessun problema forniture fino a marzo. Il regolatore regge — ma il margine si riduce.' },
-  fuse:  { title:'FUSIBILE — F1 · STRETTO DI HORMUZ', comp:'1A · APERTO — nessuna protezione', actor:'Stretto di Hormuz — Pasdaran IRGC', status:'IRGC: controllo completo. Petroliera USA in fiamme nel Golfo. UKMTO emette warning 014-026. 3.000+ navi bloccate. Il fusibile resta APERTO — rischio blackout energetico globale concreto.' },
-  oled:  { title:'DISPLAY OLED SSD1306 — U4', comp:'0.96" I2C 128×64', actor:'Output Globale — Mercati / Media', status:'Ministro spagnolo: Medio Oriente trasformato in polveriera, sull\'orlo di una terza guerra mondiale. Meloni comunicherà al Parlamento l\'11 marzo. Display mostra 92.1°C — lieve calo per riduzione missili (-86%), ma Azerbaijan e nuovi fronti riaprono la curva.' },
-  diplo: { title:'CANALE DIPLOMATICO — FRAGILE', comp:'Trace I2C bidirezionale', actor:'CIA ↔ 007 Iran — Cina mediatore', status:'Il canale esiste (NYT) ma è formalmente negato. Nessun cessate il fuoco in vista. IDF annuncia settimane di operazioni. Segnale I2C intermittente — presente ma non stabilizzato.' },
-  led:   { title:'LED ALLARME REGIONALE — MULTIFRONTE', comp:'LED rosso · 5 fronti attivi', actor:'Golfo · Libano · Azerbaigian · Iraq · Kurdistan', status:'Iran attacca aeroporto Nakhchivan (Azerbaigian). Iraq: blackout totale. Kataib Hezbollah: funerali caduti a Baghdad. Kurdistan iracheno: QG curdo colpito da missili iraniani. NUOVO: 400.000 persone in fuga da Beirut sud. Il LED si allarga a macchia ogni giorno.' },
-  r3:    { title:'RESISTENZA LIMITATRICE — R3', comp:'470Ω ¼W', actor:'Giordania', status:'Intercetta missili di transito. Aoun tenta cessate il fuoco con ambasciatori USA, Francia, Arabia Saudita, Egitto, Qatar. Dissipa la corrente in silenzio.' }
+const COMPS={
+ntc:{title:'NTC THERMISTOR — U1',comp:'NTC 10kΩ B=3950',actor:'Iran / IRGC',status:'Missiles -86% but Larijani threatens: ready to inflict thousands of casualties on Americans. UAE: new missile wave on Abu Dhabi. US tanker in flames in the Gulf. Drones over Nakhchivan. NTC does not cool — heat shifts from ballistic to asymmetric attacks.'},
+opamp:{title:'OP-AMP LM358N — U2',comp:'Operational amplifier DIP-8',actor:'USA / CENTCOM',status:'IDF: over 5,000 bombs dropped on Iran in 6 days. Operation will last at least another week or two, thousands of targets. France authorizes US aircraft at Middle Eastern bases. Atlantic Council in Brussels. Full power.'},
+r2:{title:'TRIMMER 10kΩ — R2',comp:'Reference potentiometer',actor:'Israel / IDF',status:'Unprecedented evacuation order: 400,000 people in south Beirut suburbs urged to flee immediately. IDF advances in southern Lebanon beyond the Litani River. Trigger threshold at absolute minimum.'},
+q1:{title:'NPN TRANSISTOR BC547B — Q1',comp:'TO-92 · hFE=200-450',actor:'Hezbollah',status:'IDF orders evacuation of 400,000 south Beirut residents. Hezbollah: Israeli forces withdrew from Khiam after intense fighting. 80,000+ displaced in Lebanon. Transistor oscillating: losing ground but still conducting.'},
+mcu:{title:'MCU ATmega328P — U3',comp:'Arduino Nano · 5V 16MHz',actor:'CIA / Mossad — Intelligence',status:'CIA-Iran channel formally denied by Larijani. Canada does not rule out military involvement. Supreme Leader in transition. MCU receives contradictory signals — regime firmware approaching reboot.'},
+c2:{title:'ELECTROLYTIC CAPACITOR — C2',comp:'100μF 25V',actor:'China',status:'Special envoy mobilized. China fears disruption of Gulf energy supplies. Capacitor discharging toward active mediation.'},
+c1:{title:'CERAMIC CAPACITOR — C1',comp:'100nF X7R 0805',actor:'Russia',status:'Silence. Azerbaijan hit by Iranian drones at Nakhchivan airport. Russian capacitor charging: pressure on northern circuit flank increasing.'},
+r1:{title:'FIXED RESISTOR — R1',comp:'10kΩ ¼W · NATO resistance',actor:'NATO',status:'Rutte (NATO): full support for USA-Israel operation. UK sends 4 additional Typhoon fighters to Qatar. France deploying air defenses in Gulf and Red Sea. NATO resistance still declining.'},
+reg:{title:'REGULATOR LM7805 — U5',comp:'TO-220 · 5V 1A',actor:'Saudi Arabia / UAE',status:'Saudi Arabia intercepts 3 Iranian cruise missiles near Al-Kharj. IRGC hits tanker in the Gulf. Regulator holds — but margin shrinks.'},
+fuse:{title:'FUSE — F1 · STRAIT OF HORMUZ',comp:'1A · OPEN — no protection',actor:'Strait of Hormuz — IRGC Pasdaran',status:'IRGC: full control. US tanker in flames in the Gulf. UKMTO issues warning 014-026. 3,000+ ships blocked. Fuse remains OPEN — global energy blackout risk imminent.'},
+oled:{title:'OLED DISPLAY SSD1306 — U4',comp:'0.96" I2C 128x64',actor:'Global Output — Markets / Media',status:'Display shows current conflict temperature — updated every 2 hours by AI analysis of geopolitical events.'},
+diplo:{title:'DIPLOMATIC CHANNEL — FRAGILE',comp:'Bidirectional I2C trace',actor:'CIA ↔ 007 Iran — China mediator',status:'The channel exists (NYT) but is formally denied. No ceasefire in sight. IDF announces weeks of operations. I2C signal intermittent — present but not stabilized.'},
+led:{title:'LED REGIONAL ALERT — MULTI-FRONT',comp:'Red LED · 5 active fronts',actor:'Gulf · Lebanon · Azerbaijan · Iraq · Kurdistan',status:'Iran strikes Nakhchivan airport (Azerbaijan). Iraq: total blackout. Kataib Hezbollah mourns fallen in Baghdad. Iraqi Kurdistan: Kurdish HQ hit by Iranian missiles. 400,000 fleeing south Beirut. LED spreads daily.'},
+r3:{title:'CURRENT LIMITER — R3',comp:'470Ω ¼W',actor:'Jordan',status:'Intercepts transit missiles. Aoun attempts ceasefire with US, France, Saudi Arabia, Egypt, Qatar ambassadors. Dissipates current in silence.'}
 };
 
-// ── TOOLTIP ────────────────────────────────────────────────────
-let activeComp = null;
+let activeComp=null;
+function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
+function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-function selectComp(id) {
-  const d = COMPS[id];
-  if (!d) return;
-  document.getElementById('tp-title').textContent = d.title;
-  document.getElementById('tp-body').textContent = d.comp;
-  document.getElementById('tp-actor').textContent = '▸ ' + d.actor;
-  document.getElementById('tp-status').textContent = d.status;
-  document.getElementById('tooltip').classList.add('vis');
+const history = [68.5];
+let currentTemp = 68.5;
 
-  // Highlight list item
-  document.querySelectorAll('.comp-item').forEach(el => el.classList.remove('selected'));
-  const li = document.getElementById('li-' + id);
-  if (li) li.classList.add('selected');
-  activeComp = id;
-}
+function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
+function barWidth(t){return Math.min(99,(t/150)*100);}
 
-function closeTooltip() {
-  document.getElementById('tooltip').classList.remove('vis');
-  document.querySelectorAll('.comp-item').forEach(el => el.classList.remove('selected'));
-  activeComp = null;
-}
-
-// ── TEMPERATURE ANIMATION ──────────────────────────────────────
-const history = [45.0, 72.0, 80.5, 83.2, 81.8, 84.5, 85.1, 83.7, 86.2, 85.9, 87.0, 86.5, 88.1, 87.8, 89.3, 88.6, 87.4, 89.0, 90.1, 91.2, 91.8, 92.4, 91.9, 93.1, 93.8, 93.2, 92.7, 92.1, 92.9, 93.4, 94.1, 95.0, 94.6, 95.8, 96.8, 72.5];
-
-let currentTemp = 72.5;
-
-function tempColor(t) {
-  if (t < 50)  return '#00ff88';
-  if (t < 70)  return '#88cc00';
-  if (t < 85)  return '#ffaa00';
-  if (t < 100) return '#ff6600';
-  return '#ff2233';
-}
-
-function barWidth(t) {
-  return Math.min(99, (t / 150) * 100);
-}
-
-function updateTemp() {
-  // Slow rise with micro-oscillations
-  const delta = (Math.random() - 0.35) * 0.7;
-  currentTemp = Math.max(85, Math.min(115, currentTemp + delta));
-  history.push(parseFloat(currentTemp.toFixed(1)));
-  if (history.length > 30) history.shift();
-
-  const t = currentTemp.toFixed(1);
-  const col = tempColor(currentTemp);
-
-  // Main display
-  document.getElementById('temp-val').textContent = t;
+// ── APPLY REAL DATA FROM SCORER ─────────────────────────────────
+function applyDisplayTemp(t, trend) {
+  const col = tempColor(t);
+  const tStr = t.toFixed(1);
+  document.getElementById('temp-val').textContent = tStr;
   document.getElementById('temp-val').style.color = col;
   document.getElementById('temp-val').style.textShadow = `0 0 20px ${col}80, 0 0 40px ${col}40`;
-
-  // SVG display
-  document.getElementById('svg-temp-disp').textContent = t + '°C';
-
-  // Formula
-  const trend = delta > 0 ? '↑ ESCALATION' : delta < -0.1 ? '↓ CALO' : '→ STABILE';
-  document.getElementById('formula-temp').textContent = `OUTPUT: ${t} °C ${trend}`;
-
-  // Bar
-  const bw = barWidth(currentTemp);
+  document.getElementById('svg-temp-disp').textContent = tStr + '°C';
+  const bw = barWidth(t);
   const bf = document.getElementById('bar-fill');
   bf.style.width = bw + '%';
-  bf.style.background = `linear-gradient(90deg, #ff4400, ${col})`;
-
-  // Trend
+  bf.style.background = `linear-gradient(90deg,#ff4400,${col})`;
   const ta = document.getElementById('trend-arrow');
   const tt = document.getElementById('trend-txt');
-  if (delta > 0.15) {
+  if (trend === 'rising') {
     ta.textContent = '▲'; ta.style.color = '#ff2233';
     tt.textContent = 'ESCALATION'; tt.style.color = '#ff2233';
-  } else if (delta < -0.15) {
+  } else if (trend === 'falling') {
     ta.textContent = '▼'; ta.style.color = '#00bbff';
     tt.textContent = 'DE-ESCALATION'; tt.style.color = '#00bbff';
   } else {
     ta.textContent = '■'; ta.style.color = '#ffaa00';
-    tt.textContent = 'STABILE'; tt.style.color = '#ffaa00';
+    tt.textContent = 'STABLE'; tt.style.color = '#ffaa00';
   }
+  document.getElementById('formula-temp').textContent = `OUTPUT: ${tStr} °C ${trend==='rising'?'↑':trend==='falling'?'↓':'→'} AI ANALYSIS ACTIVE`;
+}
 
+// ── MICRO OSCILLATION (visual effect only) ──────────────────────
+function updateTemp() {
+  const delta = (Math.random() - 0.5) * 0.25;
+  const display = Math.max(0, Math.min(130, currentTemp + delta));
+  const col = tempColor(display);
+  document.getElementById('temp-val').textContent = display.toFixed(1);
+  document.getElementById('temp-val').style.color = col;
+  document.getElementById('temp-val').style.textShadow = `0 0 20px ${col}80, 0 0 40px ${col}40`;
+  document.getElementById('svg-temp-disp').textContent = display.toFixed(1) + '°C';
+  const bw = barWidth(display);
+  const bf = document.getElementById('bar-fill');
+  bf.style.width = bw + '%';
+  bf.style.background = `linear-gradient(90deg,#ff4400,${col})`;
   buildSparkline();
 }
 
-// ── SPARKLINE ──────────────────────────────────────────────────
-function buildSparkline() {
-  if (history.length < 2) return;
-  const W = 280, H = 55;
-  const minV = Math.min(...history) - 3;
-  const maxV = Math.max(...history) + 3;
+// ── SPARKLINE ───────────────────────────────────────────────────
+function buildSparkline(){if(history.length<2)return;const W=280,H=55;const minV=Math.min(...history)-3;const maxV=Math.max(...history)+3;const pts=history.map((v,i)=>{const x=(i/(history.length-1))*W;const y=H-((v-minV)/(maxV-minV))*(H-4)-2;return`${x.toFixed(1)},${y.toFixed(1)}`;}).join(' ');const area=pts+` ${W},${H} 0,${H}`;document.getElementById('spark-line').setAttribute('points',pts);document.getElementById('spark-area').setAttribute('points',area);}
 
-  const pts = history.map((v, i) => {
-    const x = (i / (history.length - 1)) * W;
-    const y = H - ((v - minV) / (maxV - minV)) * (H - 4) - 2;
-    return `${x.toFixed(1)},${y.toFixed(1)}`;
-  }).join(' ');
+// ── NUCLEAR DOTS ────────────────────────────────────────────────
+function buildNukeDots(risk){const wrap=document.getElementById('nuke-dots');wrap.innerHTML='';for(let i=1;i<=10;i++){const d=document.createElement('div');d.className='nd';if(i<=risk){if(i<=3)d.classList.add('low');else if(i<=6)d.classList.add('mid');else d.classList.add('high');}wrap.appendChild(d);}}
 
-  const area = pts + ` ${W},${H} 0,${H}`;
-  document.getElementById('spark-line').setAttribute('points', pts);
-  document.getElementById('spark-area').setAttribute('points', area);
+// ── CLOCK ───────────────────────────────────────────────────────
+function updateClock(){const n=new Date();document.getElementById('clk').textContent=n.toLocaleString('en-GB',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit'});}
+
+// ── TICKERS (updated by scorer) ─────────────────────────────────
+const TICKERS = ["IDF reports successful interception of Iranian ballistic salvos; 15% penetration rate concerning military planners","Hezbollah escalates northern border operations; 200+ daily cross-border incidents reported by Israeli forces","Saudi Arabia maintains cautious neutrality; UAE concerned about regional instability and energy disruptions","Russian diplomatic overtures rejected; China calls for UN intervention; neither willing direct military involvement","Humanitarian crisis intensifying: 2M+ displaced in Syria/Lebanon; aid corridors strained; disease outbreak risks"];
+
+function buildMarquee(){
+  const sep = '   ⚡   ';
+  const text = TICKERS.join(sep);
+  const el = document.getElementById('marquee-inner');
+  if (el) { el.textContent = text + sep + text; }
 }
 
-// ── NUCLEAR DOTS ───────────────────────────────────────────────
-function buildNukeDots(risk) {
-  const wrap = document.getElementById('nuke-dots');
-  wrap.innerHTML = '';
-  for (let i = 1; i <= 10; i++) {
-    const d = document.createElement('div');
-    d.className = 'nd';
-    if (i <= risk) {
-      if (i <= 3)      d.classList.add('low');
-      else if (i <= 6) d.classList.add('mid');
-      else             d.classList.add('high');
+// ── LOAD REAL DATA FROM SCORER COMMENT ─────────────────────────
+function loadSensorData() {
+  try {
+    const walker = document.createTreeWalker(document, NodeFilter.SHOW_COMMENT);
+    let node;
+    while (node = walker.nextNode()) {
+      if (node.textContent.includes('SENSOR_DATA:')) {
+        const json = node.textContent.replace('SENSOR_DATA:', '').trim();
+        const data = JSON.parse(json);
+
+        // Real temperature from scorer
+        if (typeof data.temperatura === 'number') {
+          currentTemp = data.temperatura;
+          history.push(parseFloat(currentTemp.toFixed(1)));
+          if (history.length > 48) history.shift();
+          applyDisplayTemp(currentTemp, data.trend || 'stable');
+        }
+
+        // Last update badge
+        if (data.last_update) {
+          const d = new Date(data.last_update.replace(' ', 'T'));
+          const fmt = d.toLocaleString('en-GB', {day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});
+          const el = document.getElementById('update-badge');
+          if (el) el.textContent = 'UPDATED: ' + fmt;
+        }
+
+        // Nuclear risk dots
+        if (typeof data.nuclear_risk === 'number') {
+          buildNukeDots(data.nuclear_risk);
+        }
+
+        // Hormuz status
+        if (data.hormuz) {
+          const hz = document.getElementById('hormuz-val');
+          if (hz) {
+            const labels = { open: 'OPEN', partial: '⚠ PARTIAL CLOSURE', closed: '⛔ CLOSED — IRGC' };
+            hz.textContent = labels[data.hormuz] || data.hormuz.toUpperCase();
+          }
+        }
+
+        break;
+      }
     }
-    wrap.appendChild(d);
-  }
+  } catch(e) { console.warn('loadSensorData error:', e); }
+
+  // Update DAY counter from real date
+  const start = new Date('2026-02-28');
+  const now = new Date();
+  const day = Math.max(1, Math.floor((now - start) / 86400000) + 1);
+  const hh = String(now.getHours()).padStart(2,'0');
+  const mm = String(now.getMinutes()).padStart(2,'0');
+  const liveTxt = document.getElementById('live-txt');
+  if (liveTxt) liveTxt.textContent = `LIVE · DAY ${day} · TIME ${hh}:${mm}`;
 }
 
-// ── CLOCK ──────────────────────────────────────────────────────
-function updateClock() {
-  const n = new Date();
-  document.getElementById('clk').textContent =
-    n.toLocaleString('it-IT', {
-      day:'2-digit', month:'2-digit', year:'numeric',
-      hour:'2-digit', minute:'2-digit', second:'2-digit'
-    });
-}
-
-// ── TICKER ROTATION ────────────────────────────────────────────
-const TICKERS = [
-  "IDF strikes Iranian nuclear facilities vicinity - escalation signal",
-  "Iran launches 200+ drones/missiles toward Israel - sustained response",
-  "Hezbollah rockets target northern Israel, Israel retaliates into Lebanon",
-  "Hormuz shipping traffic reduced 40%; tanker diversions via Red Sea",
-  "Saudi Arabia mobilizes air defense; China-Russia joint statement urges ceasefire",
-];
-let tickerIdx = 0;
-function rotateTicker() {
-  tickerIdx = (tickerIdx + 1) % TICKERS.length;
-  const el = document.getElementById('ticker-txt');
-  el.style.opacity = '0';
-  setTimeout(() => {
-    el.textContent = TICKERS[tickerIdx];
-    el.style.transition = 'opacity 0.8s';
-    el.style.opacity = '1';
-  }, 400);
-}
+// ── AUTO RELOAD ogni 2 ore ─────────────────────────────────────
+// Salva timestamp apertura in sessionStorage e ricarica dopo 2 ore
+(function() {
+  const RELOAD_MS = 2 * 60 * 60 * 1000; // 2 hours
+  setTimeout(function() {
+    // Force reload bypassing cache
+    const url = location.href.split('?')[0] + '?t=' + Date.now();
+    location.replace(url);
+  }, RELOAD_MS);
+})();
 
 // ── INIT ────────────────────────────────────────────────────────
+loadSensorData();
 buildNukeDots(6);
 buildSparkline();
 updateClock();
 updateTemp();
+buildMarquee();
 
 setInterval(updateClock, 1000);
 setInterval(updateTemp, 1800);
-setInterval(rotateTicker, 7000);
 </script>
-<!-- SENSOR_DATA:{"temperatura": 72.5, "trend": "rising", "last_update": "2026-04-15 20:45:11", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "Two carrier groups in Gulf; B-52 bomber deployments; 15,000+ troops reinforced across region", "oil_impact": "Brent crude $118/barrel; shipping insurance premiums spike 300%; Hormuz closure scenarios priced in", "diplomacy": "UN mediation stalled; Qatar/Oman backchannel active but frozen; US-Iran communication minimal"} -->
+
+<!-- SENSOR_DATA:{"temperatura": 68.5, "trend": "stable", "last_update": "2026-04-13 08:11:31", "nuclear_risk": 6, "hormuz": "partial", "us_forces": "Two carrier groups deployed, 35,000+ troops in region", "oil_impact": "WTI crude at $127/bbl (+45% since conflict start)", "diplomacy": "Indirect talks via Oman/Qatar; no substantive progress"} -->
+
 </body>
 </html>
