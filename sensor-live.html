@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY -- · TIME --:--</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 47 · TIME 21:47</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -379,7 +379,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
 <line x1="695" y1="265" x2="695" y2="38" class="trace-pwr" stroke-width="2"/>
 <line x1="720" y1="355" x2="720" y2="612" class="trace-gnd" stroke-width="2"/>
 <text x="640" y="285" style="font-family:Share Tech Mono;font-size:7px;fill:rgba(0,255,136,0.25)">SSD1306 I2C</text>
-<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">68.5°C</text>
+<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">72.5°C</text>
 <text x="695" y="378" class="lc">OLED 0.96" I2C</text>
 <text x="695" y="390" class="lcr">U4 SSD1306</text>
 <text x="695" y="403" class="lca">GLOBAL OUTPUT</text>
@@ -495,8 +495,8 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [68.5];
-let currentTemp = 68.5;
+const history = [68.5, 72.5];
+let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
 function barWidth(t){return Math.min(99,(t/150)*100);}
@@ -554,7 +554,13 @@ function buildNukeDots(risk){const wrap=document.getElementById('nuke-dots');wra
 function updateClock(){const n=new Date();document.getElementById('clk').textContent=n.toLocaleString('en-GB',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit'});}
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
-const TICKERS = ["IDF reports successful interception of Iranian ballistic salvos; 15% penetration rate concerning military planners","Hezbollah escalates northern border operations; 200+ daily cross-border incidents reported by Israeli forces","Saudi Arabia maintains cautious neutrality; UAE concerned about regional instability and energy disruptions","Russian diplomatic overtures rejected; China calls for UN intervention; neither willing direct military involvement","Humanitarian crisis intensifying: 2M+ displaced in Syria/Lebanon; aid corridors strained; disease outbreak risks"];
+const TICKERS = [
+  "IDF hits Iranian ballistic missile production near Isfahan",
+  "Iran IRGC retaliates with 120+ unmanned systems toward Negev",
+  "Hormuz transits drop 23%; tanker rates surge",
+  "Hezbollah fires 80+ rockets into northern Israel daily",
+  "US weighs broader sanctions on Iranian oil exports",
+];
 
 function buildMarquee(){
   const sep = '   ⚡   ';
@@ -641,7 +647,8 @@ setInterval(updateClock, 1000);
 setInterval(updateTemp, 1800);
 </script>
 
-<!-- SENSOR_DATA:{"temperatura": 68.5, "trend": "stable", "last_update": "2026-04-13 08:11:31", "nuclear_risk": 6, "hormuz": "partial", "us_forces": "Two carrier groups deployed, 35,000+ troops in region", "oil_impact": "WTI crude at $127/bbl (+45% since conflict start)", "diplomacy": "Indirect talks via Oman/Qatar; no substantive progress"} -->
 
+
+<!-- SENSOR_DATA:{"temperatura": 72.5, "trend": "rising", "last_update": "2026-04-15 21:47:26", "nuclear_risk": 5.2, "hormuz": "partial", "us_forces": "Two carrier strike groups deployed; CENTCOM HQ elevated readiness; 12k additional personnel authorized", "oil_impact": "Brent crude +18% YTD; insurance premiums spike; shipping rerouting via Cape of Good Hope", "diplomacy": "Indirect Qatar mediation stalled; UN Security Council deadlocked; Oman backchannel minimal"} -->
 </body>
 </html>
