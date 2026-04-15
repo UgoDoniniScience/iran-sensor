@@ -1,4 +1,4 @@
-import json,time,re,datetime,os,subprocess,urllib.request
+﻿import json,time,re,datetime,os,subprocess,urllib.request
 
 INTERVAL_MINUTES=120
 HTML_FILE="sensor-live.html"
@@ -71,14 +71,14 @@ def update_html(html,scoring,history):
     temp=round(float(scoring["temperatura"]),1)
     giorno=max(1,(datetime.datetime.now()-datetime.datetime(2026,2,28)).days+1)
     ora=datetime.datetime.now().strftime("ORE %H:%M")
-    arrow={"salita":"↑","discesa":"↓","stabile":"→"}.get(scoring.get("trend","stabile"),"→")
+    arrow={"salita":"â†'","discesa":"â†"","stabile":"â†'"}.get(scoring.get("trend","stabile"),"â†'")
     evento=scoring.get("evento_chiave","")[:65]
     hist_str=", ".join(str(v) for v in history)
     html=re.sub(r'const history = \[[\s\S]*?\];',f'const history = [\n  {hist_str}\n];',html)
     html=re.sub(r'let currentTemp = [\d.]+;',f'let currentTemp = {temp};',html)
-    html=re.sub(r'id="svg-temp-disp">[^<]*°C',f'id="svg-temp-disp">{temp}°C',html)
-    html=re.sub(r'LIVE · GIORNO \d+ · ORE \d+:\d+',f'LIVE · GIORNO {giorno} · {ora}',html)
-    html=re.sub(r'OUTPUT: [\d.]+\s*°C\s*[↑↓→][^\n<]*',f'OUTPUT: {temp} °C {arrow} {evento}',html)
+    html=re.sub(r'id="svg-temp-disp">[^<]*Â°C',f'id="svg-temp-disp">{temp}Â°C',html)
+    html=re.sub(r'LIVE Â· GIORNO \d+ Â· ORE \d+:\d+',f'LIVE Â· GIORNO {giorno} Â· {ora}',html)
+    html=re.sub(r'OUTPUT: [\d.]+\s*Â°C\s*[â†'â†"â†'][^\n<]*',f'OUTPUT: {temp} Â°C {arrow} {evento}',html)
     new_tickers=scoring.get("tickers",[])
     if len(new_tickers)>=3:
         tj="const TICKERS = [\n"+"".join(f"  {json.dumps(t,ensure_ascii=False)},\n" for t in new_tickers)+"];"
@@ -111,7 +111,7 @@ def main():
         print("="*55+"\n")
         return
     print("="*55)
-    print("  GEOPOLITICAL SCORER  ·  Claude Haiku + Git Push")
+    print("  GEOPOLITICAL SCORER  Â·  Claude Haiku + Git Push")
     print(f"  Repo:    {REPO_DIR}")
     print(f"  Ciclo:   ogni {INTERVAL_MINUTES} min")
     print("="*55)
@@ -124,7 +124,7 @@ def main():
         save_html(update_html(load_html(),scoring,history))
         git_push()
     while True:
-        print(f"[{ts()}] Pausa {INTERVAL_MINUTES} min — prossimo: {nxt(INTERVAL_MINUTES)}")
+        print(f"[{ts()}] Pausa {INTERVAL_MINUTES} min â€" prossimo: {nxt(INTERVAL_MINUTES)}")
         time.sleep(INTERVAL_MINUTES*60)
         scoring=fetch()
         if scoring:
@@ -134,3 +134,4 @@ def main():
             git_push()
 
 if __name__=="__main__": main()
+
