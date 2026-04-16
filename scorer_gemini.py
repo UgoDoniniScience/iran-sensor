@@ -23,7 +23,8 @@ def build_prompt():
     return (
         'Assess Iran-USA-Israel war, Day ' + str(day) + ' (' + date_str + '). '
         'Consider: IDF strikes, Iranian missiles/drones, Strait of Hormuz, Hezbollah, '
-        'US CENTCOM, nuclear signals, diplomacy, Russia, China, Saudi Arabia, oil markets. '
+        'US CENTCOM, nuclear signals, diplomacy, Russia, China, Saudi Arabia, oil markets, '
+        'Trump public statements (Truth Social, press conferences). '
         'Respond ONLY with JSON: '
         '{"temperatura":<float 0-130>,"trend":"rising|stable|falling",'
         '"title":"<80 chars>","summary":"<200 chars Italian>",'
