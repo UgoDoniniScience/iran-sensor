@@ -577,7 +577,9 @@ function loadSensorData() {
       var idx = html.indexOf('<!-- SENSOR_DATA:');
       if (idx < 0) return;
       var end = html.indexOf(' -->', idx);
-      var json = html.substring(idx + 17, end).trim();
+      var raw = html.substring(idx + 17, end).trim();
+      // Remove smart quotes
+      var json = raw.replace(/\u2018|\u2019/g, "'").replace(/\u201c|\u201d/g, '"');
       var data = JSON.parse(json);
       applyData(data);
     }).catch(function(e){ console.warn('loadSensorData fetch error:', e); });

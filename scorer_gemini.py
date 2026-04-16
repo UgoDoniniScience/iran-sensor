@@ -130,7 +130,8 @@ def update_html(html, scoring, history):
         'oil_impact': scoring.get('oil_price_impact', ''),
         'diplomacy': scoring.get('diplomatic_channel', 'none')
     }
-    comment = '<!-- SENSOR_DATA:' + json.dumps(extended) + ' -->'
+    sensor_json = json.dumps(extended, ensure_ascii=True)
+    comment = '<!-- SENSOR_DATA:' + sensor_json + ' -->'
     html = re.sub(r'<!-- SENSOR_DATA:[^>]* -->', '', html)
     html = html.replace('</body>', comment + '\n</body>')
     return html
