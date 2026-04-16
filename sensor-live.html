@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 48 · TIME 12:05</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 48 · TIME 12:12</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [68.5, 72.5, 72.5, 73.5];
+const history = [68.5, 72.5, 72.5, 73.5, 73.5];
 let currentTemp = 73.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "IDF hits Iranian nuclear research sites near Isfahan",
-  "Iran launches 200+ drones toward US naval assets",
-  "Hezbollah fires rockets into northern Israel; 4 Israeli casualties",
-  "Hormuz traffic reduced 60%; oil tanker diversions via Suez",
-  "Russia/China veto UN resolution; arms supplies continue",
+  "IDF airstrikes target Iranian ballistic missile production facilities",
+  "Iranian IRGC fires 85 Shahab/Khordad missiles at Israeli targets",
+  "Hezbollah deploys 200+ rockets from Lebanon border",
+  "Oil tanker insurance premiums spike; shipping delays reported Hormuz",
+  "Russian military advisors detected in Iranian command centers",
 ];
 
 function buildMarquee(){
@@ -634,6 +634,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<!-- SENSOR_DATA:{"temperatura": 73.5, "trend": "rising", "last_update": "2026-04-16 12:05:39", "nuclear_risk": 6.5, "hormuz": "partial", "us_forces": "Enhanced carrier strike groups, air defense systems, 15,000+ personnel deployed. Multiple bases activated.", "oil_impact": "Brent crude +$35/barrel; shipping insurance +400%; global economic disruption accelerating", "diplomacy": "Minimal. UN calls for ceasefire ignored. Backchannel talks through Qatar/Oman stalled."} -->
+
+<!-- SENSOR_DATA:{"temperatura": 73.5, "trend": "rising", "last_update": "2026-04-16 12:12:02", "nuclear_risk": 6, "hormuz": "partial", "us_forces": "CENTCOM expanded naval presence; carrier strike groups operating; increased air defense deployments Gulf region", "oil_impact": "Brent crude +18-22% above Feb baseline; supply concerns from Hormuz disruption driving volatility", "diplomacy": "Minimal active dialogue; UN Security Council deadlocked; backdoor contacts via Switzerland/Oman marginal"} -->
 </body>
 </html>
