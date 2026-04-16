@@ -603,7 +603,9 @@ function loadSensorData() {
           // Update TIME in live header
           const liveTxt = document.getElementById('live-txt');
           if (liveTxt) {
-            const dayNum = liveTxt.dataset.day || '?';
+            const startD = new Date('2026-02-28');
+            const nowD = new Date();
+            const dayNum = Math.max(1, Math.floor((nowD - startD) / 86400000) + 1);
             liveTxt.textContent = 'LIVE · DAY ' + dayNum + ' · TIME ' + hh + ':' + mm;
           }
         }
