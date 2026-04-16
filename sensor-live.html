@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 48 · TIME 02:31</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 48 · TIME 06:00</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -379,7 +379,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
 <line x1="695" y1="265" x2="695" y2="38" class="trace-pwr" stroke-width="2"/>
 <line x1="720" y1="355" x2="720" y2="612" class="trace-gnd" stroke-width="2"/>
 <text x="640" y="285" style="font-family:Share Tech Mono;font-size:7px;fill:rgba(0,255,136,0.25)">SSD1306 I2C</text>
-<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">73.5°C</text>
+<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">72.5°C</text>
 <text x="695" y="378" class="lc">OLED 0.96" I2C</text>
 <text x="695" y="390" class="lcr">U4 SSD1306</text>
 <text x="695" y="403" class="lca">GLOBAL OUTPUT</text>
@@ -495,8 +495,8 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [68.5, 72.5, 72.5, 73.5];
-let currentTemp = 73.5;
+const history = [68.5, 72.5, 72.5, 73.5, 72.5];
+let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
 function barWidth(t){return Math.min(99,(t/150)*100);}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "IDF strikes Iranian ballistic missile production in Parchin",
-  "Iranian drones intercept rate 65%; some reach Tel Aviv region",
-  "Hezbollah fires 150+ rockets daily into northern Israel",
-  "Hormuz shipping losses accelerate; 8 vessels damaged week 48",
-  "US aircraft losses: 2 F/A-18s, 1 Reaper over Iran airspace",
+  "IDF destroys Iranian air defense network in Esfahan",
+  "Iran IRGC launches Shahed drone waves toward Israeli cities",
+  "US announces $2.5B arms package to Israel",
+  "Hezbollah fires 150+ rockets at northern Israel",
+  "Oil market volatility persists; gold rises 3%",
 ];
 
 function buildMarquee(){
@@ -651,6 +651,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<!-- SENSOR_DATA:{"temperatura": 73.5, "trend": "rising", "last_update": "2026-04-16 02:31:11", "nuclear_risk": 6.8, "hormuz": "partial", "us_forces": "Two carrier strike groups, 15k+ troops CENTCOM, B-52 bombers, Patriot systems deployed", "oil_impact": "Brent crude +18% YTD; $110-115/barrel; supply disruptions 3-5%", "diplomacy": "Minimal; Qatar mediation stalled; UN Security Council deadlocked (Russia/China vetoes)"} -->
+
+<!-- SENSOR_DATA:{"temperatura": 72.5, "trend": "rising", "last_update": "2026-04-16 06:00:40", "nuclear_risk": 4.2, "hormuz": "partial", "us_forces": "CVN Roosevelt carrier strike group reinforced; B-52 bombers staging; THAAD batteries expanded to UAE/Saudi bases", "oil_impact": "Brent $98-104/bbl; supply disruption risk 3-5% global capacity; tanker premiums elevated", "diplomacy": "UN mediation stalled; backdoor Qatar-Oman contacts active but unproductive"} -->
 </body>
 </html>
