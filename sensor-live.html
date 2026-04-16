@@ -569,101 +569,53 @@ function buildMarquee(){
   if (el) { el.textContent = text + sep + text; }
 }
 
-// ── LOAD REAL DATA FROM SCORER COMMENT ─────────────────────────
+// ── LOAD REAL DATA FROM SCORER ──────────────────────────────────
+// SENSOR_DATA_VAR is injected by scorer.py
 function loadSensorData() {
-  fetch(location.href + '?t=' + Date.now())
-    .then(function(r){ return r.text(); })
-    .then(function(html){
-      var idx = html.indexOf('<!-- SENSOR_DATA:');
-      if (idx < 0) return;
-      var end = html.indexOf('-->', idx);
-      if (end < 0) return;
-      var raw = html.substring(idx + 17, end).replace(/--\s*$/, '').trim();
-      // Extract only the JSON object safely
-      var js = raw.indexOf('{');
-      var je = raw.lastIndexOf('}');
-      if (js < 0 || je < 0) return;
-      var jsonStr = raw.substring(js, je+1);
-      // Replace smart quotes with ASCII
-      jsonStr = jsonStr.split('\u2018').join("'").split('\u2019').join("'");
-      jsonStr = jsonStr.split('\u201c').join('"').split('\u201d').join('"');
-      var data = JSON.parse(jsonStr);
-      applyData(data);
-    }).catch(function(e){ console.warn('loadSensorData fetch error:', e); });
-}
-function applyData(data) {
   try {
-    var data2 = data;
-
-        // Real temperature from scorer
-        if (typeof data.temperatura === 'number') {
-          currentTemp = data.temperatura;
-          history.push(parseFloat(currentTemp.toFixed(1)));
-          if (history.length > 48) history.shift();
-          applyDisplayTemp(currentTemp, data.trend || 'stable');
-        }
-
-        // Last update badge + TIME in header
-        if (data.last_update) {
-          // Parse "2026-04-16 09:02:46" format reliably
-          const parts = data.last_update.split(/[\s\-:T]+/).filter(function(x){return x.length>0;});
-          const d = new Date(parts[0], parts[1]-1, parts[2], parts[3]||0, parts[4]||0);
-          const day2 = String(d.getDate()).padStart(2,'0');
-          const mon = String(d.getMonth()+1).padStart(2,'0');
-          const yr = d.getFullYear();
-          const hh = String(d.getHours()).padStart(2,'0');
-          const mm = String(d.getMinutes()).padStart(2,'0');
-          const fmt = day2 + '/' + mon + '/' + yr + ' ' + hh + ':' + mm;
-          const el = document.getElementById('update-badge');
-          if (el) el.textContent = 'UPDATED: ' + fmt;
-          // Update TIME in live header
-          const liveTxt = document.getElementById('live-txt');
-          if (liveTxt) {
-            const startD = new Date('2026-02-28');
-            const nowD = new Date();
-            const dayNum = Math.max(1, Math.floor((nowD - startD) / 86400000) + 1);
-            liveTxt.textContent = 'LIVE · DAY ' + dayNum + ' · TIME ' + hh + ':' + mm;
-          }
-        }
-
-        // Nuclear risk dots
-        if (typeof data.nuclear_risk === 'number') {
-          buildNukeDots(data.nuclear_risk);
-        }
-
-        // Hormuz status
-        if (data.hormuz) {
-          const hz = document.getElementById('hormuz-val');
-          if (hz) {
-            const labels = { open: 'OPEN', partial: '⚠ PARTIAL CLOSURE', closed: '⛔ CLOSED — IRGC' };
-            hz.textContent = labels[data.hormuz] || data.hormuz.toUpperCase();
-          }
-        }
-
-  } catch(e) { console.warn('applyData error:', e); }
-
-  // Update DAY counter - DAY from today, TIME from last scorer update
-  const start = new Date('2026-02-28');
-  const now = new Date();
-  const day = Math.max(1, Math.floor((now - start) / 86400000) + 1);
-  const liveTxt = document.getElementById('live-txt');
-  if (liveTxt) {
-    // TIME comes from last_update in SENSOR_DATA, set after parsing
-    liveTxt.textContent = `LIVE · DAY ${day} · TIME --:--`;
-    liveTxt.dataset.day = day;
-  }
+    if (typeof SENSOR_DATA_VAR === 'undefined') {
+      console.warn('SENSOR_DATA_VAR not defined');
+      return;
+    }
+    var data = SENSOR_DATA_VAR;
+    if (typeof data.temperatura === 'number') {
+      currentTemp = data.temperatura;
+      history.push(parseFloat(currentTemp.toFixed(1)));
+      if (history.length > 48) history.shift();
+      applyDisplayTemp(currentTemp, data.trend || 'stable');
+    }
+    if (data.last_update) {
+      var parts = data.last_update.split(/[\s\-:T]+/).filter(function(x){return x.length>0;});
+      var d = new Date(parts[0], parts[1]-1, parts[2], parts[3]||0, parts[4]||0);
+      var hh = String(d.getHours()).padStart(2,'0');
+      var mm = String(d.getMinutes()).padStart(2,'0');
+      var day2 = String(d.getDate()).padStart(2,'0');
+      var mon = String(d.getMonth()+1).padStart(2,'0');
+      var fmt = day2+'/'+mon+'/'+d.getFullYear()+' '+hh+':'+mm;
+      var el = document.getElementById('update-badge');
+      if (el) el.textContent = 'UPDATED: ' + fmt;
+      var start = new Date('2026-02-28');
+      var now = new Date();
+      var dayNum = Math.max(1, Math.floor((now - start) / 86400000) + 1);
+      var liveTxt = document.getElementById('live-txt');
+      if (liveTxt) liveTxt.textContent = 'LIVE · DAY ' + dayNum + ' · TIME ' + hh + ':' + mm;
+    }
+    if (typeof data.nuclear_risk === 'number') buildNukeDots(data.nuclear_risk);
+    if (data.hormuz) {
+      var hz = document.getElementById('hormuz-val');
+      if (hz) {
+        var labels = {open:'OPEN', partial:'⚠ PARTIAL CLOSURE', closed:'⛔ CLOSED — IRGC'};
+        hz.textContent = labels[data.hormuz] || data.hormuz.toUpperCase();
+      }
+    }
+    if (data.tickers && data.tickers.length >= 3) {
+      var sep = '   ⚡   ';
+      var text = data.tickers.join(sep);
+      var el2 = document.getElementById('marquee-inner');
+      if (el2) el2.textContent = text + sep + text;
+    }
+  } catch(e) { console.warn('loadSensorData error:', e); }
 }
-
-// ── AUTO RELOAD ogni 2 ore ─────────────────────────────────────
-// Salva timestamp apertura in sessionStorage e ricarica dopo 2 ore
-(function() {
-  const RELOAD_MS = 2 * 60 * 60 * 1000; // 2 hours
-  setTimeout(function() {
-    // Force reload bypassing cache
-    const url = location.href.split('?')[0] + '?t=' + Date.now();
-    location.replace(url);
-  }, RELOAD_MS);
-})();
 
 // ── INIT ────────────────────────────────────────────────────────
 buildNukeDots(6);
