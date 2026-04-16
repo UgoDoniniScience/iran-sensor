@@ -101,7 +101,28 @@ def load_history(html):
         pass
     return []
 
+def clean_text(s):
+    if not isinstance(s, str):
+        return s
+    # Replace smart quotes with ASCII equivalents
+    s = s.replace('‘', "'").replace('’', "'")
+    s = s.replace('“', '"').replace('”', '"')
+    s = s.replace('–', '-').replace('—', '-')
+    return s
+
+def clean_scoring(scoring):
+    cleaned = {}
+    for k, v in scoring.items():
+        if isinstance(v, str):
+            cleaned[k] = clean_text(v)
+        elif isinstance(v, list):
+            cleaned[k] = [clean_text(i) if isinstance(i, str) else i for i in v]
+        else:
+            cleaned[k] = v
+    return cleaned
+
 def update_html(html, scoring, history):
+    scoring = clean_scoring(scoring)
     temp = round(float(scoring['temperatura']), 1)
     day = max(1, (datetime.datetime.now() - datetime.datetime(2026, 2, 28)).days + 1)
     time_str = datetime.datetime.now().strftime('TIME %H:%M')
