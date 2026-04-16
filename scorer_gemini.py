@@ -152,9 +152,9 @@ def update_html(html, scoring, history):
         'diplomacy': scoring.get('diplomatic_channel', 'none')
     }
     sensor_json = json.dumps(extended, ensure_ascii=True)
-    comment = '<!-- SENSOR_DATA:' + sensor_json + ' -->'
-    html = re.sub(r'<!-- SENSOR_DATA:[^>]* -->', '', html)
-    html = html.replace('</body>', comment + '\n</body>')
+    js_var = '<script>var SENSOR_DATA_VAR = ' + sensor_json + ';</script>'
+    html = re.sub(r'<script>var SENSOR_DATA_VAR[^<]*</script>', '', html)
+    html = html.replace('</body>', js_var + '\n</body>')
     return html
 
 def git_push():
