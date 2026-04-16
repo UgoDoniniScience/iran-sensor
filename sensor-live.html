@@ -590,7 +590,7 @@ function loadSensorData() {
         // Last update badge + TIME in header
         if (data.last_update) {
           // Parse "2026-04-16 09:02:46" format reliably
-          const parts = data.last_update.split(/[\s\-:]/);
+          const parts = data.last_update.replace("-","/").replace("-","/").split(/[ :T]/);
           const d = new Date(parts[0], parts[1]-1, parts[2], parts[3]||0, parts[4]||0);
           const day2 = String(d.getDate()).padStart(2,'0');
           const mon = String(d.getMonth()+1).padStart(2,'0');
