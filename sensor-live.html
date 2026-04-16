@@ -571,13 +571,20 @@ function buildMarquee(){
 
 // ── LOAD REAL DATA FROM SCORER COMMENT ─────────────────────────
 function loadSensorData() {
+  fetch(location.href + '?t=' + Date.now())
+    .then(function(r){ return r.text(); })
+    .then(function(html){
+      var idx = html.indexOf('<!-- SENSOR_DATA:');
+      if (idx < 0) return;
+      var end = html.indexOf(' -->', idx);
+      var json = html.substring(idx + 17, end).trim();
+      var data = JSON.parse(json);
+      applyData(data);
+    }).catch(function(e){ console.warn('loadSensorData fetch error:', e); });
+}
+function applyData(data) {
   try {
-    const walker = document.createTreeWalker(document, NodeFilter.SHOW_COMMENT);
-    let node;
-    while (node = walker.nextNode()) {
-      if (node.textContent.includes('SENSOR_DATA:')) {
-        const json = node.textContent.replace('SENSOR_DATA:', '').trim();
-        const data = JSON.parse(json);
+    var data2 = data;
 
         // Real temperature from scorer
         if (typeof data.temperatura === 'number') {
@@ -624,10 +631,7 @@ function loadSensorData() {
           }
         }
 
-        break;
-      }
-    }
-  } catch(e) { console.warn('loadSensorData error:', e); }
+  } catch(e) { console.warn('applyData error:', e); }
 
   // Update DAY counter - DAY from today, TIME from last scorer update
   const start = new Date('2026-02-28');
