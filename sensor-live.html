@@ -651,12 +651,13 @@ function loadSensorData() {
 })();
 
 // ── INIT ────────────────────────────────────────────────────────
-loadSensorData();
 buildNukeDots(6);
 buildSparkline();
 updateClock();
 updateTemp();
 buildMarquee();
+document.addEventListener("DOMContentLoaded", function(){ loadSensorData(); });
+setTimeout(loadSensorData, 500);
 
 setInterval(updateClock, 1000);
 setInterval(updateTemp, 1800);
