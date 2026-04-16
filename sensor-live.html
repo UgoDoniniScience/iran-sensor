@@ -587,12 +587,20 @@ function loadSensorData() {
           applyDisplayTemp(currentTemp, data.trend || 'stable');
         }
 
-        // Last update badge
+        // Last update badge + TIME in header
         if (data.last_update) {
           const d = new Date(data.last_update.replace(' ', 'T'));
           const fmt = d.toLocaleString('en-GB', {day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});
           const el = document.getElementById('update-badge');
           if (el) el.textContent = 'UPDATED: ' + fmt;
+          // Update TIME in live header
+          const liveTxt = document.getElementById('live-txt');
+          if (liveTxt) {
+            const hh = String(d.getHours()).padStart(2,'0');
+            const mm = String(d.getMinutes()).padStart(2,'0');
+            const day = liveTxt.dataset.day || '?';
+            liveTxt.textContent = `LIVE · DAY ${day} · TIME ${hh}:${mm}`;
+          }
         }
 
         // Nuclear risk dots
@@ -614,14 +622,16 @@ function loadSensorData() {
     }
   } catch(e) { console.warn('loadSensorData error:', e); }
 
-  // Update DAY counter from real date
+  // Update DAY counter - DAY from today, TIME from last scorer update
   const start = new Date('2026-02-28');
   const now = new Date();
   const day = Math.max(1, Math.floor((now - start) / 86400000) + 1);
-  const hh = String(now.getHours()).padStart(2,'0');
-  const mm = String(now.getMinutes()).padStart(2,'0');
   const liveTxt = document.getElementById('live-txt');
-  if (liveTxt) liveTxt.textContent = `LIVE · DAY ${day} · TIME ${hh}:${mm}`;
+  if (liveTxt) {
+    // TIME comes from last_update in SENSOR_DATA, set after parsing
+    liveTxt.textContent = `LIVE · DAY ${day} · TIME --:--`;
+    liveTxt.dataset.day = day;
+  }
 }
 
 // ── AUTO RELOAD ogni 2 ore ─────────────────────────────────────
