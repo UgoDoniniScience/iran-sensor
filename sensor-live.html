@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 48 · TIME 09:02</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY -- · TIME --:--</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -379,7 +379,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
 <line x1="695" y1="265" x2="695" y2="38" class="trace-pwr" stroke-width="2"/>
 <line x1="720" y1="355" x2="720" y2="612" class="trace-gnd" stroke-width="2"/>
 <text x="640" y="285" style="font-family:Share Tech Mono;font-size:7px;fill:rgba(0,255,136,0.25)">SSD1306 I2C</text>
-<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">76.5°C</text>
+<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">68.5°C</text>
 <text x="695" y="378" class="lc">OLED 0.96" I2C</text>
 <text x="695" y="390" class="lcr">U4 SSD1306</text>
 <text x="695" y="403" class="lca">GLOBAL OUTPUT</text>
@@ -495,8 +495,8 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [68.5, 72.5, 72.5, 73.5, 72.5, 76.5];
-let currentTemp = 76.5;
+const history = [68.5];
+let currentTemp = 68.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
 function barWidth(t){return Math.min(99,(t/150)*100);}
@@ -554,13 +554,7 @@ function buildNukeDots(risk){const wrap=document.getElementById('nuke-dots');wra
 function updateClock(){const n=new Date();document.getElementById('clk').textContent=n.toLocaleString('en-GB',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit'});}
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
-const TICKERS = [
-  "IDF strikes Iran nuclear site; casualties reported",
-  "Iran fires 300+ ballistic missiles; 60% intercepted",
-  "Hezbollah casualties rise; Israel expands ops",
-  "US deploys additional air defense; warns allies",
-  "Oil markets spike on supply fears; shipping delays",
-];
+const TICKERS = ["IDF reports successful interception of Iranian ballistic salvos; 15% penetration rate concerning military planners","Hezbollah escalates northern border operations; 200+ daily cross-border incidents reported by Israeli forces","Saudi Arabia maintains cautious neutrality; UAE concerned about regional instability and energy disruptions","Russian diplomatic overtures rejected; China calls for UN intervention; neither willing direct military involvement","Humanitarian crisis intensifying: 2M+ displaced in Syria/Lebanon; aid corridors strained; disease outbreak risks"];
 
 function buildMarquee(){
   const sep = '   ⚡   ';
@@ -589,17 +583,22 @@ function loadSensorData() {
 
         // Last update badge + TIME in header
         if (data.last_update) {
-          const d = new Date(data.last_update.replace(' ', 'T'));
-          const fmt = d.toLocaleString('en-GB', {day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});
+          // Parse "2026-04-16 09:02:46" format reliably
+          const parts = data.last_update.split(/[\s\-:]/);
+          const d = new Date(parts[0], parts[1]-1, parts[2], parts[3]||0, parts[4]||0);
+          const day2 = String(d.getDate()).padStart(2,'0');
+          const mon = String(d.getMonth()+1).padStart(2,'0');
+          const yr = d.getFullYear();
+          const hh = String(d.getHours()).padStart(2,'0');
+          const mm = String(d.getMinutes()).padStart(2,'0');
+          const fmt = day2 + '/' + mon + '/' + yr + ' ' + hh + ':' + mm;
           const el = document.getElementById('update-badge');
           if (el) el.textContent = 'UPDATED: ' + fmt;
           // Update TIME in live header
           const liveTxt = document.getElementById('live-txt');
           if (liveTxt) {
-            const hh = String(d.getHours()).padStart(2,'0');
-            const mm = String(d.getMinutes()).padStart(2,'0');
-            const day = liveTxt.dataset.day || '?';
-            liveTxt.textContent = `LIVE · DAY ${day} · TIME ${hh}:${mm}`;
+            const dayNum = liveTxt.dataset.day || '?';
+            liveTxt.textContent = 'LIVE · DAY ' + dayNum + ' · TIME ' + hh + ':' + mm;
           }
         }
 
@@ -657,12 +656,7 @@ setInterval(updateClock, 1000);
 setInterval(updateTemp, 1800);
 </script>
 
+<!-- SENSOR_DATA:{"temperatura": 68.5, "trend": "stable", "last_update": "2026-04-13 08:11:31", "nuclear_risk": 6, "hormuz": "partial", "us_forces": "Two carrier groups deployed, 35,000+ troops in region", "oil_impact": "WTI crude at $127/bbl (+45% since conflict start)", "diplomacy": "Indirect talks via Oman/Qatar; no substantive progress"} -->
 
-
-
-
-
-
-<!-- SENSOR_DATA:{"temperatura": 76.5, "trend": "rising", "last_update": "2026-04-16 09:02:46", "nuclear_risk": 6, "hormuz": "partial", "us_forces": "Two CVN groups, 50,000+ personnel, air defense systems deployed Gulf-wide", "oil_impact": "Brent crude $145-155/bbl; supply disruptions 3-5 million bbl/day feared", "diplomacy": "UN mediation stalled; Russia-China abstain; indirect talks via Oman"} -->
 </body>
 </html>
