@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 49 · TIME 13:15</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 49 · TIME 14:54</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [68.5, 72.5, 72.5, 73.5, 73.5, 72.5, 67.5, 72.5, 72.5, 67.5, 74.5, 73.5, 72.5, 72.5, 73.5, 67.5, 72.5];
+const history = [68.5, 72.5, 72.5, 73.5, 73.5, 72.5, 67.5, 72.5, 72.5, 67.5, 74.5, 73.5, 72.5, 72.5, 73.5, 67.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "IDF airstrikes hit Iranian ballistic missile plants in Isfahan, Parchin regions",
-  "Iran IRGC launches 150+ missiles/drones; some intercepted by US/Israel air defense",
-  "Hezbollah cross-border rocket barrages increase; Israeli northern command activated",
-  "Trump demands 'complete Iranian military defeat' on Truth Social; Congress skeptical",
-  "Hormuz chokepoint: 3 merchant vessels damaged; insurance premiums spike 45%",
+  "IDF confirms airbase strikes on Iranian soil",
+  "Iran IRGC launches ballistic missiles toward Israel/US bases",
+  "US Navy reinforces 5th Fleet posture",
+  "Trump: 'All options on table' if Iran escalates further",
+  "Oil markets surge on Hormuz closure concerns",
 ];
 
 function buildMarquee(){
@@ -647,6 +647,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-04-17 13:15:53", "nuclear_risk": 6.8, "hormuz": "partial", "us_forces": "6th Fleet reinforced; carrier strike groups positioned. CENTCOM operational tempo maximum. Air defense systems deployed across Gulf allies.", "oil_impact": "Brent crude +18% to $127/bbl. Market prices elevated despite partial Hormuz access; supply disruption fears dominate.", "diplomacy": "UN mediation stalled. Qatar-Oman shuttle attempts ongoing but ineffective. No US-Iran direct talks. European diplomatic isolation."};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-04-17 14:54:01", "nuclear_risk": 6, "hormuz": "partial", "us_forces": "Carrier strike groups positioned; increased air operations; missile defense systems active across region", "oil_impact": "WTI crude +18-22% ($115-125/bbl); supply chain disruption; tanker insurance costs elevated", "diplomacy": "UN mediation stalled; backchannel talks via Qatar/Oman fragile; no ceasefire framework"};</script>
 </body>
 </html>
