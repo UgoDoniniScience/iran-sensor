@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 52 · TIME 17:02</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 52 · TIME 19:03</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -379,7 +379,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
 <line x1="695" y1="265" x2="695" y2="38" class="trace-pwr" stroke-width="2"/>
 <line x1="720" y1="355" x2="720" y2="612" class="trace-gnd" stroke-width="2"/>
 <text x="640" y="285" style="font-family:Share Tech Mono;font-size:7px;fill:rgba(0,255,136,0.25)">SSD1306 I2C</text>
-<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">73.5°C</text>
+<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">74.5°C</text>
 <text x="695" y="378" class="lc">OLED 0.96" I2C</text>
 <text x="695" y="390" class="lcr">U4 SSD1306</text>
 <text x="695" y="403" class="lca">GLOBAL OUTPUT</text>
@@ -495,8 +495,8 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [73.5, 73.5, 72.5, 67.5, 72.5, 72.5, 67.5, 74.5, 73.5, 72.5, 72.5, 73.5, 67.5, 72.5, 72.5, 67.5, 72.5, 67.5, 76.5, 72.5, 73.5, 68.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5, 67.5, 72.5, 76.5, 72.5, 72.5, 67.5, 72.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 76.5, 72.5, 67.5, 72.5, 68.5, 73.5, 73.5];
-let currentTemp = 73.5;
+const history = [73.5, 72.5, 67.5, 72.5, 72.5, 67.5, 74.5, 73.5, 72.5, 72.5, 73.5, 67.5, 72.5, 72.5, 67.5, 72.5, 67.5, 76.5, 72.5, 73.5, 68.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5, 67.5, 72.5, 76.5, 72.5, 72.5, 67.5, 72.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 76.5, 72.5, 67.5, 72.5, 68.5, 73.5, 73.5, 74.5];
+let currentTemp = 74.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
 function barWidth(t){return Math.min(99,(t/150)*100);}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "IDF airstrikes degrade Iranian air defense infrastructure",
-  "Iranian IRGC launches 150+ Shahab/Haj missiles at regional targets",
-  "Hormuz transits reduced 22%; maritime insurance spikes",
-  "Trump signals 'overwhelming response' if Iran escalates; Truth Social posts",
-  "Russia vetoes UN Security Council ceasefire; China demands US restraint",
+  "IDF airstrikes expand to air defense sites; 47 Iranian targets hit in 72hrs",
+  "Iran ballistic missile barrage targets US bases in region; limited effectiveness",
+  "Hezbollah drone swarms increase; 180+ projectiles in 48-hour period",
+  "Trump demands full Iranian capitulation; warns 'maximal response' if nuclear escalation",
+  "Oil markets volatile; shipping insurance rates spike; Suez blockade scenario models increase",
 ];
 
 function buildMarquee(){
@@ -681,6 +681,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 73.5, "trend": "rising", "last_update": "2026-04-20 17:02:20", "nuclear_risk": 5.2, "hormuz": "partial", "us_forces": "CENTCOM: 2 carrier strike groups, B-52 sorties, 40,000+ personnel deployed Gulf region", "oil_impact": "WTI $115-125/bbl; tanker insurance +300bps; shipping delays +15 days", "diplomacy": "UN mediation stalled; UAE/Oman indirect talks minimal; no ceasefire framework"};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 74.5, "trend": "rising", "last_update": "2026-04-20 19:03:11", "nuclear_risk": 6.8, "hormuz": "partial", "us_forces": "Two carrier strike groups operational; 15,000+ personnel surge into Gulf; F-22/F-35 forward-deployed", "oil_impact": "Brent crude $127/bbl; 8-12% global oil supply disruption risk via Hormuz closure", "diplomacy": "Backwater: UN calls unheeded; Saudi mediation rejected; Russia-China abstain; no ceasefire framework"};</script>
 </body>
 </html>
