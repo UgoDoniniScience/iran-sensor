@@ -16,12 +16,43 @@ SYSTEM_PROMPT = (
     'Respond ONLY with valid JSON, no backticks, no extra text.'
 )
 
+def fetch_news():
+    """Fetch real headlines from free RSS feeds."""
+    import urllib.request
+    feeds = [
+        'https://feeds.bbci.co.uk/news/world/middle_east/rss.xml',
+        'https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml',
+        'https://www.aljazeera.com/xml/rss/all.xml',
+    ]
+    headlines = []
+    for url in feeds:
+        try:
+            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+            with urllib.request.urlopen(req, timeout=10) as r:
+                xml = r.read().decode('utf-8', errors='ignore')
+            import re
+            titles = re.findall(r'<title><!\[CDATA\[(.*?)\]\]></title>', xml)
+            if not titles:
+                titles = re.findall(r'<title>(.*?)</title>', xml)
+            # Skip feed title (first item)
+            for t in titles[1:6]:
+                t = t.strip()
+                if t and len(t) > 10:
+                    headlines.append(t)
+        except Exception as e:
+            print('[' + ts() + '] RSS error ' + url[:40] + ': ' + str(e))
+    return headlines[:10]
+
 def build_prompt():
     now = datetime.datetime.now()
     day = max(1, (now - datetime.datetime(2026, 2, 28)).days + 1)
     date_str = now.strftime('%B %d, %Y at %H:%M UTC')
+    headlines = fetch_news()
+    news_ctx = ''
+    if headlines:
+        news_ctx = ' REAL NEWS TODAY: ' + ' | '.join(headlines[:8]) + '.'
     return (
-        'Assess Iran-USA-Israel war, Day ' + str(day) + ' (' + date_str + '). '
+        'Assess Iran-USA-Israel war, Day ' + str(day) + ' (' + date_str + ').' + news_ctx + ' '
         'Consider: IDF strikes, Iranian missiles/drones, Strait of Hormuz, Hezbollah, '
         'US CENTCOM, nuclear signals, diplomacy, Russia, China, Saudi Arabia, oil markets, '
         'Trump public statements (Truth Social, press conferences). '
