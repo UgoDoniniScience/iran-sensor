@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 59 · TIME 10:12</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 59 · TIME 10:36</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [74.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 73.5, 72.5, 73.5, 72.5, 74.5, 72.5, 74.5, 72.5, 72.5, 72.5, 73.5, 73.5, 73.5, 73.5, 72.5, 73.5, 67.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 74.5, 72.5, 67.5, 73.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5];
+const history = [72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 73.5, 72.5, 73.5, 72.5, 74.5, 72.5, 74.5, 72.5, 72.5, 72.5, 73.5, 73.5, 73.5, 73.5, 72.5, 73.5, 67.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 74.5, 72.5, 67.5, 73.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "IDF conducts dawn strikes on Isfaha and Natanz nuclear sites",
-  "Iran fires 200+ drones toward US base in Iraq; partial intercept",
-  "Trump: 'We will not tolerate Iranian aggression' via Truth Social",
-  "Oil futures spike on Hormuz blockade threats; global supply chains disrupted",
-  "Russia deploys 12 warships to Eastern Mediterranean; China calls for ceasefire",
+  "IDF launches 8th wave strikes on Iranian military infrastructure",
+  "Iran IRGC fires 80+ ballistic missiles toward Israel; interception 89%",
+  "Hezbollah coordinates rocket attacks on northern Israel: 150+ launches",
+  "Trump (Truth Social): 'Iran will face unprecedented consequences if nuclear weapons used'",
+  "US Navy reports 3 cargo ships attacked near Strait of Hormuz; Iran denies involvement",
 ];
 
 function buildMarquee(){
@@ -748,6 +748,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-04-27 10:12:54", "nuclear_risk": 6.5, "hormuz": "partial", "us_forces": "2 carrier groups deployed; USS Eisenhower, USS Harry Truman positioned; CENTCOM coordinating air defense; ~15,000 personnel surge", "oil_impact": "Brent crude +18% since Feb 28; $127/barrel; supply concerns from Hormuz friction; sanctions on Iranian oil exports", "diplomacy": "UN mediator attempts dialogue stalled; UAE, Qatar propose ceasefire-rejected by Tehran; backdoor US-Iran contacts minimal"};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-04-27 10:36:23", "nuclear_risk": 6.5, "hormuz": "partial", "us_forces": "CENTCOM full deployment: carrier strike groups, F-22s, missile defense systems operating from UAE, Qatar, Saudi bases. ~35,000 personnel actively engaged in operations.", "oil_impact": "Brent crude +18% (WTI ~$127/bbl). Hormuz closure fears driving hedging. Tanker insurance premiums elevated 35%.", "diplomacy": "Minimal. UN Security Council deadlocked (Russia/China protection). Back-channel Qatar mediation ineffective. No ceasefire talks.", "tickers": ["IDF launches 8th wave strikes on Iranian military infrastructure", "Iran IRGC fires 80+ ballistic missiles toward Israel; interception 89%", "Hezbollah coordinates rocket attacks on northern Israel: 150+ launches", "Trump (Truth Social): 'Iran will face unprecedented consequences if nuclear weapons used'", "US Navy reports 3 cargo ships attacked near Strait of Hormuz; Iran denies involvement"]};</script>
 </body>
 </html>
