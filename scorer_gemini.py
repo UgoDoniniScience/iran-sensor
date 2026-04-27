@@ -150,7 +150,8 @@ def update_html(html, scoring, history):
         'hormuz': scoring.get('hormuz_strait', 'unknown'),
         'us_forces': scoring.get('us_forces', ''),
         'oil_impact': scoring.get('oil_price_impact', ''),
-        'diplomacy': scoring.get('diplomatic_channel', 'none')
+        'diplomacy': scoring.get('diplomatic_channel', 'none'),
+        'tickers': [clean_text(t) for t in scoring.get('tickers', [])]
     }
     sensor_json = json.dumps(extended, ensure_ascii=True)
     js_var = '<script>var SENSOR_DATA_VAR = ' + sensor_json + ';</script>'
