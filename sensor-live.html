@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 60 · TIME 19:39</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 60 · TIME 21:05</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [72.5, 74.5, 72.5, 72.5, 72.5, 73.5, 73.5, 73.5, 73.5, 72.5, 73.5, 67.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 74.5, 72.5, 67.5, 73.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 68.5, 72.5, 68.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 68.5, 67.5];
+const history = [74.5, 72.5, 72.5, 72.5, 73.5, 73.5, 73.5, 73.5, 72.5, 73.5, 67.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 74.5, 72.5, 67.5, 73.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 68.5, 72.5, 68.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israeli_strikes_Lebanon_14_killed",
-  "Iran_missiles_drones_sustained",
-  "UAE_quits_OPEC_geopolitical_shift",
-  "Hormuz_blockade_superyacht_transit",
-  "Trump_cancels_diplomatic_missions",
+  "Israeli strikes escalate Lebanon ops amid ceasefire strain",
+  "US Treasury sanctions Iranian oil exports; market volatility expected",
+  "Russian blockade-running signals geopolitical alignment shift",
+  "UAE OPEC exit disrupts oil cartel coordination mechanisms",
+  "UK-Iran diplomatic tensions; wider alliance fragmentation",
 ];
 
 function buildMarquee(){
@@ -761,6 +761,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-04-28 19:39:16", "nuclear_risk": 5.5, "hormuz": "partial", "us_forces": "CENTCOM active operations; envoys trip to Pakistan cancelled; carrier task forces positioned", "oil_impact": "OPEC fracturing and UAE exit creates price volatility; Hormuz blockade concerns spike oil; Russian supertanker transit signals circumvention attempts", "diplomacy": "Collapsed - Trump cancels Pakistan envoy mission; regional allies (UAE, Iraq) distancing; China/Russia present but inactive", "tickers": ["Israeli_strikes_Lebanon_14_killed", "Iran_missiles_drones_sustained", "UAE_quits_OPEC_geopolitical_shift", "Hormuz_blockade_superyacht_transit", "Trump_cancels_diplomatic_missions"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-04-28 21:05:25", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM deployed with carrier strike groups; increased air operations; electronic warfare active", "oil_impact": "Upward pressure: UAE OPEC exit reduces production coordination; Hormuz partial closure risk; Iranian export sanctions tighten supply", "diplomacy": "UK-Iran tensions escalate (ambassador summoned); US-Israel coordination tight; China-Russia monitoring; Saudi Arabia hedging between OPEC exit and security ties", "tickers": ["Israeli strikes escalate Lebanon ops amid ceasefire strain", "US Treasury sanctions Iranian oil exports; market volatility expected", "Russian blockade-running signals geopolitical alignment shift", "UAE OPEC exit disrupts oil cartel coordination mechanisms", "UK-Iran diplomatic tensions; wider alliance fragmentation"]};</script>
 </body>
 </html>
