@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 61 · TIME 15:55</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 61 · TIME 17:26</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [73.5, 73.5, 72.5, 73.5, 67.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 74.5, 72.5, 67.5, 73.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 68.5, 72.5, 68.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5];
+const history = [73.5, 72.5, 73.5, 67.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 74.5, 72.5, 67.5, 73.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 68.5, 72.5, 68.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israeli IDF strikes Lebanon civilian targets",
-  "Pentagon criticized for lack of transparency on Iran school attack",
-  "UAE quits OPEC, weakening oil coordination",
-  "Hezbollah sustained operations in border regions",
-  "US-UK alignment emphasizes Israel prioritization",
+  "IDF_double_tap_Lebanon_civilian_casualties",
+  "Pentagon_silence_Iran_school_attack_controversy",
+  "UAE_OPEC_exit_geopolitical_signal",
+  "Hormuz_transit_insurance_premiums_rising",
+  "Trump_Israel_rhetoric_escalatory",
 ];
 
 function buildMarquee(){
@@ -768,6 +768,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-04-29 15:55:02", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM present, defensive posture, avoiding direct escalation", "oil_impact": "UAE exit OPEC destabilizes cartel; Strait remains open limiting price spikes", "diplomacy": "Minimal; internal US criticism suggests fractures; UAE strategic pivot away from Saudi-Iran mediation", "tickers": ["Israeli IDF strikes Lebanon civilian targets", "Pentagon criticized for lack of transparency on Iran school attack", "UAE quits OPEC, weakening oil coordination", "Hezbollah sustained operations in border regions", "US-UK alignment emphasizes Israel prioritization"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-04-29 17:26:33", "nuclear_risk": 4, "hormuz": "open", "us_forces": "CENTCOM active; carrier groups positioned; air defense systems deployed; Pentagon maintaining operational posture without full escalation", "oil_impact": "UAE exit destabilizes OPEC cohesion; elevated prices (~$85-95/bbl) from Hormuz risk premium; supply discipline weakening", "diplomacy": "Blocked between Iran-USA; UK mediating; UN dormant; Saudi Arabia sideline observer; no active ceasefire negotiations", "tickers": ["IDF_double_tap_Lebanon_civilian_casualties", "Pentagon_silence_Iran_school_attack_controversy", "UAE_OPEC_exit_geopolitical_signal", "Hormuz_transit_insurance_premiums_rising", "Trump_Israel_rhetoric_escalatory"]};</script>
 </body>
 </html>
