@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 62 · TIME 13:50</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 62 · TIME 15:46</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 74.5, 72.5, 67.5, 73.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 68.5, 72.5, 68.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 64.5, 67.5, 67.5, 68.5];
+const history = [72.5, 72.5, 72.5, 72.5, 72.5, 74.5, 72.5, 67.5, 73.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 68.5, 72.5, 68.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 64.5, 67.5, 67.5, 68.5, 68.5];
 let currentTemp = 68.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Gaza blockade tightened - humanitarian escalation",
-  "Lebanon strikes on rescuers - war crimes allegations",
-  "OPEC cohesion breaking - economic sanctions effective",
-  "Iranian public morale declining per NYT reporting",
-  "US political divisions on Iran school attack silence",
+  "Gaza_flotilla_intercept_activism_escalation",
+  "Lebanon_double_tap_civilian_casualties_surge",
+  "Iran_school_attack_accountability_void",
+  "UAE_OPEC_exit_oil_market_fragmentation",
+  "Kuwait_journalist_citizenship_revocation",
 ];
 
 function buildMarquee(){
@@ -776,6 +776,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 68.5, "trend": "rising", "last_update": "2026-04-30 13:50:32", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM fully engaged, naval task forces positioned, intelligence support to Israeli ops ongoing", "oil_impact": "OPEC withdrawal (UAE) signals coordination fracture; Hormuz partial closure risk maintains 15-20% premium on Brent", "diplomacy": "Minimal active dialogue; US-Iran indirect comms via proxies; Arab states fractured (UAE exit OPEC); no ceasefire mechanisms functional", "tickers": ["Gaza blockade tightened - humanitarian escalation", "Lebanon strikes on rescuers - war crimes allegations", "OPEC cohesion breaking - economic sanctions effective", "Iranian public morale declining per NYT reporting", "US political divisions on Iran school attack silence"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 68.5, "trend": "rising", "last_update": "2026-04-30 15:46:27", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM conducting air operations, naval assets in Gulf reinforced, advisory silence on Iran school casualties signals restraint pressure", "oil_impact": "UAE OPEC exit signals coordination fracture; Brent likely 78-82 USD/barrel; supply concerns from Hormuz closure risks remain latent", "diplomacy": "Limited; US-Iran back-channels dormant; Russia-China neutral posture; Saudi Arabia observing; Assad trial revives justice processes", "tickers": ["Gaza_flotilla_intercept_activism_escalation", "Lebanon_double_tap_civilian_casualties_surge", "Iran_school_attack_accountability_void", "UAE_OPEC_exit_oil_market_fragmentation", "Kuwait_journalist_citizenship_revocation"]};</script>
 </body>
 </html>
