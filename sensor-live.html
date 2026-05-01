@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 63 · TIME 09:44</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 63 · TIME 11:04</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 73.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 68.5, 72.5, 68.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 64.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 72.5, 67.5, 72.5];
+const history = [73.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 68.5, 72.5, 68.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 64.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 72.5, 67.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israeli strikes southern Lebanon despite ceasefire agreement",
-  "US intercepts Gaza flotilla; 175 activists detained near Crete",
-  "Former US officials criticize Pentagon silence on Iran school deaths",
-  "Hezbollah support rising as Israel entrenches positions in Lebanon",
-  "Saudi Arabia spending cuts amid geopolitical volatility and oil uncertainty",
+  "Israeli_strikes_Lebanon_ceasefire_breach",
+  "Gaza_flotilla_interception_activism_crackdown",
+  "Pentagon_silence_Iran_school_attack_criticism",
+  "Hezbollah_support_rising_Israel_entrenchment",
+  "Assad_trial_regional_justice_process",
 ];
 
 function buildMarquee(){
@@ -784,6 +784,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-05-01 09:44:26", "nuclear_risk": 4, "hormuz": "open", "us_forces": "CENTCOM positioned; carrier strike group monitoring; Pentagon facing criticism on accountability", "oil_impact": "Moderate upward pressure; Strait remains open; secondary sanctions effects on Iranian crude emerging", "diplomacy": "Minimal; US officials critical of ops; no active mediation; Assad trial complicating Syria angle", "tickers": ["Israeli strikes southern Lebanon despite ceasefire agreement", "US intercepts Gaza flotilla; 175 activists detained near Crete", "Former US officials criticize Pentagon silence on Iran school deaths", "Hezbollah support rising as Israel entrenches positions in Lebanon", "Saudi Arabia spending cuts amid geopolitical volatility and oil uncertainty"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-05-01 11:04:58", "nuclear_risk": 4, "hormuz": "open", "us_forces": "CENTCOM maintaining operational posture; naval assets positioned; no direct engagement but high alert status", "oil_impact": "Moderate volatility; Strait remains open but risk premium embedded; ~$78-82/barrel range; supply chain concerns emerging", "diplomacy": "Reduced; ceasefire violations eroding mediator credibility; backchannel communications via Qatar/Oman minimal effectiveness", "tickers": ["Israeli_strikes_Lebanon_ceasefire_breach", "Gaza_flotilla_interception_activism_crackdown", "Pentagon_silence_Iran_school_attack_criticism", "Hezbollah_support_rising_Israel_entrenchment", "Assad_trial_regional_justice_process"]};</script>
 </body>
 </html>
