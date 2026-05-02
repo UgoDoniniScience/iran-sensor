@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 64 · TIME 09:04</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 64 · TIME 10:50</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [72.5, 72.5, 72.5, 67.5, 68.5, 72.5, 68.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 64.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 67.5, 58.5, 68.5, 62.5, 62.5, 62.5, 62.5, 67.5];
+const history = [72.5, 72.5, 67.5, 68.5, 72.5, 68.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 64.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 67.5, 58.5, 68.5, 62.5, 62.5, 62.5, 62.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israeli police arrest amid nun assault - internal tensions rising",
-  "Gaza aid flotilla interception - humanitarian escalation vector",
-  "Southern Lebanon strikes breach ceasefire - tactical expansion",
-  "British couple jailed in Iran - hostage dimension activated",
-  "Nobel laureate hospitalization - internal Iran pressure mounting",
+  "Lebanese health ministry: 13 killed in Israeli strikes",
+  "Iran detains British couple; Narges Mohammadi hospitalized",
+  "Israel intercepts Gaza aid flotilla in Greece",
+  "Jordanian tourism collapse from regional instability",
+  "Assad trial developments signal accountability pressure",
 ];
 
 function buildMarquee(){
@@ -794,6 +794,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-05-02 09:04:24", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM reinforced; Iron Dome defensive system extended to Gulf allies; 5th Fleet monitoring", "oil_impact": "Brent +3-5% due to Lebanon escalation; Hormuz fears contained by open passage signaling", "diplomacy": "Fragmented: British detention complicates mediation; Syria tribunal signals long-term accountability focus; regional talks stalled", "tickers": ["Israeli police arrest amid nun assault - internal tensions rising", "Gaza aid flotilla interception - humanitarian escalation vector", "Southern Lebanon strikes breach ceasefire - tactical expansion", "British couple jailed in Iran - hostage dimension activated", "Nobel laureate hospitalization - internal Iran pressure mounting"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-05-02 10:50:13", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM maintaining presence; no direct engagement reported; force posture defensive-deterrent", "oil_impact": "Moderate volatility expected; Hormuz open maintains global supply stability but premium persists", "diplomacy": "Indirect talks via Russia/China; humanitarian channels active; no direct USA-Iran negotiation visible", "tickers": ["Lebanese health ministry: 13 killed in Israeli strikes", "Iran detains British couple; Narges Mohammadi hospitalized", "Israel intercepts Gaza aid flotilla in Greece", "Jordanian tourism collapse from regional instability", "Assad trial developments signal accountability pressure"]};</script>
 </body>
 </html>
