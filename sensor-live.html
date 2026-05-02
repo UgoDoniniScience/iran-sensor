@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 64 · TIME 02:33</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 64 · TIME 06:05</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 68.5, 72.5, 68.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 64.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 67.5, 58.5, 68.5, 62.5, 62.5, 62.5];
+const history = [72.5, 72.5, 72.5, 72.5, 67.5, 68.5, 72.5, 68.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 64.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 67.5, 58.5, 68.5, 62.5, 62.5, 62.5, 62.5];
 let currentTemp = 62.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israeli police arrest escalates internal tensions amid external conflict",
-  "Gaza aid flotilla interception signals humanitarian corridor restrictions",
-  "Lebanon ceasefire violations indicate fragile de-escalation framework",
-  "Iran arrests British activists; Nobel laureate hospitalization signals regime strain",
-  "Israel-UAE Iron Dome cooperation demonstrates regional realignment",
+  "Israeli police arrest amid Jerusalem nun assault",
+  "Gaza aid flotilla intercepted by Israel off Greece",
+  "Deadly IDF strikes breach Lebanon ceasefire",
+  "British couple imprisoned Iran; extended detention likely",
+  "Narges Mohammadi hospitalized; health concerns escalate",
 ];
 
 function buildMarquee(){
@@ -792,6 +792,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "rising", "last_update": "2026-05-02 02:33:39", "nuclear_risk": 4, "hormuz": "open", "us_forces": "CENTCOM active; Air Defense Systems deployed to UAE; Carrier presence Eastern Mediterranean confirmed", "oil_impact": "Crude +2-3% on ceasefire violations and supply-chain anxiety; Brent stable above $78/bbl", "diplomacy": "Minimal: humanitarian crises override talks; Israel-UAE defense coordination strengthening; Iran isolation deepening", "tickers": ["Israeli police arrest escalates internal tensions amid external conflict", "Gaza aid flotilla interception signals humanitarian corridor restrictions", "Lebanon ceasefire violations indicate fragile de-escalation framework", "Iran arrests British activists; Nobel laureate hospitalization signals regime strain", "Israel-UAE Iron Dome cooperation demonstrates regional realignment"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "rising", "last_update": "2026-05-02 06:05:23", "nuclear_risk": 4, "hormuz": "open", "us_forces": "CENTCOM active with Iron Dome coordination for UAE defense; naval presence maintained in Persian Gulf", "oil_impact": "Moderate upward pressure; Strait of Hormuz remains open but threat perception rising; brent crude +2-3% volatility expected", "diplomacy": "Fragile ceasefire in southern Lebanon violated; prisoner exchanges stalled; indirect US-Iran communications through intermediaries", "tickers": ["Israeli police arrest amid Jerusalem nun assault", "Gaza aid flotilla intercepted by Israel off Greece", "Deadly IDF strikes breach Lebanon ceasefire", "British couple imprisoned Iran; extended detention likely", "Narges Mohammadi hospitalized; health concerns escalate"]};</script>
 </body>
 </html>
