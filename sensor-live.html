@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 66 · TIME 21:07</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 66 · TIME 22:56</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 67.5, 64.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 67.5, 58.5, 68.5, 62.5, 62.5, 62.5, 62.5, 67.5, 67.5, 67.5, 68.5, 62.5, 62.5, 62.5, 68.5, 67.5, 67.5, 67.5, 62.5, 67.5, 68.5, 67.5, 62.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 72.5];
+const history = [67.5, 64.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 67.5, 58.5, 68.5, 62.5, 62.5, 62.5, 62.5, 67.5, 67.5, 67.5, 68.5, 62.5, 62.5, 62.5, 68.5, 67.5, 67.5, 67.5, 62.5, 67.5, 68.5, 67.5, 62.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israeli strikes kill dozens in Lebanon despite ceasefire agreement",
-  "Iranian missiles and drones intercepted by US Navy in Hormuz",
-  "Hezbollah operations continue; ceasefire deteriorating",
-  "Oil markets responding to Strait of Hormuz tensions",
-  "Iran regime strengthens internally; revenge preparations reported",
+  "Israeli IDF strikes Lebanese villages killing dozens despite truce",
+  "Iranian missiles drones intercepted by US Navy over Hormuz Strait",
+  "Hezbollah-Israel border tensions remain critical flashpoint",
+  "Oil markets react to Hormuz closure fears and regional instability",
+  "Trump administration rhetoric signals hardline Iran policy continuation",
 ];
 
 function buildMarquee(){
@@ -818,6 +818,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-05-04 21:07:16", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM engagement active; naval assets defending merchant shipping; air defense systems operational", "oil_impact": "Moderate upward pressure; Strait concerns limit further spike; WTI +3-5% risk zone", "diplomacy": "Minimal; Iran regime consolidation signals rejected negotiation; US-Israel coordination dominates", "tickers": ["Israeli strikes kill dozens in Lebanon despite ceasefire agreement", "Iranian missiles and drones intercepted by US Navy in Hormuz", "Hezbollah operations continue; ceasefire deteriorating", "Oil markets responding to Strait of Hormuz tensions", "Iran regime strengthens internally; revenge preparations reported"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-05-04 22:56:23", "nuclear_risk": 4.5, "hormuz": "partial", "us_forces": "CENTCOM active air defense; naval assets in Strait of Hormuz conducting interceptions; heightened alert posture", "oil_impact": "Elevated due to Hormuz tensions; partial chokepoint risk premium 8-12% above baseline; supply concerns rising", "diplomacy": "Minimal active diplomacy; regional mediation (Saudi/UAE) stalled; UN statements without enforcement; escalation logic dominant", "tickers": ["Israeli IDF strikes Lebanese villages killing dozens despite truce", "Iranian missiles drones intercepted by US Navy over Hormuz Strait", "Hezbollah-Israel border tensions remain critical flashpoint", "Oil markets react to Hormuz closure fears and regional instability", "Trump administration rhetoric signals hardline Iran policy continuation"]};</script>
 </body>
 </html>
