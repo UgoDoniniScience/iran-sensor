@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 67 · TIME 15:52</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 67 · TIME 17:21</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 67.5, 58.5, 68.5, 62.5, 62.5, 62.5, 62.5, 67.5, 67.5, 67.5, 68.5, 62.5, 62.5, 62.5, 68.5, 67.5, 67.5, 67.5, 62.5, 67.5, 68.5, 67.5, 62.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 72.5, 72.5, 67.5, 72.5, 68.5, 72.5];
+const history = [68.5, 67.5, 67.5, 67.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 67.5, 58.5, 68.5, 62.5, 62.5, 62.5, 62.5, 67.5, 67.5, 67.5, 68.5, 62.5, 62.5, 62.5, 68.5, 67.5, 67.5, 67.5, 62.5, 67.5, 68.5, 67.5, 62.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 72.5, 72.5, 67.5, 72.5, 68.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Strait of Hormuz standoff raises nuclear escalation fears",
-  "Trump's Project Freedom naval operations intensify",
-  "Israeli strikes kill dozens in Lebanon despite ceasefire attempt",
-  "Iranian regime prepares retaliatory response after US strikes",
-  "UAE oil facility attacked; Saudi-UAE rift complicates coordination",
+  "Bowen_Hormuz_standoff_escalation",
+  "Trump_Project_Freedom_Strait_operations",
+  "US_Iranian_naval_clashes_fast_boats",
+  "Israeli_Lebanon_ceasefire_violations_casualties",
+  "Iranian_regime_entrenchment_revenge_signals",
 ];
 
 function buildMarquee(){
@@ -823,6 +823,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-05-05 15:52:07", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "Expanded CENTCOM presence; naval task forces engaged in Strait enforcement; 'Project Freedom' operations active", "oil_impact": "Volatile spike; Hormuz partial closure threatens 21% global supply; WTI trading elevated", "diplomacy": "Minimal; Trump administration hardline stance; no active mediation tracks; regional isolation deepens", "tickers": ["Strait of Hormuz standoff raises nuclear escalation fears", "Trump's Project Freedom naval operations intensify", "Israeli strikes kill dozens in Lebanon despite ceasefire attempt", "Iranian regime prepares retaliatory response after US strikes", "UAE oil facility attacked; Saudi-UAE rift complicates coordination"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-05-05 17:21:55", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM reinforced; carrier strike groups positioned; coastal patrol operations active", "oil_impact": "Elevated volatility; Hormuz partial disruption raising crude 8-12%", "diplomacy": "Minimal; Trump Project Freedom hardline; no active mediation talks", "tickers": ["Bowen_Hormuz_standoff_escalation", "Trump_Project_Freedom_Strait_operations", "US_Iranian_naval_clashes_fast_boats", "Israeli_Lebanon_ceasefire_violations_casualties", "Iranian_regime_entrenchment_revenge_signals"]};</script>
 </body>
 </html>
