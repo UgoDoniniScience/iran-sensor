@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 72 · TIME 09:26</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 72 · TIME 10:59</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -379,7 +379,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
 <line x1="695" y1="265" x2="695" y2="38" class="trace-pwr" stroke-width="2"/>
 <line x1="720" y1="355" x2="720" y2="612" class="trace-gnd" stroke-width="2"/>
 <text x="640" y="285" style="font-family:Share Tech Mono;font-size:7px;fill:rgba(0,255,136,0.25)">SSD1306 I2C</text>
-<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">67.5°C</text>
+<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">68.5°C</text>
 <text x="695" y="378" class="lc">OLED 0.96" I2C</text>
 <text x="695" y="390" class="lcr">U4 SSD1306</text>
 <text x="695" y="403" class="lca">GLOBAL OUTPUT</text>
@@ -495,8 +495,8 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 72.5, 68.5, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 42.5, 42.5, 62.5, 58.5, 62.5, 62.5, 62.5, 58.5, 38.5, 62.5, 42.5, 52.5, 48.5, 62.5, 62.5, 62.5, 62.5, 62.5, 68.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 72.5, 67.5];
-let currentTemp = 67.5;
+const history = [72.5, 68.5, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 42.5, 42.5, 62.5, 58.5, 62.5, 62.5, 62.5, 58.5, 38.5, 62.5, 42.5, 52.5, 48.5, 62.5, 62.5, 62.5, 62.5, 62.5, 68.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 72.5, 67.5, 68.5];
+let currentTemp = 68.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
 function barWidth(t){return Math.min(99,(t/150)*100);}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Lebanese strikes kill 39 civilians",
-  "Iran blocks Strait of Hormuz via naval clashes",
-  "Iran economic crisis: mass business layoffs",
-  "Trump claims swift war conclusion possible",
-  "Hamas-Israel disarmament talks collapse",
+  "Lebanon-Israeli strikes killing civilians escalate regional tensions",
+  "Iran economic collapse accelerating; mass layoffs amid wartime pressures",
+  "Strait of Hormuz blockade threatens global shipping and oil markets",
+  "Trump confidence in 'quick war' conflicts with ground reality of entrenchment",
+  "Gaza tensions resurge as Hamas disarmament negotiations stall completely",
 ];
 
 function buildMarquee(){
@@ -867,6 +867,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-05-10 09:26:54", "nuclear_risk": 4, "hormuz": "closed", "us_forces": "CENTCOM assets deployed; naval presence increased; air defense systems active across Gulf region", "oil_impact": "Significant upward pressure; global energy markets volatile due to Hormuz blockade; disruption of ~20% global crude supply", "diplomacy": "Trump signals openness to Iranian proposal; UN mediation attempts; indirect talks via third parties; guarantees framework under discussion", "tickers": ["Lebanese strikes kill 39 civilians", "Iran blocks Strait of Hormuz via naval clashes", "Iran economic crisis: mass business layoffs", "Trump claims swift war conclusion possible", "Hamas-Israel disarmament talks collapse"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 68.5, "trend": "rising", "last_update": "2026-05-10 10:59:14", "nuclear_risk": 3.5, "hormuz": "closed", "us_forces": "CENTCOM fully engaged; carrier groups positioned; Trump signals confidence in swift resolution", "oil_impact": "Severe; Hormuz closure drives crude to $110+/barrel; global energy crisis accelerating", "diplomacy": "US-Iran talks ongoing (Trump proposal consideration); UN mediation attempts; World Cup diplomatic leverage", "tickers": ["Lebanon-Israeli strikes killing civilians escalate regional tensions", "Iran economic collapse accelerating; mass layoffs amid wartime pressures", "Strait of Hormuz blockade threatens global shipping and oil markets", "Trump confidence in 'quick war' conflicts with ground reality of entrenchment", "Gaza tensions resurge as Hamas disarmament negotiations stall completely"]};</script>
 </body>
 </html>
