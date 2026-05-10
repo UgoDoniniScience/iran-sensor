@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 72 · TIME 10:59</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 72 · TIME 13:14</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [72.5, 68.5, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 42.5, 42.5, 62.5, 58.5, 62.5, 62.5, 62.5, 58.5, 38.5, 62.5, 42.5, 52.5, 48.5, 62.5, 62.5, 62.5, 62.5, 62.5, 68.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 72.5, 67.5, 68.5];
+const history = [68.5, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 42.5, 42.5, 62.5, 58.5, 62.5, 62.5, 62.5, 58.5, 38.5, 62.5, 42.5, 52.5, 48.5, 62.5, 62.5, 62.5, 62.5, 62.5, 68.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 72.5, 67.5, 68.5, 68.5];
 let currentTemp = 68.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Lebanon-Israeli strikes killing civilians escalate regional tensions",
-  "Iran economic collapse accelerating; mass layoffs amid wartime pressures",
-  "Strait of Hormuz blockade threatens global shipping and oil markets",
-  "Trump confidence in 'quick war' conflicts with ground reality of entrenchment",
-  "Gaza tensions resurge as Hamas disarmament negotiations stall completely",
+  "Iran warns against US sanctions compliance amid economic collapse",
+  "Lebanon: Israeli strikes kill 39; Hezbollah mobilization accelerating",
+  "Strait of Hormuz blocked after naval skirmishes; global shipping disrupted",
+  "Trump: war will end quickly; Iran: reckless military adventure",
+  "Mass business layoffs in Iran; wartime economic pressure mounting",
 ];
 
 function buildMarquee(){
@@ -868,6 +868,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 68.5, "trend": "rising", "last_update": "2026-05-10 10:59:14", "nuclear_risk": 3.5, "hormuz": "closed", "us_forces": "CENTCOM fully engaged; carrier groups positioned; Trump signals confidence in swift resolution", "oil_impact": "Severe; Hormuz closure drives crude to $110+/barrel; global energy crisis accelerating", "diplomacy": "US-Iran talks ongoing (Trump proposal consideration); UN mediation attempts; World Cup diplomatic leverage", "tickers": ["Lebanon-Israeli strikes killing civilians escalate regional tensions", "Iran economic collapse accelerating; mass layoffs amid wartime pressures", "Strait of Hormuz blockade threatens global shipping and oil markets", "Trump confidence in 'quick war' conflicts with ground reality of entrenchment", "Gaza tensions resurge as Hamas disarmament negotiations stall completely"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 68.5, "trend": "rising", "last_update": "2026-05-10 13:14:19", "nuclear_risk": 3.2, "hormuz": "closed", "us_forces": "CENTCOM fully engaged; naval operations in Gulf; air support for Israel ongoing", "oil_impact": "Severe: Hormuz closure drives crude above $110/barrel; global energy crisis deepens", "diplomacy": "Trump administration proposing terms; Iran signaling conditional openness; indirect talks via mediators", "tickers": ["Iran warns against US sanctions compliance amid economic collapse", "Lebanon: Israeli strikes kill 39; Hezbollah mobilization accelerating", "Strait of Hormuz blocked after naval skirmishes; global shipping disrupted", "Trump: war will end quickly; Iran: reckless military adventure", "Mass business layoffs in Iran; wartime economic pressure mounting"]};</script>
 </body>
 </html>
