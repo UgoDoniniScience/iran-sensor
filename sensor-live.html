@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 73 · TIME 14:46</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 73 · TIME 17:53</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 42.5, 42.5, 62.5, 58.5, 62.5, 62.5, 62.5, 58.5, 38.5, 62.5, 42.5, 52.5, 48.5, 62.5, 62.5, 62.5, 62.5, 62.5, 68.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 72.5, 67.5, 68.5, 68.5, 62.5, 62.5, 62.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5];
+const history = [62.5, 62.5, 62.5, 62.5, 62.5, 42.5, 42.5, 62.5, 58.5, 62.5, 62.5, 62.5, 58.5, 38.5, 62.5, 42.5, 52.5, 48.5, 62.5, 62.5, 62.5, 62.5, 62.5, 68.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 72.5, 67.5, 68.5, 68.5, 62.5, 62.5, 62.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Trump-Iran talks collapse, military posturing intensifies",
-  "IDF airstrikes Lebanon border; 39+ casualties reported",
-  "Iranian Nobel laureate case highlights internal unrest amid war",
-  "Hezbollah maintains pressure; rocket fire continues from Lebanon",
-  "Oil markets react to Hormuz closure risks and escalation signals",
+  "Trump: Iran response 'totally unacceptable' amid buried tensions",
+  "IDF strikes kill 39 in Lebanon; Hezbollah retaliatory strikes ongoing",
+  "Nobel laureate Narges Mohammadi transferred to hospital under guard",
+  "Iranian activist reports war-trauma psychological crisis intensifying",
+  "Oil markets volatile on Strait of Hormuz security fears",
 ];
 
 function buildMarquee(){
@@ -878,6 +878,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-05-11 14:46:19", "nuclear_risk": 6.5, "hormuz": "partial", "us_forces": "CENTCOM fully mobilized; naval presence Gulf reinforced; air superiority maintained", "oil_impact": "Brent crude +3.2% on Hormuz closure risks; volatility sustained above $95/bbl", "diplomacy": "Stalled; Qatar-mediated talks suspended after Trump statement", "tickers": ["Trump-Iran talks collapse, military posturing intensifies", "IDF airstrikes Lebanon border; 39+ casualties reported", "Iranian Nobel laureate case highlights internal unrest amid war", "Hezbollah maintains pressure; rocket fire continues from Lebanon", "Oil markets react to Hormuz closure risks and escalation signals"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-05-11 17:53:14", "nuclear_risk": 5.5, "hormuz": "open", "us_forces": "CENTCOM elevated posture; carriers/strike groups deployed; air defense systems active throughout Gulf region", "oil_impact": "Brent +3-4% on Hormuz closure concerns; US releases SPR reserves to stabilize; supply chain disrupted", "diplomacy": "Stalled; indirect talks via Qatar/Oman; EU attempting mediation; no scheduled negotiations", "tickers": ["Trump: Iran response 'totally unacceptable' amid buried tensions", "IDF strikes kill 39 in Lebanon; Hezbollah retaliatory strikes ongoing", "Nobel laureate Narges Mohammadi transferred to hospital under guard", "Iranian activist reports war-trauma psychological crisis intensifying", "Oil markets volatile on Strait of Hormuz security fears"]};</script>
 </body>
 </html>
