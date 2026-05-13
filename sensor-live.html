@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 75 · TIME 02:53</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 75 · TIME 06:46</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [58.5, 38.5, 62.5, 42.5, 52.5, 48.5, 62.5, 62.5, 62.5, 62.5, 62.5, 68.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 72.5, 67.5, 68.5, 68.5, 62.5, 62.5, 62.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 62.5, 67.5, 68.5, 67.5, 68.5, 62.5, 67.5, 64.5, 62.5, 68.5, 72.5, 68.5];
+const history = [38.5, 62.5, 42.5, 52.5, 48.5, 62.5, 62.5, 62.5, 62.5, 62.5, 68.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 72.5, 67.5, 68.5, 68.5, 62.5, 62.5, 62.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 62.5, 67.5, 68.5, 67.5, 68.5, 62.5, 67.5, 64.5, 62.5, 68.5, 72.5, 68.5, 68.5];
 let currentTemp = 68.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Hamas sexual violence investigation undermines negotiating position",
-  "Israel death penalty law signals hardened stance against resolution",
-  "Trump ceasefire rhetoric contradicts military escalation reality",
-  "Hormuz shipping crisis drives economic pressure for de-escalation",
-  "EU settler sanctions signal Western division over Israeli actions",
+  "Lebanon civilian deaths escalate regional tension",
+  "Hormuz Strait passage increasingly risky for shipping",
+  "Israel hardens domestic judicial measures post-October 7",
+  "Trump signals Iran negotiations collapsing",
+  "Oil markets price in disruption risk",
 ];
 
 function buildMarquee(){
@@ -891,6 +891,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 68.5, "trend": "rising", "last_update": "2026-05-13 02:53:02", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM maintains naval presence; carriers positioned Gulf of Oman; limited direct engagement", "oil_impact": "WTI +8-12% volatility expected; supply concerns from Hormuz disruption; strategic reserves monitoring", "diplomacy": "Trump administration ceasefire on 'massive life support'; EU sanctions indicate diplomatic fracture; backchannels with Saudi Arabia strained", "tickers": ["Hamas sexual violence investigation undermines negotiating position", "Israel death penalty law signals hardened stance against resolution", "Trump ceasefire rhetoric contradicts military escalation reality", "Hormuz shipping crisis drives economic pressure for de-escalation", "EU settler sanctions signal Western division over Israeli actions"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 68.5, "trend": "rising", "last_update": "2026-05-13 06:46:10", "nuclear_risk": 4.2, "hormuz": "partial", "us_forces": "CENTCOM maintains heightened posture; naval presence in Persian Gulf sustained", "oil_impact": "Brent crude elevated 8-12% due to Hormuz volatility; risk premium embedded", "diplomacy": "Ceasefire 'on life support' per Trump; indirect negotiations stalled; no active mediation track", "tickers": ["Lebanon civilian deaths escalate regional tension", "Hormuz Strait passage increasingly risky for shipping", "Israel hardens domestic judicial measures post-October 7", "Trump signals Iran negotiations collapsing", "Oil markets price in disruption risk"]};</script>
 </body>
 </html>
