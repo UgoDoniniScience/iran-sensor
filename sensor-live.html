@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 76 · TIME 17:48</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 76 · TIME 19:43</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -379,7 +379,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
 <line x1="695" y1="265" x2="695" y2="38" class="trace-pwr" stroke-width="2"/>
 <line x1="720" y1="355" x2="720" y2="612" class="trace-gnd" stroke-width="2"/>
 <text x="640" y="285" style="font-family:Share Tech Mono;font-size:7px;fill:rgba(0,255,136,0.25)">SSD1306 I2C</text>
-<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">68.5°C</text>
+<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">67.5°C</text>
 <text x="695" y="378" class="lc">OLED 0.96" I2C</text>
 <text x="695" y="390" class="lcr">U4 SSD1306</text>
 <text x="695" y="403" class="lca">GLOBAL OUTPUT</text>
@@ -495,8 +495,8 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [68.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 72.5, 67.5, 68.5, 68.5, 62.5, 62.5, 62.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 62.5, 67.5, 68.5, 67.5, 68.5, 62.5, 67.5, 64.5, 62.5, 68.5, 72.5, 68.5, 68.5, 72.5, 62.5, 67.5, 62.5, 67.5, 62.5, 67.5, 62.5, 62.5, 68.5];
-let currentTemp = 68.5;
+const history = [62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 72.5, 67.5, 68.5, 68.5, 62.5, 62.5, 62.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 62.5, 67.5, 68.5, 67.5, 68.5, 62.5, 67.5, 64.5, 62.5, 68.5, 72.5, 68.5, 68.5, 72.5, 62.5, 67.5, 62.5, 67.5, 62.5, 67.5, 62.5, 62.5, 68.5, 67.5];
+let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
 function barWidth(t){return Math.min(99,(t/150)*100);}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "IDF-Lebanon-strikes-casualties",
-  "Iran-ship-seizure-military-supplies",
-  "Hezbollah-ceasefire-defiance",
-  "Netanyahu-UAE-secret-visit",
-  "Saudi-UAE-covert-Iran-strikes",
+  "Hezbollah ceasefire collapse-south Lebanon escalation",
+  "Iran vessel seizure-'floating armoury' captured, tensions spike",
+  "Saudi-UAE covert Iran strikes-regional axis expansion",
+  "Israeli air campaign 22 killed-daily casualty surge continues",
+  "Hormuz tensions-Chinese shipping coordination, sanctions evasion indicators",
 ];
 
 function buildMarquee(){
@@ -902,6 +902,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 68.5, "trend": "rising", "last_update": "2026-05-14 17:48:16", "nuclear_risk": 4, "hormuz": "open", "us_forces": "CENTCOM maintains presence; carrier groups positioned; Trump negotiating Strait security with China", "oil_impact": "Volatile trading; $80-95/barrel range; Hormuz concerns priced in; Trump negotiations reduce immediate crisis premium", "diplomacy": "UAE backchannel active; Hamas peace envoy engaged; China-USA Hormuz talks; Saudi Arabia covertly engaged", "tickers": ["IDF-Lebanon-strikes-casualties", "Iran-ship-seizure-military-supplies", "Hezbollah-ceasefire-defiance", "Netanyahu-UAE-secret-visit", "Saudi-UAE-covert-Iran-strikes"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-05-14 19:43:29", "nuclear_risk": 3.2, "hormuz": "partial", "us_forces": "CENTCOM actively engaged; elevated presence Persian Gulf and Eastern Mediterranean", "oil_impact": "Upward pressure; Hormuz partial closure concerns, supply chain disruptions anticipated", "diplomacy": "Netanyahu UAE contacts; Hamas peace envoy engagement; China-Iran Hormuz coordination signals potential mediation interest", "tickers": ["Hezbollah ceasefire collapse-south Lebanon escalation", "Iran vessel seizure-'floating armoury' captured, tensions spike", "Saudi-UAE covert Iran strikes-regional axis expansion", "Israeli air campaign 22 killed-daily casualty surge continues", "Hormuz tensions-Chinese shipping coordination, sanctions evasion indicators"]};</script>
 </body>
 </html>
