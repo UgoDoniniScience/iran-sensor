@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 77 · TIME 10:21</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 77 · TIME 14:02</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [62.5, 62.5, 62.5, 67.5, 68.5, 72.5, 67.5, 68.5, 68.5, 62.5, 62.5, 62.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 62.5, 67.5, 68.5, 67.5, 68.5, 62.5, 67.5, 64.5, 62.5, 68.5, 72.5, 68.5, 68.5, 72.5, 62.5, 67.5, 62.5, 67.5, 62.5, 67.5, 62.5, 62.5, 68.5, 67.5, 68.5, 67.5, 68.5, 67.5, 68.5];
+const history = [62.5, 62.5, 67.5, 68.5, 72.5, 67.5, 68.5, 68.5, 62.5, 62.5, 62.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 62.5, 67.5, 68.5, 67.5, 68.5, 62.5, 67.5, 64.5, 62.5, 68.5, 72.5, 68.5, 68.5, 72.5, 62.5, 67.5, 62.5, 67.5, 62.5, 67.5, 62.5, 62.5, 68.5, 67.5, 68.5, 67.5, 68.5, 67.5, 68.5, 68.5];
 let currentTemp = 68.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Iran seizures US floating armory in Gulf escalation",
-  "Hezbollah ignores ceasefire; 22 killed in Israeli Lebanon strikes",
-  "Netanyahu secret UAE visit signals covert diplomacy amid war",
-  "CENTCOM dismisses civilian casualty reports amid strikes",
-  "Hamas offered political survival path if renounces weapons",
+  "Iran seizes floating armoury ship in Gulf waters",
+  "Hezbollah ceasefire collapses; 22 killed in southern Lebanon strikes",
+  "Netanyahu confirms secret UAE visit during Iran war",
+  "Oil markets surge on broader Middle East energy crunch fears",
+  "Hamas political transition offer as armed conflict sustainability questioned",
 ];
 
 function buildMarquee(){
@@ -908,6 +908,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 68.5, "trend": "rising", "last_update": "2026-05-15 10:21:03", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM operations active; carrier groups positioned; air strikes ongoing against Iranian positions", "oil_impact": "Elevated volatility; Hormuz concerns support $85-92/bbl range; shipping premiums rising", "diplomacy": "Netanyahu UAE backchannel; ceasefire attempts failing; Hamas political compromise proposed", "tickers": ["Iran seizures US floating armory in Gulf escalation", "Hezbollah ignores ceasefire; 22 killed in Israeli Lebanon strikes", "Netanyahu secret UAE visit signals covert diplomacy amid war", "CENTCOM dismisses civilian casualty reports amid strikes", "Hamas offered political survival path if renounces weapons"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 68.5, "trend": "rising", "last_update": "2026-05-15 14:02:48", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM forces engaged; naval presence elevated; no direct confrontation with Iranian Navy yet", "oil_impact": "Climbing sharply (+4-6%) due to Hormuz seizure fears and energy supply disruption concerns", "diplomacy": "UAE-Israel backchannel active (Netanyahu visit); indirect US-Iran mediation stalled; Russia-China monitoring", "tickers": ["Iran seizes floating armoury ship in Gulf waters", "Hezbollah ceasefire collapses; 22 killed in southern Lebanon strikes", "Netanyahu confirms secret UAE visit during Iran war", "Oil markets surge on broader Middle East energy crunch fears", "Hamas political transition offer as armed conflict sustainability questioned"]};</script>
 </body>
 </html>
