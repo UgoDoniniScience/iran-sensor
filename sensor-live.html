@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 80 · TIME 19:42</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 80 · TIME 21:10</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [68.5, 68.5, 72.5, 62.5, 67.5, 62.5, 67.5, 62.5, 67.5, 62.5, 62.5, 68.5, 67.5, 68.5, 67.5, 68.5, 67.5, 68.5, 68.5, 67.5, 62.5, 62.5, 58.5, 62.5, 62.5, 67.5, 72.5, 62.5, 62.5, 67.5, 62.5, 58.5, 62.5, 62.5, 62.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 72.5, 72.5, 72.5, 76.5, 76.5];
+const history = [68.5, 72.5, 62.5, 67.5, 62.5, 67.5, 62.5, 67.5, 62.5, 62.5, 68.5, 67.5, 68.5, 67.5, 68.5, 67.5, 68.5, 68.5, 67.5, 62.5, 62.5, 58.5, 62.5, 62.5, 67.5, 72.5, 62.5, 62.5, 67.5, 62.5, 58.5, 62.5, 62.5, 62.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 72.5, 72.5, 72.5, 76.5, 76.5, 76.5];
 let currentTemp = 76.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Lebanon death toll 3000+ Israeli strikes",
-  "Gaza flotilla boarding near Cyprus",
-  "Strike reported near UAE nuclear power plant",
-  "Iran executions surge amid wartime control",
-  "Hormuz Strait blockade disrupts oil flow",
+  "Lebanon death toll 3,000+ from Israeli strikes",
+  "UAE nuclear facility near-miss from regional strikes",
+  "Political executions surge in Iran post-conflict",
+  "Trump authorized but delayed new Iran strikes",
+  "Hezbollah escalation threat; Strait of Hormuz tensions",
 ];
 
 function buildMarquee(){
@@ -938,6 +938,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 76.5, "trend": "rising", "last_update": "2026-05-18 19:42:28", "nuclear_risk": 6.5, "hormuz": "partial", "us_forces": "CENTCOM reinforced; carrier groups positioned; air bases activated Gulf region", "oil_impact": "Brent +$18-22/bbl; supply disruption 15-20% risk if Hormuz closes fully", "diplomacy": "Stalled; Trump 'clock ticking' rhetoric replaces negotiations; no active mediation", "tickers": ["Lebanon death toll 3000+ Israeli strikes", "Gaza flotilla boarding near Cyprus", "Strike reported near UAE nuclear power plant", "Iran executions surge amid wartime control", "Hormuz Strait blockade disrupts oil flow"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 76.5, "trend": "rising", "last_update": "2026-05-18 21:10:56", "nuclear_risk": 7.2, "hormuz": "partial", "us_forces": "CENTCOM fully mobilized; carrier strike groups positioned; authorized strikes held pending diplomacy window", "oil_impact": "Elevated volatility; Brent +8-12% risk premium; partial Hormuz disruption threatens global supply", "diplomacy": "Stalled; Trump's 'clock ticking' rhetoric signals limited negotiation window; no active mediation", "tickers": ["Lebanon death toll 3,000+ from Israeli strikes", "UAE nuclear facility near-miss from regional strikes", "Political executions surge in Iran post-conflict", "Trump authorized but delayed new Iran strikes", "Hezbollah escalation threat; Strait of Hormuz tensions"]};</script>
 </body>
 </html>
