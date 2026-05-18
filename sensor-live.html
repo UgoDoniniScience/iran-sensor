@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 80 · TIME 03:30</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 80 · TIME 08:00</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [64.5, 62.5, 68.5, 72.5, 68.5, 68.5, 72.5, 62.5, 67.5, 62.5, 67.5, 62.5, 67.5, 62.5, 62.5, 68.5, 67.5, 68.5, 67.5, 68.5, 67.5, 68.5, 68.5, 67.5, 62.5, 62.5, 58.5, 62.5, 62.5, 67.5, 72.5, 62.5, 62.5, 67.5, 62.5, 58.5, 62.5, 62.5, 62.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 72.5];
+const history = [62.5, 68.5, 72.5, 68.5, 68.5, 72.5, 62.5, 67.5, 62.5, 67.5, 62.5, 67.5, 62.5, 62.5, 68.5, 67.5, 68.5, 67.5, 68.5, 67.5, 68.5, 68.5, 67.5, 62.5, 62.5, 58.5, 62.5, 62.5, 67.5, 72.5, 62.5, 62.5, 67.5, 62.5, 58.5, 62.5, 62.5, 62.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Political executions surge in Iran amid war pressures",
-  "Hezbollah adapts drone tactics with new operational videos",
-  "Israel eliminates top Hamas commander in targeted strike",
-  "US extends ceasefire with Lebanon as regional tensions persist",
-  "War cripples Iranian economy; global proxy concerns emerge",
+  "Trump clock-ticking warning signals resolve/impatience",
+  "Iranian political executions indicate regime internal pressure",
+  "UAE nuclear strike near-miss expands battlefield geography",
+  "Hezbollah tactical evolution suggests Iranian coordination",
+  "Hamas commander death confirms Israeli precision targeting continues",
 ];
 
 function buildMarquee(){
@@ -934,6 +934,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-05-18 03:30:58", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM deployed, carrier task force positioned, regional bases active, defensive posture maintained", "oil_impact": "Elevated volatility 85-95 USD/bbl; Hormuz concerns contain major spillover risk", "diplomacy": "US-brokered ceasefire extension with Lebanon; Iran political executions signal hardline dominance; indirect talks stalled", "tickers": ["Political executions surge in Iran amid war pressures", "Hezbollah adapts drone tactics with new operational videos", "Israel eliminates top Hamas commander in targeted strike", "US extends ceasefire with Lebanon as regional tensions persist", "War cripples Iranian economy; global proxy concerns emerge"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-05-18 08:00:54", "nuclear_risk": 6.5, "hormuz": "partial", "us_forces": "CENTCOM reinforced; carrier presence; bases threatened; ready-state elevated", "oil_impact": "Sustained pressure upward; 15-20% volatility; partial Hormuz closure priced in", "diplomacy": "Trump ultimatum active; stalled negotiations; back-channel contacts minimal", "tickers": ["Trump clock-ticking warning signals resolve/impatience", "Iranian political executions indicate regime internal pressure", "UAE nuclear strike near-miss expands battlefield geography", "Hezbollah tactical evolution suggests Iranian coordination", "Hamas commander death confirms Israeli precision targeting continues"]};</script>
 </body>
 </html>
