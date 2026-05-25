@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 87 · TIME 16:21</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 87 · TIME 19:27</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 67.5, 72.5, 72.5, 67.5, 62.5, 67.5, 72.5, 67.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 68.5, 67.5, 64.5, 67.5, 67.5, 67.5, 67.5, 72.5, 68.5, 72.5, 68.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 72.5, 72.5, 62.5, 67.5, 62.5];
+const history = [67.5, 72.5, 72.5, 67.5, 62.5, 67.5, 72.5, 67.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 68.5, 67.5, 64.5, 67.5, 67.5, 67.5, 67.5, 72.5, 68.5, 72.5, 68.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 72.5, 72.5, 62.5, 67.5, 62.5, 62.5];
 let currentTemp = 62.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Iran rejects imminent deal; hardliners emboldened",
-  "Strait missile strike kills maritime worker",
-  "IDF continues targeted strikes on Iranian facilities",
-  "Trump signals prolonged negotiation stance",
-  "Saudi fiscal constraints limit regional leverage",
+  "Deal_with_US_not_imminent",
+  "Missile_strike_Hormuz_casualties",
+  "Trump_not_to_rush_negotiations",
+  "Gaza_flotilla_Israeli_detention",
+  "Strait_of_Hormuz_shipping_blocked",
 ];
 
 function buildMarquee(){
@@ -991,6 +991,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "stable", "last_update": "2026-05-25 16:21:22", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM maintaining air superiority; naval task forces in region; no major escalation posture shift", "oil_impact": "Volatility sustained 85-95 USD/bbl; supply disruption fears prevent sharp decline despite partial Hormuz access", "diplomacy": "Backchannel talks stalled; Trump delays negotiations; no third-party mediator (Saudi/UAE/Qatar) breakthrough apparent", "tickers": ["Iran rejects imminent deal; hardliners emboldened", "Strait missile strike kills maritime worker", "IDF continues targeted strikes on Iranian facilities", "Trump signals prolonged negotiation stance", "Saudi fiscal constraints limit regional leverage"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "stable", "last_update": "2026-05-25 19:27:18", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM operations ongoing; naval presence elevated; no full direct engagement with Iranian forces", "oil_impact": "Elevated volatility; Hormuz disruption raising energy costs; Saudi spending constraints limiting buffer", "diplomacy": "Back-channel talks continue via intermediaries; Trump urging negotiators to delay, reducing momentum", "tickers": ["Deal_with_US_not_imminent", "Missile_strike_Hormuz_casualties", "Trump_not_to_rush_negotiations", "Gaza_flotilla_Israeli_detention", "Strait_of_Hormuz_shipping_blocked"]};</script>
 </body>
 </html>
