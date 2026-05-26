@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 88 · TIME 02:56</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 88 · TIME 07:42</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 62.5, 67.5, 72.5, 67.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 68.5, 67.5, 64.5, 67.5, 67.5, 67.5, 67.5, 72.5, 68.5, 72.5, 68.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 72.5, 72.5, 62.5, 67.5, 62.5, 62.5, 62.5, 67.5, 67.5];
+const history = [62.5, 67.5, 72.5, 67.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 68.5, 67.5, 64.5, 67.5, 67.5, 67.5, 67.5, 72.5, 68.5, 72.5, 68.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 72.5, 72.5, 62.5, 67.5, 62.5, 62.5, 62.5, 67.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "US_renewed_southern_Iran_strikes",
-  "Netanyahu_Hezbollah_intensification_pledge",
-  "Iran_rejects_US_deal_imminence",
-  "Saudi_Arabia_spending_constraints",
-  "Hajj_1.5M_pilgrims_continue",
+  "US_strikes_Iranian_missile_sites",
+  "Netanyahu_Hezbollah_intensification",
+  "Iran_rejects_US_deal_talks",
+  "Saudi_Arabia_fiscal_constraints",
+  "Hajj_1.5M_pilgrims_despite_war",
 ];
 
 function buildMarquee(){
@@ -995,6 +995,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-05-26 02:56:26", "nuclear_risk": 4, "hormuz": "open", "us_forces": "Active CENTCOM operations; renewed strike capability demonstrated; carrier groups positioned; no de-escalation signals", "oil_impact": "Elevated volatility; Hormuz concerns moderate prices; 1.5M Hajj pilgrims indicate partial regional stability maintaining trade flows", "diplomacy": "Stalled; Iran rejects imminent US deal; no active mediation; regional powers (Saudi Arabia fiscal constraints) limiting intervention capacity", "tickers": ["US_renewed_southern_Iran_strikes", "Netanyahu_Hezbollah_intensification_pledge", "Iran_rejects_US_deal_imminence", "Saudi_Arabia_spending_constraints", "Hajj_1.5M_pilgrims_continue"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-05-26 07:42:39", "nuclear_risk": 3.5, "hormuz": "open", "us_forces": "CENTCOM conducting sustained operations; multiple strike sorties on Iranian infrastructure; carrier presence maintained in region", "oil_impact": "Volatility sustained 75-85 USD/bbl; Strait concerns limit upside but production intact; 1.5M+ Hajj pilgrims indicate relative stability", "diplomacy": "Minimal; Iran explicitly rejects imminent US deal; no active negotiation track visible", "tickers": ["US_strikes_Iranian_missile_sites", "Netanyahu_Hezbollah_intensification", "Iran_rejects_US_deal_talks", "Saudi_Arabia_fiscal_constraints", "Hajj_1.5M_pilgrims_despite_war"]};</script>
 </body>
 </html>
