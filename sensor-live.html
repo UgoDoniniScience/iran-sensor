@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 89 · TIME 08:01</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 89 · TIME 17:18</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 68.5, 67.5, 64.5, 67.5, 67.5, 67.5, 67.5, 72.5, 68.5, 72.5, 68.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 72.5, 72.5, 62.5, 67.5, 62.5, 62.5, 62.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 68.5, 68.5, 72.5];
+const history = [67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 68.5, 67.5, 64.5, 67.5, 67.5, 67.5, 67.5, 72.5, 68.5, 72.5, 68.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 72.5, 72.5, 62.5, 67.5, 62.5, 62.5, 62.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 68.5, 68.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israel-Gaza: Hamas military commander eliminated in strikes",
-  "Lebanon: Dozens killed in intensified Israeli operations",
-  "Iran: Condemns US ceasefire violations, threatens retaliation",
-  "Internet: Iran restores connectivity after months-long blackout",
-  "Diplomacy: Push for sustainable deal amid tactical escalations",
+  "Hamas military chief killed Gaza City",
+  "Israel intensifies Lebanon strikes evacuations ordered",
+  "Iran internet restoration after blackout ends",
+  "US condemns Iran strikes as ceasefire violation",
+  "Regional powers watch escalation trajectory",
 ];
 
 function buildMarquee(){
@@ -1002,6 +1002,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-05-27 08:01:26", "nuclear_risk": 4, "hormuz": "open", "us_forces": "CENTCOM reinforced posture; carrier strike group monitoring; air defense elevated", "oil_impact": "Brent +3-5% on strike escalation and Iranian threat rhetoric; Hormuz disruption risk premium", "diplomacy": "Indirect Qatar-mediated talks ongoing; US-Iran ceasefire stressed but holding; EU intermediary engagement", "tickers": ["Israel-Gaza: Hamas military commander eliminated in strikes", "Lebanon: Dozens killed in intensified Israeli operations", "Iran: Condemns US ceasefire violations, threatens retaliation", "Internet: Iran restores connectivity after months-long blackout", "Diplomacy: Push for sustainable deal amid tactical escalations"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-05-27 17:18:04", "nuclear_risk": 3.2, "hormuz": "open", "us_forces": "CENTCOM maintaining carrier task force presence; expanded strike operations; defensive posture", "oil_impact": "Modest uptick (2-3%) due to escalation fears; Hormuz open limits spike; Brent ~$78-82/bbl", "diplomacy": "Unofficial US-Iran deal framework emerging; internet restoration signals negotiation window; Saudi mediation quiet", "tickers": ["Hamas military chief killed Gaza City", "Israel intensifies Lebanon strikes evacuations ordered", "Iran internet restoration after blackout ends", "US condemns Iran strikes as ceasefire violation", "Regional powers watch escalation trajectory"]};</script>
 </body>
 </html>
