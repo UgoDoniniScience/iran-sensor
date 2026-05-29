@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 91 · TIME 07:53</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 91 · TIME 11:26</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 64.5, 67.5, 67.5, 67.5, 67.5, 72.5, 68.5, 72.5, 68.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 72.5, 72.5, 62.5, 67.5, 62.5, 62.5, 62.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 68.5, 68.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 68.5, 68.5, 72.5, 73.5, 67.5, 67.5, 62.5];
+const history = [64.5, 67.5, 67.5, 67.5, 67.5, 72.5, 68.5, 72.5, 68.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 72.5, 72.5, 62.5, 67.5, 62.5, 62.5, 62.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 68.5, 68.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 68.5, 68.5, 72.5, 73.5, 67.5, 67.5, 62.5, 62.5];
 let currentTemp = 62.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "US-Iran deal negotiations stall despite 'closeness'",
-  "Israel expands Gaza control to 70%; Beirut/southern Lebanon struck",
-  "Iran launches retaliatory strikes on US base; escalation cycle continues",
-  "Trump contradicts negotiators; demands tougher Iran terms on Truth Social",
-  "Oil markets volatile; Hormuz corridor remains critical chokepoint",
+  "US-Iran negotiations progress but incomplete",
+  "Israel expands Gaza operations amid international pressure",
+  "Iranian missiles target US positions; mutual strikes continue",
+  "Lebanon civilian evacuation ordered before strikes",
+  "Trump signals continued hardline despite diplomatic progress",
 ];
 
 function buildMarquee(){
@@ -1014,6 +1014,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "rising", "last_update": "2026-05-29 07:53:00", "nuclear_risk": 4, "hormuz": "open", "us_forces": "CENTCOM deployed; carrier groups positioned; enhanced air defense in Gulf; Syria/Iraq bases stressed", "oil_impact": "WTI +3-5% on escalation risk; Hormuz open maintains moderate premium (~$85-92/barrel range)", "diplomacy": "US-Iran backchannel active via intermediaries; Netanyahu blocking ceasefire momentum; Trump unclear signals undermine negotiators", "tickers": ["US-Iran deal negotiations stall despite 'closeness'", "Israel expands Gaza control to 70%; Beirut/southern Lebanon struck", "Iran launches retaliatory strikes on US base; escalation cycle continues", "Trump contradicts negotiators; demands tougher Iran terms on Truth Social", "Oil markets volatile; Hormuz corridor remains critical chokepoint"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "stable", "last_update": "2026-05-29 11:26:58", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM actively engaging Iranian positions; bases attacked but operational; no major losses reported", "oil_impact": "Moderate volatility; Strait remains open limiting supply shock; geopolitical premium 8-12% above baseline", "diplomacy": "Active US-Iran backchannel via Vance; regional mediation stalled; no multilateral framework engaged", "tickers": ["US-Iran negotiations progress but incomplete", "Israel expands Gaza operations amid international pressure", "Iranian missiles target US positions; mutual strikes continue", "Lebanon civilian evacuation ordered before strikes", "Trump signals continued hardline despite diplomatic progress"]};</script>
 </body>
 </html>
