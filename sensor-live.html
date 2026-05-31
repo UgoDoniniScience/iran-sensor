@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 93 · TIME 10:13</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 93 · TIME 13:41</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 72.5, 72.5, 72.5, 62.5, 67.5, 62.5, 62.5, 62.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 68.5, 68.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 68.5, 68.5, 72.5, 73.5, 67.5, 67.5, 62.5, 62.5, 67.5, 72.5, 67.5, 68.5, 62.5, 67.5, 58.5, 62.5, 68.5, 67.5, 62.5, 62.5, 62.5, 67.5, 62.5, 62.5, 62.5];
+const history = [72.5, 72.5, 72.5, 62.5, 67.5, 62.5, 62.5, 62.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 68.5, 68.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 68.5, 68.5, 72.5, 73.5, 67.5, 67.5, 62.5, 62.5, 67.5, 72.5, 67.5, 68.5, 62.5, 67.5, 58.5, 62.5, 68.5, 67.5, 62.5, 62.5, 62.5, 67.5, 62.5, 62.5, 62.5, 62.5];
 let currentTemp = 62.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Netanyahu directs 70% Gaza control expansion",
-  "Israel strikes Beirut/South Lebanon after mass evacuation",
-  "US-Iran 'very close' but diplomacy incomplete",
-  "Trump toughens Iran peace terms; no deal announced",
-  "Israel added to UN sexual violence blacklist for first time",
+  "Trump hardens Iran peace terms",
+  "Israel escalates Lebanon strikes post-evacuation",
+  "Netanyahu targets 70% Gaza control",
+  "USA-Iran 'very close' yet stalled",
+  "UN lists Israel for warzone sexual violence",
 ];
 
 function buildMarquee(){
@@ -1032,6 +1032,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "rising", "last_update": "2026-05-31 10:13:37", "nuclear_risk": 4.2, "hormuz": "open", "us_forces": "CENTCOM maintaining elevated readiness; naval assets in Persian Gulf and Eastern Mediterranean; no direct US-Iran kinetic engagement yet", "oil_impact": "Brent +3-4% due to regional instability and Hormuz concerns; premium for geopolitical risk embedded in pricing", "diplomacy": "Trump administration mediating US-Iran framework; multiple stalled attempts; back-channel communications active but no breakthrough imminent", "tickers": ["Netanyahu directs 70% Gaza control expansion", "Israel strikes Beirut/South Lebanon after mass evacuation", "US-Iran 'very close' but diplomacy incomplete", "Trump toughens Iran peace terms; no deal announced", "Israel added to UN sexual violence blacklist for first time"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "rising", "last_update": "2026-05-31 13:41:19", "nuclear_risk": 4, "hormuz": "open", "us_forces": "CENTCOM positioned; carrier groups active; defensive posture maintained", "oil_impact": "Volatility sustained $75-85/bbl; Strait concerns limit pricing pressure", "diplomacy": "Trump-mediated talks ongoing but deadlocked; Vance signals gap remains", "tickers": ["Trump hardens Iran peace terms", "Israel escalates Lebanon strikes post-evacuation", "Netanyahu targets 70% Gaza control", "USA-Iran 'very close' yet stalled", "UN lists Israel for warzone sexual violence"]};</script>
 </body>
 </html>
