@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 93 · TIME 07:44</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 93 · TIME 10:13</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 67.5, 72.5, 72.5, 72.5, 62.5, 67.5, 62.5, 62.5, 62.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 68.5, 68.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 68.5, 68.5, 72.5, 73.5, 67.5, 67.5, 62.5, 62.5, 67.5, 72.5, 67.5, 68.5, 62.5, 67.5, 58.5, 62.5, 68.5, 67.5, 62.5, 62.5, 62.5, 67.5, 62.5, 62.5];
+const history = [67.5, 72.5, 72.5, 72.5, 62.5, 67.5, 62.5, 62.5, 62.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 68.5, 68.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 68.5, 68.5, 72.5, 73.5, 67.5, 67.5, 62.5, 62.5, 67.5, 72.5, 67.5, 68.5, 62.5, 67.5, 58.5, 62.5, 68.5, 67.5, 62.5, 62.5, 62.5, 67.5, 62.5, 62.5, 62.5];
 let currentTemp = 62.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Trump conditions harden on Iran nuclear/missile caps",
-  "Israel UN blacklist signals ICC/war crimes scrutiny deepening",
-  "Netanyahu Gaza control expansion contradicts ceasefire signals",
-  "Beirut strikes indicate sustained Hezbollah targeting",
-  "Iran World Cup team morale reflects domestic war fatigue",
+  "Netanyahu directs 70% Gaza control expansion",
+  "Israel strikes Beirut/South Lebanon after mass evacuation",
+  "US-Iran 'very close' but diplomacy incomplete",
+  "Trump toughens Iran peace terms; no deal announced",
+  "Israel added to UN sexual violence blacklist for first time",
 ];
 
 function buildMarquee(){
@@ -1031,6 +1031,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "rising", "last_update": "2026-05-31 07:44:01", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM operations ongoing; carrier groups positioned; no full commitment to ground invasion; posture defensive-reactive", "oil_impact": "Elevated volatility ~$85-95/bbl; Hormuz open prevents supply shock; geopolitical premium sustained", "diplomacy": "Trump-Vance direct talks with Iran; framework-level negotiations ongoing; no breakthroughs; Netanyahu resistance complicates US diplomacy", "tickers": ["Trump conditions harden on Iran nuclear/missile caps", "Israel UN blacklist signals ICC/war crimes scrutiny deepening", "Netanyahu Gaza control expansion contradicts ceasefire signals", "Beirut strikes indicate sustained Hezbollah targeting", "Iran World Cup team morale reflects domestic war fatigue"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "rising", "last_update": "2026-05-31 10:13:37", "nuclear_risk": 4.2, "hormuz": "open", "us_forces": "CENTCOM maintaining elevated readiness; naval assets in Persian Gulf and Eastern Mediterranean; no direct US-Iran kinetic engagement yet", "oil_impact": "Brent +3-4% due to regional instability and Hormuz concerns; premium for geopolitical risk embedded in pricing", "diplomacy": "Trump administration mediating US-Iran framework; multiple stalled attempts; back-channel communications active but no breakthrough imminent", "tickers": ["Netanyahu directs 70% Gaza control expansion", "Israel strikes Beirut/South Lebanon after mass evacuation", "US-Iran 'very close' but diplomacy incomplete", "Trump toughens Iran peace terms; no deal announced", "Israel added to UN sexual violence blacklist for first time"]};</script>
 </body>
 </html>
