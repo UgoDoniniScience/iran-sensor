@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 93 · TIME 22:58</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 94 · TIME 03:52</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [62.5, 62.5, 62.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 68.5, 68.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 68.5, 68.5, 72.5, 73.5, 67.5, 67.5, 62.5, 62.5, 67.5, 72.5, 67.5, 68.5, 62.5, 67.5, 58.5, 62.5, 68.5, 67.5, 62.5, 62.5, 62.5, 67.5, 62.5, 62.5, 62.5, 62.5, 68.5, 67.5, 67.5, 64.5, 67.5];
+const history = [62.5, 62.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 68.5, 68.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 68.5, 68.5, 72.5, 73.5, 67.5, 67.5, 62.5, 62.5, 67.5, 72.5, 67.5, 68.5, 62.5, 67.5, 58.5, 62.5, 68.5, 67.5, 62.5, 62.5, 62.5, 67.5, 62.5, 62.5, 62.5, 62.5, 68.5, 67.5, 67.5, 64.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israel seizes Crusader Castle, expands Lebanon ground ops",
-  "Trump sends tougher Iran peace proposals, deal not finalized",
-  "Israel added to UN sexual violence blacklist amid Gaza ops",
-  "Netanyahu directs IDF to control 70% of Gaza territory",
-  "US-Iran 'very close' but 'not there yet' on agreement",
+  "Israel expands Lebanon ground offensive seizing symbolic Crusader Castle",
+  "Trump demands Iran deal edits, tougher peace proposals signaling harder line",
+  "Israel placed on UN sexual violence blacklist amid Gaza control expansion to 70%",
+  "USA-Iran 'very close' to agreement but nuclear diplomacy deteriorating",
+  "Oil markets volatile; Hormuz strait remains open but tension rising",
 ];
 
 function buildMarquee(){
@@ -1038,6 +1038,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-05-31 22:58:35", "nuclear_risk": 4.5, "hormuz": "open", "us_forces": "CENTCOM actively engaged; carrier strike groups deployed; military advisors in region; no direct US ground combat reported", "oil_impact": "Elevated volatility; Strait open but risk premium embedded; regional instability pressures prices upward", "diplomacy": "Trump administration conducting back-channel negotiations; 'very close' per VP Vance; proposals on table but no breakthrough", "tickers": ["Israel seizes Crusader Castle, expands Lebanon ground ops", "Trump sends tougher Iran peace proposals, deal not finalized", "Israel added to UN sexual violence blacklist amid Gaza ops", "Netanyahu directs IDF to control 70% of Gaza territory", "US-Iran 'very close' but 'not there yet' on agreement"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-06-01 03:52:25", "nuclear_risk": 4.2, "hormuz": "open", "us_forces": "CENTCOM elevated posture; carrier strike groups positioned; enhanced air defense in Gulf region", "oil_impact": "Elevated volatility; Brent +3-5% on supply disruption fears; Hormuz strait remains critical chokepoint", "diplomacy": "USA-Iran indirect talks ongoing but Trump hardening terms; UN blacklisting complicates negotiations", "tickers": ["Israel expands Lebanon ground offensive seizing symbolic Crusader Castle", "Trump demands Iran deal edits, tougher peace proposals signaling harder line", "Israel placed on UN sexual violence blacklist amid Gaza control expansion to 70%", "USA-Iran 'very close' to agreement but nuclear diplomacy deteriorating", "Oil markets volatile; Hormuz strait remains open but tension rising"]};</script>
 </body>
 </html>
