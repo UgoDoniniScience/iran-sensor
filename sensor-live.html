@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 95 · TIME 08:27</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 95 · TIME 14:00</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 67.5, 68.5, 68.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 68.5, 68.5, 72.5, 73.5, 67.5, 67.5, 62.5, 62.5, 67.5, 72.5, 67.5, 68.5, 62.5, 67.5, 58.5, 62.5, 68.5, 67.5, 62.5, 62.5, 62.5, 67.5, 62.5, 62.5, 62.5, 62.5, 68.5, 67.5, 67.5, 64.5, 67.5, 67.5, 72.5, 72.5, 67.5, 68.5, 72.5, 67.5];
+const history = [67.5, 68.5, 68.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 68.5, 68.5, 72.5, 73.5, 67.5, 67.5, 62.5, 62.5, 67.5, 72.5, 67.5, 68.5, 62.5, 67.5, 58.5, 62.5, 68.5, 67.5, 62.5, 62.5, 62.5, 67.5, 62.5, 62.5, 62.5, 62.5, 68.5, 67.5, 67.5, 64.5, 67.5, 67.5, 72.5, 72.5, 67.5, 68.5, 72.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israel-Hezbollah clashes escalate despite ceasefire attempts",
-  "Iran launches coordinated attacks on 20 US military installations",
-  "US retaliates with strikes on Iranian radar and air defense",
-  "Lebanon ceasefire fragile as fighting continues in suburbs",
-  "Oil markets volatile amid Strait of Hormuz vulnerability concerns",
+  "Israel PM orders Beirut strikes escalation",
+  "US strikes Iranian radar sites as Iran targets Kuwait bases",
+  "Hezbollah accepts partial ceasefire but Israel rejects terms",
+  "Iran maintains missile strikes despite Trump diplomatic push",
+  "Saudi Arabia signals concern over regional stability and oil markets",
 ];
 
 function buildMarquee(){
@@ -1045,6 +1045,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-06-02 08:27:13", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM under sustained Iranian attack; 20+ military sites struck; forces repositioned defensively in Kuwait and Gulf", "oil_impact": "Rising pressure: strait vulnerability, Iranian strikes on infrastructure, risk premium increasing; markets volatile", "diplomacy": "US ceasefire plan partially accepted by Israel/Hezbollah but rejected by Iran; UN Security Council calls for Israeli withdrawal; Trump seeking exit but Iran defiant", "tickers": ["Israel-Hezbollah clashes escalate despite ceasefire attempts", "Iran launches coordinated attacks on 20 US military installations", "US retaliates with strikes on Iranian radar and air defense", "Lebanon ceasefire fragile as fighting continues in suburbs", "Oil markets volatile amid Strait of Hormuz vulnerability concerns"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-06-02 14:00:26", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "20+ military sites damaged in Kuwait/Gulf region; CENTCOM maintaining operational posture; carrier groups repositioned", "oil_impact": "Brent crude +8-12% week-over-week; Hormuz strait partially disrupted raising shipping premiums 15-20%", "diplomacy": "US-brokered ceasefire plan rejected by Iran; Trump seeking war conclusion but no negotiating progress; Russian-Chinese mediation stalled", "tickers": ["Israel PM orders Beirut strikes escalation", "US strikes Iranian radar sites as Iran targets Kuwait bases", "Hezbollah accepts partial ceasefire but Israel rejects terms", "Iran maintains missile strikes despite Trump diplomatic push", "Saudi Arabia signals concern over regional stability and oil markets"]};</script>
 </body>
 </html>
