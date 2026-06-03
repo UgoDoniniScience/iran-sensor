@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 96 · TIME 19:46</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 96 · TIME 22:27</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [72.5, 72.5, 72.5, 68.5, 68.5, 72.5, 73.5, 67.5, 67.5, 62.5, 62.5, 67.5, 72.5, 67.5, 68.5, 62.5, 67.5, 58.5, 62.5, 68.5, 67.5, 62.5, 62.5, 62.5, 67.5, 62.5, 62.5, 62.5, 62.5, 68.5, 67.5, 67.5, 64.5, 67.5, 67.5, 72.5, 72.5, 67.5, 68.5, 72.5, 67.5, 67.5, 67.5, 62.5, 67.5, 72.5, 68.5, 67.5];
+const history = [72.5, 72.5, 68.5, 68.5, 72.5, 73.5, 67.5, 67.5, 62.5, 62.5, 67.5, 72.5, 67.5, 68.5, 62.5, 67.5, 58.5, 62.5, 68.5, 67.5, 62.5, 62.5, 62.5, 67.5, 62.5, 62.5, 62.5, 62.5, 68.5, 67.5, 67.5, 64.5, 67.5, 67.5, 72.5, 72.5, 67.5, 68.5, 72.5, 67.5, 67.5, 67.5, 62.5, 67.5, 72.5, 68.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israeli strikes Lebanon, nine killed, partial Hezbollah truce holds",
-  "Iran drones hit Kuwait airport; one dead, dozens injured",
-  "Strait of Hormuz blockade strains sailors after months containment",
-  "Trump confirms Netanyahu 'crazy' call, seeks Iran supreme leader meeting",
-  "Kuwait airport attack upends Mideast travel amid US-Iran conflict",
+  "Israeli strikes kill 9 in Lebanon as partial Hezbollah truce holds",
+  "Iranian drones strike Kuwait airport; one killed, dozens injured",
+  "Strait of Hormuz blockade: sailors exhausted after months trapped",
+  "Trump hopes to meet Iran Supreme Leader; calls Netanyahu 'crazy'",
+  "Oil markets volatile on regional tensions and blockade persistence",
 ];
 
 function buildMarquee(){
@@ -1052,6 +1052,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-06-03 19:46:46", "nuclear_risk": 4.5, "hormuz": "partial", "us_forces": "CENTCOM operating at high tempo; naval presence strained by extended Strait operations; carrier groups maintaining pressure", "oil_impact": "Upward pressure from Hormuz blockade risk; aviation disruption secondary impact; market volatility elevated", "diplomacy": "Trump signals willingness to meet Iranian leadership; backchannel discussions via intermediaries; no formal negotiations active", "tickers": ["Israeli strikes Lebanon, nine killed, partial Hezbollah truce holds", "Iran drones hit Kuwait airport; one dead, dozens injured", "Strait of Hormuz blockade strains sailors after months containment", "Trump confirms Netanyahu 'crazy' call, seeks Iran supreme leader meeting", "Kuwait airport attack upends Mideast travel amid US-Iran conflict"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-06-03 22:27:19", "nuclear_risk": 3.5, "hormuz": "partial", "us_forces": "CENTCOM reinforced; naval presence elevated; carrier ops ongoing; Gulf bases on high alert", "oil_impact": "WTI +8-12% YTD; supply anxiety from Hormuz blockade; partial offset by partial truce signals", "diplomacy": "Trump-Supreme Leader meeting possibility; indirect negotiations via intermediaries; no direct Iran-USA talks yet", "tickers": ["Israeli strikes kill 9 in Lebanon as partial Hezbollah truce holds", "Iranian drones strike Kuwait airport; one killed, dozens injured", "Strait of Hormuz blockade: sailors exhausted after months trapped", "Trump hopes to meet Iran Supreme Leader; calls Netanyahu 'crazy'", "Oil markets volatile on regional tensions and blockade persistence"]};</script>
 </body>
 </html>
