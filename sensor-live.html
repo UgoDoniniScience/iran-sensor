@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 99 · TIME 19:19</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 99 · TIME 21:01</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [62.5, 62.5, 62.5, 67.5, 62.5, 62.5, 62.5, 62.5, 68.5, 67.5, 67.5, 64.5, 67.5, 67.5, 72.5, 72.5, 67.5, 68.5, 72.5, 67.5, 67.5, 67.5, 62.5, 67.5, 72.5, 68.5, 67.5, 67.5, 64.5, 62.5, 67.5, 62.5, 68.5, 72.0, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 67.5, 62.5, 67.5, 67.5, 62.5, 62.5];
+const history = [62.5, 62.5, 67.5, 62.5, 62.5, 62.5, 62.5, 68.5, 67.5, 67.5, 64.5, 67.5, 67.5, 72.5, 72.5, 67.5, 68.5, 72.5, 67.5, 67.5, 67.5, 62.5, 67.5, 72.5, 68.5, 67.5, 67.5, 64.5, 62.5, 67.5, 62.5, 68.5, 72.0, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 67.5, 62.5, 67.5, 67.5, 62.5, 62.5, 62.5];
 let currentTemp = 62.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "US-Iran Gulf exchange continues ceasefire testing",
+  "US-Iran Gulf military exchanges test ceasefire",
+  "IDF West Bank operation kills Palestinian infant",
   "Lebanese general killed in Israeli airstrike",
-  "Palestinian infant casualty in West Bank operation",
-  "Iran blocks US diplomatic staff over World Cup visa issue",
-  "Trump administration monitors Israeli espionage concerns",
+  "Iran blocks US diplomats over World Cup visa issue",
+  "Trump Pentagon flags Israeli espionage operations",
 ];
 
 function buildMarquee(){
@@ -1073,6 +1073,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "stable", "last_update": "2026-06-06 19:19:21", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM active Gulf operations; carrier strike group positioned; air defense elevated", "oil_impact": "Moderate volatility; Hormuz threats elevate premium; ceasefire reduces acute shock", "diplomacy": "Indirect talks ongoing; visa dispute signals political friction; no direct negotiations", "tickers": ["US-Iran Gulf exchange continues ceasefire testing", "Lebanese general killed in Israeli airstrike", "Palestinian infant casualty in West Bank operation", "Iran blocks US diplomatic staff over World Cup visa issue", "Trump administration monitors Israeli espionage concerns"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "rising", "last_update": "2026-06-06 21:01:54", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM elevated alert posture; naval assets in Gulf monitoring Iranian activity; interdiction operations ongoing", "oil_impact": "Brent crude +2.3% on Hormuz closure fears; trading range $78-82/barrel amid ceasefire uncertainty", "diplomacy": "Back-channel mediation through Oman/Qatar; UN Security Council pressure; Trump team signaling negotiation openness vs. IDF maximalist stance", "tickers": ["US-Iran Gulf military exchanges test ceasefire", "IDF West Bank operation kills Palestinian infant", "Lebanese general killed in Israeli airstrike", "Iran blocks US diplomats over World Cup visa issue", "Trump Pentagon flags Israeli espionage operations"]};</script>
 </body>
 </html>
