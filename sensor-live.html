@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 100 · TIME 17:14</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 100 · TIME 19:19</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [68.5, 67.5, 67.5, 64.5, 67.5, 67.5, 72.5, 72.5, 67.5, 68.5, 72.5, 67.5, 67.5, 67.5, 62.5, 67.5, 72.5, 68.5, 67.5, 67.5, 64.5, 62.5, 67.5, 62.5, 68.5, 72.0, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 67.5, 62.5, 67.5, 67.5, 62.5, 62.5, 62.5, 67.5, 68.5, 64.5, 62.5, 62.5, 67.5, 67.5];
+const history = [67.5, 67.5, 64.5, 67.5, 67.5, 72.5, 72.5, 67.5, 68.5, 72.5, 67.5, 67.5, 67.5, 62.5, 67.5, 72.5, 68.5, 67.5, 67.5, 64.5, 62.5, 67.5, 62.5, 68.5, 72.0, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 67.5, 62.5, 67.5, 67.5, 62.5, 62.5, 62.5, 67.5, 68.5, 64.5, 62.5, 62.5, 67.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israel strikes Beirut amid truce collapse",
-  "Iran faces economic crisis and war deaths",
-  "Hezbollah escalates cross-border operations",
-  "US military posture strengthened in region",
-  "Oil markets volatile on supply disruption fears",
+  "Israel-Hezbollah escalation post-truce",
+  "Iran war deaths and economic crisis deepening",
+  "US visa restrictions on Iranian delegation",
+  "West Bank civilian casualties continue",
+  "Oil market premium from Strait tensions",
 ];
 
 function buildMarquee(){
@@ -1081,6 +1081,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-06-07 17:14:42", "nuclear_risk": 4.2, "hormuz": "open", "us_forces": "CENTCOM reinforced; carrier strike group in Gulf; bases on alert", "oil_impact": "Brent +15-20% YTD; supply concerns rising; Hormuz shipping delayed", "diplomacy": "US-mediated talks stalled; Qatar/Egypt engaged; UN calls ineffective", "tickers": ["Israel strikes Beirut amid truce collapse", "Iran faces economic crisis and war deaths", "Hezbollah escalates cross-border operations", "US military posture strengthened in region", "Oil markets volatile on supply disruption fears"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-06-07 19:19:44", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM maintains elevated posture; carrier groups deployed; regional bases at high alert", "oil_impact": "Elevated volatility $85-95/bbl; Hormuz partial restrictions driving premium; inflation spike in Iran", "diplomacy": "US-brokered truce failing; limited back-channel communications; Russia-China non-aligned positioning", "tickers": ["Israel-Hezbollah escalation post-truce", "Iran war deaths and economic crisis deepening", "US visa restrictions on Iranian delegation", "West Bank civilian casualties continue", "Oil market premium from Strait tensions"]};</script>
 </body>
 </html>
