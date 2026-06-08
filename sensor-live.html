@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 101 · TIME 08:53</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 101 · TIME 14:04</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 72.5, 72.5, 67.5, 68.5, 72.5, 67.5, 67.5, 67.5, 62.5, 67.5, 72.5, 68.5, 67.5, 67.5, 64.5, 62.5, 67.5, 62.5, 68.5, 72.0, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 67.5, 62.5, 67.5, 67.5, 62.5, 62.5, 62.5, 67.5, 68.5, 64.5, 62.5, 62.5, 67.5, 67.5, 67.5, 62.5, 68.5, 67.5, 67.5];
+const history = [72.5, 72.5, 67.5, 68.5, 72.5, 67.5, 67.5, 67.5, 62.5, 67.5, 72.5, 68.5, 67.5, 67.5, 64.5, 62.5, 67.5, 62.5, 68.5, 72.0, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 67.5, 62.5, 67.5, 67.5, 62.5, 62.5, 62.5, 67.5, 68.5, 64.5, 62.5, 62.5, 67.5, 67.5, 67.5, 62.5, 68.5, 67.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israel strikes Beirut suburbs after US truce collapse",
-  "Iranian missiles/drones resume targeting Israeli assets",
-  "Hezbollah escalates cross-border operations from Lebanon",
-  "Strait of Hormuz shipping disrupted; partial closure risk",
-  "Trump demands de-escalation while maintaining sanctions posture",
+  "Israel strikes Beirut escalation",
+  "Houthis Red Sea blockade threat",
+  "Iran nuclear posture unchanged",
+  "US-Iran diplomatic freeze",
+  "Energy markets supply chain risk",
 ];
 
 function buildMarquee(){
@@ -1086,6 +1086,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-06-08 08:53:22", "nuclear_risk": 4.5, "hormuz": "partial", "us_forces": "CENTCOM reinforced; naval presence increased; F-35 operations ongoing across Gulf", "oil_impact": "Brent +$8-12/bbl; market volatility rising due to Hormuz tension; supply fears persist", "diplomacy": "US-Qatar mediation strained; direct Iran-Israel talks suspended; UN Security Council deadlocked", "tickers": ["Israel strikes Beirut suburbs after US truce collapse", "Iranian missiles/drones resume targeting Israeli assets", "Hezbollah escalates cross-border operations from Lebanon", "Strait of Hormuz shipping disrupted; partial closure risk", "Trump demands de-escalation while maintaining sanctions posture"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-06-08 14:04:50", "nuclear_risk": 5, "hormuz": "partial", "us_forces": "CENTCOM reinforced; carrier groups positioned Gulf; air defense systems deployed Qatar/UAE bases", "oil_impact": "Elevated volatility; $85-95/barrel range; Hormuz partial closure fears support prices", "diplomacy": "US-brokered truces stalling; no high-level Iran-US talks; Saudi Arabia neutral mediator role weak", "tickers": ["Israel strikes Beirut escalation", "Houthis Red Sea blockade threat", "Iran nuclear posture unchanged", "US-Iran diplomatic freeze", "Energy markets supply chain risk"]};</script>
 </body>
 </html>
