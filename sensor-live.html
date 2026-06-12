@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 105 · TIME 20:07</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 105 · TIME 23:15</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 67.5, 62.5, 67.5, 67.5, 62.5, 62.5, 62.5, 67.5, 68.5, 64.5, 62.5, 62.5, 67.5, 67.5, 67.5, 62.5, 68.5, 67.5, 67.5, 67.5, 67.5, 58.5, 52.5, 52.5, 62.5, 62.5, 62.5, 72.5, 73.5, 67.5, 73.5, 72.5, 76.5, 76.5, 76.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 67.5, 67.5, 67.5, 72.5, 67.5, 62.5];
+const history = [67.5, 62.5, 67.5, 67.5, 62.5, 62.5, 62.5, 67.5, 68.5, 64.5, 62.5, 62.5, 67.5, 67.5, 67.5, 62.5, 68.5, 67.5, 67.5, 67.5, 67.5, 58.5, 52.5, 52.5, 62.5, 62.5, 62.5, 72.5, 73.5, 67.5, 73.5, 72.5, 76.5, 76.5, 76.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 67.5, 67.5, 67.5, 72.5, 67.5, 62.5, 62.5];
 let currentTemp = 62.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Iran claims ceasefire deal 'never closer'",
-  "US-Iran missile/drone exchange continues second day",
-  "Israeli strikes kill 17 in southern Lebanon",
-  "Vance criticizes Netanyahu policy direction",
-  "Oil tanker strike kills 3 Indian sailors",
+  "Hormuz_closure_risk_declining",
+  "Netanyahu_policy_friction_with_Trump",
+  "Iranian_drone_missile_capability_sustained",
+  "Hezbollah_southern_Lebanon_escalation",
+  "Oil_futures_volatile_on_ceasefire_signals",
 ];
 
 function buildMarquee(){
@@ -1114,6 +1114,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "falling", "last_update": "2026-06-12 20:07:35", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM maintaining strike capability; regional presence stable but defensive posture shifting toward negotiation support", "oil_impact": "Moderate volatility; Brent crude stabilizing as market prices in reduced escalation risk; Indian tanker incident creates temporary pressure", "diplomacy": "Back-channel negotiations active; US-Iran indirect talks through intermediaries; UN involvement likely; Trump administration signaling deal preference", "tickers": ["Iran claims ceasefire deal 'never closer'", "US-Iran missile/drone exchange continues second day", "Israeli strikes kill 17 in southern Lebanon", "Vance criticizes Netanyahu policy direction", "Oil tanker strike kills 3 Indian sailors"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "falling", "last_update": "2026-06-12 23:15:04", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM maintaining regional presence; active air operations reported; naval assets positioned for Hormuz security contingency", "oil_impact": "Moderate downward pressure on WTI/Brent due to ceasefire optimism and potential Hormuz reopening; temporary volatility from ongoing strikes", "diplomacy": "Direct USA-Iran negotiations; Saudi Arabia and regional mediators active; Trump administration seeking exit without losing credibility", "tickers": ["Hormuz_closure_risk_declining", "Netanyahu_policy_friction_with_Trump", "Iranian_drone_missile_capability_sustained", "Hezbollah_southern_Lebanon_escalation", "Oil_futures_volatile_on_ceasefire_signals"]};</script>
 </body>
 </html>
