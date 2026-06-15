@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 108 · TIME 18:23</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 108 · TIME 22:17</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [58.5, 52.5, 52.5, 62.5, 62.5, 62.5, 72.5, 73.5, 67.5, 73.5, 72.5, 76.5, 76.5, 76.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 67.5, 67.5, 67.5, 72.5, 67.5, 62.5, 62.5, 62.5, 67.5, 62.5, 72.0, 62.5, 62.5, 67.5, 67.5, 67.5, 67.5, 62.5, 62.5, 68.5, 72.5, 67.5, 68.5, 67.5, 62.5, 52.5, 35.5, 35.0];
+const history = [52.5, 52.5, 62.5, 62.5, 62.5, 72.5, 73.5, 67.5, 73.5, 72.5, 76.5, 76.5, 76.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 67.5, 67.5, 67.5, 72.5, 67.5, 62.5, 62.5, 62.5, 67.5, 62.5, 72.0, 62.5, 62.5, 67.5, 67.5, 67.5, 67.5, 62.5, 62.5, 68.5, 72.5, 67.5, 68.5, 67.5, 62.5, 52.5, 35.5, 35.0, 35.0];
 let currentTemp = 35.0;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Iran deal ends Trump's war, reveals US dominance limits",
-  "Oil prices fall and shares jump after ceasefire announced",
-  "Netanyahu faces political crisis over Iranian agreement",
-  "Gulf states question future US security commitments",
-  "Hezbollah ceasefire holds; Lebanon stabilization uncertain",
+  "Iran deal ends Trump's war revealing US dominance limits",
+  "Oil markets surge as Strait of Hormuz reopens",
+  "Netanyahu faces political crisis over Iran agreement framework",
+  "Lebanon ceasefire prospects unclear despite US-Iran deal",
+  "Commercial shipping resumes Strait of Hormuz with potential toll mechanisms",
 ];
 
 function buildMarquee(){
@@ -1136,6 +1136,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 35.0, "trend": "falling", "last_update": "2026-06-15 18:23:22", "nuclear_risk": 2, "hormuz": "open", "us_forces": "Reducing active strike sorties; maintaining presence in Gulf; naval assets repositioned for commerce protection", "oil_impact": "Sharp decline following deal; WTI down 8-12% on day; energy markets stabilizing", "diplomacy": "Direct US-Iran negotiations; Qatar mediator; EU observers; UN Security Council endorsement", "tickers": ["Iran deal ends Trump's war, reveals US dominance limits", "Oil prices fall and shares jump after ceasefire announced", "Netanyahu faces political crisis over Iranian agreement", "Gulf states question future US security commitments", "Hezbollah ceasefire holds; Lebanon stabilization uncertain"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 35.0, "trend": "falling", "last_update": "2026-06-15 22:17:19", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM maintaining regional presence; withdrawal timeline negotiated", "oil_impact": "Prices falling sharply on deal announcement; market relief on Hormuz reopening", "diplomacy": "Direct US-Iran negotiations; Saudi Arabia and China as mediators; Trump leading US approach", "tickers": ["Iran deal ends Trump's war revealing US dominance limits", "Oil markets surge as Strait of Hormuz reopens", "Netanyahu faces political crisis over Iran agreement framework", "Lebanon ceasefire prospects unclear despite US-Iran deal", "Commercial shipping resumes Strait of Hormuz with potential toll mechanisms"]};</script>
 </body>
 </html>
