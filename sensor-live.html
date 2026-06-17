@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 109 · TIME 22:09</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 110 · TIME 03:55</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -379,7 +379,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
 <line x1="695" y1="265" x2="695" y2="38" class="trace-pwr" stroke-width="2"/>
 <line x1="720" y1="355" x2="720" y2="612" class="trace-gnd" stroke-width="2"/>
 <text x="640" y="285" style="font-family:Share Tech Mono;font-size:7px;fill:rgba(0,255,136,0.25)">SSD1306 I2C</text>
-<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">38.5°C</text>
+<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">42.5°C</text>
 <text x="695" y="378" class="lc">OLED 0.96" I2C</text>
 <text x="695" y="390" class="lcr">U4 SSD1306</text>
 <text x="695" y="403" class="lca">GLOBAL OUTPUT</text>
@@ -495,8 +495,8 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [72.5, 73.5, 67.5, 73.5, 72.5, 76.5, 76.5, 76.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 67.5, 67.5, 67.5, 72.5, 67.5, 62.5, 62.5, 62.5, 67.5, 62.5, 72.0, 62.5, 62.5, 67.5, 67.5, 67.5, 67.5, 62.5, 62.5, 68.5, 72.5, 67.5, 68.5, 67.5, 62.5, 52.5, 35.5, 35.0, 35.0, 42.0, 28.5, 28.5, 42.5, 38.5];
-let currentTemp = 38.5;
+const history = [73.5, 67.5, 73.5, 72.5, 76.5, 76.5, 76.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 67.5, 67.5, 67.5, 72.5, 67.5, 62.5, 62.5, 62.5, 67.5, 62.5, 72.0, 62.5, 62.5, 67.5, 67.5, 67.5, 67.5, 62.5, 62.5, 68.5, 72.5, 67.5, 68.5, 67.5, 62.5, 52.5, 35.5, 35.0, 35.0, 42.0, 28.5, 28.5, 42.5, 38.5, 42.5];
+let currentTemp = 42.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
 function barWidth(t){return Math.min(99,(t/150)*100);}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Tehran claims strategic victory amid necessity-driven compromise",
-  "Lebanon ceasefire fragile; Hezbollah reduces cross-border activity",
-  "Hormuz shipping lanes partially operational; insurance premiums normalizing",
-  "Trump expedites Iran nuclear deal release; Republican Senate opposition persists",
-  "Post-school strike accountability gaps expose war crimes questions",
+  "Tehran declares diplomatic victory amid nuclear talks resumption",
+  "Lebanese fragile quiet masks unresolved militia positions",
+  "Strait of Hormuz: shipping begins cautious return",
+  "Trump administration releases deal framework before Friday deadline",
+  "School strike accountability: months of questions persist",
 ];
 
 function buildMarquee(){
@@ -1142,6 +1142,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 38.5, "trend": "falling", "last_update": "2026-06-16 22:09:38", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM maintains enhanced presence; naval de-escalation underway; strike readiness reduced", "oil_impact": "Slight recovery from wartime premiums; Hormuz partial reopening eases supply concerns; WTI stabilizing $78-82/bbl", "diplomacy": "Trump-Vance direct Iran negotiations; Saudi Arabia intermediary role; EU monitoring compliance", "tickers": ["Tehran claims strategic victory amid necessity-driven compromise", "Lebanon ceasefire fragile; Hezbollah reduces cross-border activity", "Hormuz shipping lanes partially operational; insurance premiums normalizing", "Trump expedites Iran nuclear deal release; Republican Senate opposition persists", "Post-school strike accountability gaps expose war crimes questions"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 42.5, "trend": "falling", "last_update": "2026-06-17 03:55:49", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM: reduced strikes, naval presence maintained, base readiness normal", "oil_impact": "Stabilizing $75-82/bbl; risk premium priced into uncertainty; partial reopening reducing pressure", "diplomacy": "JCPOA revival talks; US-Iran backchannel; Saudi Arabia moderating; Russia/China observers", "tickers": ["Tehran declares diplomatic victory amid nuclear talks resumption", "Lebanese fragile quiet masks unresolved militia positions", "Strait of Hormuz: shipping begins cautious return", "Trump administration releases deal framework before Friday deadline", "School strike accountability: months of questions persist"]};</script>
 </body>
 </html>
