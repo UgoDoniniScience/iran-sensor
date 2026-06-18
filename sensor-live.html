@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 111 · TIME 03:42</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 111 · TIME 08:44</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -379,7 +379,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
 <line x1="695" y1="265" x2="695" y2="38" class="trace-pwr" stroke-width="2"/>
 <line x1="720" y1="355" x2="720" y2="612" class="trace-gnd" stroke-width="2"/>
 <text x="640" y="285" style="font-family:Share Tech Mono;font-size:7px;fill:rgba(0,255,136,0.25)">SSD1306 I2C</text>
-<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">62.5°C</text>
+<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">42.5°C</text>
 <text x="695" y="378" class="lc">OLED 0.96" I2C</text>
 <text x="695" y="390" class="lcr">U4 SSD1306</text>
 <text x="695" y="403" class="lca">GLOBAL OUTPUT</text>
@@ -495,8 +495,8 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [76.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 67.5, 67.5, 67.5, 72.5, 67.5, 62.5, 62.5, 62.5, 67.5, 62.5, 72.0, 62.5, 62.5, 67.5, 67.5, 67.5, 67.5, 62.5, 62.5, 68.5, 72.5, 67.5, 68.5, 67.5, 62.5, 52.5, 35.5, 35.0, 35.0, 42.0, 28.5, 28.5, 42.5, 38.5, 42.5, 38.5, 62.5, 68.5, 62.5, 58.5, 62.5];
-let currentTemp = 62.5;
+const history = [72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 67.5, 67.5, 67.5, 72.5, 67.5, 62.5, 62.5, 62.5, 67.5, 62.5, 72.0, 62.5, 62.5, 67.5, 67.5, 67.5, 67.5, 62.5, 62.5, 68.5, 72.5, 67.5, 68.5, 67.5, 62.5, 52.5, 35.5, 35.0, 35.0, 42.0, 28.5, 28.5, 42.5, 38.5, 42.5, 38.5, 62.5, 68.5, 62.5, 58.5, 62.5, 42.5];
+let currentTemp = 42.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
 function barWidth(t){return Math.min(99,(t/150)*100);}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israel strikes Lebanon despite Trump criticism",
-  "Iran tankers evade US blockade in Hormuz",
-  "Trump demands Iranian surrender before deal",
-  "Jerusalem holy site tensions escalate",
-  "World Cup diplomacy signals Iran normalization",
+  "US-Iran_deal_signed_presidential_level",
+  "IDF_Lebanon_strikes_continue_despite_Trump_criticism",
+  "Iran_oil_tankers_bypass_US_blockade",
+  "Gasoline_prices_fall_below_4_dollars",
+  "Core_sticking_points_remain_300bn_question_unresolved",
 ];
 
 function buildMarquee(){
@@ -1149,6 +1149,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "stable", "last_update": "2026-06-18 03:42:35", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM maintains heightened readiness; naval assets monitor Strait; air defense systems active", "oil_impact": "Moderate volatility; Iranian oil bypass pressures prices downward; Hormuz disruption risk limits gains", "diplomacy": "US-Iran backchannel active; Trump mediating; fragile ceasefire framework emerging", "tickers": ["Israel strikes Lebanon despite Trump criticism", "Iran tankers evade US blockade in Hormuz", "Trump demands Iranian surrender before deal", "Jerusalem holy site tensions escalate", "World Cup diplomacy signals Iran normalization"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 42.5, "trend": "falling", "last_update": "2026-06-18 08:44:41", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM maintains carrier strike group presence; reduced offensive posture; blockade enforcement weakened by diplomatic momentum", "oil_impact": "Gasoline <$4/gallon US average; Iranian tankers circumvent sanctions reducing supply constraints; stabilization signals market confidence", "diplomacy": "Direct US-Iran talks producing framework agreement; unresolved core issues include sanctions timeline and nuclear verification; China-Russia as shadow mediators", "tickers": ["US-Iran_deal_signed_presidential_level", "IDF_Lebanon_strikes_continue_despite_Trump_criticism", "Iran_oil_tankers_bypass_US_blockade", "Gasoline_prices_fall_below_4_dollars", "Core_sticking_points_remain_300bn_question_unresolved"]};</script>
 </body>
 </html>
