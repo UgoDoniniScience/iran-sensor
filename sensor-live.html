@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 113 · TIME 03:29</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 113 · TIME 07:48</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [62.5, 62.5, 67.5, 62.5, 72.0, 62.5, 62.5, 67.5, 67.5, 67.5, 67.5, 62.5, 62.5, 68.5, 72.5, 67.5, 68.5, 67.5, 62.5, 52.5, 35.5, 35.0, 35.0, 42.0, 28.5, 28.5, 42.5, 38.5, 42.5, 38.5, 62.5, 68.5, 62.5, 58.5, 62.5, 42.5, 62.5, 52.5, 38.5, 42.5, 42.5, 45.5, 68.5, 62.5, 45.0, 42.5, 38.5, 42.5];
+const history = [62.5, 67.5, 62.5, 72.0, 62.5, 62.5, 67.5, 67.5, 67.5, 67.5, 62.5, 62.5, 68.5, 72.5, 67.5, 68.5, 67.5, 62.5, 52.5, 35.5, 35.0, 35.0, 42.0, 28.5, 28.5, 42.5, 38.5, 42.5, 38.5, 62.5, 68.5, 62.5, 58.5, 62.5, 42.5, 62.5, 52.5, 38.5, 42.5, 42.5, 45.5, 68.5, 62.5, 45.0, 42.5, 38.5, 42.5, 42.5];
 let currentTemp = 42.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israel-Hezbollah ceasefire bolsters broader US-Iran truce momentum",
-  "Lebanese civilian deaths spike amid final strikes before cessation",
-  "US-Iran deal framework addresses war legitimacy questions",
-  "Strait of Hormuz transit risk declining; energy markets stabilizing",
-  "Trump administration claims diplomatic victory; regional actors cautiously optimistic",
+  "Israel-Hezbollah ceasefire framework announced",
+  "Lebanon civilian casualties reported 47 dead from IDF strikes",
+  "US-Iran deal framework emerging despite tactical friction",
+  "Oil markets react positively to de-escalation signals",
+  "Trump administration signals commitment to negotiated resolution",
 ];
 
 function buildMarquee(){
@@ -1162,6 +1162,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 42.5, "trend": "falling", "last_update": "2026-06-20 03:29:34", "nuclear_risk": 2, "hormuz": "open", "us_forces": "CENTCOM monitoring; diplomatic engagement elevated; no major force repositioning", "oil_impact": "Moderate stabilization; Brent crude ~$78-82/barrel; ceasefire talks reduce volatility risk", "diplomacy": "US-Iran backchannel active; indirect Israel-Lebanon mediation via US; Russia-China observers; Saudi Arabia as regional stabilizer", "tickers": ["Israel-Hezbollah ceasefire bolsters broader US-Iran truce momentum", "Lebanese civilian deaths spike amid final strikes before cessation", "US-Iran deal framework addresses war legitimacy questions", "Strait of Hormuz transit risk declining; energy markets stabilizing", "Trump administration claims diplomatic victory; regional actors cautiously optimistic"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 42.5, "trend": "falling", "last_update": "2026-06-20 07:48:31", "nuclear_risk": 2, "hormuz": "open", "us_forces": "CENTCOM maintains regional presence; carrier groups positioned for contingency but no escalation posture", "oil_impact": "Moderate downward pressure; Brent -2.3% on ceasefire optimism; Hormuz security reduces premium risk", "diplomacy": "Direct US-Iran negotiations ongoing; US mediating Israel-Hezbollah terms; indirect talks via Oman and Qatar", "tickers": ["Israel-Hezbollah ceasefire framework announced", "Lebanon civilian casualties reported 47 dead from IDF strikes", "US-Iran deal framework emerging despite tactical friction", "Oil markets react positively to de-escalation signals", "Trump administration signals commitment to negotiated resolution"]};</script>
 </body>
 </html>
