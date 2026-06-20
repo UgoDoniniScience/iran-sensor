@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 112 · TIME 22:54</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 113 · TIME 03:29</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -379,7 +379,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
 <line x1="695" y1="265" x2="695" y2="38" class="trace-pwr" stroke-width="2"/>
 <line x1="720" y1="355" x2="720" y2="612" class="trace-gnd" stroke-width="2"/>
 <text x="640" y="285" style="font-family:Share Tech Mono;font-size:7px;fill:rgba(0,255,136,0.25)">SSD1306 I2C</text>
-<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">38.5°C</text>
+<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">42.5°C</text>
 <text x="695" y="378" class="lc">OLED 0.96" I2C</text>
 <text x="695" y="390" class="lcr">U4 SSD1306</text>
 <text x="695" y="403" class="lca">GLOBAL OUTPUT</text>
@@ -495,8 +495,8 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [62.5, 62.5, 62.5, 67.5, 62.5, 72.0, 62.5, 62.5, 67.5, 67.5, 67.5, 67.5, 62.5, 62.5, 68.5, 72.5, 67.5, 68.5, 67.5, 62.5, 52.5, 35.5, 35.0, 35.0, 42.0, 28.5, 28.5, 42.5, 38.5, 42.5, 38.5, 62.5, 68.5, 62.5, 58.5, 62.5, 42.5, 62.5, 52.5, 38.5, 42.5, 42.5, 45.5, 68.5, 62.5, 45.0, 42.5, 38.5];
-let currentTemp = 38.5;
+const history = [62.5, 62.5, 67.5, 62.5, 72.0, 62.5, 62.5, 67.5, 67.5, 67.5, 67.5, 62.5, 62.5, 68.5, 72.5, 67.5, 68.5, 67.5, 62.5, 52.5, 35.5, 35.0, 35.0, 42.0, 28.5, 28.5, 42.5, 38.5, 42.5, 38.5, 62.5, 68.5, 62.5, 58.5, 62.5, 42.5, 62.5, 52.5, 38.5, 42.5, 42.5, 45.5, 68.5, 62.5, 45.0, 42.5, 38.5, 42.5];
+let currentTemp = 42.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
 function barWidth(t){return Math.min(99,(t/150)*100);}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israel-Hezbollah ceasefire agreed, US confirms negotiations",
-  "IDF Lebanon strikes continue: 47 casualties reported vs 4 Israeli soldiers",
-  "US-Iran talks postponed but diplomatic track active",
-  "Lebanon positioned as pivotal actor in broader US-Iran settlement",
-  "Oil markets stable on ceasefire sentiment; Strait of Hormuz secure",
+  "Israel-Hezbollah ceasefire bolsters broader US-Iran truce momentum",
+  "Lebanese civilian deaths spike amid final strikes before cessation",
+  "US-Iran deal framework addresses war legitimacy questions",
+  "Strait of Hormuz transit risk declining; energy markets stabilizing",
+  "Trump administration claims diplomatic victory; regional actors cautiously optimistic",
 ];
 
 function buildMarquee(){
@@ -1161,6 +1161,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 38.5, "trend": "falling", "last_update": "2026-06-19 22:54:54", "nuclear_risk": 2, "hormuz": "open", "us_forces": "CENTCOM active positioning; aircraft carrier presence maintained; drone operations ongoing in Iraq/Syria; no major repositioning for escalation", "oil_impact": "Crude stable $78-82/bbl; market reprices ceasefire optimism; Hormuz open reduces supply shock fears", "diplomacy": "US-mediated Israel-Hezbollah ceasefire framework; Iran-US deal negotiations (postponed but continuing); possible Saudi involvement in stabilization", "tickers": ["Israel-Hezbollah ceasefire agreed, US confirms negotiations", "IDF Lebanon strikes continue: 47 casualties reported vs 4 Israeli soldiers", "US-Iran talks postponed but diplomatic track active", "Lebanon positioned as pivotal actor in broader US-Iran settlement", "Oil markets stable on ceasefire sentiment; Strait of Hormuz secure"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 42.5, "trend": "falling", "last_update": "2026-06-20 03:29:34", "nuclear_risk": 2, "hormuz": "open", "us_forces": "CENTCOM monitoring; diplomatic engagement elevated; no major force repositioning", "oil_impact": "Moderate stabilization; Brent crude ~$78-82/barrel; ceasefire talks reduce volatility risk", "diplomacy": "US-Iran backchannel active; indirect Israel-Lebanon mediation via US; Russia-China observers; Saudi Arabia as regional stabilizer", "tickers": ["Israel-Hezbollah ceasefire bolsters broader US-Iran truce momentum", "Lebanese civilian deaths spike amid final strikes before cessation", "US-Iran deal framework addresses war legitimacy questions", "Strait of Hormuz transit risk declining; energy markets stabilizing", "Trump administration claims diplomatic victory; regional actors cautiously optimistic"]};</script>
 </body>
 </html>
