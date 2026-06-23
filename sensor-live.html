@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 116 · TIME 17:51</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 116 · TIME 20:00</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [42.5, 38.5, 42.5, 38.5, 62.5, 68.5, 62.5, 58.5, 62.5, 42.5, 62.5, 52.5, 38.5, 42.5, 42.5, 45.5, 68.5, 62.5, 45.0, 42.5, 38.5, 42.5, 42.5, 62.5, 62.5, 62.5, 68.5, 67.5, 72.5, 67.5, 62.5, 62.5, 62.5, 58.5, 58.5, 62.5, 62.5, 58.5, 58.5, 58.5, 58.5, 58.5, 38.5, 58.5, 58.5, 62.5, 42.5, 62.5];
+const history = [38.5, 42.5, 38.5, 62.5, 68.5, 62.5, 58.5, 62.5, 42.5, 62.5, 52.5, 38.5, 42.5, 42.5, 45.5, 68.5, 62.5, 45.0, 42.5, 38.5, 42.5, 42.5, 62.5, 62.5, 62.5, 68.5, 67.5, 72.5, 67.5, 62.5, 62.5, 62.5, 58.5, 58.5, 62.5, 62.5, 58.5, 58.5, 58.5, 58.5, 58.5, 38.5, 58.5, 58.5, 62.5, 42.5, 62.5, 62.5];
 let currentTemp = 62.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "US-Iran nuclear inspectors invited back",
-  "Dozen ships transiting Hormuz after deal",
-  "IDF kills 2 in Lebanon; isolated incident",
-  "Iran rejects new nuclear commitments",
-  "UN genocide commission findings pressure Israel",
+  "Lebanon-clashes-resuming",
+  "Iran-nuclear-talks-resume",
+  "Hormuz-traffic-normalizing",
+  "Gaza-genocide-allegations",
+  "Oil-markets-stabilizing",
 ];
 
 function buildMarquee(){
@@ -1188,6 +1188,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "falling", "last_update": "2026-06-23 17:51:03", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM positioned for monitoring; no major new deployments. Naval presence sustained for Strait security.", "oil_impact": "Minimal volatility. Open Hormuz + deal signals stabilize crude; Qatar explosion absorbed without regional premium.", "diplomacy": "Active US-Iran nuclear track via Vance envoy; UN genocide inquiry complicates Israeli negotiations; Qatar mediation ongoing.", "tickers": ["US-Iran nuclear inspectors invited back", "Dozen ships transiting Hormuz after deal", "IDF kills 2 in Lebanon; isolated incident", "Iran rejects new nuclear commitments", "UN genocide commission findings pressure Israel"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "stable", "last_update": "2026-06-23 20:00:21", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM sustained position; diplomatic engagement with Iran nuclear negotiators; no major new deployments reported", "oil_impact": "Moderate downward pressure; Hormuz opening and de-escalation signals reduce supply-shock fears; ships transiting normally", "diplomacy": "US-Iran nuclear talks resumed via intermediaries; Russia-China coordination active; UN commissions operating; Rubio signaling negotiation over closure fees", "tickers": ["Lebanon-clashes-resuming", "Iran-nuclear-talks-resume", "Hormuz-traffic-normalizing", "Gaza-genocide-allegations", "Oil-markets-stabilizing"]};</script>
 </body>
 </html>
