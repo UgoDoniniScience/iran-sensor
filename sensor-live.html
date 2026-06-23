@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 116 · TIME 02:58</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 116 · TIME 07:45</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [35.0, 42.0, 28.5, 28.5, 42.5, 38.5, 42.5, 38.5, 62.5, 68.5, 62.5, 58.5, 62.5, 42.5, 62.5, 52.5, 38.5, 42.5, 42.5, 45.5, 68.5, 62.5, 45.0, 42.5, 38.5, 42.5, 42.5, 62.5, 62.5, 62.5, 68.5, 67.5, 72.5, 67.5, 62.5, 62.5, 62.5, 58.5, 58.5, 62.5, 62.5, 58.5, 58.5, 58.5, 58.5, 58.5, 38.5, 58.5];
+const history = [42.0, 28.5, 28.5, 42.5, 38.5, 42.5, 38.5, 62.5, 68.5, 62.5, 58.5, 62.5, 42.5, 62.5, 52.5, 38.5, 42.5, 42.5, 45.5, 68.5, 62.5, 45.0, 42.5, 38.5, 42.5, 42.5, 62.5, 62.5, 62.5, 68.5, 67.5, 72.5, 67.5, 62.5, 62.5, 62.5, 58.5, 58.5, 62.5, 62.5, 58.5, 58.5, 58.5, 58.5, 58.5, 38.5, 58.5, 58.5];
 let currentTemp = 58.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "US-Iran talks show encouraging progress despite ongoing military operations",
-  "Israel-Hezbollah ceasefire holds partially; violations reported in Gaza and Lebanon",
-  "Trump administration navigates dual strategy: diplomacy via Vance, military pressure",
-  "Oil markets stable on Hormuz openness and diplomatic progress signals",
-  "Nuclear risk remains low; no Iranian/Israeli nuclear mobilization indicators detected",
+  "US-Iran first round talks encouraging progress",
+  "Israeli strikes Gaza and Lebanon continue despite ceasefire",
+  "Israel-Hezbollah ceasefire agreement fragile violations reported",
+  "Vance leads Iran negotiations amid Trump disruptions",
+  "Iranian delegation maintains resolute messaging",
 ];
 
 function buildMarquee(){
@@ -1184,6 +1184,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 58.5, "trend": "falling", "last_update": "2026-06-23 02:58:34", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM maintaining presence; naval assets in Gulf; no major escalation reported", "oil_impact": "Modest upward pressure from Hormuz uncertainty; ceasefire progress limits spike", "diplomacy": "Active US-Iran negotiations via Vance; Qatar/Oman mediation; Israel-Hezbollah ceasefire framework", "tickers": ["US-Iran talks show encouraging progress despite ongoing military operations", "Israel-Hezbollah ceasefire holds partially; violations reported in Gaza and Lebanon", "Trump administration navigates dual strategy: diplomacy via Vance, military pressure", "Oil markets stable on Hormuz openness and diplomatic progress signals", "Nuclear risk remains low; no Iranian/Israeli nuclear mobilization indicators detected"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 58.5, "trend": "falling", "last_update": "2026-06-23 07:45:44", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM posturing reduced; diplomatic mission priority over military escalation", "oil_impact": "Moderate stability; Strait remains open, market risk premium decreasing", "diplomacy": "US-Iran direct talks via mediators; Israel-Hezbollah ceasefire mechanism active", "tickers": ["US-Iran first round talks encouraging progress", "Israeli strikes Gaza and Lebanon continue despite ceasefire", "Israel-Hezbollah ceasefire agreement fragile violations reported", "Vance leads Iran negotiations amid Trump disruptions", "Iranian delegation maintains resolute messaging"]};</script>
 </body>
 </html>
