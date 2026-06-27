@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 120 · TIME 19:17</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 120 · TIME 21:00</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [62.5, 58.5, 58.5, 62.5, 62.5, 58.5, 58.5, 58.5, 58.5, 58.5, 38.5, 58.5, 58.5, 62.5, 42.5, 62.5, 62.5, 52.3, 58.5, 42.5, 62.5, 52.5, 62.5, 62.5, 62.5, 62.0, 52.5, 42.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 42.5, 62.5, 64.5, 67.5, 62.5, 67.5, 62.5, 62.5, 62.5];
+const history = [58.5, 58.5, 62.5, 62.5, 58.5, 58.5, 58.5, 58.5, 58.5, 38.5, 58.5, 58.5, 62.5, 42.5, 62.5, 62.5, 52.3, 58.5, 42.5, 62.5, 52.5, 62.5, 62.5, 62.5, 62.0, 52.5, 42.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 42.5, 62.5, 64.5, 67.5, 62.5, 67.5, 62.5, 62.5, 62.5, 62.5];
 let currentTemp = 62.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "US retaliatory strikes after cargo ship attack",
-  "Trump accuses Iran ceasefire breach Strait of Hormuz",
-  "Israel-Lebanon framework agreement US-brokered",
-  "UN nuclear chief: inspectors visit Iran war deal sites",
-  "Deal divisions Lebanon: Beirut protests against framework",
+  "US strikes Iran after cargo ship attack",
+  "Trump: Iran breached ceasefire at Strait of Hormuz",
+  "Israel-Lebanon framework agreement reached",
+  "UN nuclear chief confirms Iran inspection deal",
+  "Lebanese protests over Israel agreement complicate regional stability",
 ];
 
 function buildMarquee(){
@@ -1220,6 +1220,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "falling", "last_update": "2026-06-27 19:17:10", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM operational; carrier strike groups positioned; defensive posture maintained", "oil_impact": "Moderate volatility; partial Hormuz closure limits but diplomatic channel sustains ~$75-82/bbl range", "diplomacy": "UN AIEA inspections active; Israel-Lebanon framework agreement signals US brokered settlement phase; Russia/China monitoring", "tickers": ["US retaliatory strikes after cargo ship attack", "Trump accuses Iran ceasefire breach Strait of Hormuz", "Israel-Lebanon framework agreement US-brokered", "UN nuclear chief: inspectors visit Iran war deal sites", "Deal divisions Lebanon: Beirut protests against framework"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "falling", "last_update": "2026-06-27 21:00:25", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM reinforced; carrier strike group maintained Gulf position; bases in Qatar, Bahrain operational", "oil_impact": "WTI elevated ~$85-92/bbl due to Hormuz tensions; market stabilized by diplomatic progress", "diplomacy": "US mediating Israel-Lebanon; UN nuclear inspectors negotiating Iran site access; indirect US-Iran communication via intermediaries", "tickers": ["US strikes Iran after cargo ship attack", "Trump: Iran breached ceasefire at Strait of Hormuz", "Israel-Lebanon framework agreement reached", "UN nuclear chief confirms Iran inspection deal", "Lebanese protests over Israel agreement complicate regional stability"]};</script>
 </body>
 </html>
