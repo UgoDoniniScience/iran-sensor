@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 121 · TIME 10:26</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 121 · TIME 13:42</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [58.5, 58.5, 58.5, 58.5, 58.5, 38.5, 58.5, 58.5, 62.5, 42.5, 62.5, 62.5, 52.3, 58.5, 42.5, 62.5, 52.5, 62.5, 62.5, 62.5, 62.0, 52.5, 42.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 42.5, 62.5, 64.5, 67.5, 62.5, 67.5, 62.5, 62.5, 62.5, 62.5, 67.5, 67.5, 62.5, 62.5];
+const history = [58.5, 58.5, 58.5, 58.5, 38.5, 58.5, 58.5, 62.5, 42.5, 62.5, 62.5, 52.3, 58.5, 42.5, 62.5, 52.5, 62.5, 62.5, 62.5, 62.0, 52.5, 42.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 42.5, 62.5, 64.5, 67.5, 62.5, 67.5, 62.5, 62.5, 62.5, 62.5, 67.5, 67.5, 62.5, 62.5, 62.5];
 let currentTemp = 62.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israel-Hezbollah truce strained by new IDF strikes",
-  "US retaliatory strikes on Iranian assets in Gulf",
-  "Cargo ship attack attributed to Iranian proxies",
-  "IAEA inspector access negotiated as confidence measure",
-  "Trump alleges Iranian ceasefire breach via Hormuz operations",
+  "Israel strikes Hezbollah infrastructure Lebanon",
+  "US retaliates against Iran over cargo ship attack",
+  "Trump accuses Iran ceasefire breach Hormuz",
+  "UN nuclear inspectors approved Iran access deal",
+  "Oil markets volatile amid strait tensions",
 ];
 
 function buildMarquee(){
@@ -1225,6 +1225,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "stable", "last_update": "2026-06-28 10:26:05", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM elevated readiness; naval assets reinforced; strike operations ongoing against Iranian targets", "oil_impact": "Moderate upward pressure ($85-92/bbl); Hormuz concerns offset by diplomatic progress signals", "diplomacy": "IAEA nuclear deal framework active; ceasefire holding despite tactical violations; backchannel negotiations through intermediaries", "tickers": ["Israel-Hezbollah truce strained by new IDF strikes", "US retaliatory strikes on Iranian assets in Gulf", "Cargo ship attack attributed to Iranian proxies", "IAEA inspector access negotiated as confidence measure", "Trump alleges Iranian ceasefire breach via Hormuz operations"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "rising", "last_update": "2026-06-28 13:42:09", "nuclear_risk": 6.5, "hormuz": "partial", "us_forces": "CENTCOM actively striking Iranian targets; naval forces maintaining regional presence; carrier groups deployed", "oil_impact": "Volatility sustained; partial Hormuz disruption adds 3-5% risk premium; market nervous on escalation", "diplomacy": "UN nuclear chief negotiating inspection access; parallel ceasefire attempts; Trump rhetoric complicating talks", "tickers": ["Israel strikes Hezbollah infrastructure Lebanon", "US retaliates against Iran over cargo ship attack", "Trump accuses Iran ceasefire breach Hormuz", "UN nuclear inspectors approved Iran access deal", "Oil markets volatile amid strait tensions"]};</script>
 </body>
 </html>
