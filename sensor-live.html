@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 121 · TIME 19:16</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 121 · TIME 20:58</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [58.5, 38.5, 58.5, 58.5, 62.5, 42.5, 62.5, 62.5, 52.3, 58.5, 42.5, 62.5, 52.5, 62.5, 62.5, 62.5, 62.0, 52.5, 42.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 42.5, 62.5, 64.5, 67.5, 62.5, 67.5, 62.5, 62.5, 62.5, 62.5, 67.5, 67.5, 62.5, 62.5, 62.5, 68.5, 72.5, 67.5];
+const history = [38.5, 58.5, 58.5, 62.5, 42.5, 62.5, 62.5, 52.3, 58.5, 42.5, 62.5, 52.5, 62.5, 62.5, 62.5, 62.0, 52.5, 42.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 42.5, 62.5, 64.5, 67.5, 62.5, 67.5, 62.5, 62.5, 62.5, 62.5, 67.5, 67.5, 62.5, 62.5, 62.5, 68.5, 72.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israel strikes Hezbollah positions in southern Lebanon",
-  "US retaliatory strikes on Iranian targets post-cargo ship attack",
-  "Trump accuses Iran of ceasefire breach in Hormuz",
-  "IAEA inspectors to visit Iranian nuclear sites under new agreement",
-  "Saudi helicopter crash near oil refinery kills 14; regional security concerns mount",
+  "Israel strikes southern Lebanon, Hezbollah condemns ceasefire deal",
+  "US military strikes Iran following cargo ship attack",
+  "Trump accuses Iran of Strait of Hormuz ceasefire violations",
+  "UN nuclear chief negotiating Iran site inspections as part of war deal",
+  "Helicopter crash near Saudi oil refinery amid regional tensions",
 ];
 
 function buildMarquee(){
@@ -1229,6 +1229,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-06-28 19:16:30", "nuclear_risk": 5, "hormuz": "partial", "us_forces": "CENTCOM operations active; naval presence reinforced; air strikes conducted against Iranian targets", "oil_impact": "Elevated volatility; Strait of Hormuz disruption concerns drive prices up 8-12%; Saudi refinery incident adds pressure", "diplomacy": "UN nuclear chief facilitating inspections; Trump negotiations via backdoor channels; ceasefire discussions ongoing but fragile", "tickers": ["Israel strikes Hezbollah positions in southern Lebanon", "US retaliatory strikes on Iranian targets post-cargo ship attack", "Trump accuses Iran of ceasefire breach in Hormuz", "IAEA inspectors to visit Iranian nuclear sites under new agreement", "Saudi helicopter crash near oil refinery kills 14; regional security concerns mount"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-06-28 20:58:50", "nuclear_risk": 5, "hormuz": "partial", "us_forces": "CENTCOM engaged in strike operations; naval forces maintaining presence in Gulf; heightened readiness posture", "oil_impact": "Elevated volatility; Strait of Hormuz disruptions pressuring crude; Saudi refinery incident adds supply concerns; WTI trending upward", "diplomacy": "UN nuclear chief mediating; Iran nuclear deal negotiations active; ceasefire framework fragile; Trump statements complicating diplomatic efforts", "tickers": ["Israel strikes southern Lebanon, Hezbollah condemns ceasefire deal", "US military strikes Iran following cargo ship attack", "Trump accuses Iran of Strait of Hormuz ceasefire violations", "UN nuclear chief negotiating Iran site inspections as part of war deal", "Helicopter crash near Saudi oil refinery amid regional tensions"]};</script>
 </body>
 </html>
