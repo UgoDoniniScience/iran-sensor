@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 122 · TIME 22:54</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 123 · TIME 03:28</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [52.3, 58.5, 42.5, 62.5, 52.5, 62.5, 62.5, 62.5, 62.0, 52.5, 42.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 42.5, 62.5, 64.5, 67.5, 62.5, 67.5, 62.5, 62.5, 62.5, 62.5, 67.5, 67.5, 62.5, 62.5, 62.5, 68.5, 72.5, 67.5, 67.5, 68.5, 67.5, 58.5, 62.5, 62.5, 62.5, 62.5];
+const history = [58.5, 42.5, 62.5, 52.5, 62.5, 62.5, 62.5, 62.0, 52.5, 42.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 42.5, 62.5, 64.5, 67.5, 62.5, 67.5, 62.5, 62.5, 62.5, 62.5, 67.5, 67.5, 62.5, 62.5, 62.5, 68.5, 72.5, 67.5, 67.5, 68.5, 67.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5];
 let currentTemp = 62.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "US-Iran stand-down agreement reduces immediate warfare risk",
-  "Israel-Hezbollah southern Lebanon strikes maintain regional tensions",
-  "Cargo ship attack triggers proportional US response, then ceasefire holds",
-  "Maritime traffic rerouting amid Hormuz shipping concerns and helicopter incidents",
-  "Oil markets stabilizing on de-escalation signals despite supply disruption risks",
+  "US Iran stand down agreement",
+  "Israel strikes southern Lebanon",
+  "Hezbollah condemns new deal",
+  "Strait of Hormuz shipping disruptions",
+  "Saudi helicopter crash amid tensions",
 ];
 
 function buildMarquee(){
@@ -1237,6 +1237,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "falling", "last_update": "2026-06-29 22:54:26", "nuclear_risk": 2, "hormuz": "partial", "us_forces": "CENTCOM positioned for defense; carrier groups maintaining distance; reduced strike posture per agreement", "oil_impact": "Moderate volatility; Hormuz partial closure risk premium reflected; supply concerns easing with de-escalation", "diplomacy": "Direct US-Iran communication active; Qatar/Oman mediation ongoing; Trump administration signaling restraint", "tickers": ["US-Iran stand-down agreement reduces immediate warfare risk", "Israel-Hezbollah southern Lebanon strikes maintain regional tensions", "Cargo ship attack triggers proportional US response, then ceasefire holds", "Maritime traffic rerouting amid Hormuz shipping concerns and helicopter incidents", "Oil markets stabilizing on de-escalation signals despite supply disruption risks"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "falling", "last_update": "2026-06-30 03:28:42", "nuclear_risk": 2, "hormuz": "open", "us_forces": "CENTCOM maintaining heightened readiness; naval assets positioned in Gulf; avoiding further escalation per agreement", "oil_impact": "Moderate volatility; shipping risks elevated but agreement reduces price spike potential. Regional uncertainty maintains premium.", "diplomacy": "Active US-Iran backchannel communication; Saudi Arabia mediating; ceasefire agreement fragile but holding on Day 123", "tickers": ["US Iran stand down agreement", "Israel strikes southern Lebanon", "Hezbollah condemns new deal", "Strait of Hormuz shipping disruptions", "Saudi helicopter crash amid tensions"]};</script>
 </body>
 </html>
