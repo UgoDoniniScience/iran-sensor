@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 125 · TIME 23:03</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 126 · TIME 02:45</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [62.5, 64.5, 67.5, 62.5, 67.5, 62.5, 62.5, 62.5, 62.5, 67.5, 67.5, 62.5, 62.5, 62.5, 68.5, 72.5, 67.5, 67.5, 68.5, 67.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 52.5, 62.5, 62.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 52.5, 62.5, 62.5, 52.5, 62.5, 62.5, 62.5, 62.5, 72.5, 62.5, 62.5, 62.5];
+const history = [64.5, 67.5, 62.5, 67.5, 62.5, 62.5, 62.5, 62.5, 67.5, 67.5, 62.5, 62.5, 62.5, 68.5, 72.5, 67.5, 67.5, 68.5, 67.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 52.5, 62.5, 62.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 52.5, 62.5, 62.5, 52.5, 62.5, 62.5, 62.5, 62.5, 72.5, 62.5, 62.5, 62.5, 62.5];
 let currentTemp = 62.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "US-Iran mutual stand-down agreement",
-  "Gaza evacuation delays persist amid conflict",
-  "Damascus cafe bombing kills 6; Syria parliament forming",
-  "Israel allegedly plotted Iranian negotiator elimination",
-  "Oil markets: Hormuz status critical for pricing",
+  "US-Iran stand down after strike exchange",
+  "Allegations Israel plotted to kill Iranian negotiators",
+  "Damascus cafe bombing kills 6; Syria stability questioned",
+  "Syria parliament formation under new post-Assad govt",
+  "Hormuz Strait remains open; oil markets stabilize",
 ];
 
 function buildMarquee(){
@@ -1260,6 +1260,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "falling", "last_update": "2026-07-02 23:03:33", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM positioned defensively; no escalation orders reported", "oil_impact": "Moderate stabilization expected; Hormuz remains operational channel", "diplomacy": "Qatar-mediated shuttle diplomacy; US envoys in Doha; direct Iran-USA talks paused", "tickers": ["US-Iran mutual stand-down agreement", "Gaza evacuation delays persist amid conflict", "Damascus cafe bombing kills 6; Syria parliament forming", "Israel allegedly plotted Iranian negotiator elimination", "Oil markets: Hormuz status critical for pricing"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "falling", "last_update": "2026-07-03 02:45:34", "nuclear_risk": 2, "hormuz": "open", "us_forces": "CENTCOM maintaining posture; no new strike orders; diplomatic channel active", "oil_impact": "Modest recovery; Hormuz open reduces supply shock premium", "diplomacy": "US envoys in Doha mediating; indirect Iran talks via Qatar; no direct US-Iran contact", "tickers": ["US-Iran stand down after strike exchange", "Allegations Israel plotted to kill Iranian negotiators", "Damascus cafe bombing kills 6; Syria stability questioned", "Syria parliament formation under new post-Assad govt", "Hormuz Strait remains open; oil markets stabilize"]};</script>
 </body>
 </html>
