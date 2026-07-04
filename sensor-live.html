@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 126 · TIME 23:00</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 127 · TIME 02:41</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -379,7 +379,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
 <line x1="695" y1="265" x2="695" y2="38" class="trace-pwr" stroke-width="2"/>
 <line x1="720" y1="355" x2="720" y2="612" class="trace-gnd" stroke-width="2"/>
 <text x="640" y="285" style="font-family:Share Tech Mono;font-size:7px;fill:rgba(0,255,136,0.25)">SSD1306 I2C</text>
-<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">68.5°C</text>
+<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">67.5°C</text>
 <text x="695" y="378" class="lc">OLED 0.96" I2C</text>
 <text x="695" y="390" class="lcr">U4 SSD1306</text>
 <text x="695" y="403" class="lca">GLOBAL OUTPUT</text>
@@ -495,8 +495,8 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 67.5, 62.5, 62.5, 62.5, 68.5, 72.5, 67.5, 67.5, 68.5, 67.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 52.5, 62.5, 62.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 52.5, 62.5, 62.5, 52.5, 62.5, 62.5, 62.5, 62.5, 72.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 67.5, 72.5, 72.5, 68.5];
-let currentTemp = 68.5;
+const history = [67.5, 62.5, 62.5, 62.5, 68.5, 72.5, 67.5, 67.5, 68.5, 67.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 52.5, 62.5, 62.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 52.5, 62.5, 62.5, 52.5, 62.5, 62.5, 62.5, 62.5, 72.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 67.5, 72.5, 72.5, 68.5, 67.5];
+let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
 function barWidth(t){return Math.min(99,(t/150)*100);}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Iran_Supreme_Leader_Funeral_Impact",
-  "Gaza_Evacuation_Crisis_Ongoing",
-  "Damascus_Cafe_Bombing_Syria_Instability",
-  "Hormuz_Shipping_Open_Oil_Stable",
-  "US_Mediation_Doha_Limited_Scope",
+  "Iran succession destabilizes regional power balance",
+  "Gaza evacuation crisis increases humanitarian pressure on mediators",
+  "Syria parliament formation signals Assad replacement consolidating",
+  "Damascus bombing indicates terrorist activity exploiting regional chaos",
+  "US-Iran dialogue gap widens despite shipping security concerns",
 ];
 
 function buildMarquee(){
@@ -1269,6 +1269,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 68.5, "trend": "stable", "last_update": "2026-07-03 23:00:42", "nuclear_risk": 4, "hormuz": "open", "us_forces": "CENTCOM maintaining posture; naval presence sustained; no major escalation reported", "oil_impact": "Stable; Strait open supports markets; geopolitical premium contained", "diplomacy": "US-Qatar mediation active but Iranian exclusion signals limits; funeral gatherings may enable backchannel contacts", "tickers": ["Iran_Supreme_Leader_Funeral_Impact", "Gaza_Evacuation_Crisis_Ongoing", "Damascus_Cafe_Bombing_Syria_Instability", "Hormuz_Shipping_Open_Oil_Stable", "US_Mediation_Doha_Limited_Scope"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "stable", "last_update": "2026-07-04 02:41:36", "nuclear_risk": 4, "hormuz": "open", "us_forces": "CENTCOM maintains high readiness posture; naval presence reinforced in Persian Gulf; no direct escalation orders", "oil_impact": "Moderate spike risk due to uncertainty premium; strait remains navigable limiting supply shock", "diplomacy": "Qatar mediation framework active but USA refuses direct Iran talks; indirect negotiations stalled", "tickers": ["Iran succession destabilizes regional power balance", "Gaza evacuation crisis increases humanitarian pressure on mediators", "Syria parliament formation signals Assad replacement consolidating", "Damascus bombing indicates terrorist activity exploiting regional chaos", "US-Iran dialogue gap widens despite shipping security concerns"]};</script>
 </body>
 </html>
