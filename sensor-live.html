@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 127 · TIME 20:54</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 127 · TIME 22:56</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -379,7 +379,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
 <line x1="695" y1="265" x2="695" y2="38" class="trace-pwr" stroke-width="2"/>
 <line x1="720" y1="355" x2="720" y2="612" class="trace-gnd" stroke-width="2"/>
 <text x="640" y="285" style="font-family:Share Tech Mono;font-size:7px;fill:rgba(0,255,136,0.25)">SSD1306 I2C</text>
-<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">72.5°C</text>
+<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">67.5°C</text>
 <text x="695" y="378" class="lc">OLED 0.96" I2C</text>
 <text x="695" y="390" class="lcr">U4 SSD1306</text>
 <text x="695" y="403" class="lca">GLOBAL OUTPUT</text>
@@ -495,8 +495,8 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 68.5, 67.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 52.5, 62.5, 62.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 52.5, 62.5, 62.5, 52.5, 62.5, 62.5, 62.5, 62.5, 72.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 67.5, 72.5, 72.5, 68.5, 67.5, 68.5, 62.5, 62.5, 62.5, 62.5, 67.5, 72.5];
-let currentTemp = 72.5;
+const history = [68.5, 67.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 52.5, 62.5, 62.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 52.5, 62.5, 62.5, 52.5, 62.5, 62.5, 62.5, 62.5, 72.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 67.5, 72.5, 72.5, 68.5, 67.5, 68.5, 62.5, 62.5, 62.5, 62.5, 67.5, 72.5, 67.5];
+let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
 function barWidth(t){return Math.min(99,(t/150)*100);}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Iran_Leadership_Transition",
-  "Khamenei_Funeral_Crowds",
-  "Syria_Post_Assad_Parliament",
-  "Gaza_Medical_Evacuation_Crisis",
-  "Damascus_Bomb_Attack_Tensions",
+  "Iran leadership vacuum reduces immediate escalation risk",
+  "Damascus cafe bombing signals Syria instability spreading",
+  "Gaza medical evacuations humanitarian crisis deepens",
+  "Khamenei death may shift Iran war calculus toward pragmatism",
+  "Hormuz remains open; oil markets pricing in stabilization",
 ];
 
 function buildMarquee(){
@@ -1277,6 +1277,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "falling", "last_update": "2026-07-04 20:54:44", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM at elevated readiness; naval presence maintained; defensive posture dominant", "oil_impact": "Moderate volatility; uncertainty premium from Iran transition; Brent $78-82/bbl range expected", "diplomacy": "Indirect talks via Oman; Saudi mediation probed; EU engagement attempted", "tickers": ["Iran_Leadership_Transition", "Khamenei_Funeral_Crowds", "Syria_Post_Assad_Parliament", "Gaza_Medical_Evacuation_Crisis", "Damascus_Bomb_Attack_Tensions"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "falling", "last_update": "2026-07-04 22:56:12", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM maintains readiness; no major force repositioning reported. Air defense systems active in Gulf theater.", "oil_impact": "Moderate stability due to open Strait of Hormuz and reduced escalation rhetoric. Brent crude holding ~$78-82/bbl.", "diplomacy": "Indirect mediation through Oman/UAE; Iranian transition period creates negotiation window. No direct USA-Iran talks.", "tickers": ["Iran leadership vacuum reduces immediate escalation risk", "Damascus cafe bombing signals Syria instability spreading", "Gaza medical evacuations humanitarian crisis deepens", "Khamenei death may shift Iran war calculus toward pragmatism", "Hormuz remains open; oil markets pricing in stabilization"]};</script>
 </body>
 </html>
