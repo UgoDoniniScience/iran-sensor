@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 128 · TIME 19:13</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 128 · TIME 20:56</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [62.5, 62.5, 52.5, 62.5, 62.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 52.5, 62.5, 62.5, 52.5, 62.5, 62.5, 62.5, 62.5, 72.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 67.5, 72.5, 72.5, 68.5, 67.5, 68.5, 62.5, 62.5, 62.5, 62.5, 67.5, 72.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 68.5, 62.5];
+const history = [62.5, 52.5, 62.5, 62.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 52.5, 62.5, 62.5, 52.5, 62.5, 62.5, 62.5, 62.5, 72.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 67.5, 72.5, 72.5, 68.5, 67.5, 68.5, 62.5, 62.5, 62.5, 62.5, 67.5, 72.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 68.5, 62.5, 62.5];
 let currentTemp = 62.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Iran leadership vacuum during conflict",
-  "IDF continues targeted strikes; reduced Iranian retaliation",
-  "Damascus bombing suggests regional destabilization",
-  "Gaza evacuation crisis complicates US-Israel relations",
-  "Oil markets stabilize as war tempo slows",
+  "Iran's new regime untested in conflict management",
+  "IDF operations continue unabated during funeral period",
+  "Syrian infrastructure damaged; Russia-Iran coordination weakened",
+  "Gaza evacuation crisis compounds regional humanitarian toll",
+  "Oil markets price in temporary de-escalation window",
 ];
 
 function buildMarquee(){
@@ -1285,6 +1285,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "falling", "last_update": "2026-07-05 19:13:58", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM maintains heightened posture; naval presence stable in Persian Gulf and Eastern Mediterranean", "oil_impact": "Moderate volatility; $78-82/barrel range. Funeral disruption reduces immediate escalation fears", "diplomacy": "Emerging signals via Saudi intermediaries; new Iranian regime may recalibrate regional stance", "tickers": ["Iran leadership vacuum during conflict", "IDF continues targeted strikes; reduced Iranian retaliation", "Damascus bombing suggests regional destabilization", "Gaza evacuation crisis complicates US-Israel relations", "Oil markets stabilize as war tempo slows"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "falling", "last_update": "2026-07-05 20:56:52", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM elevated readiness; carrier strike groups Eastern Mediterranean/Persian Gulf; naval presence maintained", "oil_impact": "Moderate stability ~$78-82/bbl; funeral pause reduces immediate supply shock fears", "diplomacy": "Minimal active; UN observers present; transitional Iranian regime consolidating; no direct USA-Iran talks", "tickers": ["Iran's new regime untested in conflict management", "IDF operations continue unabated during funeral period", "Syrian infrastructure damaged; Russia-Iran coordination weakened", "Gaza evacuation crisis compounds regional humanitarian toll", "Oil markets price in temporary de-escalation window"]};</script>
 </body>
 </html>
