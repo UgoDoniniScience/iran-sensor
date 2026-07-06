@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 128 · TIME 22:59</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 129 · TIME 03:19</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [52.5, 62.5, 62.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 52.5, 62.5, 62.5, 52.5, 62.5, 62.5, 62.5, 62.5, 72.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 67.5, 72.5, 72.5, 68.5, 67.5, 68.5, 62.5, 62.5, 62.5, 62.5, 67.5, 72.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 68.5, 62.5, 62.5, 67.5];
+const history = [62.5, 62.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 52.5, 62.5, 62.5, 52.5, 62.5, 62.5, 62.5, 62.5, 72.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 67.5, 72.5, 72.5, 68.5, 67.5, 68.5, 62.5, 62.5, 62.5, 62.5, 67.5, 72.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 68.5, 62.5, 62.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Iran regime transition creates military pause",
-  "IDF operations continue but tempo reduced",
-  "Syria instability complicates proxy dynamics",
-  "New Iranian leadership signals potential negotiation openness",
-  "Oil markets respond positively to de-escalation signals",
+  "Iran_leadership_transition_reduces_escalation",
+  "IDF_continues_strikes_proxy_mode",
+  "Hezbollah_limited_operational_tempo",
+  "Hormuz_open_shipping_flows_normal",
+  "US_monitoring_Iran_regime_change_process",
 ];
 
 function buildMarquee(){
@@ -1287,6 +1287,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "falling", "last_update": "2026-07-05 22:59:27", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM maintains enhanced posture; carrier groups in eastern Mediterranean and Persian Gulf; no new deployments ordered", "oil_impact": "Modest decline (-2-3%) due to reduced immediate escalation risk; Brent crude stabilizing around $78-82/barrel", "diplomacy": "Saudi mediation intensifies; EU envoys engage; backchannels through Oman and Iraq active", "tickers": ["Iran regime transition creates military pause", "IDF operations continue but tempo reduced", "Syria instability complicates proxy dynamics", "New Iranian leadership signals potential negotiation openness", "Oil markets respond positively to de-escalation signals"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "falling", "last_update": "2026-07-06 03:19:26", "nuclear_risk": 2.5, "hormuz": "open", "us_forces": "CENTCOM positioned defensive; no new major deployment reported; monitoring Iran transition", "oil_impact": "Crude stable ~$73/bbl; funeral-driven political uncertainty limits spike", "diplomacy": "Indirect talks via intermediaries; Iran leadership vacuum creates diplomatic window", "tickers": ["Iran_leadership_transition_reduces_escalation", "IDF_continues_strikes_proxy_mode", "Hezbollah_limited_operational_tempo", "Hormuz_open_shipping_flows_normal", "US_monitoring_Iran_regime_change_process"]};</script>
 </body>
 </html>
