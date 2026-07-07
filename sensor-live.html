@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 129 · TIME 23:04</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 130 · TIME 02:52</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [62.5, 62.5, 52.5, 62.5, 62.5, 52.5, 62.5, 62.5, 62.5, 62.5, 72.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 67.5, 72.5, 72.5, 68.5, 67.5, 68.5, 62.5, 62.5, 62.5, 62.5, 67.5, 72.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 68.5, 62.5, 62.5, 67.5, 67.5, 68.5, 62.5, 76.5, 72.5, 73.5, 72.5];
+const history = [62.5, 52.5, 62.5, 62.5, 52.5, 62.5, 62.5, 62.5, 62.5, 72.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 67.5, 72.5, 72.5, 68.5, 67.5, 68.5, 62.5, 62.5, 62.5, 62.5, 67.5, 72.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 68.5, 62.5, 62.5, 67.5, 67.5, 68.5, 62.5, 76.5, 72.5, 73.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Khamenei funeral draws vengeance calls from Iranian crowds",
-  "Israeli strikes kill four in Lebanon, breaching ceasefire",
-  "IRGC succession struggle amid combat operations",
-  "US monitors Iranian nuclear posture for retaliation signals",
-  "NATO summit in Ankara amid regional spillover fears",
+  "Khamenei funeral procession signals succession uncertainty",
+  "IDF kills 4 in deadliest Lebanon strike since ceasefire agreement",
+  "Tehran masses chant vengeful slogans; IRGC mobilization monitored",
+  "Oil futures spike on Hormuz transit concerns",
+  "Trump calls for 'maximum pressure'; contradictory signals on de-escalation",
 ];
 
 function buildMarquee(){
@@ -1294,6 +1294,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-06 23:04:35", "nuclear_risk": 6.5, "hormuz": "open", "us_forces": "CENTCOM elevated alert; carrier groups positioned; cyber/intel assets monitoring Iranian nuclear facilities and IRGC communications", "oil_impact": "WTI +3.2% on Hormuz vulnerability concerns; geopolitical premium embedded despite strait remaining navigable", "diplomacy": "Minimal; Turkey mediation stalled; Arab League inactive; UN Security Council deadlocked", "tickers": ["Khamenei funeral draws vengeance calls from Iranian crowds", "Israeli strikes kill four in Lebanon, breaching ceasefire", "IRGC succession struggle amid combat operations", "US monitors Iranian nuclear posture for retaliation signals", "NATO summit in Ankara amid regional spillover fears"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-07 02:52:50", "nuclear_risk": 6, "hormuz": "open", "us_forces": "CENTCOM alert level elevated; naval assets reinforced; carrier strike group positioned", "oil_impact": "WTI +4-6% on supply disruption fears; geopolitical premium increasing", "diplomacy": "Limited; Qatar mediation stalled; no active ceasefire talks; Russia-China observe", "tickers": ["Khamenei funeral procession signals succession uncertainty", "IDF kills 4 in deadliest Lebanon strike since ceasefire agreement", "Tehran masses chant vengeful slogans; IRGC mobilization monitored", "Oil futures spike on Hormuz transit concerns", "Trump calls for 'maximum pressure'; contradictory signals on de-escalation"]};</script>
 </body>
 </html>
