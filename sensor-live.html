@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 130 · TIME 17:57</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 130 · TIME 19:58</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [52.5, 62.5, 62.5, 62.5, 62.5, 72.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 67.5, 72.5, 72.5, 68.5, 67.5, 68.5, 62.5, 62.5, 62.5, 62.5, 67.5, 72.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 68.5, 62.5, 62.5, 67.5, 67.5, 68.5, 62.5, 76.5, 72.5, 73.5, 72.5, 72.5, 68.5, 78.5, 72.5, 72.5];
+const history = [62.5, 62.5, 62.5, 62.5, 72.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 67.5, 72.5, 72.5, 68.5, 67.5, 68.5, 62.5, 62.5, 62.5, 62.5, 67.5, 72.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 68.5, 62.5, 62.5, 67.5, 67.5, 68.5, 62.5, 76.5, 72.5, 73.5, 72.5, 72.5, 68.5, 78.5, 72.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Khamenei death fuels Iranian revenge messaging escalation",
-  "IDF Lebanon strikes deadliest since ceasefire; civilian casualties rising",
-  "Damascus explosions during Macron visit signal Syrian theater volatility",
-  "Trump admin asylum lawsuit reveals intelligence sharing complications",
-  "Oil markets spike on Hormuz risk; global economic impact broadening",
+  "Khamenei death destabilizes Iranian command structure",
+  "IDF Lebanon offensive kills civilians; ceasefire violated",
+  "Damascus bombing during Macron visit signals continued proxy activity",
+  "Iranian revenge narrative dominates funeral discourse",
+  "Trump administration asylum leaks allege Iran intelligence sharing",
 ];
 
 function buildMarquee(){
@@ -1299,6 +1299,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-07 17:57:00", "nuclear_risk": 5.5, "hormuz": "partial", "us_forces": "CENTCOM posture heightened; additional carrier task force positioning reported", "oil_impact": "Brent +8-12% on Hormuz tensions; supply disruption fears mounting", "diplomacy": "Macron visit to Damascus; Qatar mediation stalled; US-Iran backchannel inactive", "tickers": ["Khamenei death fuels Iranian revenge messaging escalation", "IDF Lebanon strikes deadliest since ceasefire; civilian casualties rising", "Damascus explosions during Macron visit signal Syrian theater volatility", "Trump admin asylum lawsuit reveals intelligence sharing complications", "Oil markets spike on Hormuz risk; global economic impact broadening"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-07 19:58:31", "nuclear_risk": 7.2, "hormuz": "partial", "us_forces": "CENTCOM reinforced; carrier groups positioned; heightened alert status", "oil_impact": "Elevated volatility; $88-95/barrel range; Hormuz partial closure priced in markets", "diplomacy": "Macron mediation attempt; backchannel through Qatar; minimal US-Iran direct talks", "tickers": ["Khamenei death destabilizes Iranian command structure", "IDF Lebanon offensive kills civilians; ceasefire violated", "Damascus bombing during Macron visit signals continued proxy activity", "Iranian revenge narrative dominates funeral discourse", "Trump administration asylum leaks allege Iran intelligence sharing"]};</script>
 </body>
 </html>
