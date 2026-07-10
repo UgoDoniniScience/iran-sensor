@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 133 · TIME 10:50</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 133 · TIME 14:20</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [62.5, 62.5, 67.5, 72.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 68.5, 62.5, 62.5, 67.5, 67.5, 68.5, 62.5, 76.5, 72.5, 73.5, 72.5, 72.5, 68.5, 78.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 68.5, 67.5, 72.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 67.5, 67.5, 68.5, 72.5, 67.5];
+const history = [62.5, 67.5, 72.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 68.5, 62.5, 62.5, 67.5, 67.5, 68.5, 62.5, 76.5, 72.5, 73.5, 72.5, 72.5, 68.5, 78.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 68.5, 67.5, 72.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 67.5, 67.5, 68.5, 72.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Iran leadership vacuum fuels instability",
-  "Hormuz shipping corridor operations compromised",
-  "Oil markets fall despite geopolitical risk",
-  "Trump oscillates between threats and negotiation openness",
-  "IDF-Iranian exchanges continue at open-war intensity",
+  "Iranian succession crisis management",
+  "Hormuz shipping lanes 15-25% traffic reduction",
+  "Oil WTI falling amid geopolitical stalemate",
+  "Trump-Iran back-channel through intermediaries",
+  "Hezbollah restraint continues; no major escalation",
 ];
 
 function buildMarquee(){
@@ -1321,6 +1321,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-07-10 10:50:48", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM maintaining presence; enhanced strike capability; selective operations", "oil_impact": "Downward pressure despite Hormuz disruptions; market pricing uncertainty; reduced demand signals", "diplomacy": "Trump considers talks despite public threats; international mediation attempts limited", "tickers": ["Iran leadership vacuum fuels instability", "Hormuz shipping corridor operations compromised", "Oil markets fall despite geopolitical risk", "Trump oscillates between threats and negotiation openness", "IDF-Iranian exchanges continue at open-war intensity"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "stable", "last_update": "2026-07-10 14:20:46", "nuclear_risk": 2, "hormuz": "partial", "us_forces": "CENTCOM maintaining operations; strikes ongoing; carrier groups positioned; no major escalation orders", "oil_impact": "Oil falling despite Hormuz disruption; market pricing in demand destruction and diplomatic resolution hopes", "diplomacy": "Mediators active; Trump signals openness to talks despite public bluster; Iran warns but engages indirect negotiations", "tickers": ["Iranian succession crisis management", "Hormuz shipping lanes 15-25% traffic reduction", "Oil WTI falling amid geopolitical stalemate", "Trump-Iran back-channel through intermediaries", "Hezbollah restraint continues; no major escalation"]};</script>
 </body>
 </html>
