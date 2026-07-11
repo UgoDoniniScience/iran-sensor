@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 134 · TIME 20:43</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 134 · TIME 22:44</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 68.5, 62.5, 76.5, 72.5, 73.5, 72.5, 72.5, 68.5, 78.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 68.5, 67.5, 72.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 67.5, 67.5, 68.5, 72.5, 67.5, 67.5, 72.5, 67.5, 67.5, 62.5, 67.5, 67.5, 72.5, 67.5, 67.5, 62.5, 62.5, 72.5, 72.5];
+const history = [68.5, 62.5, 76.5, 72.5, 73.5, 72.5, 72.5, 68.5, 78.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 68.5, 67.5, 72.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 67.5, 67.5, 68.5, 72.5, 67.5, 67.5, 72.5, 67.5, 67.5, 62.5, 67.5, 67.5, 72.5, 67.5, 67.5, 62.5, 62.5, 72.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Iran supreme leader assassination escalates revenge rhetoric",
-  "Israeli strikes on Iranian steel facility continue campaign",
-  "Hormuz shipping routes see significant traffic decline",
-  "US diplomat detained by Israeli settlers amid tensions",
-  "Oil markets volatile: supply fears offset demand destruction",
+  "Iran supreme leader succession crisis deepens",
+  "IDF targets Iranian infrastructure; calibrated response phase",
+  "Hormuz shipping diverts; oil markets relatively stable",
+  "US-Iran indirect talks ongoing amid escalation",
+  "Hezbollah positioning; Syria border tensions heighten",
 ];
 
 function buildMarquee(){
@@ -1335,6 +1335,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-11 20:43:25", "nuclear_risk": 6.5, "hormuz": "partial", "us_forces": "CENTCOM reinforced; carrier presence maintained; air defense systems active", "oil_impact": "Down short-term on reduced demand, but supply fears keep volatility high; shipping costs surge", "diplomacy": "Oman hosting Iranian-US talks; Saudi Arabia monitoring; indirect negotiations ongoing", "tickers": ["Iran supreme leader assassination escalates revenge rhetoric", "Israeli strikes on Iranian steel facility continue campaign", "Hormuz shipping routes see significant traffic decline", "US diplomat detained by Israeli settlers amid tensions", "Oil markets volatile: supply fears offset demand destruction"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-11 22:44:02", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM active; naval assets positioned; some Democrat criticism of Israeli settlement actions", "oil_impact": "Downward pressure despite Hormuz concerns; risk premium declining as markets doubt escalation continuation", "diplomacy": "Oman hosting Iran-USA talks; backchannel active but undermined by revenge rhetoric and military strikes", "tickers": ["Iran supreme leader succession crisis deepens", "IDF targets Iranian infrastructure; calibrated response phase", "Hormuz shipping diverts; oil markets relatively stable", "US-Iran indirect talks ongoing amid escalation", "Hezbollah positioning; Syria border tensions heighten"]};</script>
 </body>
 </html>
