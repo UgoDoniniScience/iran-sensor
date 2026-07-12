@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 135 · TIME 09:48</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 135 · TIME 11:08</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [72.5, 73.5, 72.5, 72.5, 68.5, 78.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 68.5, 67.5, 72.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 67.5, 67.5, 68.5, 72.5, 67.5, 67.5, 72.5, 67.5, 67.5, 62.5, 67.5, 67.5, 72.5, 67.5, 67.5, 62.5, 62.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5];
+const history = [73.5, 72.5, 72.5, 68.5, 78.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 68.5, 67.5, 72.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 67.5, 67.5, 68.5, 72.5, 67.5, 67.5, 72.5, 67.5, 67.5, 62.5, 67.5, 67.5, 72.5, 67.5, 67.5, 62.5, 62.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "US launches fresh strikes amid Iranian retaliation",
-  "Iran closes Strait of Hormuz blocking key shipping route",
-  "Oil shipping diverts away from Hormuz; prices volatile",
-  "Iranian hardliners reject negotiations, vow escalation",
-  "US Democrat detained by Israeli settlers amid tensions",
+  "US Fresh Strikes on Iranian Positions",
+  "Iran Closes Strait of Hormuz Shipping",
+  "Mashhad Funeral Hardens Iranian Resolve",
+  "Oil Market Volatility Spikes 15-20%",
+  "Ro Khanna Detained by Israeli Settlers",
 ];
 
 function buildMarquee(){
@@ -1339,6 +1339,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-12 09:48:26", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "Expanded carrier strike groups, intensified air operations, CENTCOM coordination with allied navies", "oil_impact": "High volatility expected; shipping reroutes add costs; Brent crude pressured by supply fears but offset by demand destruction signals", "diplomacy": "Minimal; hardline Iranian factions dominate discourse; US-Israel coordination tight; no active mediation observed", "tickers": ["US launches fresh strikes amid Iranian retaliation", "Iran closes Strait of Hormuz blocking key shipping route", "Oil shipping diverts away from Hormuz; prices volatile", "Iranian hardliners reject negotiations, vow escalation", "US Democrat detained by Israeli settlers amid tensions"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-12 11:08:06", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM conducting fresh strikes; carrier groups positioned; increased air operations; tensions with Israeli settlers complicate diplomatic positioning", "oil_impact": "High volatility; shipping routes disrupted; 30-40% of global maritime oil at risk; prices elevated despite initial fall; supply uncertainty drives futures", "diplomacy": "Minimal; hardliners dominant in Iran; US-Israel aligned; no active mediation; Saudi Arabia/UAE passively concerned; Russia-China observing", "tickers": ["US Fresh Strikes on Iranian Positions", "Iran Closes Strait of Hormuz Shipping", "Mashhad Funeral Hardens Iranian Resolve", "Oil Market Volatility Spikes 15-20%", "Ro Khanna Detained by Israeli Settlers"]};</script>
 </body>
 </html>
