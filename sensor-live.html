@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 134 · TIME 22:44</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 135 · TIME 02:32</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [68.5, 62.5, 76.5, 72.5, 73.5, 72.5, 72.5, 68.5, 78.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 68.5, 67.5, 72.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 67.5, 67.5, 68.5, 72.5, 67.5, 67.5, 72.5, 67.5, 67.5, 62.5, 67.5, 67.5, 72.5, 67.5, 67.5, 62.5, 62.5, 72.5, 72.5, 72.5];
+const history = [62.5, 76.5, 72.5, 73.5, 72.5, 72.5, 68.5, 78.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 68.5, 67.5, 72.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 67.5, 67.5, 68.5, 72.5, 67.5, 67.5, 72.5, 67.5, 67.5, 62.5, 67.5, 67.5, 72.5, 67.5, 67.5, 62.5, 62.5, 72.5, 72.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Iran supreme leader succession crisis deepens",
-  "IDF targets Iranian infrastructure; calibrated response phase",
-  "Hormuz shipping diverts; oil markets relatively stable",
-  "US-Iran indirect talks ongoing amid escalation",
-  "Hezbollah positioning; Syria border tensions heighten",
+  "US_fresh_strikes_escalation",
+  "Iran_Hormuz_closure_economic_weapon",
+  "Oil_volatility_geopolitical_premium",
+  "Khanna_detained_Israel_credibility_issue",
+  "Supreme_leader_funeral_public_mobilization",
 ];
 
 function buildMarquee(){
@@ -1336,6 +1336,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-11 22:44:02", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM active; naval assets positioned; some Democrat criticism of Israeli settlement actions", "oil_impact": "Downward pressure despite Hormuz concerns; risk premium declining as markets doubt escalation continuation", "diplomacy": "Oman hosting Iran-USA talks; backchannel active but undermined by revenge rhetoric and military strikes", "tickers": ["Iran supreme leader succession crisis deepens", "IDF targets Iranian infrastructure; calibrated response phase", "Hormuz shipping diverts; oil markets relatively stable", "US-Iran indirect talks ongoing amid escalation", "Hezbollah positioning; Syria border tensions heighten"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-12 02:32:58", "nuclear_risk": 4, "hormuz": "closed", "us_forces": "Carrier strike groups redeploy to Persian Gulf; intensified air operations; naval blockade countermeasures active", "oil_impact": "Volatility spike expected; shipping costs rise 40-60%; global energy markets destabilized; OPEC+ emergency session likely", "diplomacy": "Minimal direct talks; UN statements exchanged; no active mediation; Saudi Arabia positioning as potential broker", "tickers": ["US_fresh_strikes_escalation", "Iran_Hormuz_closure_economic_weapon", "Oil_volatility_geopolitical_premium", "Khanna_detained_Israel_credibility_issue", "Supreme_leader_funeral_public_mobilization"]};</script>
 </body>
 </html>
