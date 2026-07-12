@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 135 · TIME 02:32</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 135 · TIME 06:32</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [62.5, 76.5, 72.5, 73.5, 72.5, 72.5, 68.5, 78.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 68.5, 67.5, 72.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 67.5, 67.5, 68.5, 72.5, 67.5, 67.5, 72.5, 67.5, 67.5, 62.5, 67.5, 67.5, 72.5, 67.5, 67.5, 62.5, 62.5, 72.5, 72.5, 72.5, 72.5];
+const history = [76.5, 72.5, 73.5, 72.5, 72.5, 68.5, 78.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 68.5, 67.5, 72.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 67.5, 67.5, 68.5, 72.5, 67.5, 67.5, 72.5, 67.5, 67.5, 62.5, 67.5, 67.5, 72.5, 67.5, 67.5, 62.5, 62.5, 72.5, 72.5, 72.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "US_fresh_strikes_escalation",
-  "Iran_Hormuz_closure_economic_weapon",
-  "Oil_volatility_geopolitical_premium",
-  "Khanna_detained_Israel_credibility_issue",
-  "Supreme_leader_funeral_public_mobilization",
+  "US fresh strikes on Iranian targets",
+  "Iran closes Strait of Hormuz",
+  "Israeli detention of US Democrat Ro Khanna",
+  "Oil prices volatile; shipping crisis",
+  "Iran supreme leader funeral in Mashhad",
 ];
 
 function buildMarquee(){
@@ -1337,6 +1337,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-12 02:32:58", "nuclear_risk": 4, "hormuz": "closed", "us_forces": "Carrier strike groups redeploy to Persian Gulf; intensified air operations; naval blockade countermeasures active", "oil_impact": "Volatility spike expected; shipping costs rise 40-60%; global energy markets destabilized; OPEC+ emergency session likely", "diplomacy": "Minimal direct talks; UN statements exchanged; no active mediation; Saudi Arabia positioning as potential broker", "tickers": ["US_fresh_strikes_escalation", "Iran_Hormuz_closure_economic_weapon", "Oil_volatility_geopolitical_premium", "Khanna_detained_Israel_credibility_issue", "Supreme_leader_funeral_public_mobilization"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-12 06:32:15", "nuclear_risk": 4, "hormuz": "closed", "us_forces": "Sustained air campaign; carrier strike groups positioned; CENTCOM coordinating with IDF", "oil_impact": "Significant volatility; shipping costs elevated; alternative routes strained", "diplomacy": "Minimal; US-Iran direct talks non-existent; UN mediation attempts unsuccessful", "tickers": ["US fresh strikes on Iranian targets", "Iran closes Strait of Hormuz", "Israeli detention of US Democrat Ro Khanna", "Oil prices volatile; shipping crisis", "Iran supreme leader funeral in Mashhad"]};</script>
 </body>
 </html>
