@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 138 · TIME 02:11</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 138 · TIME 06:11</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 68.5, 72.5, 67.5, 67.5, 72.5, 67.5, 67.5, 62.5, 67.5, 67.5, 72.5, 67.5, 67.5, 62.5, 62.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 73.5, 72.5, 72.5, 68.5, 72.5, 72.5, 72.5, 67.5, 72.5, 68.5, 67.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 67.5, 67.5, 67.5, 72.0, 72.5, 68.5, 72.5, 72.5];
+const history = [68.5, 72.5, 67.5, 67.5, 72.5, 67.5, 67.5, 62.5, 67.5, 67.5, 72.5, 67.5, 67.5, 62.5, 62.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 73.5, 72.5, 72.5, 68.5, 72.5, 72.5, 72.5, 67.5, 72.5, 68.5, 67.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 67.5, 67.5, 67.5, 72.0, 72.5, 68.5, 72.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israeli Gaza strike kills 7",
-  "Iran tanker attacks condemned",
-  "Houthis missile strikes Saudi Arabia",
-  "US-Iran Hormuz firefight escalates",
-  "Iranian cyber-tracking of US military",
+  "Israeli Gaza airstrike kills seven",
+  "US launches fresh strikes; Iran retaliates at Hormuz",
+  "Yemen Houthis missile attack Saudi Arabia",
+  "Iran cyber ops target US Mideast military phones",
+  "UK bans IRGC support amid escalation",
 ];
 
 function buildMarquee(){
@@ -1365,6 +1365,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-15 02:11:46", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM conducting fresh strikes, naval presence increased, military communications compromised by Iranian cyber operations", "oil_impact": "Elevated volatility due to Hormuz tensions and tanker attacks; UAE concerns driving regional energy insecurity", "diplomacy": "Minimal; UK IRGC sanctions indicate hardening Western stance; no active mediation visible", "tickers": ["Israeli Gaza strike kills 7", "Iran tanker attacks condemned", "Houthis missile strikes Saudi Arabia", "US-Iran Hormuz firefight escalates", "Iranian cyber-tracking of US military"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-15 06:11:53", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM engaged in direct combat ops; naval presence heightened; cyber defense activated", "oil_impact": "Upward pressure; Hormuz partial closure risks supply disruption; tanker attacks elevate insurance costs", "diplomacy": "Minimal direct talks; UK isolation of IRGC signals hardline approach; no active mediation observed", "tickers": ["Israeli Gaza airstrike kills seven", "US launches fresh strikes; Iran retaliates at Hormuz", "Yemen Houthis missile attack Saudi Arabia", "Iran cyber ops target US Mideast military phones", "UK bans IRGC support amid escalation"]};</script>
 </body>
 </html>
