@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 140 · TIME 19:03</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 140 · TIME 20:51</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [68.5, 72.5, 72.5, 72.5, 67.5, 72.5, 68.5, 67.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 67.5, 67.5, 67.5, 72.0, 72.5, 68.5, 72.5, 72.5, 72.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 72.5, 62.5, 62.5, 72.5, 72.5, 73.5, 72.5, 74.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5];
+const history = [72.5, 72.5, 72.5, 67.5, 72.5, 68.5, 67.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 67.5, 67.5, 67.5, 72.0, 72.5, 68.5, 72.5, 72.5, 72.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 72.5, 62.5, 62.5, 72.5, 72.5, 73.5, 72.5, 74.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "US military strikes intensifying despite diplomatic rhetoric",
-  "Iran targets US military bases in retaliation",
-  "Hormuz blockade causes regional supply shock",
-  "Trump threatens critical infrastructure but negotiation door remains open",
-  "Hezbollah involvement raises multi-front conflict risk",
+  "Iran retaliatory strikes on US military bases",
+  "US missile strikes on Iranian oil tanker enforcing blockade",
+  "Trump threatens bridges and power plants bombing",
+  "IDF Gaza strike kills seven",
+  "Hormuz toll demands trigger Trump diplomatic retreat",
 ];
 
 function buildMarquee(){
@@ -1391,6 +1391,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-17 19:03:41", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM conducting sustained strike operations; naval blockade enforcement; air superiority maintained", "oil_impact": "Elevated due to Hormuz partial closure and tanker strikes; supply disruption priced in; above $100/barrel likely", "diplomacy": "Indirect talks through mediators; Trump suggests negotiations possible if Iran 'behaves'; low-level diplomatic contacts active", "tickers": ["US military strikes intensifying despite diplomatic rhetoric", "Iran targets US military bases in retaliation", "Hormuz blockade causes regional supply shock", "Trump threatens critical infrastructure but negotiation door remains open", "Hezbollah involvement raises multi-front conflict risk"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-17 20:51:34", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "Sustained CENTCOM operations; carrier task forces deployed; expanded bombing campaign targeting oil/energy assets", "oil_impact": "Significant upward pressure; blockade enforcement and infrastructure targeting driving market volatility; supply uncertainty premium increasing", "diplomacy": "Stalled; Trump's Hormuz toll retreat signals negotiation difficulty; no active backchannel reported", "tickers": ["Iran retaliatory strikes on US military bases", "US missile strikes on Iranian oil tanker enforcing blockade", "Trump threatens bridges and power plants bombing", "IDF Gaza strike kills seven", "Hormuz toll demands trigger Trump diplomatic retreat"]};</script>
 </body>
 </html>
