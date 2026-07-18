@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 141 · TIME 20:42</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 141 · TIME 22:45</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [72.5, 72.5, 67.5, 67.5, 67.5, 67.5, 72.0, 72.5, 68.5, 72.5, 72.5, 72.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 72.5, 62.5, 62.5, 72.5, 72.5, 73.5, 72.5, 74.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 76.5, 72.5, 72.5, 72.5, 74.5, 72.5, 72.5];
+const history = [72.5, 67.5, 67.5, 67.5, 67.5, 72.0, 72.5, 68.5, 72.5, 72.5, 72.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 72.5, 62.5, 62.5, 72.5, 72.5, 73.5, 72.5, 74.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 76.5, 72.5, 72.5, 72.5, 74.5, 72.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "US escalates economic/military pressure on Iran oil sector",
-  "American casualties mount in Jordan theater",
-  "Trump threatens civilian infrastructure targeting",
-  "Hormuz shipping disrupted by US blockade + attacks",
-  "Regional proxy actors (Hezbollah, Yemen) responding to US strikes",
+  "US strikes Iran oil sector - blockade enforcement",
+  "Jordan becomes new front - 2 US KIA reported",
+  "Trump threatens bridge/power plant bombing campaign",
+  "Tanker hijackings off Yemen - Hormuz pressure",
+  "IDF operations continuing in parallel theater",
 ];
 
 function buildMarquee(){
@@ -1402,6 +1402,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-18 20:42:44", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "16 KIA; forward bases in Jordan, UAE, Persian Gulf exposed; CENTCOM stretched; naval blockade active", "oil_impact": "Upward pressure; blockade + strikes on tankers create supply disruption fears; economically destabilizing", "diplomacy": "Minimal; Trump demands Iran 'behave' without concessions; no back-channel negotiations reported", "tickers": ["US escalates economic/military pressure on Iran oil sector", "American casualties mount in Jordan theater", "Trump threatens civilian infrastructure targeting", "Hormuz shipping disrupted by US blockade + attacks", "Regional proxy actors (Hezbollah, Yemen) responding to US strikes"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-18 22:45:53", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "16 KIA, 1 MIA; escalating strikes on Iranian facilities; Jordan forward bases under pressure", "oil_impact": "Blockade enforcement raising global crude prices; tanker hijackings add premium; Hormuz transit risk elevated", "diplomacy": "Minimal; Trump threatens talks condition on Iranian compliance; no active mediation", "tickers": ["US strikes Iran oil sector - blockade enforcement", "Jordan becomes new front - 2 US KIA reported", "Trump threatens bridge/power plant bombing campaign", "Tanker hijackings off Yemen - Hormuz pressure", "IDF operations continuing in parallel theater"]};</script>
 </body>
 </html>
