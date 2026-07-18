@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 140 · TIME 22:46</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 141 · TIME 02:12</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [72.5, 72.5, 67.5, 72.5, 68.5, 67.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 67.5, 67.5, 67.5, 72.0, 72.5, 68.5, 72.5, 72.5, 72.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 72.5, 62.5, 62.5, 72.5, 72.5, 73.5, 72.5, 74.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5, 72.5];
+const history = [72.5, 67.5, 72.5, 68.5, 67.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 67.5, 67.5, 67.5, 72.0, 72.5, 68.5, 72.5, 72.5, 72.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 72.5, 62.5, 62.5, 72.5, 72.5, 73.5, 72.5, 74.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Iran targets US military bases with missile salvos",
-  "US enforces Hormuz blockade, strikes Iranian oil tanker",
-  "Trump threatens bombing campaign unless talks resume",
-  "War expands regionally; Israeli strikes in Gaza continue",
-  "Oil markets volatile; sanctions impact global markets",
+  "US_seventh_consecutive_air_strike_night",
+  "Trump_threatens_Iranian_infrastructure_bombing",
+  "US_enforces_Iran_oil_blockade_Hormuz",
+  "Israeli_IDF_Gaza_strike_casualty_reports",
+  "Tanker_hijacking_Yemen_Somali_pirates_suspected",
 ];
 
 function buildMarquee(){
@@ -1393,6 +1393,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-17 22:46:41", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM intensifies strikes; naval blockade enforcement; carrier presence maintained", "oil_impact": "Severe supply disruption; Brent crude spike 15-20% due to Hormuz tensions and tanker strikes", "diplomacy": "Stalled; Trump threatens escalation; Iran demands US withdrawal; no active mediation", "tickers": ["Iran targets US military bases with missile salvos", "US enforces Hormuz blockade, strikes Iranian oil tanker", "Trump threatens bombing campaign unless talks resume", "War expands regionally; Israeli strikes in Gaza continue", "Oil markets volatile; sanctions impact global markets"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-18 02:12:30", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM conducting sustained air campaign; naval blockade enforced; carrier strike groups positioned", "oil_impact": "Significant upward pressure; tanker hijackings and blockade enforcement disrupt regional trade routes", "diplomacy": "Minimal active dialogue; Trump conditional on Iranian behavioral change; no intermediary breakthroughs", "tickers": ["US_seventh_consecutive_air_strike_night", "Trump_threatens_Iranian_infrastructure_bombing", "US_enforces_Iran_oil_blockade_Hormuz", "Israeli_IDF_Gaza_strike_casualty_reports", "Tanker_hijacking_Yemen_Somali_pirates_suspected"]};</script>
 </body>
 </html>
