@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 142 · TIME 11:07</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 142 · TIME 13:12</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 72.0, 72.5, 68.5, 72.5, 72.5, 72.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 72.5, 62.5, 62.5, 72.5, 72.5, 73.5, 72.5, 74.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 76.5, 72.5, 72.5, 72.5, 74.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5];
+const history = [72.0, 72.5, 68.5, 72.5, 72.5, 72.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 72.5, 62.5, 62.5, 72.5, 72.5, 73.5, 72.5, 74.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 76.5, 72.5, 72.5, 72.5, 74.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "US-Iran direct strike exchange after Jordan casualties",
-  "Trump threatens bombing Iranian bridges/power plants",
-  "US enforces new Iran oil blockade with missile strikes",
-  "Tanker hijacking off Yemen (suspected Somali pirates)",
-  "Gulf states shared strait management proposal circulating",
+  "US-Iran direct fire in Jordan",
+  "US missile strikes on Iranian oil tankers",
+  "Tanker hijackings off Yemen (Hormuz instability)",
+  "Trump threatens infrastructure strikes",
+  "Economic blockade tightening oil markets",
 ];
 
 function buildMarquee(){
@@ -1407,6 +1407,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-19 11:07:20", "nuclear_risk": 6, "hormuz": "partial", "us_forces": "CENTCOM conducting active air operations; two soldiers KIA Jordan; blockade enforcement ongoing", "oil_impact": "Upward pressure; tanker hijacking, US missile strikes on commercial vessels, blockade creating supply fears", "diplomacy": "Minimal; Trump rejects talks unless Iran 'behaves'; no active mediation track evident", "tickers": ["US-Iran direct strike exchange after Jordan casualties", "Trump threatens bombing Iranian bridges/power plants", "US enforces new Iran oil blockade with missile strikes", "Tanker hijacking off Yemen (suspected Somali pirates)", "Gulf states shared strait management proposal circulating"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-19 13:12:53", "nuclear_risk": 4.5, "hormuz": "partial", "us_forces": "CENTCOM intensified operations; naval blockade enforced; strikes on economic targets", "oil_impact": "Upward pressure due to blockade enforcement and tanker hijackings; supply chain disruption", "diplomacy": "Minimal; Trump demands Iranian compliance; no active negotiation framework evident", "tickers": ["US-Iran direct fire in Jordan", "US missile strikes on Iranian oil tankers", "Tanker hijackings off Yemen (Hormuz instability)", "Trump threatens infrastructure strikes", "Economic blockade tightening oil markets"]};</script>
 </body>
 </html>
