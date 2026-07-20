@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 143 · TIME 19:51</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 143 · TIME 21:09</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -379,7 +379,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
 <line x1="695" y1="265" x2="695" y2="38" class="trace-pwr" stroke-width="2"/>
 <line x1="720" y1="355" x2="720" y2="612" class="trace-gnd" stroke-width="2"/>
 <text x="640" y="285" style="font-family:Share Tech Mono;font-size:7px;fill:rgba(0,255,136,0.25)">SSD1306 I2C</text>
-<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">72.5°C</text>
+<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">67.5°C</text>
 <text x="695" y="378" class="lc">OLED 0.96" I2C</text>
 <text x="695" y="390" class="lcr">U4 SSD1306</text>
 <text x="695" y="403" class="lca">GLOBAL OUTPUT</text>
@@ -495,8 +495,8 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [68.5, 67.5, 72.5, 62.5, 62.5, 72.5, 72.5, 73.5, 72.5, 74.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 76.5, 72.5, 72.5, 72.5, 74.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5];
-let currentTemp = 72.5;
+const history = [67.5, 72.5, 62.5, 62.5, 72.5, 72.5, 73.5, 72.5, 74.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 76.5, 72.5, 72.5, 72.5, 74.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5];
+let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
 function barWidth(t){return Math.min(99,(t/150)*100);}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "US strikes Iran in honor of fallen soldiers",
-  "Iranian attack kills US soldier in Iraq",
-  "Houthis declare maritime embargo on Saudi Arabia",
-  "Hamas names new overall leader al-Hayya",
-  "Shadow fleet tanker hijacked by Somali pirates",
+  "Trump_retaliation_vow",
+  "US_soldier_KIA_Iraq",
+  "Houthis_maritime_embargo",
+  "Hamas_leadership_change",
+  "IDF_sustained_strikes",
 ];
 
 function buildMarquee(){
@@ -1419,6 +1419,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-20 19:51:55", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "Active strikes from CENTCOM; casualty sustained in Iraq; continued military operations", "oil_impact": "Moderate-high volatility; Houthi embargo + shadow fleet attacks elevate shipping premiums; Strait partially disrupted", "diplomacy": "Minimal; UN statements only; no active negotiation track", "tickers": ["US strikes Iran in honor of fallen soldiers", "Iranian attack kills US soldier in Iraq", "Houthis declare maritime embargo on Saudi Arabia", "Hamas names new overall leader al-Hayya", "Shadow fleet tanker hijacked by Somali pirates"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-07-20 21:09:52", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "Active CENTCOM operations, Iraq bases under fire, naval presence reinforced in Persian Gulf", "oil_impact": "Elevated volatility; Strait of Hormuz partial disruption pressuring prices upward; shadow fleet targeting increasing costs", "diplomacy": "Minimal; UN messaging antagonistic; no active negotiations; Russia/China observers only", "tickers": ["Trump_retaliation_vow", "US_soldier_KIA_Iraq", "Houthis_maritime_embargo", "Hamas_leadership_change", "IDF_sustained_strikes"]};</script>
 </body>
 </html>
