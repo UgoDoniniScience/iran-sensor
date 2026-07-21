@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 144 · TIME 21:05</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 144 · TIME 22:53</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 76.5, 72.5, 72.5, 72.5, 74.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 68.5, 67.5, 67.5, 72.5, 67.5, 72.5, 72.5];
+const history = [72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 76.5, 72.5, 72.5, 72.5, 74.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 68.5, 67.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israeli strikes Gaza kill 12 civilians",
-  "US launches fresh Iran strikes amid Trump warnings",
-  "Iranian missiles/drones positioned for escalation",
-  "Lebanese army deploys after Israeli withdrawal signal",
-  "Houthis announce Saudi maritime embargo; Hormuz pressure mounting",
+  "Israeli strikes kill 12 in Gaza civilian areas",
+  "Lebanon troops deploy after Israeli withdrawal pivot",
+  "Iran threatens Hormuz disruption over strikes",
+  "Trump warns Iran of severe consequences for soldier deaths",
+  "Houthis declare maritime embargo on Saudi shipping lanes",
 ];
 
 function buildMarquee(){
@@ -1429,6 +1429,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-21 21:05:56", "nuclear_risk": 4.2, "hormuz": "partial", "us_forces": "CENTCOM conducting active strike operations; naval assets positioned; carrier group reinforced", "oil_impact": "Crude elevated 8-12% due to Hormuz closure risk and supply disruption fears", "diplomacy": "Minimal active diplomacy; regional actors posturing; no ceasefire negotiations visible", "tickers": ["Israeli strikes Gaza kill 12 civilians", "US launches fresh Iran strikes amid Trump warnings", "Iranian missiles/drones positioned for escalation", "Lebanese army deploys after Israeli withdrawal signal", "Houthis announce Saudi maritime embargo; Hormuz pressure mounting"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-21 22:53:54", "nuclear_risk": 4.2, "hormuz": "partial", "us_forces": "CENTCOM conducting sustained strikes; carrier deployments active; regional bases at high readiness", "oil_impact": "Hormuz constraints elevating prices; embargo threats creating volatility; supply chain disruption fears rising", "diplomacy": "Minimal active dialogue; regional actors signaling military resolve; no major negotiation tracks visible", "tickers": ["Israeli strikes kill 12 in Gaza civilian areas", "Lebanon troops deploy after Israeli withdrawal pivot", "Iran threatens Hormuz disruption over strikes", "Trump warns Iran of severe consequences for soldier deaths", "Houthis declare maritime embargo on Saudi shipping lanes"]};</script>
 </body>
 </html>
