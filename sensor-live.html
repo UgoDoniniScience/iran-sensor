@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 145 · TIME 02:26</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 145 · TIME 06:25</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 76.5, 72.5, 72.5, 72.5, 74.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 68.5, 67.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5];
+const history = [72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 76.5, 72.5, 72.5, 72.5, 74.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 68.5, 67.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israeli-Palestinian Gaza escalation continues",
-  "US direct military strikes on Iran homeland",
-  "Iranian Strait of Hormuz embargo threat",
-  "Hezbollah retreat from Lebanon border zone",
-  "Trump signals further escalation capability",
+  "Israeli strikes Gaza kill 12, family casualties escalate tensions",
+  "US launches fresh strikes on Iran as Trump warns of retaliation",
+  "Iran risks Strait of Hormuz blockade; maritime concerns mount",
+  "Lebanese army deploys after Israeli withdrawal; Hezbollah monitoring",
+  "Yemen Houthis announce maritime embargo Saudi Arabia; shipping risk",
 ];
 
 function buildMarquee(){
@@ -1431,6 +1431,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-22 02:26:52", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "Active CENTCOM operations; strikes on Iranian targets; naval presence heightened", "oil_impact": "High volatility; Hormuz closure risk premium; Houthis embargo adds disruption", "diplomacy": "Minimal; Trump signals unwilling to negotiate; Iran responds with Hormuz threats", "tickers": ["Israeli-Palestinian Gaza escalation continues", "US direct military strikes on Iran homeland", "Iranian Strait of Hormuz embargo threat", "Hezbollah retreat from Lebanon border zone", "Trump signals further escalation capability"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-22 06:25:22", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "Active CENTCOM operations; strikes ongoing; carrier presence; heightened alert posture", "oil_impact": "Elevated volatility; Hormuz concerns; partial disruption priced in; WTI/Brent pressured upward", "diplomacy": "Minimal direct dialogue; Trump signals willingness to escalate; no active ceasefire talks", "tickers": ["Israeli strikes Gaza kill 12, family casualties escalate tensions", "US launches fresh strikes on Iran as Trump warns of retaliation", "Iran risks Strait of Hormuz blockade; maritime concerns mount", "Lebanese army deploys after Israeli withdrawal; Hezbollah monitoring", "Yemen Houthis announce maritime embargo Saudi Arabia; shipping risk"]};</script>
 </body>
 </html>
