@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 145 · TIME 17:15</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 145 · TIME 19:13</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [72.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 76.5, 72.5, 72.5, 72.5, 74.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 68.5, 67.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5];
+const history = [68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 76.5, 72.5, 72.5, 72.5, 74.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 68.5, 67.5, 67.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Trump nuclear deal Saudi Arabia strategic shift",
-  "Iran Hormuz closure threat vs US military response",
-  "Pentagon $37.5bn spending with supplemental requests",
-  "Houthi attacks tankers forcing route diversions",
-  "Oil markets volatile amid partial Strait closure",
+  "US threatens Iranian infrastructure; Hormuz choke-point at risk",
+  "Saudi Arabia nuclear programme deal announced-regional balance shift",
+  "Pentagon seeks additional billions; war fatigue signals emerging",
+  "Houthi shipping threats forcing tanker diversions; economic friction",
+  "Israeli banks isolating Palestinian economy amid ongoing operations",
 ];
 
 function buildMarquee(){
@@ -1436,6 +1436,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-22 17:15:29", "nuclear_risk": 6.5, "hormuz": "partial", "us_forces": "CENTCOM elevated readiness; carrier strike groups deployed; $37.5bn expended; additional funding requested", "oil_impact": "Tanker diversions ongoing; price volatility 8-12% premium; supply chains disrupted via alternative routes", "diplomacy": "Saudi Arabia pivot toward US-nuclear deal; Russia-China balancing; limited direct Iran-US talks", "tickers": ["Trump nuclear deal Saudi Arabia strategic shift", "Iran Hormuz closure threat vs US military response", "Pentagon $37.5bn spending with supplemental requests", "Houthi attacks tankers forcing route diversions", "Oil markets volatile amid partial Strait closure"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-07-22 19:13:15", "nuclear_risk": 5, "hormuz": "partial", "us_forces": "37.5B expended; casualties in Germany; CENTCOM under strain; regional bases at elevated alert", "oil_impact": "Elevated volatility; Hormuz partial closure sustains $80-90/bbl; tanker evasion routes increase costs", "diplomacy": "Saudi nuclear negotiation ongoing; Iran-US back-channel dormant; UN mediation ineffective; Russia-China neutral positioning", "tickers": ["US threatens Iranian infrastructure; Hormuz choke-point at risk", "Saudi Arabia nuclear programme deal announced-regional balance shift", "Pentagon seeks additional billions; war fatigue signals emerging", "Houthi shipping threats forcing tanker diversions; economic friction", "Israeli banks isolating Palestinian economy amid ongoing operations"]};</script>
 </body>
 </html>
