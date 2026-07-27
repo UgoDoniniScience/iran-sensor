@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 150 · TIME 11:17</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 150 · TIME 14:27</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 72.5, 74.5, 72.5, 67.5, 72.5, 72.5, 68.5, 72.5, 72.5, 72.5, 73.5, 72.5, 76.5, 72.5, 76.5, 72.5, 72.5, 67.5, 67.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 67.5, 67.5, 72.5, 67.5, 62.5, 62.5, 58.5, 58.5, 62.5, 62.5, 62.5, 42.5, 42.5];
+const history = [72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 72.5, 74.5, 72.5, 67.5, 72.5, 72.5, 68.5, 72.5, 72.5, 72.5, 73.5, 72.5, 76.5, 72.5, 76.5, 72.5, 72.5, 67.5, 67.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 67.5, 67.5, 72.5, 67.5, 62.5, 62.5, 58.5, 58.5, 62.5, 62.5, 62.5, 42.5, 42.5, 42.5];
 let currentTemp = 42.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -556,10 +556,10 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
   "Oil prices dive amid US-Iran pause",
-  "Netanyahu balances domestic pressure and US diplomacy",
-  "West Bank settler violence escalates amid broader conflict",
-  "Houthis maintain pressure on Saudi Arabia shipping",
-  "Trump positioning on conflict resolution strategy",
+  "Netanyahu balances domestic-international pressure",
+  "Israeli settlers escalate West Bank tensions",
+  "Houthis maintain Strait of Hormuz pressure",
+  "Trump signals restraint; avoids escalatory rhetoric",
 ];
 
 function buildMarquee(){
@@ -1480,6 +1480,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 42.5, "trend": "falling", "last_update": "2026-07-27 11:17:17", "nuclear_risk": 2, "hormuz": "open", "us_forces": "CENTCOM maintain regional posture; no new major offensive operations during pause", "oil_impact": "Declining prices as market interprets pause as de-escalation signal; Brent down 4-6%", "diplomacy": "Direct USA-Iran back-channel negotiations active; international mediation via Oman, Qatar", "tickers": ["Oil prices dive amid US-Iran pause", "Netanyahu balances domestic pressure and US diplomacy", "West Bank settler violence escalates amid broader conflict", "Houthis maintain pressure on Saudi Arabia shipping", "Trump positioning on conflict resolution strategy"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 42.5, "trend": "falling", "last_update": "2026-07-27 14:27:52", "nuclear_risk": 2, "hormuz": "open", "us_forces": "CENTCOM maintains elevated readiness; carrier groups positioned in Gulf", "oil_impact": "Declining prices reflect reduced conflict intensity and pause in strikes", "diplomacy": "US-Iran backchannel active; third-party mediation via Switzerland", "tickers": ["Oil prices dive amid US-Iran pause", "Netanyahu balances domestic-international pressure", "Israeli settlers escalate West Bank tensions", "Houthis maintain Strait of Hormuz pressure", "Trump signals restraint; avoids escalatory rhetoric"]};</script>
 </body>
 </html>
