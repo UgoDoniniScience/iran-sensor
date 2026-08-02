@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 156 · TIME 16:55</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 156 · TIME 19:05</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [42.5, 54.5, 42.5, 38.5, 58.5, 42.5, 42.5, 67.5, 64.5, 58.5, 62.5, 67.5, 68.5, 68.5, 67.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 62.5, 58.5, 67.5, 67.5, 67.5, 62.5, 67.5, 67.5, 67.5, 72.0, 67.5, 62.5, 62.5, 62.5, 67.5, 62.5, 42.5, 52.5, 42.5, 62.5, 52.5, 58.5];
+const history = [54.5, 42.5, 38.5, 58.5, 42.5, 42.5, 67.5, 64.5, 58.5, 62.5, 67.5, 68.5, 68.5, 67.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 62.5, 58.5, 67.5, 67.5, 67.5, 62.5, 67.5, 67.5, 67.5, 72.0, 67.5, 62.5, 62.5, 62.5, 67.5, 62.5, 42.5, 52.5, 42.5, 62.5, 52.5, 58.5, 58.5];
 let currentTemp = 58.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israeli strikes Gaza-Hamas disarmament deal",
-  "Trump cancels Iran strikes pending negotiations",
-  "Hezbollah casualties reported Lebanon border",
-  "West Bank settler violence justification statements",
-  "IDF Gaza withdrawal conditional on genuine disarmament",
+  "Hamas agrees disarmament framework with Israeli verification requirements",
+  "Trump halts Iran military operations conditional on deal momentum",
+  "IDF continues Gaza/Lebanon targeted strikes amid ceasefire talks",
+  "Hezbollah casualties reported; Lebanon border escalation risk remains",
+  "Oil markets stabilize; geopolitical premium contracts on diplomatic progress",
 ];
 
 function buildMarquee(){
@@ -1535,6 +1535,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 58.5, "trend": "falling", "last_update": "2026-08-02 16:55:43", "nuclear_risk": 2, "hormuz": "open", "us_forces": "CENTCOM maintaining presence; strike cancellation indicates de-escalation posture but readiness maintained", "oil_impact": "Moderate relief; cancelled strikes reduce immediate supply disruption fears; Hormuz remains open", "diplomacy": "Trump-Iran direct negotiations active; Hamas-Israel ceasefire framework emerging; Saudi Arabia positioning as mediator", "tickers": ["Israeli strikes Gaza-Hamas disarmament deal", "Trump cancels Iran strikes pending negotiations", "Hezbollah casualties reported Lebanon border", "West Bank settler violence justification statements", "IDF Gaza withdrawal conditional on genuine disarmament"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 58.5, "trend": "falling", "last_update": "2026-08-02 19:05:32", "nuclear_risk": 2, "hormuz": "open", "us_forces": "CENTCOM positioned for contingency; strike aircraft standing down pending negotiations", "oil_impact": "Moderate downward pressure; Brent ~$72-75 on diplomatic signals and reduced strike threat", "diplomacy": "Trump-led back-channel with Iran via intermediaries; Qatar facilitating Hamas talks; Saudi Arabia monitoring", "tickers": ["Hamas agrees disarmament framework with Israeli verification requirements", "Trump halts Iran military operations conditional on deal momentum", "IDF continues Gaza/Lebanon targeted strikes amid ceasefire talks", "Hezbollah casualties reported; Lebanon border escalation risk remains", "Oil markets stabilize; geopolitical premium contracts on diplomatic progress"]};</script>
 </body>
 </html>
