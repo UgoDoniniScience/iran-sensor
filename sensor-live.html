@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 159 · TIME 21:04</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 159 · TIME 22:55</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [62.5, 58.5, 67.5, 67.5, 67.5, 62.5, 67.5, 67.5, 67.5, 72.0, 67.5, 62.5, 62.5, 62.5, 67.5, 62.5, 42.5, 52.5, 42.5, 62.5, 52.5, 58.5, 58.5, 62.5, 52.5, 42.5, 42.5, 42.5, 52.5, 62.5, 58.5, 58.5, 62.5, 58.5, 67.5, 62.5, 62.5, 42.5, 42.5, 52.3, 38.5, 42.5, 38.5, 62.5, 68.5, 67.5, 67.5, 62.5];
+const history = [58.5, 67.5, 67.5, 67.5, 62.5, 67.5, 67.5, 67.5, 72.0, 67.5, 62.5, 62.5, 62.5, 67.5, 62.5, 42.5, 52.5, 42.5, 62.5, 52.5, 58.5, 58.5, 62.5, 52.5, 42.5, 42.5, 42.5, 52.5, 62.5, 58.5, 58.5, 62.5, 58.5, 67.5, 62.5, 62.5, 42.5, 42.5, 52.3, 38.5, 42.5, 38.5, 62.5, 68.5, 67.5, 67.5, 62.5, 62.5];
 let currentTemp = 62.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Iran-Oman Strait shipping agreement negotiation",
-  "Israel strikes Lebanon post-ceasefire violation claims",
-  "Projectile sinks Indian ship off Yemen coast",
-  "UN alarmed by Iran execution rate increase",
-  "Mass Gaza funeral highlights civilian toll",
+  "Iran-Oman Strait agreement nearing completion",
+  "Israel strikes south Lebanon after cease-fire accusation",
+  "Projectile attack on Indian ship off Yemen (Houthi-linked)",
+  "UN alarmed by Iran execution rise since March 2026",
+  "Gaza funeral for 112 Palestinians from 2023 IDF strike",
 ];
 
 function buildMarquee(){
@@ -1561,6 +1561,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "rising", "last_update": "2026-08-05 21:04:25", "nuclear_risk": 5.2, "hormuz": "partial", "us_forces": "CENTCOM maintaining presence; carrier group positioned; potential escalation readiness", "oil_impact": "Moderate pressure; Hormuz negotiations create uncertainty; Yemen shipping attacks drive risk premiums; brent crude volatility +8-12%", "diplomacy": "Oman mediation active on Hormuz; UN engagement limited; no direct Iran-USA talks; Saudi Arabia observing", "tickers": ["Iran-Oman Strait shipping agreement negotiation", "Israel strikes Lebanon post-ceasefire violation claims", "Projectile sinks Indian ship off Yemen coast", "UN alarmed by Iran execution rate increase", "Mass Gaza funeral highlights civilian toll"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "rising", "last_update": "2026-08-05 22:55:53", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM maintains carrier presence; contingency posture active amid Strait negotiations", "oil_impact": "Moderate volatility; partial Strait closure risk premiums active; Oman diplomatic channel reduces immediate supply shock fears", "diplomacy": "Oman mediating Iran-US Strait of Hormuz shipping agreement; UN monitoring escalation in Iran executions", "tickers": ["Iran-Oman Strait agreement nearing completion", "Israel strikes south Lebanon after cease-fire accusation", "Projectile attack on Indian ship off Yemen (Houthi-linked)", "UN alarmed by Iran execution rise since March 2026", "Gaza funeral for 112 Palestinians from 2023 IDF strike"]};</script>
 </body>
 </html>
