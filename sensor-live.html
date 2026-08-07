@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 161 · TIME 05:38</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 161 · TIME 07:11</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 72.0, 67.5, 62.5, 62.5, 62.5, 67.5, 62.5, 42.5, 52.5, 42.5, 62.5, 52.5, 58.5, 58.5, 62.5, 52.5, 42.5, 42.5, 42.5, 52.5, 62.5, 58.5, 58.5, 62.5, 58.5, 67.5, 62.5, 62.5, 42.5, 42.5, 52.3, 38.5, 42.5, 38.5, 62.5, 68.5, 67.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 68.5, 67.5];
+const history = [72.0, 67.5, 62.5, 62.5, 62.5, 67.5, 62.5, 42.5, 52.5, 42.5, 62.5, 52.5, 58.5, 58.5, 62.5, 52.5, 42.5, 42.5, 42.5, 52.5, 62.5, 58.5, 58.5, 62.5, 58.5, 67.5, 62.5, 62.5, 42.5, 42.5, 52.3, 38.5, 42.5, 38.5, 62.5, 68.5, 67.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 68.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Houthi-Yemen military escalation threatens civil war reignition",
-  "Israeli settler charged in Palestinian activist death amid war crimes scrutiny",
-  "IDF Lebanon strikes after soldier casualties from explosion",
-  "Iranian athletes defecting to Australia reflects internal regime strain",
-  "Regional proxy warfare expansion: Yemen, Lebanon, West Bank coordination patterns emerge",
+  "Houthi_Yemen_30killed_escalation",
+  "IDF_Lebanon_strikes_Hezbollah_response",
+  "Israeli_settler_charged_Palestinian_activist",
+  "Rights_groups_Lebanese_journalist_war_crime",
+  "Iranian_athletes_asylum_Australia",
 ];
 
 function buildMarquee(){
@@ -1569,6 +1569,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-08-07 05:38:19", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM operations active; naval presence maintained; air support for Israel continues", "oil_impact": "Houthi maritime threats elevate Strait risk premium; stable but vulnerable to escalation", "diplomacy": "Minimal active diplomacy; humanitarian-focused pressure via rights groups; Australia's Iranian footballer asylum signals emigration pressure on Tehran", "tickers": ["Houthi-Yemen military escalation threatens civil war reignition", "Israeli settler charged in Palestinian activist death amid war crimes scrutiny", "IDF Lebanon strikes after soldier casualties from explosion", "Iranian athletes defecting to Australia reflects internal regime strain", "Regional proxy warfare expansion: Yemen, Lebanon, West Bank coordination patterns emerge"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-08-07 07:11:26", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM operating at elevated alert; naval presence maintained in Persian Gulf and Eastern Med", "oil_impact": "Modest upward pressure from Yemen disruption and Strait concerns; Brent +2-3% range", "diplomacy": "Minimal active diplomacy; UN statements only; no direct Iran-USA talks reported", "tickers": ["Houthi_Yemen_30killed_escalation", "IDF_Lebanon_strikes_Hezbollah_response", "Israeli_settler_charged_Palestinian_activist", "Rights_groups_Lebanese_journalist_war_crime", "Iranian_athletes_asylum_Australia"]};</script>
 </body>
 </html>
