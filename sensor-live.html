@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 162 · TIME 10:29</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 162 · TIME 12:41</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [62.5, 52.5, 42.5, 42.5, 42.5, 52.5, 62.5, 58.5, 58.5, 62.5, 58.5, 67.5, 62.5, 62.5, 42.5, 42.5, 52.3, 38.5, 42.5, 38.5, 62.5, 68.5, 67.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 68.5, 67.5, 68.5, 72.5, 67.5, 67.5, 67.5, 72.5];
+const history = [52.5, 42.5, 42.5, 42.5, 52.5, 62.5, 58.5, 58.5, 62.5, 58.5, 67.5, 62.5, 62.5, 42.5, 42.5, 52.3, 38.5, 42.5, 38.5, 62.5, 68.5, 67.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 68.5, 67.5, 68.5, 72.5, 67.5, 67.5, 67.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Saudi-Turkey-Pakistan pact formation",
-  "Houthi coordinated attack kills 30+ Yemeni forces",
-  "Israel strikes south Lebanon; IDF casualties reported",
-  "War crimes allegations against Israeli operations",
-  "Iranian frustration with Trump policy continuity",
+  "Saudi-Turkey-Pakistan defence pact formalizes anti-Iran coalition",
+  "Houthis attack Yemeni govt forces; civil war fears escalate",
+  "IDF strikes south Lebanon retaliatory cycle intensifying",
+  "Israeli forces probe Lebanon border; Hezbollah engagement rising",
+  "Rights groups document war crimes; ICC scrutiny increasing pressure",
 ];
 
 function buildMarquee(){
@@ -1584,6 +1584,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-08-08 10:29:28", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM operations sustained; carrier presence reinforced; regional allies coordination increasing", "oil_impact": "Elevated volatility expected; Hormuz concerns persist but logistics maintained; proxy disruptions in Yemen/Lebanon marginal effect", "diplomacy": "Minimal direct US-Iran engagement; Trump administration messaging inconsistent; regional mediators (Turkey, Saudi Arabia) inactive", "tickers": ["Saudi-Turkey-Pakistan pact formation", "Houthi coordinated attack kills 30+ Yemeni forces", "Israel strikes south Lebanon; IDF casualties reported", "War crimes allegations against Israeli operations", "Iranian frustration with Trump policy continuity"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-08-08 12:41:47", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM operations active; carrier strike group positioned Gulf; advisors/air support for Israel/Saudi coalition", "oil_impact": "Elevated volatility; Hormuz partial closure risk priced in; WTI +3-5% on supply concerns", "diplomacy": "Minimal; no substantive talks; UN/Qatar observers only; regional proxy diplomacy via Saudi mediation failing", "tickers": ["Saudi-Turkey-Pakistan defence pact formalizes anti-Iran coalition", "Houthis attack Yemeni govt forces; civil war fears escalate", "IDF strikes south Lebanon retaliatory cycle intensifying", "Israeli forces probe Lebanon border; Hezbollah engagement rising", "Rights groups document war crimes; ICC scrutiny increasing pressure"]};</script>
 </body>
 </html>
