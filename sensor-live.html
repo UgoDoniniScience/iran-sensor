@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 163 · TIME 20:28</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 163 · TIME 22:27</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [38.5, 42.5, 38.5, 62.5, 68.5, 67.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 68.5, 67.5, 68.5, 72.5, 67.5, 67.5, 67.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5, 67.5, 68.5, 67.5, 72.5, 72.5, 68.5, 67.5, 67.5, 67.5];
+const history = [42.5, 38.5, 62.5, 68.5, 67.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 68.5, 67.5, 68.5, 72.5, 67.5, 67.5, 67.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5, 67.5, 68.5, 67.5, 72.5, 72.5, 68.5, 67.5, 67.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israel rejects Trump 15-point Gaza plan escalating tensions",
-  "Houthi attacks kill 30+ Yemeni forces; maritime corridor threatened",
-  "Saudi-Turkey-Pakistan defense pact shifts regional balance",
-  "Iran promotes IRGC commander Rezaei to security post",
-  "Syria reorganizes Russian military presence; Moscow deepens footprint",
+  "Israel rejects Trump 15-point Gaza plan",
+  "Iran appoints hardline IRGC commander Rezaei",
+  "Saudi Arabia-Turkey-Pakistan sign defense pact",
+  "Houthi attacks kill 30+ Yemeni government forces",
+  "Syria reorganizes Russian military presence",
 ];
 
 function buildMarquee(){
@@ -1601,6 +1601,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-08-09 20:28:49", "nuclear_risk": 4.2, "hormuz": "open", "us_forces": "CENTCOM positioned; carrier groups in Arabian Sea; naval interdiction ongoing; air support Israel-adjacent", "oil_impact": "Modest upward pressure; Hormuz open but Yemen strait vulnerable; $82-87/bbl range likely", "diplomacy": "Trump plan rejected; Saudi mediation weakened by new pact; UN engagement minimal; backchannel talks inactive", "tickers": ["Israel rejects Trump 15-point Gaza plan escalating tensions", "Houthi attacks kill 30+ Yemeni forces; maritime corridor threatened", "Saudi-Turkey-Pakistan defense pact shifts regional balance", "Iran promotes IRGC commander Rezaei to security post", "Syria reorganizes Russian military presence; Moscow deepens footprint"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-08-09 22:27:48", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM maintains elevated readiness; carrier strike groups positioned; air defense systems active", "oil_impact": "Houthi attacks and regional instability maintain upward pressure on crude; geopolitical premium 8-12% above baseline", "diplomacy": "Trump plan rejected; no active negotiation track; Russia-Syria coordination continuing; China monitoring", "tickers": ["Israel rejects Trump 15-point Gaza plan", "Iran appoints hardline IRGC commander Rezaei", "Saudi Arabia-Turkey-Pakistan sign defense pact", "Houthi attacks kill 30+ Yemeni government forces", "Syria reorganizes Russian military presence"]};</script>
 </body>
 </html>
