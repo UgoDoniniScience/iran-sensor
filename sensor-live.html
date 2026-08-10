@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 163 · TIME 22:27</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 164 · TIME 01:29</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [42.5, 38.5, 62.5, 68.5, 67.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 68.5, 67.5, 68.5, 72.5, 67.5, 67.5, 67.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5, 67.5, 68.5, 67.5, 72.5, 72.5, 68.5, 67.5, 67.5, 67.5, 67.5];
+const history = [38.5, 62.5, 68.5, 67.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 68.5, 67.5, 68.5, 72.5, 67.5, 67.5, 67.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5, 67.5, 68.5, 67.5, 72.5, 72.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israel rejects Trump 15-point Gaza plan",
-  "Iran appoints hardline IRGC commander Rezaei",
-  "Saudi Arabia-Turkey-Pakistan sign defense pact",
-  "Houthi attacks kill 30+ Yemeni government forces",
-  "Syria reorganizes Russian military presence",
+  "Israel_rejects_Trump_Gaza_plan",
+  "Saudi_Turkey_Pakistan_defense_pact",
+  "Houthi_kills_30_Yemeni_troops",
+  "Iran_appoints_Rezaei_security_post",
+  "Syria_Russian_military_reorganized",
 ];
 
 function buildMarquee(){
@@ -1602,6 +1602,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-08-09 22:27:48", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM maintains elevated readiness; carrier strike groups positioned; air defense systems active", "oil_impact": "Houthi attacks and regional instability maintain upward pressure on crude; geopolitical premium 8-12% above baseline", "diplomacy": "Trump plan rejected; no active negotiation track; Russia-Syria coordination continuing; China monitoring", "tickers": ["Israel rejects Trump 15-point Gaza plan", "Iran appoints hardline IRGC commander Rezaei", "Saudi Arabia-Turkey-Pakistan sign defense pact", "Houthi attacks kill 30+ Yemeni government forces", "Syria reorganizes Russian military presence"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-08-10 01:29:18", "nuclear_risk": 4, "hormuz": "open", "us_forces": "CENTCOM maintains presence; 5th Fleet patrols active; carrier strike group positioned", "oil_impact": "Brent +2-3% on Hormuz vulnerability concerns; supply security premium embedded", "diplomacy": "Minimal direct; Trump pressure ineffective; Russia-Syria coordination expanding", "tickers": ["Israel_rejects_Trump_Gaza_plan", "Saudi_Turkey_Pakistan_defense_pact", "Houthi_kills_30_Yemeni_troops", "Iran_appoints_Rezaei_security_post", "Syria_Russian_military_reorganized"]};</script>
 </body>
 </html>
