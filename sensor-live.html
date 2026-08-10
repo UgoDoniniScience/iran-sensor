@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 164 · TIME 18:53</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 164 · TIME 20:38</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [62.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 68.5, 67.5, 68.5, 72.5, 67.5, 67.5, 67.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5, 67.5, 68.5, 67.5, 72.5, 72.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 73.5, 67.5, 67.5, 67.5];
+const history = [67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 68.5, 67.5, 68.5, 72.5, 67.5, 67.5, 67.5, 72.5, 72.5, 67.5, 72.5, 72.5, 72.5, 68.5, 72.5, 72.5, 67.5, 68.5, 67.5, 72.5, 72.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 73.5, 67.5, 67.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Netanyahu Gaza plan rejection destabilizes diplomacy",
-  "Iran Hormuz blockade threat increases shipping risk",
-  "Saudi-Turkey-Pakistan defense pact signals regional realignment",
-  "Houthi strikes escalate Yemen proxy dimension",
-  "Trump Gaza disarmament proposal faces coalition resistance",
+  "Netanyahu rejects Trump Gaza disarmament plan amid domestic pressure",
+  "Iran Strait of Hormuz closure until Trump concedes demands",
+  "Saudi Arabia-Turkey-Pakistan defense pact isolated Iran further",
+  "Houthi attacks kill 30+ Yemeni forces; Yemen humanitarian collapse",
+  "Israel archaeology weaponization fuels West Bank settlement tensions",
 ];
 
 function buildMarquee(){
@@ -1612,6 +1612,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-08-10 18:53:20", "nuclear_risk": 4.2, "hormuz": "partial", "us_forces": "CENTCOM elevated posture; carrier groups forward-deployed; air defense systems active Gulf region", "oil_impact": "Brent +2.8% on Hormuz closure threat; supply chain concerns intensify", "diplomacy": "Trump-Netanyahu tensions rising; Iran-US indirect talks stalled; Saudi mediation limited by defense pact signing", "tickers": ["Netanyahu Gaza plan rejection destabilizes diplomacy", "Iran Hormuz blockade threat increases shipping risk", "Saudi-Turkey-Pakistan defense pact signals regional realignment", "Houthi strikes escalate Yemen proxy dimension", "Trump Gaza disarmament proposal faces coalition resistance"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-08-10 20:38:50", "nuclear_risk": 4.5, "hormuz": "closed", "us_forces": "CENTCOM elevated posture; carrier groups deployed; regional bases reinforced", "oil_impact": "Severe; Hormuz closure drives crude to $120+/bbl; global energy crisis risk", "diplomacy": "Trump intermediation stalled; Iran demands preconditions; Saudi-led mediation limited", "tickers": ["Netanyahu rejects Trump Gaza disarmament plan amid domestic pressure", "Iran Strait of Hormuz closure until Trump concedes demands", "Saudi Arabia-Turkey-Pakistan defense pact isolated Iran further", "Houthi attacks kill 30+ Yemeni forces; Yemen humanitarian collapse", "Israel archaeology weaponization fuels West Bank settlement tensions"]};</script>
 </body>
 </html>
