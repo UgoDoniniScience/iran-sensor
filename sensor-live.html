@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 167 · TIME 10:58</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 167 · TIME 13:03</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -379,7 +379,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
 <line x1="695" y1="265" x2="695" y2="38" class="trace-pwr" stroke-width="2"/>
 <line x1="720" y1="355" x2="720" y2="612" class="trace-gnd" stroke-width="2"/>
 <text x="640" y="285" style="font-family:Share Tech Mono;font-size:7px;fill:rgba(0,255,136,0.25)">SSD1306 I2C</text>
-<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">62.5°C</text>
+<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">67.5°C</text>
 <text x="695" y="378" class="lc">OLED 0.96" I2C</text>
 <text x="695" y="390" class="lcr">U4 SSD1306</text>
 <text x="695" y="403" class="lca">GLOBAL OUTPUT</text>
@@ -495,8 +495,8 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 72.5, 72.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 73.5, 67.5, 67.5, 67.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.0, 62.5, 67.5, 67.5, 67.5, 62.5, 62.5, 67.5, 67.5, 67.5, 58.5, 68.5, 62.5, 58.5, 67.5, 67.5, 67.5, 68.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5];
-let currentTemp = 62.5;
+const history = [72.5, 72.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 73.5, 67.5, 67.5, 67.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.0, 62.5, 67.5, 67.5, 67.5, 62.5, 62.5, 67.5, 67.5, 67.5, 58.5, 68.5, 62.5, 58.5, 67.5, 67.5, 67.5, 68.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5];
+let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
 function barWidth(t){return Math.min(99,(t/150)*100);}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Houthis kill six in new Arabian Sea attack",
-  "Israeli settlers besiege West Bank Palestinians",
-  "Bashar al-Assad sentenced to death in absentia",
-  "Oil tanker grounded threatens marine habitat",
-  "Lebanon abolishes death penalty amid regional conflict",
+  "Houthis_deadly_attack_maritime",
+  "West_Bank_settler_siege_escalation",
+  "Assad_death_sentence_Syria_stability",
+  "Oil_tanker_environmental_threat",
+  "Lebanon_abolishes_death_penalty_reform",
 ];
 
 function buildMarquee(){
@@ -1642,6 +1642,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "rising", "last_update": "2026-08-13 10:58:47", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM reinforced; carrier strike groups positioned in Arabian Sea; additional troops staged for regional contingencies", "oil_impact": "WTI elevated 8-12% on Hormuz concerns; tanker incident adds supply risk premium", "diplomacy": "Minimal; no active ceasefire talks; UN observing; Saudi Arabia non-interventionist", "tickers": ["Houthis kill six in new Arabian Sea attack", "Israeli settlers besiege West Bank Palestinians", "Bashar al-Assad sentenced to death in absentia", "Oil tanker grounded threatens marine habitat", "Lebanon abolishes death penalty amid regional conflict"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-08-13 13:03:47", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM reinforcements positioned; naval assets in Arabian Sea; monitoring Strait traffic", "oil_impact": "Moderate upward pressure; tanker incident (environmental threat) adds supply concerns; Hormuz open prevents severe spike", "diplomacy": "Minimal active mediation; regional actors entrenched; no US-Iran direct talks; Saudi Arabia peripheral", "tickers": ["Houthis_deadly_attack_maritime", "West_Bank_settler_siege_escalation", "Assad_death_sentence_Syria_stability", "Oil_tanker_environmental_threat", "Lebanon_abolishes_death_penalty_reform"]};</script>
 </body>
 </html>
