@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 169 · TIME 16:20</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 169 · TIME 18:24</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -379,7 +379,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
 <line x1="695" y1="265" x2="695" y2="38" class="trace-pwr" stroke-width="2"/>
 <line x1="720" y1="355" x2="720" y2="612" class="trace-gnd" stroke-width="2"/>
 <text x="640" y="285" style="font-family:Share Tech Mono;font-size:7px;fill:rgba(0,255,136,0.25)">SSD1306 I2C</text>
-<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">62.5°C</text>
+<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">67.5°C</text>
 <text x="695" y="378" class="lc">OLED 0.96" I2C</text>
 <text x="695" y="390" class="lcr">U4 SSD1306</text>
 <text x="695" y="403" class="lca">GLOBAL OUTPUT</text>
@@ -495,8 +495,8 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 67.5, 62.5, 62.5, 67.5, 67.5, 67.5, 58.5, 68.5, 62.5, 58.5, 67.5, 67.5, 67.5, 68.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 64.5, 62.5, 68.5, 67.5, 62.5, 62.5, 62.5, 67.5, 62.5, 67.5, 67.5, 62.5, 72.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 67.5, 68.5, 62.5];
-let currentTemp = 62.5;
+const history = [67.5, 62.5, 62.5, 67.5, 67.5, 67.5, 58.5, 68.5, 62.5, 58.5, 67.5, 67.5, 67.5, 68.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 64.5, 62.5, 68.5, 67.5, 62.5, 62.5, 62.5, 67.5, 62.5, 67.5, 67.5, 62.5, 72.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 67.5, 68.5, 62.5, 67.5];
+let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
 function barWidth(t){return Math.min(99,(t/150)*100);}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Netanyahu rejects Trump Gaza plan - diplomatic collapse signal",
-  "Iran claims three pilots captured - POW complications",
-  "Houthis resume deadly attacks - proxy escalation",
-  "Syrian Assad sentenced in absentia - regional instability",
-  "Lebanon abolishes death penalty - humanitarian shift amid war",
+  "Netanyahu rejects Trump Gaza plan",
+  "Houthis kill six in first post-war attack",
+  "Iran claims three captured pilots",
+  "Israeli settler siege of Palestinian homes",
+  "Assad death sentence in absentia",
 ];
 
 function buildMarquee(){
@@ -1668,6 +1668,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "rising", "last_update": "2026-08-15 16:20:06", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM enhanced presence, carrier groups positioned, air defense systems deployed Gulf region", "oil_impact": "WTI volatility 8-12% on Hormuz threats; non-OPEC supply concerns sustaining premium", "diplomacy": "Trump admin pressure on Israel-Gaza; Qatar mediation stalled; Russia-China observe; Saudi Arabia balancing act", "tickers": ["Netanyahu rejects Trump Gaza plan - diplomatic collapse signal", "Iran claims three pilots captured - POW complications", "Houthis resume deadly attacks - proxy escalation", "Syrian Assad sentenced in absentia - regional instability", "Lebanon abolishes death penalty - humanitarian shift amid war"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-08-15 18:24:48", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM operations ongoing; naval presence reinforced; no direct USA-Iran engagement but supporting Israeli operations", "oil_impact": "Elevated volatility ~$85-92/barrel; Hormuz partial closure concerns offset by non-OPEC supply alternatives", "diplomacy": "Stalled; Trump's 15-point plan rejected; regional actors hardening positions; Qatar mediation inactive", "tickers": ["Netanyahu rejects Trump Gaza plan", "Houthis kill six in first post-war attack", "Iran claims three captured pilots", "Israeli settler siege of Palestinian homes", "Assad death sentence in absentia"]};</script>
 </body>
 </html>
