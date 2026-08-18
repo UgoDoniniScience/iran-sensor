@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 172 · TIME 20:19</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 172 · TIME 22:20</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -379,7 +379,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
 <line x1="695" y1="265" x2="695" y2="38" class="trace-pwr" stroke-width="2"/>
 <line x1="720" y1="355" x2="720" y2="612" class="trace-gnd" stroke-width="2"/>
 <text x="640" y="285" style="font-family:Share Tech Mono;font-size:7px;fill:rgba(0,255,136,0.25)">SSD1306 I2C</text>
-<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">68.5°C</text>
+<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">62.5°C</text>
 <text x="695" y="378" class="lc">OLED 0.96" I2C</text>
 <text x="695" y="390" class="lcr">U4 SSD1306</text>
 <text x="695" y="403" class="lca">GLOBAL OUTPUT</text>
@@ -495,8 +495,8 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 67.5, 68.5, 62.5, 67.5, 62.5, 67.5, 67.5, 72.5, 62.5, 67.5, 67.5, 67.5, 67.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5];
-let currentTemp = 68.5;
+const history = [62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 67.5, 68.5, 62.5, 67.5, 62.5, 67.5, 67.5, 72.5, 62.5, 67.5, 67.5, 67.5, 67.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 62.5];
+let currentTemp = 62.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
 function barWidth(t){return Math.min(99,(t/150)*100);}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israeli strikes southern Lebanon: 11 killed",
-  "Israel targets Syrian air base; US expresses concern",
+  "Kushner-Netanyahu Gaza talks progress",
+  "Eleven killed in Israeli Lebanon strikes",
   "Qatar denies capturing Iranian pilots",
-  "Gulf oil giants expand overseas reserves",
-  "Assad sentenced death in absentia; Syria destabilization",
+  "Israel strikes Syrian airbase; US objects",
+  "Assad death sentence in absentia signals regime collapse",
 ];
 
 function buildMarquee(){
@@ -1706,6 +1706,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 68.5, "trend": "rising", "last_update": "2026-08-18 20:19:57", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM positioned; Syria strikes suggest operational tempo; potential friction with Russia", "oil_impact": "Gulf producers expanding stockpiles; Hormuz concerns sustain premium; WTI likely $75-85/barrel", "diplomacy": "Kushner-Netanyahu Gaza talks ongoing; Qatar mediation; US-Israel coordination despite Syria tensions", "tickers": ["Israeli strikes southern Lebanon: 11 killed", "Israel targets Syrian air base; US expresses concern", "Qatar denies capturing Iranian pilots", "Gulf oil giants expand overseas reserves", "Assad sentenced death in absentia; Syria destabilization"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "rising", "last_update": "2026-08-18 22:20:00", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM maintaining monitoring posture; US expresses concern over Israeli Syria strikes but sustains regional presence", "oil_impact": "Moderate upward pressure; Hormuz strait remains open mitigating major supply shock; regional tensions add risk premium", "diplomacy": "Active: Trump-Kushner Gaza mediation; Netanyahu engaged; parallel UN/Qatar channels; Russian-Chinese observers monitoring", "tickers": ["Kushner-Netanyahu Gaza talks progress", "Eleven killed in Israeli Lebanon strikes", "Qatar denies capturing Iranian pilots", "Israel strikes Syrian airbase; US objects", "Assad death sentence in absentia signals regime collapse"]};</script>
 </body>
 </html>
