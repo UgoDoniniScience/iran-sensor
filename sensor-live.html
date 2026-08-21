@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 175 · TIME 10:26</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 175 · TIME 12:40</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 62.5, 62.5, 64.5, 67.5, 62.5, 62.5, 62.5, 62.5, 72.5, 62.5, 62.5, 62.5, 67.5, 62.5, 62.5, 62.5, 67.5, 67.5, 62.5, 67.5, 67.5, 62.5, 67.5, 62.5, 62.5, 68.5, 62.5, 62.5, 67.5, 64.5, 67.5];
+const history = [67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 62.5, 62.5, 64.5, 67.5, 62.5, 62.5, 62.5, 62.5, 72.5, 62.5, 62.5, 62.5, 67.5, 62.5, 62.5, 62.5, 67.5, 67.5, 62.5, 67.5, 67.5, 62.5, 67.5, 62.5, 62.5, 68.5, 62.5, 62.5, 67.5, 64.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israel West Bank settlements expand despite international protests",
-  "US economic sanctions aim regime collapse in Iran",
-  "Dark tankers spike in Persian Gulf raises spill catastrophe risk",
-  "Saudi Arabia balancing act amid US-Iran escalation",
-  "Hezbollah readiness posture unchanged, Syria destabilization factor",
+  "Israel West Bank settlement defies intl law concerns",
+  "US economic sanctions aim regime collapse not deescalation",
+  "Five nations condemn Israeli settlement project",
+  "Iran vows to overcome sanctions pressure",
+  "Assad war crimes extradition signals regional instability shift",
 ];
 
 function buildMarquee(){
@@ -1737,6 +1737,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-08-21 10:26:55", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM elevated readiness; naval presence Gulf increased; carrier strike groups positioned", "oil_impact": "Volatile; tanker incidents near strait elevate risk premium; Dark tankers suggest sanctions evasion", "diplomacy": "Minimal; EU isolation of Israel deepens; no active mediation; Trump rhetoric hardline", "tickers": ["Israel West Bank settlements expand despite international protests", "US economic sanctions aim regime collapse in Iran", "Dark tankers spike in Persian Gulf raises spill catastrophe risk", "Saudi Arabia balancing act amid US-Iran escalation", "Hezbollah readiness posture unchanged, Syria destabilization factor"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-08-21 12:40:35", "nuclear_risk": 5.5, "hormuz": "partial", "us_forces": "CENTCOM operational posture elevated; carrier groups positioned; air defense systems deployed across Gulf allied nations", "oil_impact": "WTI stabilizing around $85-92/bbl due to partial Strait tensions; risk premium built in; market pricing in sustained regional disruption", "diplomacy": "Minimal active dialogue; EU condemning Israeli moves; Russia/China watching; Saudi Arabia balancing; backchannels via Oman/Qatar inactive", "tickers": ["Israel West Bank settlement defies intl law concerns", "US economic sanctions aim regime collapse not deescalation", "Five nations condemn Israeli settlement project", "Iran vows to overcome sanctions pressure", "Assad war crimes extradition signals regional instability shift"]};</script>
 </body>
 </html>
