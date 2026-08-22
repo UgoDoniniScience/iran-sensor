@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 175 · TIME 22:20</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 176 · TIME 01:04</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 62.5, 62.5, 64.5, 67.5, 62.5, 62.5, 62.5, 62.5, 72.5, 62.5, 62.5, 62.5, 67.5, 62.5, 62.5, 62.5, 67.5, 67.5, 62.5, 67.5, 67.5, 62.5, 67.5, 62.5, 62.5, 68.5, 62.5, 62.5, 67.5, 64.5, 67.5, 67.5, 67.5, 68.5, 67.5, 72.5, 67.5];
+const history = [67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 62.5, 62.5, 64.5, 67.5, 62.5, 62.5, 62.5, 62.5, 72.5, 62.5, 62.5, 62.5, 67.5, 62.5, 62.5, 62.5, 67.5, 67.5, 62.5, 67.5, 67.5, 62.5, 67.5, 62.5, 62.5, 68.5, 62.5, 62.5, 67.5, 64.5, 67.5, 67.5, 67.5, 68.5, 67.5, 72.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Gaza aid worker killings fuel ICC pressure",
-  "West Bank settlement expansion defies international condemnation",
-  "US economic sanctions aim regime destabilization",
-  "Turkey seeks Netanyahu arrest warrant (flotilla incident)",
-  "Assad extradition signals regional justice precedent",
+  "Israel settlement expansion defies international law",
+  "US threatens economic collapse of Iranian regime",
+  "Turkey seeks Netanyahu arrest warrant",
+  "Hezbollah readiness along Lebanon border",
+  "Oil markets reactive to Strait of Hormuz risk",
 ];
 
 function buildMarquee(){
@@ -1743,6 +1743,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-08-21 22:20:57", "nuclear_risk": 4.5, "hormuz": "open", "us_forces": "CENTCOM maintains carrier presence, air defense systems deployed, sanctions enforcement ongoing", "oil_impact": "Elevated volatility; Hormuz open but supply risk premium 12-18% embedded; WTI 82-88/barrel range", "diplomacy": "Minimal direct dialogue; EU/UK mediation attempts stalled; Russia/China observe; Saudi Arabia cautiously neutral", "tickers": ["Gaza aid worker killings fuel ICC pressure", "West Bank settlement expansion defies international condemnation", "US economic sanctions aim regime destabilization", "Turkey seeks Netanyahu arrest warrant (flotilla incident)", "Assad extradition signals regional justice precedent"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-08-22 01:04:22", "nuclear_risk": 4, "hormuz": "open", "us_forces": "CENTCOM elevated posture; naval assets Gulf; air defense systems positioned; strategic ambiguity on direct strikes Iran", "oil_impact": "Brent +8-12% risk premium; Hormuz closure scenario priced at 20-25% probability; energy markets volatile", "diplomacy": "Minimal: EU attempts stalled; Russia/China absent; Saudi Arabia hedging; no US-Iran direct talks; Qatar mediation inactive", "tickers": ["Israel settlement expansion defies international law", "US threatens economic collapse of Iranian regime", "Turkey seeks Netanyahu arrest warrant", "Hezbollah readiness along Lebanon border", "Oil markets reactive to Strait of Hormuz risk"]};</script>
 </body>
 </html>
