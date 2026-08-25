@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 179 · TIME 06:41</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 179 · TIME 08:38</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [64.5, 67.5, 67.5, 67.5, 68.5, 67.5, 72.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 62.5, 68.5, 67.5, 68.5, 68.5, 68.5, 72.5, 67.5, 68.5, 62.5, 72.5, 67.5, 67.5, 68.5, 62.5, 62.5, 58.5, 62.5, 58.5, 62.5, 62.5, 58.5, 62.5, 58.5, 62.5];
+const history = [67.5, 67.5, 67.5, 68.5, 67.5, 72.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 62.5, 68.5, 67.5, 68.5, 68.5, 68.5, 72.5, 67.5, 68.5, 62.5, 72.5, 67.5, 67.5, 68.5, 62.5, 62.5, 58.5, 62.5, 58.5, 62.5, 62.5, 58.5, 62.5, 58.5, 62.5, 62.5];
 let currentTemp = 62.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Iran sanctions pledge + economic prep",
-  "Israel West Bank settlement expansion",
-  "Syria-Israel US-mediated talks progress",
-  "Hezbollah restraint signals continue",
-  "Trump sanction escalation rhetoric",
+  "Iran defiant on US sanctions",
+  "Syria-Israel US-mediated talks ongoing",
+  "Assad-era justice proceeding",
+  "Gaza kite provocations escalating",
+  "Syria claims Israeli strike violations",
 ];
 
 function buildMarquee(){
@@ -1783,6 +1783,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "stable", "last_update": "2026-08-25 06:41:17", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM maintains presence; USS groups positioned in Arabian Gulf; no full blockade capability demonstrated", "oil_impact": "Moderate volatility; Hormuz threat premium embedded but no supply disruption; Brent 75-82 USD/bbl range", "diplomacy": "US-mediated Syria-Israel talks ongoing; UK/Canada/Australia pressure via ICC referrals; back-channel engagement via Qatar", "tickers": ["Iran sanctions pledge + economic prep", "Israel West Bank settlement expansion", "Syria-Israel US-mediated talks progress", "Hezbollah restraint signals continue", "Trump sanction escalation rhetoric"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "stable", "last_update": "2026-08-25 08:38:27", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM maintaining operational tempo; naval presence sustained in Persian Gulf; Syria dialogue engagement suggests strategic patience", "oil_impact": "Moderate volatility; Strait remains open; sanctions rhetoric elevated but market pricing in continued throughput", "diplomacy": "US mediating Syria-Israel tensions; Trump admin balancing economic pressure on Iran with regional dialogue", "tickers": ["Iran defiant on US sanctions", "Syria-Israel US-mediated talks ongoing", "Assad-era justice proceeding", "Gaza kite provocations escalating", "Syria claims Israeli strike violations"]};</script>
 </body>
 </html>
