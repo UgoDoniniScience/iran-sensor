@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 180 · TIME 16:45</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 180 · TIME 19:43</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 62.5, 68.5, 67.5, 68.5, 68.5, 68.5, 72.5, 67.5, 68.5, 62.5, 72.5, 67.5, 67.5, 68.5, 62.5, 62.5, 58.5, 62.5, 58.5, 62.5, 62.5, 58.5, 62.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 62.5, 62.5, 62.5, 68.5, 68.5, 68.5, 67.5, 62.5, 62.5, 62.5, 62.5];
+const history = [67.5, 67.5, 67.5, 67.5, 67.5, 62.5, 68.5, 67.5, 68.5, 68.5, 68.5, 72.5, 67.5, 68.5, 62.5, 72.5, 67.5, 67.5, 68.5, 62.5, 62.5, 58.5, 62.5, 58.5, 62.5, 62.5, 58.5, 62.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 62.5, 62.5, 62.5, 68.5, 68.5, 68.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5];
 let currentTemp = 62.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israel seizes UNRWA East Jerusalem facility amid ceasefire fragility",
-  "Far-right Israeli actions undermine Palestinian confidence in truce",
-  "Trump maximum pressure campaign: regime change via economic isolation",
-  "Hormuz strategic waterway cleared; oil markets stabilize",
-  "Hezbollah positioning unchanged; US intelligence monitors Iranian IRGC",
+  "Israel seizure UNRWA East Jerusalem escalates settler actions",
+  "Trump sanctions regime-change strategy faces Iranian leadership resolve",
+  "Hormuz mine clearance reduces Strait closure probability significantly",
+  "Gaza cease-fire progress contingent on hostage releases",
+  "Oil market repricing reflects geopolitical risk premium compression",
 ];
 
 function buildMarquee(){
@@ -1800,6 +1800,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "falling", "last_update": "2026-08-26 16:45:42", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM expanded air defense; carrier groups positioned Persian Gulf/Arabian Sea; no direct engagement reported", "oil_impact": "Dip to $78-82/barrel on Hormuz reopening; sanctions-driven supply concerns offset by ceasefire optimism", "diplomacy": "Trump-brokered indirect talks via intermediaries (Oman, UAE); Israel-Iran missile restraint observed; EU/UN monitoring", "tickers": ["Israel seizes UNRWA East Jerusalem facility amid ceasefire fragility", "Far-right Israeli actions undermine Palestinian confidence in truce", "Trump maximum pressure campaign: regime change via economic isolation", "Hormuz strategic waterway cleared; oil markets stabilize", "Hezbollah positioning unchanged; US intelligence monitors Iranian IRGC"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "falling", "last_update": "2026-08-26 19:43:45", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM maintains elevated readiness; naval assets in Persian Gulf supporting mine-clearing ops; reduced strike tempo vs. early conflict", "oil_impact": "Prices dip 3-5% on Hormuz de-escalation signals; market pricing in reduced disruption risk; stabilization supports global economic recovery narrative", "diplomacy": "Trump-mediated talks via intermediaries; Saudi Arabia acting as broker; Qatari mediation on Gaza; back-channel US-Iran communications via Oman", "tickers": ["Israel seizure UNRWA East Jerusalem escalates settler actions", "Trump sanctions regime-change strategy faces Iranian leadership resolve", "Hormuz mine clearance reduces Strait closure probability significantly", "Gaza cease-fire progress contingent on hostage releases", "Oil market repricing reflects geopolitical risk premium compression"]};</script>
 </body>
 </html>
