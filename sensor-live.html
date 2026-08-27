@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 181 · TIME 07:16</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 181 · TIME 18:49</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 67.5, 67.5, 62.5, 68.5, 67.5, 68.5, 68.5, 68.5, 72.5, 67.5, 68.5, 62.5, 72.5, 67.5, 67.5, 68.5, 62.5, 62.5, 58.5, 62.5, 58.5, 62.5, 62.5, 58.5, 62.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 62.5, 62.5, 62.5, 68.5, 68.5, 68.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5, 58.5, 62.5];
+const history = [67.5, 67.5, 62.5, 68.5, 67.5, 68.5, 68.5, 68.5, 72.5, 67.5, 68.5, 62.5, 72.5, 67.5, 67.5, 68.5, 62.5, 62.5, 58.5, 62.5, 58.5, 62.5, 62.5, 58.5, 62.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 62.5, 62.5, 62.5, 68.5, 68.5, 68.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5, 58.5, 62.5, 62.5];
 let currentTemp = 62.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israel seizes UNRWA facility; Palestinian tensions simmer",
-  "Trump leverages sanctions strategy against Iran regime change",
-  "Hormuz Strait mines cleared; shipping corridor reopening",
-  "Oil prices fall on diplomatic progress signals",
-  "Gaza ceasefire holds despite political friction over terms",
+  "Gaza_envoy_criticizes_Israeli_strikes",
+  "Qatari_PM_Tehran_mediation_attempt",
+  "Saudi_response_Houthi_shipping_attacks",
+  "Israeli_far_right_Palestinian_memorial_vandalism",
+  "Strait_of_Hormuz_shipping_disruption_ongoing",
 ];
 
 function buildMarquee(){
@@ -1803,6 +1803,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "falling", "last_update": "2026-08-27 07:16:40", "nuclear_risk": 2, "hormuz": "partial", "us_forces": "CENTCOM monitoring; naval presence reduced; support for IDF indirect; focused on Hormuz mediation", "oil_impact": "Declining due to Hormuz clearance progress and reduced conflict intensity; markets pricing de-escalation", "diplomacy": "Active: Trump-Iran sanctions leverage; USA-Saudi mediation on Hormuz; indirect Israel-Iran through proxies weakening", "tickers": ["Israel seizes UNRWA facility; Palestinian tensions simmer", "Trump leverages sanctions strategy against Iran regime change", "Hormuz Strait mines cleared; shipping corridor reopening", "Oil prices fall on diplomatic progress signals", "Gaza ceasefire holds despite political friction over terms"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "stable", "last_update": "2026-08-27 18:49:18", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM maintaining naval presence, air defense systems active; no full-scale ground deployment reported", "oil_impact": "Elevated volatility; Houthi/Saudi tensions threaten shipping; Strait partial closure maintains premium 8-15% above baseline", "diplomacy": "Qatar mediating Tehran-US back-channel; UN envoys critical of escalation; Saudi Arabia balancing deterrence", "tickers": ["Gaza_envoy_criticizes_Israeli_strikes", "Qatari_PM_Tehran_mediation_attempt", "Saudi_response_Houthi_shipping_attacks", "Israeli_far_right_Palestinian_memorial_vandalism", "Strait_of_Hormuz_shipping_disruption_ongoing"]};</script>
 </body>
 </html>
