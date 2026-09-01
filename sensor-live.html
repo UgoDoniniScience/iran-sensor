@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 185 · TIME 23:36</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 186 · TIME 03:33</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [62.5, 62.5, 58.5, 62.5, 58.5, 62.5, 62.5, 58.5, 62.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 62.5, 62.5, 62.5, 68.5, 68.5, 68.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5, 58.5, 62.5, 62.5, 62.5, 67.5, 67.5, 62.5, 67.5, 62.5, 67.5, 67.5, 67.5, 68.5, 62.5, 62.5, 72.5, 62.5, 67.5, 62.5];
+const history = [62.5, 58.5, 62.5, 58.5, 62.5, 62.5, 58.5, 62.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 62.5, 62.5, 62.5, 68.5, 68.5, 68.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5, 58.5, 62.5, 62.5, 62.5, 67.5, 67.5, 62.5, 67.5, 62.5, 67.5, 67.5, 67.5, 68.5, 62.5, 62.5, 72.5, 62.5, 67.5, 62.5, 62.5];
 let currentTemp = 62.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "US-Iran direct strikes resume after pause",
-  "Israeli settler violence documented surge",
-  "UK pressure on Israel re: West Bank detentions",
-  "US military aid cut threatened to regional ally",
-  "Naval mine innovation suggests escalation persistence",
+  "US-Iran strikes resume cyclical pattern",
+  "Israeli settler violence accelerates West Bank tensions",
+  "US military aid cuts signal policy shift toward Gulf allies",
+  "Strait of Hormuz remains open but monitored for Iranian response",
+  "Oil markets react to renewed direct confrontation signals",
 ];
 
 function buildMarquee(){
@@ -1820,6 +1820,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "stable", "last_update": "2026-08-31 23:36:17", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "Carrier strike group positioned; CENTCOM rotating assets; air defense reinforced", "oil_impact": "Brent +3-5% on strike resumption; Hormuz closure risk premium embedded", "diplomacy": "UK-mediated back-channel active; Saudi Arabia silent; China observing; EU appeals for de-escalation", "tickers": ["US-Iran direct strikes resume after pause", "Israeli settler violence documented surge", "UK pressure on Israel re: West Bank detentions", "US military aid cut threatened to regional ally", "Naval mine innovation suggests escalation persistence"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "stable", "last_update": "2026-09-01 03:33:05", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM maintains posture; carrier presence eastern Persian Gulf; rotations active", "oil_impact": "Moderate volatility 75-82 USD/bbl; Hormuz rhetoric pressures markets; no supply disruption", "diplomacy": "Minimal direct talks; UK mediating on hostages/detainees; European engagement limited", "tickers": ["US-Iran strikes resume cyclical pattern", "Israeli settler violence accelerates West Bank tensions", "US military aid cuts signal policy shift toward Gulf allies", "Strait of Hormuz remains open but monitored for Iranian response", "Oil markets react to renewed direct confrontation signals"]};</script>
 </body>
 </html>
