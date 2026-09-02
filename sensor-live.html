@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 187 · TIME 19:12</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 187 · TIME 22:20</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 62.5, 62.5, 62.5, 68.5, 68.5, 68.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5, 58.5, 62.5, 62.5, 62.5, 67.5, 67.5, 62.5, 67.5, 62.5, 67.5, 67.5, 67.5, 68.5, 62.5, 62.5, 72.5, 62.5, 67.5, 62.5, 62.5, 68.5, 67.5, 67.5, 67.5, 67.5, 72.5, 72.5, 72.5];
+const history = [62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 62.5, 62.5, 62.5, 68.5, 68.5, 68.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5, 58.5, 62.5, 62.5, 62.5, 67.5, 67.5, 62.5, 67.5, 62.5, 67.5, 67.5, 67.5, 68.5, 62.5, 62.5, 72.5, 62.5, 67.5, 62.5, 62.5, 68.5, 67.5, 67.5, 67.5, 67.5, 72.5, 72.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Iran wedding strike war crime allegations escalate rhetoric",
-  "Iranian attack on Saudi tanker kills sailors; maritime threat narrative reinforced",
-  "Israel expands Lebanon occupation as Hezbollah confrontation deepens",
-  "Trump returns confrontational messaging; dismisses civilian harm reports",
-  "China leverages Middle East crisis to counter US regional influence via Egypt",
+  "US denies civilian targeting; Iran demands accountability",
+  "Iranian attack damages Saudi tanker; two Filipino sailors killed",
+  "IDF expands Lebanon occupation amid Hezbollah clashes",
+  "Trump escalates rhetoric; military actions intensify",
+  "China/Egypt positioning as alternative diplomatic brokers",
 ];
 
 function buildMarquee(){
@@ -1829,6 +1829,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-09-02 19:12:16", "nuclear_risk": 4, "hormuz": "open", "us_forces": "CENTCOM operations sustained; carrier strike groups positioned; air campaign ongoing against Iranian targets", "oil_impact": "Elevated volatility; Saudi tanker attack maintains upward pressure; Strait of Hormuz remains navigable but risk premiums embedded", "diplomacy": "Minimal; Trump administration rejects war crime accusations; Egypt-China coordination emerging; UN stalled", "tickers": ["Iran wedding strike war crime allegations escalate rhetoric", "Iranian attack on Saudi tanker kills sailors; maritime threat narrative reinforced", "Israel expands Lebanon occupation as Hezbollah confrontation deepens", "Trump returns confrontational messaging; dismisses civilian harm reports", "China leverages Middle East crisis to counter US regional influence via Egypt"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-09-02 22:20:39", "nuclear_risk": 4, "hormuz": "open", "us_forces": "CENTCOM maintaining regional presence; active strike operations; naval assets positioned in Gulf", "oil_impact": "Elevated volatility; tanker attacks driving risk premium; partial supply disruption concerns", "diplomacy": "Minimal direct engagement; indirect signals through Saudi Arabia and Egypt; Xi's Middle East visit signals Chinese mediation interest", "tickers": ["US denies civilian targeting; Iran demands accountability", "Iranian attack damages Saudi tanker; two Filipino sailors killed", "IDF expands Lebanon occupation amid Hezbollah clashes", "Trump escalates rhetoric; military actions intensify", "China/Egypt positioning as alternative diplomatic brokers"]};</script>
 </body>
 </html>
