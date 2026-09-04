@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 189 · TIME 02:54</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 189 · TIME 08:27</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 62.5, 62.5, 62.5, 68.5, 68.5, 68.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5, 58.5, 62.5, 62.5, 62.5, 67.5, 67.5, 62.5, 67.5, 62.5, 67.5, 67.5, 67.5, 68.5, 62.5, 62.5, 72.5, 62.5, 67.5, 62.5, 62.5, 68.5, 67.5, 67.5, 67.5, 67.5, 72.5, 72.5, 72.5, 72.5, 68.5, 67.5, 72.5, 72.5, 72.5, 67.5];
+const history = [62.5, 62.5, 62.5, 68.5, 68.5, 68.5, 67.5, 62.5, 62.5, 62.5, 62.5, 62.5, 58.5, 62.5, 62.5, 62.5, 67.5, 67.5, 62.5, 67.5, 62.5, 67.5, 67.5, 67.5, 68.5, 62.5, 62.5, 72.5, 62.5, 67.5, 62.5, 62.5, 68.5, 67.5, 67.5, 67.5, 67.5, 72.5, 72.5, 72.5, 72.5, 68.5, 67.5, 72.5, 72.5, 72.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Palestinian_teens_killed_West_Bank_settlers",
-  "US_airstrike_Iran_wedding_casualty_dispute",
-  "Iranian_missile_attack_Saudi_tanker",
-  "Israel_Lebanon_Hezbollah_tunnel_operations",
-  "Potential_prisoner_exchange_talks",
+  "US denies targeting civilians at Iranian wedding; Iran cites war crime",
+  "Israeli forces clear Hezbollah tunnels; Lebanon detentions reported",
+  "Iranian missile attack damages Saudi tanker; Filipino crew casualties",
+  "Palestinian casualties in West Bank settler violence amid ongoing conflict",
+  "Rare diplomatic signal: Israel expected Lebanese prisoner releases",
 ];
 
 function buildMarquee(){
@@ -1836,6 +1836,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-09-04 02:54:06", "nuclear_risk": 4, "hormuz": "open", "us_forces": "CENTCOM active operations; carrier groups positioned; strike capability demonstrated; ground operations supporting Israeli operations", "oil_impact": "Elevated volatility; tanker attacks raise insurance costs; Hormuz concerns keep premiums high; $75-95/bbl range expected", "diplomacy": "Limited; rare prisoner release talks signal potential negotiation window but overshadowed by civilian casualty allegations and war crimes accusations", "tickers": ["Palestinian_teens_killed_West_Bank_settlers", "US_airstrike_Iran_wedding_casualty_dispute", "Iranian_missile_attack_Saudi_tanker", "Israel_Lebanon_Hezbollah_tunnel_operations", "Potential_prisoner_exchange_talks"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-09-04 08:27:39", "nuclear_risk": 3, "hormuz": "open", "us_forces": "Enhanced CENTCOM posture; carrier strike group deployed; air defense systems active across Gulf", "oil_impact": "Elevated volatility; tanker attacks near Saudi waters sustain premium; $75-85/barrel range likely", "diplomacy": "Minimal direct engagement; Qatar/Oman mediation dormant; UN statements only", "tickers": ["US denies targeting civilians at Iranian wedding; Iran cites war crime", "Israeli forces clear Hezbollah tunnels; Lebanon detentions reported", "Iranian missile attack damages Saudi tanker; Filipino crew casualties", "Palestinian casualties in West Bank settler violence amid ongoing conflict", "Rare diplomatic signal: Israel expected Lebanese prisoner releases"]};</script>
 </body>
 </html>
