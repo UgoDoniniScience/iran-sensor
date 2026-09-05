@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 190 · TIME 19:55</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 190 · TIME 21:55</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -379,7 +379,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
 <line x1="695" y1="265" x2="695" y2="38" class="trace-pwr" stroke-width="2"/>
 <line x1="720" y1="355" x2="720" y2="612" class="trace-gnd" stroke-width="2"/>
 <text x="640" y="285" style="font-family:Share Tech Mono;font-size:7px;fill:rgba(0,255,136,0.25)">SSD1306 I2C</text>
-<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">72.5°C</text>
+<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">67.5°C</text>
 <text x="695" y="378" class="lc">OLED 0.96" I2C</text>
 <text x="695" y="390" class="lcr">U4 SSD1306</text>
 <text x="695" y="403" class="lca">GLOBAL OUTPUT</text>
@@ -495,8 +495,8 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [62.5, 62.5, 62.5, 58.5, 62.5, 62.5, 62.5, 67.5, 67.5, 62.5, 67.5, 62.5, 67.5, 67.5, 67.5, 68.5, 62.5, 62.5, 72.5, 62.5, 67.5, 62.5, 62.5, 68.5, 67.5, 67.5, 67.5, 67.5, 72.5, 72.5, 72.5, 72.5, 68.5, 67.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 68.5, 67.5, 73.5, 72.5, 72.5, 72.5, 72.5, 72.5];
-let currentTemp = 72.5;
+const history = [62.5, 62.5, 58.5, 62.5, 62.5, 62.5, 67.5, 67.5, 62.5, 67.5, 62.5, 67.5, 67.5, 67.5, 68.5, 62.5, 62.5, 72.5, 62.5, 67.5, 62.5, 62.5, 68.5, 67.5, 67.5, 67.5, 67.5, 72.5, 72.5, 72.5, 72.5, 68.5, 67.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 68.5, 67.5, 73.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5];
+let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
 function barWidth(t){return Math.min(99,(t/150)*100);}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "US denies civilian targeting at Iranian wedding; Iran calls strike war crime",
-  "Three Lebanese farmers detained by Israel near border; escalation risk",
-  "Palestinian teens killed in West Bank settler attack; cycle of violence continues",
-  "Two Filipino sailors killed in Iranian tanker attack by Saudi forces; maritime warfare",
-  "US strikes Iranian shadow network oil tankers; disrupts revenue; escalates economic pressure",
+  "US wedding strike denial deepens credibility gap",
+  "Iranian retaliation threats over alleged civilian deaths",
+  "Shadow network oil tanker sanctions tightening",
+  "Israeli-Lebanese border friction escalating",
+  "Trump administration hardline rhetoric dominance",
 ];
 
 function buildMarquee(){
@@ -1846,6 +1846,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-09-05 19:55:31", "nuclear_risk": 4, "hormuz": "open", "us_forces": "Enhanced CENTCOM posture; carrier strike group operations; UAV/drone strikes on Iranian oil tanker 'shadow fleet'; air defense systems deployed", "oil_impact": "Volatile; shadow fleet targeting raises Brent crude 3-5%; tanker insurance costs elevated; Hormuz remains navigable but risk premium persistent", "diplomacy": "Minimal; no active mediation; regional actors (Saudi Arabia, UAE) neutral; Russia-China non-interventionist; UN ineffective", "tickers": ["US denies civilian targeting at Iranian wedding; Iran calls strike war crime", "Three Lebanese farmers detained by Israel near border; escalation risk", "Palestinian teens killed in West Bank settler attack; cycle of violence continues", "Two Filipino sailors killed in Iranian tanker attack by Saudi forces; maritime warfare", "US strikes Iranian shadow network oil tankers; disrupts revenue; escalates economic pressure"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-09-05 21:55:20", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "Expanded strike operations on Iranian assets; CENTCOM coordinating multi-theater ops; reinforced Gulf presence", "oil_impact": "Upward pressure from Hormuz partial closure and tanker attacks; Saudi diversification concerns", "diplomacy": "Minimal; UN mediation attempts stalled; no direct USA-Iran talks", "tickers": ["US wedding strike denial deepens credibility gap", "Iranian retaliation threats over alleged civilian deaths", "Shadow network oil tanker sanctions tightening", "Israeli-Lebanese border friction escalating", "Trump administration hardline rhetoric dominance"]};</script>
 </body>
 </html>
