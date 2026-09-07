@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 191 · TIME 22:04</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 192 · TIME 02:52</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 62.5, 67.5, 62.5, 67.5, 67.5, 67.5, 68.5, 62.5, 62.5, 72.5, 62.5, 67.5, 62.5, 62.5, 68.5, 67.5, 67.5, 67.5, 67.5, 72.5, 72.5, 72.5, 72.5, 68.5, 67.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 68.5, 67.5, 73.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 68.5, 67.5, 67.5, 67.5, 67.5];
+const history = [62.5, 67.5, 62.5, 67.5, 67.5, 67.5, 68.5, 62.5, 62.5, 72.5, 62.5, 67.5, 62.5, 62.5, 68.5, 67.5, 67.5, 67.5, 67.5, 72.5, 72.5, 72.5, 72.5, 68.5, 67.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 68.5, 67.5, 73.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "US-Iran ship attacks escalate tensions",
-  "Israeli airstrikes continue operational tempo",
-  "Hezbollah border activities increase",
-  "Hormuz shipping lane partially disrupted",
-  "Oil markets volatile on conflict intensity",
+  "US-Iran maritime attacks resume Hormuz corridor",
+  "IDF operations expand Lebanon-West Bank theaters",
+  "Iranian missile program capabilities demonstrated",
+  "Oil markets show resilience despite conflict flare",
+  "Trump rhetoric hardens against Iran; Palestine criticisms amplify",
 ];
 
 function buildMarquee(){
@@ -1854,6 +1854,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-09-06 22:04:24", "nuclear_risk": 4.5, "hormuz": "partial", "us_forces": "CENTCOM assets deployed; naval strike groups positioned; air defense systems active; potential regional expansion", "oil_impact": "OPEC+ maintains production despite +$8-12/barrel volatility; Hormuz transit risks elevate energy costs", "diplomacy": "Minimal active negotiation; Russia-China observe; indirect messaging via third parties", "tickers": ["US-Iran ship attacks escalate tensions", "Israeli airstrikes continue operational tempo", "Hezbollah border activities increase", "Hormuz shipping lane partially disrupted", "Oil markets volatile on conflict intensity"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-09-07 02:52:22", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM operations active; naval assets in Persian Gulf engaging Iranian targets; air defense systems deployed", "oil_impact": "OPEC+ maintaining production despite strikes; Brent crude volatile 75-82 USD/bbl due to Strait of Hormuz transit risks", "diplomacy": "Minimal; no active negotiations; UN humanitarian concerns marginalized by military escalation", "tickers": ["US-Iran maritime attacks resume Hormuz corridor", "IDF operations expand Lebanon-West Bank theaters", "Iranian missile program capabilities demonstrated", "Oil markets show resilience despite conflict flare", "Trump rhetoric hardens against Iran; Palestine criticisms amplify"]};</script>
 </body>
 </html>
