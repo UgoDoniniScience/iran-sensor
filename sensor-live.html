@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 192 · TIME 22:29</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 193 · TIME 03:02</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 67.5, 68.5, 62.5, 62.5, 72.5, 62.5, 67.5, 62.5, 62.5, 68.5, 67.5, 67.5, 67.5, 67.5, 72.5, 72.5, 72.5, 72.5, 68.5, 67.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 68.5, 67.5, 73.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 72.5, 72.5];
+const history = [67.5, 68.5, 62.5, 62.5, 72.5, 62.5, 67.5, 62.5, 62.5, 68.5, 67.5, 67.5, 67.5, 67.5, 72.5, 72.5, 72.5, 72.5, 68.5, 67.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 68.5, 67.5, 73.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 72.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israeli strikes kill 12 in southern Lebanon",
-  "Iran warns of 'faster, heavier, more painful response'",
-  "US-Iran trade retaliatory attacks on ships",
-  "US investigating missile strike on Iran wedding",
-  "Britain targets Israeli West Bank settlements with trade ban",
+  "Israeli strikes in southern Lebanon kill 12, campaign intensifies",
+  "Iran threatens faster heavier painful response to US attacks",
+  "US Iran trade retaliatory attacks on ships in escalating pattern",
+  "UK targets Israeli West Bank settlements with trade ban",
+  "US investigating missile impact on Iran wedding celebration",
 ];
 
 function buildMarquee(){
@@ -1859,6 +1859,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-09-07 22:29:26", "nuclear_risk": 6, "hormuz": "partial", "us_forces": "CENTCOM operations intensified; naval vessels engaged in escort missions; reports of US investigating civilian casualties in Iran", "oil_impact": "Brent crude trending upward; Strait of Hormuz partial disruption elevating shipping premiums; geopolitical risk premium increasing", "diplomacy": "Severely degraded; no active negotiations; UK trade sanctions against Israeli settlements indicate allied pressure; Russia/China observant but inactive", "tickers": ["Israeli strikes kill 12 in southern Lebanon", "Iran warns of 'faster, heavier, more painful response'", "US-Iran trade retaliatory attacks on ships", "US investigating missile strike on Iran wedding", "Britain targets Israeli West Bank settlements with trade ban"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-09-08 03:02:13", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM engaged in retaliatory maritime operations; carrier groups positioned; strike capabilities active", "oil_impact": "Elevated; Hormuz partial closure concerns push crude +3-5% on tension spikes", "diplomacy": "Effectively dormant; no active negotiations; regional actors positioning for sustained conflict", "tickers": ["Israeli strikes in southern Lebanon kill 12, campaign intensifies", "Iran threatens faster heavier painful response to US attacks", "US Iran trade retaliatory attacks on ships in escalating pattern", "UK targets Israeli West Bank settlements with trade ban", "US investigating missile impact on Iran wedding celebration"]};</script>
 </body>
 </html>
