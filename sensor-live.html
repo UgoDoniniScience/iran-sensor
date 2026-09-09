@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 193 · TIME 22:21</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 194 · TIME 03:03</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [72.5, 62.5, 67.5, 62.5, 62.5, 68.5, 67.5, 67.5, 67.5, 67.5, 72.5, 72.5, 72.5, 72.5, 68.5, 67.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 68.5, 67.5, 73.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 67.5];
+const history = [62.5, 67.5, 62.5, 62.5, 68.5, 67.5, 67.5, 67.5, 67.5, 72.5, 72.5, 72.5, 72.5, 68.5, 67.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 68.5, 67.5, 73.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "IDF_Lebanon_strikes_12_killed",
-  "US_Iranian_tanker_strikes",
-  "Iran_reprisal_threat_issued",
-  "UK_West_Bank_sanctions",
-  "Houthi_Saudi_energy_attacks",
+  "UK West Bank settlement sanctions prompt Israeli fury",
+  "US hits 5 Iranian oil tankers citing attempted strikes",
+  "IDF strikes kill 12 in southern Lebanese village",
+  "Saudi Arabia vows response after Houthi energy attacks",
+  "Palestinian attacks escalate as settler violence grows",
 ];
 
 function buildMarquee(){
@@ -1864,6 +1864,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-09-08 22:21:16", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM elevated posture; carrier strike groups positioned; increased tanker escort operations", "oil_impact": "Upward pressure from Strait vulnerability, US-Iran tanker strikes, Houthi energy facility attacks; risk premium 8-12% above baseline", "diplomacy": "Minimal active; UK sanctions trigger Israeli rift; no US-Iran backchannel evident; Saudi mediation stalled", "tickers": ["IDF_Lebanon_strikes_12_killed", "US_Iranian_tanker_strikes", "Iran_reprisal_threat_issued", "UK_West_Bank_sanctions", "Houthi_Saudi_energy_attacks"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-09-09 03:03:20", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM actively targeting Iranian assets; carrier operations ongoing in Gulf", "oil_impact": "Tanker strikes elevate Brent crude concerns; Hormuz transit risk premium increasing", "diplomacy": "UK sanctions escalate tensions; no active US-Iran backchannel evident; Saudi role ambiguous", "tickers": ["UK West Bank settlement sanctions prompt Israeli fury", "US hits 5 Iranian oil tankers citing attempted strikes", "IDF strikes kill 12 in southern Lebanese village", "Saudi Arabia vows response after Houthi energy attacks", "Palestinian attacks escalate as settler violence grows"]};</script>
 </body>
 </html>
