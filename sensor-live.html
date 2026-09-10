@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 195 · TIME 08:38</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 195 · TIME 14:03</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 67.5, 67.5, 72.5, 72.5, 72.5, 72.5, 68.5, 67.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 68.5, 67.5, 73.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 67.5, 67.5, 72.5, 67.5, 62.5, 67.5, 68.5, 67.5];
+const history = [67.5, 67.5, 72.5, 72.5, 72.5, 72.5, 68.5, 67.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 68.5, 67.5, 73.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 67.5, 67.5, 72.5, 67.5, 62.5, 67.5, 68.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Iran UNSC nuclear referral escalates pressure",
-  "Oil breach $100 on Hormuz-Houthi tensions",
-  "Trump election delay official war pause signal",
-  "IDF-Hezbollah clashes ongoing; Syria depot blast",
-  "UK West Bank sanctions; US muted response anomaly",
+  "Iran war prolonged until Nov 2026 elections",
+  "Oil $100 amid Red Sea/Houthi escalation",
+  "Iran nuclear non-compliance UN referral",
+  "Yemen Houthis seize strategic Red Sea port",
+  "UK West Bank sanctions; US muted response",
 ];
 
 function buildMarquee(){
@@ -1871,6 +1871,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-09-10 08:38:18", "nuclear_risk": 5.5, "hormuz": "partial", "us_forces": "CENTCOM elevated posture; carrier operations; air defense reinforced; election-driven operational tempo modulation expected Nov-Dec", "oil_impact": "Brent/WTI spike $100+ signals Hormuz risk premium; 15-20% above pre-Feb baseline; margin pressure on global economy", "diplomacy": "UN Security Council (Iran nuclear); indirect US-Iran via intermediaries; Trump campaign priority November; no active ceasefire talks", "tickers": ["Iran UNSC nuclear referral escalates pressure", "Oil breach $100 on Hormuz-Houthi tensions", "Trump election delay official war pause signal", "IDF-Hezbollah clashes ongoing; Syria depot blast", "UK West Bank sanctions; US muted response anomaly"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-09-10 14:03:00", "nuclear_risk": 4.5, "hormuz": "partial", "us_forces": "CENTCOM active; naval assets reinforced; muted response to UK sanctions suggests tactical patience before election cycle", "oil_impact": "WTI $100/bbl psychological threshold breached; Red Sea disruption driving supply premiums; Houthi strikes extending energy crisis", "diplomacy": "UN Security Council nuclear referral active; Trump electoral timeline delays multilateral resolution; indirect signals via allied channels", "tickers": ["Iran war prolonged until Nov 2026 elections", "Oil $100 amid Red Sea/Houthi escalation", "Iran nuclear non-compliance UN referral", "Yemen Houthis seize strategic Red Sea port", "UK West Bank sanctions; US muted response"]};</script>
 </body>
 </html>
