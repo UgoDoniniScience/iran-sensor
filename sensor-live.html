@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 196 · TIME 08:32</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 196 · TIME 14:02</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [72.5, 72.5, 68.5, 67.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 68.5, 67.5, 73.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 67.5, 67.5, 72.5, 67.5, 62.5, 67.5, 68.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5];
+const history = [72.5, 68.5, 67.5, 72.5, 72.5, 72.5, 67.5, 67.5, 72.5, 68.5, 67.5, 73.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 67.5, 67.5, 72.5, 67.5, 62.5, 67.5, 68.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Yemen Houthis control Red Sea Mokha port-choke point threat",
-  "Iran nuclear non-compliance escalated to UNSC-diplomatic isolation deepens",
-  "Oil markets pricing regional risk; energy costs spike",
-  "Trump signals prolonged conflict through November 2026 elections",
-  "Algeria-UAE diplomatic severance indicates regional realignment pressure",
+  "Houthis control Red Sea chokepoint",
+  "Iran nuclear non-compliance referral UNSC",
+  "Netanyahu sued over UAE 7-Oct warnings",
+  "Algeria severs UAE diplomatic ties",
+  "IDF destroys Hezbollah underground base Lebanon",
 ];
 
 function buildMarquee(){
@@ -1876,6 +1876,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-09-11 08:32:48", "nuclear_risk": 6.5, "hormuz": "partial", "us_forces": "CENTCOM maintaining presence; carrier operations ongoing; behind-scenes assessment underway per Vance", "oil_impact": "Diesel $6/gal; crude rising on Hormuz disruption fears and regional instability", "diplomacy": "UN Security Council engaged on nuclear compliance; Trump indicates war contingent on November elections outcome", "tickers": ["Yemen Houthis control Red Sea Mokha port-choke point threat", "Iran nuclear non-compliance escalated to UNSC-diplomatic isolation deepens", "Oil markets pricing regional risk; energy costs spike", "Trump signals prolonged conflict through November 2026 elections", "Algeria-UAE diplomatic severance indicates regional realignment pressure"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-09-11 14:02:25", "nuclear_risk": 4.5, "hormuz": "open", "us_forces": "CENTCOM maintaining presence; carrier strike groups positioned in Arabian Sea; aerial operations supporting Israeli strikes in Lebanon", "oil_impact": "Moderate upward pressure (WTI +2-3%); Houthi Red Sea control raises Suez alternative costs; Hormuz closure risk premiums embedded", "diplomacy": "UNSC referral escalates formal pressure; Trump delays negotiations until post-election; indirect Iran-US messaging via intermediaries", "tickers": ["Houthis control Red Sea chokepoint", "Iran nuclear non-compliance referral UNSC", "Netanyahu sued over UAE 7-Oct warnings", "Algeria severs UAE diplomatic ties", "IDF destroys Hezbollah underground base Lebanon"]};</script>
 </body>
 </html>
