@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 197 · TIME 08:21</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 197 · TIME 13:20</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [72.5, 72.5, 67.5, 67.5, 72.5, 68.5, 67.5, 73.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 67.5, 67.5, 72.5, 67.5, 62.5, 67.5, 68.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 72.5];
+const history = [72.5, 67.5, 67.5, 72.5, 68.5, 67.5, 73.5, 72.5, 72.5, 72.5, 72.5, 72.5, 67.5, 72.5, 72.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 67.5, 67.5, 72.5, 67.5, 62.5, 67.5, 68.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Houthis Red Sea control expansion",
-  "Israel Hezbollah underground base destroyed",
-  "Saudi oil pipeline attack threats",
-  "Trump delays Iran conflict resolution",
-  "Algeria-UAE diplomatic rupture escalates regional fragmentation",
+  "Saudi pipeline drone attack from Iraq",
+  "Houthi rapid Yemen advance creates new theater",
+  "IDF destroys major Hezbollah underground base",
+  "Netanyahu lawsuit vs UAE warnings claim",
+  "Algeria severs UAE ties over tensions",
 ];
 
 function buildMarquee(){
@@ -1881,6 +1881,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-09-12 08:21:14", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM forward-deployed; carrier groups in Gulf; coordinating Israeli operations; enhanced Saudi defense posture", "oil_impact": "Elevated; Saudi export threats + Hormuz partial closure + pipeline attacks = 15-20% premium; WTI 85-95/bbl range likely", "diplomacy": "Minimal; Trump delays resolution to post-November elections; Russia/China observe; no active mediation", "tickers": ["Houthis Red Sea control expansion", "Israel Hezbollah underground base destroyed", "Saudi oil pipeline attack threats", "Trump delays Iran conflict resolution", "Algeria-UAE diplomatic rupture escalates regional fragmentation"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-09-12 13:20:10", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM operations ongoing; naval presence maintained in Persian Gulf and Red Sea; aircraft carrier strike groups deployed", "oil_impact": "Saudi pipeline closure drives prices upward; Hormuz partial restriction creates supply uncertainty; global markets volatile", "diplomacy": "Minimal active dialogue; regional allies fracturing (Algeria-UAE rift); no meaningful US-Iran negotiations", "tickers": ["Saudi pipeline drone attack from Iraq", "Houthi rapid Yemen advance creates new theater", "IDF destroys major Hezbollah underground base", "Netanyahu lawsuit vs UAE warnings claim", "Algeria severs UAE ties over tensions"]};</script>
 </body>
 </html>
