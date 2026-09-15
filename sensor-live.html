@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 200 · TIME 07:10</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 200 · TIME 13:07</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [72.5, 72.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 67.5, 67.5, 72.5, 67.5, 62.5, 67.5, 68.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 73.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 73.5];
+const history = [72.5, 68.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 68.5, 67.5, 67.5, 72.5, 67.5, 62.5, 67.5, 68.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 73.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 73.5, 73.5];
 let currentTemp = 73.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "US pilot shot down and rescued over Iran",
-  "Saudi pipeline drone attack from Iraq",
-  "Houthi territorial gains in Yemen",
-  "Israeli internal conflict over Gaza documentation",
-  "Energy crisis spreads: diesel, oil prices spike",
+  "Houthi Yemen advance threatens regional stability",
+  "Saudi oil infrastructure targeted; supply chain concerns",
+  "US military pilot recovery amid ongoing combat",
+  "Israeli hardline policy signals reduced diplomatic window",
+  "Oil/debt market stress from prolonged conflict",
 ];
 
 function buildMarquee(){
@@ -1895,6 +1895,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 73.5, "trend": "rising", "last_update": "2026-09-15 07:10:15", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "Active combat operations, air superiority maintained, pilot recovery capabilities demonstrated, CENTCOM forward positioning reinforced", "oil_impact": "Significant volatility; Saudi pipeline closure triggers diesel shortage concern; two concurrent wars destabilizing energy markets; Strait congestion risk premium embedded", "diplomacy": "Minimal; internal Israeli political divisions over Gaza escalate tensions; US-Iran direct communication frozen; no multilateral negotiation framework active", "tickers": ["US pilot shot down and rescued over Iran", "Saudi pipeline drone attack from Iraq", "Houthi territorial gains in Yemen", "Israeli internal conflict over Gaza documentation", "Energy crisis spreads: diesel, oil prices spike"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 73.5, "trend": "rising", "last_update": "2026-09-15 13:07:27", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "Active combat ops ongoing; pilot rescue validates extended presence; CENTCOM conducting sustained strike campaigns", "oil_impact": "Crude volatility spike; US borrowing rates elevated 20-year highs; pipeline disruptions pressuring global supplies", "diplomacy": "Minimal direct talks; indirect mediation via Oman/China stalled; internal Israeli divisions limit negotiation bandwidth", "tickers": ["Houthi Yemen advance threatens regional stability", "Saudi oil infrastructure targeted; supply chain concerns", "US military pilot recovery amid ongoing combat", "Israeli hardline policy signals reduced diplomatic window", "Oil/debt market stress from prolonged conflict"]};</script>
 </body>
 </html>
