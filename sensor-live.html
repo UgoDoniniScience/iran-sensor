@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 202 · TIME 20:56</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 202 · TIME 23:54</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [72.5, 72.5, 68.5, 67.5, 67.5, 72.5, 67.5, 62.5, 67.5, 68.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 73.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 73.5, 73.5, 72.5, 67.5, 68.5, 68.5, 72.5, 72.5, 72.5, 72.5, 67.5, 67.5, 67.5, 72.5];
+const history = [72.5, 68.5, 67.5, 67.5, 72.5, 67.5, 62.5, 67.5, 68.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 73.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 73.5, 73.5, 72.5, 67.5, 68.5, 68.5, 72.5, 72.5, 72.5, 72.5, 67.5, 67.5, 67.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "UN-War-Crimes-Probe-US-Iran-Strikes",
-  "Saudi-Fighter-Jet-Downed-Yemen",
-  "Assad-Kidnap-Plot-US-Journalist",
-  "Russia-China-Veto-Iran-Nuclear-Monitor",
-  "Gaza-Building-Collapse-Children-Killed",
+  "UN-war-crimes-investigation-US-strikes",
+  "Houthi-Marib-advance-Saudi-losses",
+  "Russia-China-veto-Iran-nuclear-monitoring",
+  "Assad-US-journalist-kidnap-plot-exposed",
+  "Gaza-hospital-collapse-21-dead-children",
 ];
 
 function buildMarquee(){
@@ -1908,6 +1908,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-09-17 20:56:25", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "Carrier strike groups positioned; CENTCOM elevated readiness; bases in Gulf under drone threat", "oil_impact": "WTI +3-5% range; supply concerns from Hormuz closure risk and Saudi vulnerabilities", "diplomacy": "Effectively stalled; UN Security Council deadlocked; backchannel via Switzerland minimal", "tickers": ["UN-War-Crimes-Probe-US-Iran-Strikes", "Saudi-Fighter-Jet-Downed-Yemen", "Assad-Kidnap-Plot-US-Journalist", "Russia-China-Veto-Iran-Nuclear-Monitor", "Gaza-Building-Collapse-Children-Killed"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-09-17 23:54:02", "nuclear_risk": 6, "hormuz": "partial", "us_forces": "CENTCOM fully engaged across Gulf region; carrier groups repositioned; air strikes continuing in Iran", "oil_impact": "+$15-20/barrel on Hormuz closure fears; Saudi infrastructure vulnerability escalates supply concerns", "diplomacy": "Effectively frozen; UN vetoes block Iranian nuclear oversight; no active negotiations reported", "tickers": ["UN-war-crimes-investigation-US-strikes", "Houthi-Marib-advance-Saudi-losses", "Russia-China-veto-Iran-nuclear-monitoring", "Assad-US-journalist-kidnap-plot-exposed", "Gaza-hospital-collapse-21-dead-children"]};</script>
 </body>
 </html>
