@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 204 · TIME 08:31</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 204 · TIME 13:41</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 68.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 73.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 73.5, 73.5, 72.5, 67.5, 68.5, 68.5, 72.5, 72.5, 72.5, 72.5, 67.5, 67.5, 67.5, 72.5, 72.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5];
+const history = [68.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 73.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 73.5, 73.5, 72.5, 67.5, 68.5, 68.5, 72.5, 72.5, 72.5, 72.5, 67.5, 67.5, 67.5, 72.5, 72.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "UN war crimes inquiry advances against US strikes",
-  "Trump F-35 sales to Riyadh proceed despite Pentagon concerns",
-  "Saudi fighter lost to Yemen forces; escalation signals",
-  "Assad regime kidnap plot vs US journalist confirmed",
-  "Palestinian leader barred from UNGA for second consecutive year",
+  "UN war crimes allegations against USA",
+  "Saudi F-16 confirmed shot down Yemen",
+  "Assad regime journalist kidnap plot exposed",
+  "UK-Israel West Bank settlement disputes",
+  "Houthi threats to Red Sea shipping lanes",
 ];
 
 function buildMarquee(){
@@ -1916,6 +1916,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-09-19 08:31:12", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM: sustained air/missile operations; carrier task forces in Arabian Gulf; bases in Qatar, UAE stressed", "oil_impact": "Brent crude elevated ~$82-88/bbl; Strait friction disrupts 21% global petroleum flow; markets volatile", "diplomacy": "UN mediation stalled; no active US-Iran talks; Saudi Arabia cautiously positioned; Russia/China blocking resolutions", "tickers": ["UN war crimes inquiry advances against US strikes", "Trump F-35 sales to Riyadh proceed despite Pentagon concerns", "Saudi fighter lost to Yemen forces; escalation signals", "Assad regime kidnap plot vs US journalist confirmed", "Palestinian leader barred from UNGA for second consecutive year"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-09-19 13:41:00", "nuclear_risk": 3.5, "hormuz": "partial", "us_forces": "CENTCOM operations ongoing; F-35 sales to Saudi Arabia controversial; naval presence maintained", "oil_impact": "Elevated volatility; Hormuz strait partial closure risk premium sustained; Saudi infrastructure threatened drives 3-5% premium", "diplomacy": "UN engagement stalled; UK-Israel tensions over settlements; Palestinian delegation blocked; Russia-China positioning unclear", "tickers": ["UN war crimes allegations against USA", "Saudi F-16 confirmed shot down Yemen", "Assad regime journalist kidnap plot exposed", "UK-Israel West Bank settlement disputes", "Houthi threats to Red Sea shipping lanes"]};</script>
 </body>
 </html>
