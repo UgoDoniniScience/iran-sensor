@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 203 · TIME 22:16</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 204 · TIME 03:07</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 62.5, 67.5, 68.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 73.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 73.5, 73.5, 72.5, 67.5, 68.5, 68.5, 72.5, 72.5, 72.5, 72.5, 67.5, 67.5, 67.5, 72.5, 72.5, 67.5, 67.5, 67.5, 67.5, 67.5];
+const history = [62.5, 67.5, 68.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 73.5, 72.5, 67.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 72.5, 73.5, 73.5, 72.5, 67.5, 68.5, 68.5, 72.5, 72.5, 72.5, 72.5, 67.5, 67.5, 67.5, 72.5, 72.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "UN_war_crimes_investigation",
-  "US_F35_Saudi_sales_approved",
-  "Saudi_fighter_shot_down_Yemen",
-  "Assad_journalist_kidnap_plot",
-  "Palestinian_UN_access_denied",
+  "UN war crimes allegations against US Iran strikes",
+  "Saudi fighter jet shot down over Yemen verified",
+  "Trump advances F-35 sales to Saudi Arabia",
+  "$43.6 billion estimated Iran war cost",
+  "Assad regime kidnap plot against US journalist exposed",
 ];
 
 function buildMarquee(){
@@ -1914,6 +1914,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-09-18 22:16:18", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM maintains carrier strike groups; F-35 deployments expanded; bases reinforced in Gulf region", "oil_impact": "Elevated volatility; $75-85/barrel range; supply concerns from Iranian threats to Hormuz shipping lanes", "diplomacy": "UN mediation stalled; Russia-China blocking resolutions; backchannels via Oman, Qatar minimal progress", "tickers": ["UN_war_crimes_investigation", "US_F35_Saudi_sales_approved", "Saudi_fighter_shot_down_Yemen", "Assad_journalist_kidnap_plot", "Palestinian_UN_access_denied"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-09-19 03:07:05", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM operations sustained; F-35 deployment expansion planned; naval presence maintained", "oil_impact": "Rising pressure; $43.6B war costs driving market uncertainty; Hormuz vulnerabilities elevate volatility", "diplomacy": "Minimal; UN blocking Palestinian leader signals collapsed mediation; Trump prioritizing military/sales over negotiations", "tickers": ["UN war crimes allegations against US Iran strikes", "Saudi fighter jet shot down over Yemen verified", "Trump advances F-35 sales to Saudi Arabia", "$43.6 billion estimated Iran war cost", "Assad regime kidnap plot against US journalist exposed"]};</script>
 </body>
 </html>
