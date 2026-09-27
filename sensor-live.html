@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 212 · TIME 19:31</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 212 · TIME 22:47</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 62.5, 67.5, 68.5, 72.5, 67.5, 67.5, 67.5, 67.5, 67.5, 58.5, 62.5, 62.5, 72.5, 67.5, 67.5, 72.5, 62.5, 62.5, 62.5, 62.5, 62.5, 42.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 62.5];
+const history = [67.5, 67.5, 67.5, 67.5, 67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 62.5, 67.5, 68.5, 72.5, 67.5, 67.5, 67.5, 67.5, 67.5, 58.5, 62.5, 62.5, 72.5, 67.5, 67.5, 72.5, 62.5, 62.5, 62.5, 62.5, 62.5, 42.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 62.5, 62.5];
 let currentTemp = 62.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Trump rejects Hormuz cease-fire deal",
-  "Netanyahu defends IDF strikes; UN walkout",
-  "$2.45bn Gaza recovery plan unveiled",
-  "UN documents surge in Gaza women violence",
-  "G7 demands Iran halt Houthi arms transfers",
+  "Iranian minister signals negotiation openness despite Trump rebuff",
+  "Netanyahu defends military action at UN; delegate walkout signals diplomatic friction",
+  "$2.45bn Gaza recovery plan unveiled by Trump administration",
+  "G7 demands Iran halt Houthi arming; pressure mounts on proxy support",
+  "UN reports surge in Gaza violence against women; humanitarian crisis deepens",
 ];
 
 function buildMarquee(){
@@ -1959,6 +1959,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "stable", "last_update": "2026-09-27 19:31:20", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM maintains carrier groups; enhanced air defense; regional bases reinforced", "oil_impact": "Elevated volatility; Hormuz open status prevents supply shock; geopolitical premium stable ~$5-8/barrel", "diplomacy": "Minimal direct US-Iran talks; UN venue for messaging; Saudi Arabia/Qatar potential mediators", "tickers": ["Trump rejects Hormuz cease-fire deal", "Netanyahu defends IDF strikes; UN walkout", "$2.45bn Gaza recovery plan unveiled", "UN documents surge in Gaza women violence", "G7 demands Iran halt Houthi arms transfers"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "falling", "last_update": "2026-09-27 22:47:59", "nuclear_risk": 2, "hormuz": "open", "us_forces": "CENTCOM maintaining operational posture; carrier groups positioned; no major escalation signals", "oil_impact": "Moderate volatility persists; Hormuz concerns contained by diplomatic signals; $75-82/barrel range maintained", "diplomacy": "Multi-track: Iran-USA indirect via intermediaries; UN GA engagement active; Trump's Board of Peace proposing Gaza reconstruction", "tickers": ["Iranian minister signals negotiation openness despite Trump rebuff", "Netanyahu defends military action at UN; delegate walkout signals diplomatic friction", "$2.45bn Gaza recovery plan unveiled by Trump administration", "G7 demands Iran halt Houthi arming; pressure mounts on proxy support", "UN reports surge in Gaza violence against women; humanitarian crisis deepens"]};</script>
 </body>
 </html>
