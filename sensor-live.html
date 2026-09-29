@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 214 · TIME 00:10</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 214 · TIME 07:52</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 72.5, 72.5, 72.5, 72.5, 67.5, 62.5, 67.5, 68.5, 72.5, 67.5, 67.5, 67.5, 67.5, 67.5, 58.5, 62.5, 62.5, 72.5, 67.5, 67.5, 72.5, 62.5, 62.5, 62.5, 62.5, 62.5, 42.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5];
+const history = [72.5, 72.5, 72.5, 72.5, 67.5, 62.5, 67.5, 68.5, 72.5, 67.5, 67.5, 67.5, 67.5, 67.5, 58.5, 62.5, 62.5, 72.5, 67.5, 67.5, 72.5, 62.5, 62.5, 62.5, 62.5, 62.5, 42.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 68.5];
 let currentTemp = 68.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Yemen Houthi offensive kills 800+ in renewed Saudi war",
-  "Trump rejects Iran Hormuz deal; negotiation window closes",
-  "Iranian minister appeals for talks as conflict deepens",
-  "Oil prices climb amid Strait of Hormuz supply concerns",
-  "BBC reports Yemen front-line escalation as proxy war spreads",
+  "Iran court upholds singer lashes sentence - domestic repression signals",
+  "Houthis escalating Yemen front-line battles - proxy expansion",
+  "Netanyahu meets UAE leader - regional alignment maintenance",
+  "Trump rejects Hormuz deal - diplomatic collapse indicator",
+  "Egyptian kidnapping convictions - regional instability spillover",
 ];
 
 function buildMarquee(){
@@ -1964,6 +1964,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 68.5, "trend": "rising", "last_update": "2026-09-29 00:10:44", "nuclear_risk": 4.2, "hormuz": "partial", "us_forces": "CENTCOM increased naval presence; carrier strike groups deployed Gulf region; air defense systems active", "oil_impact": "Climbing sharply due to Hormuz uncertainty and supply disruption fears; market premium on geopolitical risk 8-12%", "diplomacy": "Collapsed. Trump rejects negotiation framework. Only back-channel contacts via intermediaries (Qatar, Oman) minimal activity", "tickers": ["Yemen Houthi offensive kills 800+ in renewed Saudi war", "Trump rejects Iran Hormuz deal; negotiation window closes", "Iranian minister appeals for talks as conflict deepens", "Oil prices climb amid Strait of Hormuz supply concerns", "BBC reports Yemen front-line escalation as proxy war spreads"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 68.5, "trend": "rising", "last_update": "2026-09-29 07:52:06", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM positioned for defense; carrier groups maintaining pressure; no full-scale ground invasion", "oil_impact": "Elevated volatility; partial Hormuz restrictions supporting $85-95/bbl range; supply concerns persistent", "diplomacy": "Stalled; Trump administration hardline; Iranian refusal to negotiate; limited mediation", "tickers": ["Iran court upholds singer lashes sentence - domestic repression signals", "Houthis escalating Yemen front-line battles - proxy expansion", "Netanyahu meets UAE leader - regional alignment maintenance", "Trump rejects Hormuz deal - diplomatic collapse indicator", "Egyptian kidnapping convictions - regional instability spillover"]};</script>
 </body>
 </html>
