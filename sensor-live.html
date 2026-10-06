@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 221 · TIME 16:29</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 221 · TIME 22:19</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 68.5, 67.5, 67.5, 72.5, 67.5, 58.5, 67.5, 67.5, 67.5, 68.5, 62.5, 62.5, 68.5, 67.5, 68.5, 67.5, 64.5, 62.5, 62.5, 62.5, 62.5, 62.5, 58.5, 58.5, 58.5, 62.5, 62.5, 67.5, 67.5, 67.5, 68.5];
+const history = [62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 68.5, 67.5, 67.5, 72.5, 67.5, 58.5, 67.5, 67.5, 67.5, 68.5, 62.5, 62.5, 68.5, 67.5, 68.5, 67.5, 64.5, 62.5, 62.5, 62.5, 62.5, 62.5, 58.5, 58.5, 58.5, 62.5, 62.5, 67.5, 67.5, 67.5, 68.5, 68.5];
 let currentTemp = 68.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Children school attendance amid active warfare escalates humanitarian narrative",
-  "Egypt silences fact-checkers suggests regional information control intensifying",
-  "Israel-UK consulate dispute indicates alliance stress on settlement policy",
-  "Yemen Houthi naval control threatens global shipping economics",
-  "Saudi Arabia execution politics shows internal instability amid regional war",
+  "Houthis claim Red Sea waterway control",
+  "IDF sustained operations; Iranian drone/missile responses continue",
+  "UK closes East Jerusalem consulate amid Israeli pressure",
+  "Yemeni front line civilian casualties rising",
+  "Oil markets react to Hormuz transit risks",
 ];
 
 function buildMarquee(){
@@ -1995,6 +1995,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 68.5, "trend": "rising", "last_update": "2026-10-06 16:29:11", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM presence sustained; naval operations ongoing Gulf/Red Sea", "oil_impact": "Moderate upward pressure; Strait partial closure sustains elevated prices $75-85/barrel range", "diplomacy": "UK consulate closure signals diplomatic breakdown; Saudi Arabia buffer weakening", "tickers": ["Children school attendance amid active warfare escalates humanitarian narrative", "Egypt silences fact-checkers suggests regional information control intensifying", "Israel-UK consulate dispute indicates alliance stress on settlement policy", "Yemen Houthi naval control threatens global shipping economics", "Saudi Arabia execution politics shows internal instability amid regional war"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 68.5, "trend": "rising", "last_update": "2026-10-06 22:19:14", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM active; carrier strike groups positioned; air defense systems deployed; monitoring Iranian assets", "oil_impact": "Elevated uncertainty premium (5-8%); Hormuz chokepoint concerns drive volatility; Saudi stability efforts contain further spike", "diplomacy": "UK mediation attempt; Egypt involvement (journalism restrictions signal internal pressure); minimal US-Iran direct talks", "tickers": ["Houthis claim Red Sea waterway control", "IDF sustained operations; Iranian drone/missile responses continue", "UK closes East Jerusalem consulate amid Israeli pressure", "Yemeni front line civilian casualties rising", "Oil markets react to Hormuz transit risks"]};</script>
 </body>
 </html>
