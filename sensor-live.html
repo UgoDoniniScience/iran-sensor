@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 222 · TIME 12:38</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 222 · TIME 19:43</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -379,7 +379,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
 <line x1="695" y1="265" x2="695" y2="38" class="trace-pwr" stroke-width="2"/>
 <line x1="720" y1="355" x2="720" y2="612" class="trace-gnd" stroke-width="2"/>
 <text x="640" y="285" style="font-family:Share Tech Mono;font-size:7px;fill:rgba(0,255,136,0.25)">SSD1306 I2C</text>
-<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">67.5°C</text>
+<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">62.5°C</text>
 <text x="695" y="378" class="lc">OLED 0.96" I2C</text>
 <text x="695" y="390" class="lcr">U4 SSD1306</text>
 <text x="695" y="403" class="lca">GLOBAL OUTPUT</text>
@@ -495,8 +495,8 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [62.5, 62.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 68.5, 67.5, 67.5, 72.5, 67.5, 58.5, 67.5, 67.5, 67.5, 68.5, 62.5, 62.5, 68.5, 67.5, 68.5, 67.5, 64.5, 62.5, 62.5, 62.5, 62.5, 62.5, 58.5, 58.5, 58.5, 62.5, 62.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5];
-let currentTemp = 67.5;
+const history = [62.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 68.5, 67.5, 67.5, 72.5, 67.5, 58.5, 67.5, 67.5, 67.5, 68.5, 62.5, 62.5, 68.5, 67.5, 68.5, 67.5, 64.5, 62.5, 62.5, 62.5, 62.5, 62.5, 58.5, 58.5, 58.5, 62.5, 62.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 62.5];
+let currentTemp = 62.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
 function barWidth(t){return Math.min(99,(t/150)*100);}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Kibbutz rebuilding amid conflict continuation",
-  "Red Sea waterway control by Yemeni military",
-  "UK-Israel East Jerusalem consulate closure dispute",
-  "Iranian oil sanctions impact on small business",
-  "Gaza humanitarian situation deteriorates",
+  "Israeli accountability demands signal internal fragmentation",
+  "Trump rhetoric emboldening Iranian posturing",
+  "Gaza reconstruction needs exceed sanctions framework",
+  "Hezbollah maintains integrated strike capability",
+  "Saudi Arabia notable absence from escalation",
 ];
 
 function buildMarquee(){
@@ -1998,6 +1998,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-10-07 12:38:26", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM maintains elevated readiness; naval presence in Persian Gulf; air defense systems active", "oil_impact": "Elevated volatility (~$85-95/bbl); Strait partial closure premiums factored; supply chain disruptions ongoing", "diplomacy": "Egypt attempting negotiations; UK-Israel consulate tensions; Saudi Arabia cautiously positioned; Russia/China monitoring", "tickers": ["Kibbutz rebuilding amid conflict continuation", "Red Sea waterway control by Yemeni military", "UK-Israel East Jerusalem consulate closure dispute", "Iranian oil sanctions impact on small business", "Gaza humanitarian situation deteriorates"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "rising", "last_update": "2026-10-07 19:43:14", "nuclear_risk": 4, "hormuz": "open", "us_forces": "CENTCOM maintained presence; carrier groups Eastern Mediterranean; no major escalation orders", "oil_impact": "Moderate upward pressure; Hormuz closure fears contained by corridor accessibility; ~$85-92/bbl range", "diplomacy": "Fragmentary: UK attempting mediation on Jerusalem consulate; Egyptian channels strained by terrorism charges; no direct USA-Iran talks", "tickers": ["Israeli accountability demands signal internal fragmentation", "Trump rhetoric emboldening Iranian posturing", "Gaza reconstruction needs exceed sanctions framework", "Hezbollah maintains integrated strike capability", "Saudi Arabia notable absence from escalation"]};</script>
 </body>
 </html>
