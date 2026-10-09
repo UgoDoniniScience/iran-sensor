@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 224 · TIME 04:33</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 224 · TIME 12:33</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 68.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 68.5, 67.5, 67.5, 72.5, 67.5, 58.5, 67.5, 67.5, 67.5, 68.5, 62.5, 62.5, 68.5, 67.5, 68.5, 67.5, 64.5, 62.5, 62.5, 62.5, 62.5, 62.5, 58.5, 58.5, 58.5, 62.5, 62.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 62.5, 67.5, 62.5, 68.5, 72.5, 67.5];
+const history = [68.5, 62.5, 62.5, 67.5, 68.5, 67.5, 68.5, 68.5, 67.5, 67.5, 72.5, 67.5, 58.5, 67.5, 67.5, 67.5, 68.5, 62.5, 62.5, 68.5, 67.5, 68.5, 67.5, 64.5, 62.5, 62.5, 62.5, 62.5, 62.5, 58.5, 58.5, 58.5, 62.5, 62.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 62.5, 67.5, 62.5, 68.5, 72.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "UK diplomats leave Jerusalem",
-  "Houthi Saudi airport attacks",
-  "Gulf tanker projectile strike",
-  "Gaza ceasefire deterioration",
-  "Oil prices surge Middle East",
+  "Houthi_Riyadh_Airport_Strike",
+  "Hormuz_Tanker_Projectile_Attack",
+  "Gaza_Ceasefire_Collapse",
+  "UK_Diplomatic_Withdrawal",
+  "Oil_Markets_Spike_MENA_Unrest",
 ];
 
 function buildMarquee(){
@@ -2004,6 +2004,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-10-09 04:33:06", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM maintaining naval presence; USS deployments in Gulf; air defense systems active; advising Israeli operations", "oil_impact": "Crude jumps on Middle East violence; tanker attacks elevate insurance costs; supply chain concerns; prices remain volatile 75-85 USD/barrel range", "diplomacy": "Miliband signals UK intent to maintain 'vital services'; ceasefire talks stalled in Gaza; no direct Iran-US negotiations; Russia-China positioning as mediators", "tickers": ["UK diplomats leave Jerusalem", "Houthi Saudi airport attacks", "Gulf tanker projectile strike", "Gaza ceasefire deterioration", "Oil prices surge Middle East"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-10-09 12:33:47", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM fully engaged; carrier strike groups positioned; air operations ongoing across Iraq-Syria", "oil_impact": "Significant upward pressure; tanker attacks + Saudi vulnerability driving 8-12% volatility", "diplomacy": "UK consulate scaling back; ceasefire stalled in Gaza; minimal US-Iran direct dialogue; regional mediation weakening", "tickers": ["Houthi_Riyadh_Airport_Strike", "Hormuz_Tanker_Projectile_Attack", "Gaza_Ceasefire_Collapse", "UK_Diplomatic_Withdrawal", "Oil_Markets_Spike_MENA_Unrest"]};</script>
 </body>
 </html>
