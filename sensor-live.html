@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 229 · TIME 14:52</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 229 · TIME 19:57</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 68.5, 67.5, 64.5, 62.5, 62.5, 62.5, 62.5, 62.5, 58.5, 58.5, 58.5, 62.5, 62.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 62.5, 67.5, 62.5, 68.5, 72.5, 67.5, 67.5, 72.5, 67.5, 72.5, 68.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 67.5, 67.5, 72.5, 72.5, 67.5, 68.5, 67.5, 68.5, 67.5, 67.5];
+const history = [68.5, 67.5, 64.5, 62.5, 62.5, 62.5, 62.5, 62.5, 58.5, 58.5, 58.5, 62.5, 62.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 62.5, 67.5, 62.5, 68.5, 72.5, 67.5, 67.5, 72.5, 67.5, 72.5, 68.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 67.5, 67.5, 72.5, 72.5, 67.5, 68.5, 67.5, 68.5, 67.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Houthi missile hits Aramco building Saudi coalition strikes Yemen",
-  "Iran escalates missile drone attacks regional tensions rise",
-  "Oil prices surge Hormuz concerns global markets",
-  "IDF operations continue Lebanese Hezbollah border clashes",
-  "US CENTCOM readiness elevated Middle East region destabilized",
+  "Houthi attack Aramco infrastructure",
+  "Container vessel sunk Hormuz",
+  "Shipping disruption risk increasing",
+  "Oil market volatility spike",
+  "US naval escort operations expanded",
 ];
 
 function buildMarquee(){
@@ -2025,6 +2025,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-10-14 14:52:03", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM positioned in Gulf; carrier groups active; elevated readiness posture", "oil_impact": "Rising due to supply disruption fears, Aramco strike, Iranian escalation", "diplomacy": "Minimal; Saudi-led coalition vs. Iran/Houthis; no active US-Iran talks", "tickers": ["Houthi missile hits Aramco building Saudi coalition strikes Yemen", "Iran escalates missile drone attacks regional tensions rise", "Oil prices surge Hormuz concerns global markets", "IDF operations continue Lebanese Hezbollah border clashes", "US CENTCOM readiness elevated Middle East region destabilized"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-10-14 19:57:37", "nuclear_risk": 2, "hormuz": "partial", "us_forces": "CENTCOM maintaining naval presence; increased escort operations for commercial shipping; no direct military escalation with Iran announced", "oil_impact": "Upward pressure on crude; shipping insurance premiums rising; Brent likely +2-4% on Hormuz concerns; Saudi oil remains targeted", "diplomacy": "Saudi Arabia moderating internally (death sentence overturned); no active Iran-USA direct talks; regional proxy dynamics dominant", "tickers": ["Houthi attack Aramco infrastructure", "Container vessel sunk Hormuz", "Shipping disruption risk increasing", "Oil market volatility spike", "US naval escort operations expanded"]};</script>
 </body>
 </html>
