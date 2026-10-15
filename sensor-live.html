@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 230 · TIME 19:40</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 230 · TIME 22:52</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [62.5, 62.5, 62.5, 58.5, 58.5, 58.5, 62.5, 62.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 62.5, 67.5, 62.5, 68.5, 72.5, 67.5, 67.5, 72.5, 67.5, 72.5, 68.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 67.5, 67.5, 72.5, 72.5, 67.5, 68.5, 67.5, 68.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 67.5, 67.5];
+const history = [62.5, 62.5, 58.5, 58.5, 58.5, 62.5, 62.5, 67.5, 67.5, 67.5, 68.5, 68.5, 67.5, 67.5, 62.5, 67.5, 62.5, 68.5, 72.5, 67.5, 67.5, 72.5, 67.5, 72.5, 68.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 67.5, 67.5, 72.5, 72.5, 67.5, 68.5, 67.5, 68.5, 67.5, 67.5, 67.5, 68.5, 72.5, 72.5, 67.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Houthi_Missiles_YemenPalace_2KIA",
-  "IDF_Accountability_Gap_BBCVerify",
-  "ContainerShip_Hormuz_Sunk",
-  "Aramco_Hit_FuelDepot_Retaliation",
-  "SaudiDefense_Houthi_Interception_Failure",
+  "Houthi missile attack kills Yemeni officials",
+  "Container ship sinks in Strait of Hormuz",
+  "Aramco facility hit; Saudi air defenses tested",
+  "IDF killings investigations lack transparency",
+  "Hormuz shipping corridor increasingly hazardous",
 ];
 
 function buildMarquee(){
@@ -2031,6 +2031,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-10-15 19:40:57", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM maintaining air/naval posture; carrier groups positioned for contingency; no direct US casualties reported today", "oil_impact": "Brent crude volatility +2-3% on shipping disruption; Hormuz transit insurance premiums rising; supply chain bottleneck risk", "diplomacy": "Minimal active negotiations; UN envoys engaged but ineffective; no Trump administration breakthrough signals", "tickers": ["Houthi_Missiles_YemenPalace_2KIA", "IDF_Accountability_Gap_BBCVerify", "ContainerShip_Hormuz_Sunk", "Aramco_Hit_FuelDepot_Retaliation", "SaudiDefense_Houthi_Interception_Failure"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-10-15 22:52:49", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM elevated readiness; carrier task forces positioned; monitoring Houthi-Iranian coordination", "oil_impact": "Upward pressure; maritime insurance costs rising; shipping delays at Hormuz increasing brent crude premium", "diplomacy": "Minimal; UN shuttle efforts stalled; no active mediation track; Trump statements inconsistent", "tickers": ["Houthi missile attack kills Yemeni officials", "Container ship sinks in Strait of Hormuz", "Aramco facility hit; Saudi air defenses tested", "IDF killings investigations lack transparency", "Hormuz shipping corridor increasingly hazardous"]};</script>
 </body>
 </html>
