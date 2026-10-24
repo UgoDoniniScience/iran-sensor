@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 239 · TIME 13:49</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 239 · TIME 17:11</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [72.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 68.5, 68.5, 72.5, 68.5, 67.5, 67.5, 68.5, 67.5, 67.5, 68.5, 62.5, 62.5, 67.5, 67.5, 62.5, 67.5, 67.5, 64.5, 68.5, 62.5, 62.5, 68.5, 62.5, 62.5, 67.5, 67.5, 68.5, 72.5, 72.5, 67.5];
+const history = [67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 68.5, 68.5, 72.5, 68.5, 67.5, 67.5, 68.5, 67.5, 67.5, 68.5, 62.5, 62.5, 67.5, 67.5, 62.5, 67.5, 67.5, 64.5, 68.5, 62.5, 62.5, 68.5, 62.5, 62.5, 67.5, 67.5, 68.5, 72.5, 72.5, 67.5, 67.5];
 let currentTemp = 67.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "IDF West Bank demolitions escalate Israeli-Palestinian tensions",
-  "Houthis target Saudi Arabia airport; maritime security degraded",
-  "Church funeral shooting in Jordan signals sectarian spillover risk",
-  "Newborn crisis in Yemen reflects humanitarian collapse acceleration",
-  "Israeli election dynamics: Arab parties gain leverage; Netanyahu vulnerability",
+  "IDF_WestBank_demolitions_Hebron",
+  "Houthi_airport_attack_Saudi_Arabia",
+  "Church_shooting_Jordan_sectarian",
+  "Palestinian_election_leverage_Arabs",
+  "Netanyahu_reelection_hardline_stance",
 ];
 
 function buildMarquee(){
@@ -2076,6 +2076,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-10-24 13:49:14", "nuclear_risk": 4.2, "hormuz": "partial", "us_forces": "CENTCOM maintaining carrier strike group presence, heightened alert posture, drone surveillance intensified", "oil_impact": "Brent +2.8% on Strait disruption fears; Saudi airport attack amplifies supply concerns", "diplomacy": "Dormant; Israeli elections postpone ceasefire talks; US pressure ineffective amid Netanyahu political positioning", "tickers": ["IDF West Bank demolitions escalate Israeli-Palestinian tensions", "Houthis target Saudi Arabia airport; maritime security degraded", "Church funeral shooting in Jordan signals sectarian spillover risk", "Newborn crisis in Yemen reflects humanitarian collapse acceleration", "Israeli election dynamics: Arab parties gain leverage; Netanyahu vulnerability"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-10-24 17:11:11", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM elevated posture, carrier strike groups Gulf positioning, air defense reinforced Saudi/UAE", "oil_impact": "Brent +3-5% on Houthi/strait concerns; supply chain anxiety persistent", "diplomacy": "Minimal; UN statements only; no direct USA-Iran talks; Saudi Arabia quiet mediator role", "tickers": ["IDF_WestBank_demolitions_Hebron", "Houthi_airport_attack_Saudi_Arabia", "Church_shooting_Jordan_sectarian", "Palestinian_election_leverage_Arabs", "Netanyahu_reelection_hardline_stance"]};</script>
 </body>
 </html>
