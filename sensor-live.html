@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 239 · TIME 03:15</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 239 · TIME 08:37</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [68.5, 72.5, 72.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 68.5, 68.5, 72.5, 68.5, 67.5, 67.5, 68.5, 67.5, 67.5, 68.5, 62.5, 62.5, 67.5, 67.5, 62.5, 67.5, 67.5, 64.5, 68.5, 62.5, 62.5, 68.5, 62.5, 62.5, 67.5, 67.5, 68.5, 72.5];
+const history = [72.5, 72.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 68.5, 68.5, 72.5, 68.5, 67.5, 67.5, 68.5, 67.5, 67.5, 68.5, 62.5, 62.5, 67.5, 67.5, 62.5, 67.5, 67.5, 64.5, 68.5, 62.5, 62.5, 68.5, 62.5, 62.5, 67.5, 67.5, 68.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Church_shooting_Jordan_escalates_sectarian_tensions",
-  "Houthis_target_Saudi_airport_supply_chain_threat",
-  "IDF_Hebron_demolitions_fuel_Palestinian_uprising",
-  "Oil_$116_geopolitical_risk_premium",
-  "Yemen_famine_crisis_deepens_humanitarian_collapse",
+  "Church attack Jordan destabilizes region",
+  "IDF demolitions escalate Palestinian tensions",
+  "Yemen humanitarian crisis deepens",
+  "Houthi Saudi airport strike shows capability",
+  "Netanyahu election strategy under pressure",
 ];
 
 function buildMarquee(){
@@ -2074,6 +2074,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-10-24 03:15:56", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM positioned; carrier strike groups reinforced; airbase alerts elevated; no direct engagement", "oil_impact": "$116/barrel reflects supply fears; Strait transit risk priced in; production stable but market risk premium high", "diplomacy": "Minimal; Trump statements militant; Saudi mediation stalled; UN calls ineffective; back-channel through Qatar/Oman dormant", "tickers": ["Church_shooting_Jordan_escalates_sectarian_tensions", "Houthis_target_Saudi_airport_supply_chain_threat", "IDF_Hebron_demolitions_fuel_Palestinian_uprising", "Oil_$116_geopolitical_risk_premium", "Yemen_famine_crisis_deepens_humanitarian_collapse"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-10-24 08:37:40", "nuclear_risk": 5.5, "hormuz": "partial", "us_forces": "CENTCOM elevated posture; naval assets positioned; air defense reinforced", "oil_impact": "Rising tensions +3-5% premium; Houthi attacks on infrastructure threaten flow", "diplomacy": "Limited; no active talks; Trump rhetoric dominates US position", "tickers": ["Church attack Jordan destabilizes region", "IDF demolitions escalate Palestinian tensions", "Yemen humanitarian crisis deepens", "Houthi Saudi airport strike shows capability", "Netanyahu election strategy under pressure"]};</script>
 </body>
 </html>
