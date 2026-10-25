@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 240 · TIME 15:32</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 240 · TIME 18:42</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 68.5, 68.5, 72.5, 68.5, 67.5, 67.5, 68.5, 67.5, 67.5, 68.5, 62.5, 62.5, 67.5, 67.5, 62.5, 67.5, 67.5, 64.5, 68.5, 62.5, 62.5, 68.5, 62.5, 62.5, 67.5, 67.5, 68.5, 72.5, 72.5, 67.5, 67.5, 68.5, 67.5, 72.5, 67.5, 68.5];
+const history = [67.5, 67.5, 67.5, 67.5, 68.5, 67.5, 67.5, 67.5, 72.5, 67.5, 67.5, 68.5, 68.5, 72.5, 68.5, 67.5, 67.5, 68.5, 67.5, 67.5, 68.5, 62.5, 62.5, 67.5, 67.5, 62.5, 67.5, 67.5, 64.5, 68.5, 62.5, 62.5, 68.5, 62.5, 62.5, 67.5, 67.5, 68.5, 72.5, 72.5, 67.5, 67.5, 68.5, 67.5, 72.5, 67.5, 68.5, 68.5];
 let currentTemp = 68.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israel-Palestine escalation amid election cycle",
-  "Houthi attacks on Saudi airport/infrastructure",
-  "Humanitarian crisis: Yemen hunger, Palestinian displacement",
-  "Military service conscription crisis in Israel",
-  "Church attack in Jordan signals regional instability",
+  "West Bank crackdowns displace Palestinian families",
+  "Houthis target Red Sea shipping; Riyadh airport reopens amid threats",
+  "Yemen humanitarian crisis worsens amid conflict",
+  "Israel military service debate intensifies domestic tensions",
+  "Jordan church attack kills seven; sectarian concerns rise",
 ];
 
 function buildMarquee(){
@@ -2082,6 +2082,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 68.5, "trend": "rising", "last_update": "2026-10-25 15:32:23", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM maintains elevated posture; carrier strike groups positioned; air defense reinforced in Gulf", "oil_impact": "Brent +8-12% on Hormuz disruption concerns; Saudi reopening airport stabilizes markets temporarily", "diplomacy": "Minimal active negotiations; Saudi Arabia mediating role weakened; UN dialogue stalled", "tickers": ["Israel-Palestine escalation amid election cycle", "Houthi attacks on Saudi airport/infrastructure", "Humanitarian crisis: Yemen hunger, Palestinian displacement", "Military service conscription crisis in Israel", "Church attack in Jordan signals regional instability"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 68.5, "trend": "rising", "last_update": "2026-10-25 18:42:46", "nuclear_risk": 3.2, "hormuz": "partial", "us_forces": "CENTCOM increased naval presence; carrier groups positioned; air defense reinforced", "oil_impact": "Brent crude +8-12% due to Hormuz threats; supply chain disruption risks", "diplomacy": "Minimal direct talks; Saudi mediation efforts stalled; UN involvement ineffective", "tickers": ["West Bank crackdowns displace Palestinian families", "Houthis target Red Sea shipping; Riyadh airport reopens amid threats", "Yemen humanitarian crisis worsens amid conflict", "Israel military service debate intensifies domestic tensions", "Jordan church attack kills seven; sectarian concerns rise"]};</script>
 </body>
 </html>
