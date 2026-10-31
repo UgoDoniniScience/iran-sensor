@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 245 · TIME 21:55</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 246 · TIME 01:25</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [62.5, 62.5, 67.5, 67.5, 62.5, 67.5, 67.5, 64.5, 68.5, 62.5, 62.5, 68.5, 62.5, 62.5, 67.5, 67.5, 68.5, 72.5, 72.5, 67.5, 67.5, 68.5, 67.5, 72.5, 67.5, 68.5, 68.5, 62.5, 62.5, 62.5, 62.5, 67.5, 64.5, 58.5, 62.5, 68.5, 62.5, 67.5, 62.5, 62.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5];
+const history = [62.5, 67.5, 67.5, 62.5, 67.5, 67.5, 64.5, 68.5, 62.5, 62.5, 68.5, 62.5, 62.5, 67.5, 67.5, 68.5, 72.5, 72.5, 67.5, 67.5, 68.5, 67.5, 72.5, 67.5, 68.5, 68.5, 62.5, 62.5, 62.5, 62.5, 67.5, 64.5, 58.5, 62.5, 68.5, 62.5, 67.5, 62.5, 62.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5];
 let currentTemp = 62.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Syrian economic crisis post-Assad destabilizing region",
-  "Israeli political paralysis reduces decision-making speed",
-  "US oil windfall contradicts energy security narrative",
-  "Egypt military aid leverage diminished by press crackdown concerns",
-  "Hezbollah posture unchanged; northern border remains tense",
+  "Israeli_election_deadlock_deepens_divisions",
+  "Syrian_economic_crisis_post_Assad_recovery_threatened",
+  "US_oil_industry_profits_surge_130_billion",
+  "Egypt_press_crackdown_affects_US_military_aid",
+  "Hezbollah_activity_remains_controlled",
 ];
 
 function buildMarquee(){
@@ -2104,6 +2104,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "stable", "last_update": "2026-10-30 21:55:36", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM maintaining forward deployment; carrier groups active; air defense reinforced", "oil_impact": "Elevated $85-95/barrel range; $130B US oil industry profits driving market stability", "diplomacy": "Minimal; Syria reconstruction complicates multilateral engagement; Egypt leverage questioned", "tickers": ["Syrian economic crisis post-Assad destabilizing region", "Israeli political paralysis reduces decision-making speed", "US oil windfall contradicts energy security narrative", "Egypt military aid leverage diminished by press crackdown concerns", "Hezbollah posture unchanged; northern border remains tense"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "stable", "last_update": "2026-10-31 01:25:27", "nuclear_risk": 3.5, "hormuz": "partial", "us_forces": "CENTCOM maintaining enhanced presence; naval assets in Persian Gulf and Arabian Sea; no full-scale ground deployment reported", "oil_impact": "Oil profits exceed $130B; prices elevated but market stabilizing; partial Hormuz closure priced in; supply alternatives reduce volatility", "diplomacy": "Minimal active diplomacy; Saudi Arabia neutral; China/Russia observe; Egypt pressing for humanitarian pause", "tickers": ["Israeli_election_deadlock_deepens_divisions", "Syrian_economic_crisis_post_Assad_recovery_threatened", "US_oil_industry_profits_surge_130_billion", "Egypt_press_crackdown_affects_US_military_aid", "Hezbollah_activity_remains_controlled"]};</script>
 </body>
 </html>
