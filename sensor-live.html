@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 246 · TIME 23:03</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 247 · TIME 04:22</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -379,7 +379,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
 <line x1="695" y1="265" x2="695" y2="38" class="trace-pwr" stroke-width="2"/>
 <line x1="720" y1="355" x2="720" y2="612" class="trace-gnd" stroke-width="2"/>
 <text x="640" y="285" style="font-family:Share Tech Mono;font-size:7px;fill:rgba(0,255,136,0.25)">SSD1306 I2C</text>
-<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">72.5°C</text>
+<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">62.5°C</text>
 <text x="695" y="378" class="lc">OLED 0.96" I2C</text>
 <text x="695" y="390" class="lcr">U4 SSD1306</text>
 <text x="695" y="403" class="lca">GLOBAL OUTPUT</text>
@@ -495,8 +495,8 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [67.5, 67.5, 64.5, 68.5, 62.5, 62.5, 68.5, 62.5, 62.5, 67.5, 67.5, 68.5, 72.5, 72.5, 67.5, 67.5, 68.5, 67.5, 72.5, 67.5, 68.5, 68.5, 62.5, 62.5, 62.5, 62.5, 67.5, 64.5, 58.5, 62.5, 68.5, 62.5, 67.5, 62.5, 62.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 67.5, 67.5, 72.5];
-let currentTemp = 72.5;
+const history = [67.5, 64.5, 68.5, 62.5, 62.5, 68.5, 62.5, 62.5, 67.5, 67.5, 68.5, 72.5, 72.5, 67.5, 67.5, 68.5, 67.5, 72.5, 67.5, 68.5, 68.5, 62.5, 62.5, 62.5, 62.5, 67.5, 64.5, 58.5, 62.5, 68.5, 62.5, 67.5, 62.5, 62.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 67.5, 67.5, 72.5, 62.5];
+let currentTemp = 62.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
 function barWidth(t){return Math.min(99,(t/150)*100);}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Israeli elections deepening domestic divisions during conflict",
-  "Iran prepared for escalation regardless of US/Israel election outcomes",
-  "Syria crisis compounds regional instability post-Assad transition",
-  "Egypt military aid conditionality signals US pressure on allied states",
-  "Hezbollah sustained operational tempo; cross-border incidents ongoing",
+  "Israeli opposition election pressure amid war governance",
+  "Syria post-Assad crisis deepens integration complications",
+  "Egypt military aid conditionality signals US pressure",
+  "Iran braces for sustained conflict through US election cycle",
+  "Saudi mutual defense expansion indicates regional realignment",
 ];
 
 function buildMarquee(){
@@ -2109,6 +2109,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "stable", "last_update": "2026-10-31 23:03:43", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM maintains elevated readiness; carrier groups positioned; airbase activity high in Gulf region", "oil_impact": "Elevated volatility; Brent 85-92 USD/barrel; partial Hormuz closure premium ~5-8%", "diplomacy": "Minimal direct talks; indirect mediation via Oman/Qatar stalled; Russia-China non-aligned positioning", "tickers": ["Israeli elections deepening domestic divisions during conflict", "Iran prepared for escalation regardless of US/Israel election outcomes", "Syria crisis compounds regional instability post-Assad transition", "Egypt military aid conditionality signals US pressure on allied states", "Hezbollah sustained operational tempo; cross-border incidents ongoing"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "stable", "last_update": "2026-11-01 04:22:43", "nuclear_risk": 4, "hormuz": "open", "us_forces": "CENTCOM maintains enhanced posture; carrier groups positioned for contingency operations", "oil_impact": "Elevated volatility; Brent hovering $75-82/barrel on Hormuz transit concerns", "diplomacy": "Minimal direct US-Iran talks; Saudi mediation limited by regional polarization", "tickers": ["Israeli opposition election pressure amid war governance", "Syria post-Assad crisis deepens integration complications", "Egypt military aid conditionality signals US pressure", "Iran braces for sustained conflict through US election cycle", "Saudi mutual defense expansion indicates regional realignment"]};</script>
 </body>
 </html>
