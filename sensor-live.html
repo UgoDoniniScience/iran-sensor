@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 247 · TIME 23:21</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 248 · TIME 04:24</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [62.5, 62.5, 68.5, 62.5, 62.5, 67.5, 67.5, 68.5, 72.5, 72.5, 67.5, 67.5, 68.5, 67.5, 72.5, 67.5, 68.5, 68.5, 62.5, 62.5, 62.5, 62.5, 67.5, 64.5, 58.5, 62.5, 68.5, 62.5, 67.5, 62.5, 62.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 67.5, 67.5, 72.5, 62.5, 62.5, 62.5, 62.5];
+const history = [62.5, 68.5, 62.5, 62.5, 67.5, 67.5, 68.5, 72.5, 72.5, 67.5, 67.5, 68.5, 67.5, 72.5, 67.5, 68.5, 68.5, 62.5, 62.5, 62.5, 62.5, 67.5, 64.5, 58.5, 62.5, 68.5, 62.5, 67.5, 62.5, 62.5, 58.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 62.5, 67.5, 67.5, 67.5, 72.5, 62.5, 62.5, 62.5, 62.5, 62.5];
 let currentTemp = 62.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Netanyahu election deadlock delays strategic clarity",
-  "IDF Gaza operations continue; civilian casualties raise pressure",
-  "Iranian missiles/drones: periodic threat signaling",
-  "Hezbollah border activity: measured but persistent",
-  "Arab Israeli parties: political fragmentation limits unified response",
+  "Netanyahu_political_survival_threatens_war_strategy",
+  "IDF_Gaza_strikes_civilian_casualties",
+  "Syria_economic_collapse_refugee_pressure",
+  "US_Egypt_military_aid_conditions",
+  "Hormuz_Strait_shipping_stable_but_monitored",
 ];
 
 function buildMarquee(){
@@ -2113,6 +2113,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "stable", "last_update": "2026-11-01 23:21:26", "nuclear_risk": 3.0, "hormuz": "open", "us_forces": "CENTCOM active; naval presence maintained; no major escalation signals", "oil_impact": "Elevated $75-85/bbl range; Hormuz transit concerns contained by naval presence", "diplomacy": "Stalled; Egypt credibility damaged by US aid pressure; Qatar limited role", "tickers": ["Netanyahu election deadlock delays strategic clarity", "IDF Gaza operations continue; civilian casualties raise pressure", "Iranian missiles/drones: periodic threat signaling", "Hezbollah border activity: measured but persistent", "Arab Israeli parties: political fragmentation limits unified response"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 62.5, "trend": "stable", "last_update": "2026-11-02 04:24:31", "nuclear_risk": 2, "hormuz": "open", "us_forces": "CENTCOM maintaining presence; carrier group positioned; no major escalation signals", "oil_impact": "Moderate pressure from regional uncertainty; Syria crisis affecting regional stability; Hormuz remains functional limiting disruption", "diplomacy": "Minimal active channels; US pressure on Egypt indicates indirect diplomacy attempts; Israel domestic political crisis constraining negotiations", "tickers": ["Netanyahu_political_survival_threatens_war_strategy", "IDF_Gaza_strikes_civilian_casualties", "Syria_economic_collapse_refugee_pressure", "US_Egypt_military_aid_conditions", "Hormuz_Strait_shipping_stable_but_monitored"]};</script>
 </body>
 </html>
