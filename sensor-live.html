@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 262 · TIME 14:46</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 262 · TIME 23:57</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -379,7 +379,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
 <line x1="695" y1="265" x2="695" y2="38" class="trace-pwr" stroke-width="2"/>
 <line x1="720" y1="355" x2="720" y2="612" class="trace-gnd" stroke-width="2"/>
 <text x="640" y="285" style="font-family:Share Tech Mono;font-size:7px;fill:rgba(0,255,136,0.25)">SSD1306 I2C</text>
-<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">67.5°C</text>
+<text x="695" y="322" class="disp-val" style="font-size:22px" id="svg-temp-disp">72.5°C</text>
 <text x="695" y="378" class="lc">OLED 0.96" I2C</text>
 <text x="695" y="390" class="lcr">U4 SSD1306</text>
 <text x="695" y="403" class="lca">GLOBAL OUTPUT</text>
@@ -495,8 +495,8 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [62.5, 62.5, 67.5, 62.5, 67.5, 67.5, 42.5, 42.5, 42.5, 42.5, 42.5, 42.5, 42.5, 56.5, 62.5, 62.5, 47.5, 64.5, 42.5, 62.5, 62.5, 67.5, 67.5, 62.5, 67.5, 62.5, 62.5, 42.5, 52.5, 42.5, 62.5, 62.5, 64.5, 67.5, 62.5, 58.5, 62.5, 62.5, 62.5, 62.5, 64.5, 62.5, 58.5, 67.5, 72.5, 67.5, 68.5, 67.5];
-let currentTemp = 67.5;
+const history = [62.5, 67.5, 62.5, 67.5, 67.5, 42.5, 42.5, 42.5, 42.5, 42.5, 42.5, 42.5, 56.5, 62.5, 62.5, 47.5, 64.5, 42.5, 62.5, 62.5, 67.5, 67.5, 62.5, 67.5, 62.5, 62.5, 42.5, 52.5, 42.5, 62.5, 62.5, 64.5, 67.5, 62.5, 58.5, 62.5, 62.5, 62.5, 62.5, 64.5, 62.5, 58.5, 67.5, 72.5, 67.5, 68.5, 67.5, 72.5];
+let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
 function barWidth(t){return Math.min(99,(t/150)*100);}
@@ -556,10 +556,10 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
   "Iran drone strike Bahrain base",
-  "Israel kills Hamas commander Gaza camp",
-  "UK demands Israel humanitarian access",
-  "Houthis retreat Yemeni port city",
-  "Bahrain convicts Shiite clerics terrorism trial",
+  "Houthi Yemen port advance destabilizes shipping",
+  "Bahrain sectarian crackdown (Shia clerics sentenced)",
+  "Red Sea/Hormuz chokepoint vulnerability increasing",
+  "Oil markets respond to escalating regional chaos",
 ];
 
 function buildMarquee(){
@@ -2163,6 +2163,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 67.5, "trend": "rising", "last_update": "2026-11-16 14:46:28", "nuclear_risk": 3, "hormuz": "open", "us_forces": "CENTCOM bases in Bahrain/UAE under drone threat; air defense systems active; carrier groups positioned in region", "oil_impact": "Moderate volatility; Hormuz concerns limit buyers; crude +2-3% on drone attack reports", "diplomacy": "UK/allies negotiating Gaza humanitarian corridors; Trump administration ambiguous; indirect mediation through Qatar/Egypt limited", "tickers": ["Iran drone strike Bahrain base", "Israel kills Hamas commander Gaza camp", "UK demands Israel humanitarian access", "Houthis retreat Yemeni port city", "Bahrain convicts Shiite clerics terrorism trial"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-11-16 23:57:55", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM base in Bahrain targeted; reinforcements likely; regional posture defensive-reactive", "oil_impact": "Moderate upward pressure; Hormuz/Red Sea disruption fears; global supply chain anxiety rising", "diplomacy": "Minimal; UK/allies humanitarian appeals ineffective; no active US-Iran backchannel; regional isolation deepening", "tickers": ["Iran drone strike Bahrain base", "Houthi Yemen port advance destabilizes shipping", "Bahrain sectarian crackdown (Shia clerics sentenced)", "Red Sea/Hormuz chokepoint vulnerability increasing", "Oil markets respond to escalating regional chaos"]};</script>
 </body>
 </html>
