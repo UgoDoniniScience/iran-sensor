@@ -166,7 +166,7 @@ svg#circuit{width:100%;height:auto;display:block;cursor:crosshair;}
   <div class="hdr-right">
     <span class="clock" id="clk"></span>
     <div class="live-dot"></div>
-    <span class="live-txt" id="live-txt">LIVE · DAY 262 · TIME 23:57</span>
+    <span class="live-txt" id="live-txt">LIVE · DAY 263 · TIME 07:23</span>
   </div>
 </div>
 <div class="ticker-grid">
@@ -495,7 +495,7 @@ let activeComp=null;
 function selectComp(id){const d=COMPS[id];if(!d)return;document.getElementById('tp-title').textContent=d.title;document.getElementById('tp-body').textContent=d.comp;document.getElementById('tp-actor').textContent='▸ '+d.actor;document.getElementById('tp-status').textContent=d.status;document.getElementById('tooltip').classList.add('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));const li=document.getElementById('li-'+id);if(li)li.classList.add('selected');activeComp=id;}
 function closeTooltip(){document.getElementById('tooltip').classList.remove('vis');document.querySelectorAll('.comp-item').forEach(el=>el.classList.remove('selected'));activeComp=null;}
 
-const history = [62.5, 67.5, 62.5, 67.5, 67.5, 42.5, 42.5, 42.5, 42.5, 42.5, 42.5, 42.5, 56.5, 62.5, 62.5, 47.5, 64.5, 42.5, 62.5, 62.5, 67.5, 67.5, 62.5, 67.5, 62.5, 62.5, 42.5, 52.5, 42.5, 62.5, 62.5, 64.5, 67.5, 62.5, 58.5, 62.5, 62.5, 62.5, 62.5, 64.5, 62.5, 58.5, 67.5, 72.5, 67.5, 68.5, 67.5, 72.5];
+const history = [67.5, 62.5, 67.5, 67.5, 42.5, 42.5, 42.5, 42.5, 42.5, 42.5, 42.5, 56.5, 62.5, 62.5, 47.5, 64.5, 42.5, 62.5, 62.5, 67.5, 67.5, 62.5, 67.5, 62.5, 62.5, 42.5, 52.5, 42.5, 62.5, 62.5, 64.5, 67.5, 62.5, 58.5, 62.5, 62.5, 62.5, 62.5, 64.5, 62.5, 58.5, 67.5, 72.5, 67.5, 68.5, 67.5, 72.5, 72.5];
 let currentTemp = 72.5;
 
 function tempColor(t){if(t<50)return'#00ff88';if(t<70)return'#88cc00';if(t<85)return'#ffaa00';if(t<100)return'#ff6600';return'#ff2233';}
@@ -555,11 +555,11 @@ function updateClock(){const n=new Date();document.getElementById('clk').textCon
 
 // ── TICKERS (updated by scorer) ─────────────────────────────────
 const TICKERS = [
-  "Iran drone strike Bahrain base",
-  "Houthi Yemen port advance destabilizes shipping",
-  "Bahrain sectarian crackdown (Shia clerics sentenced)",
-  "Red Sea/Hormuz chokepoint vulnerability increasing",
-  "Oil markets respond to escalating regional chaos",
+  "Iran drone strike Bahrain CENTCOM base",
+  "Houthi Yemen advance threatens shipping lanes",
+  "Bahrain mass Shia sentencing inflames sectarian tensions",
+  "Gaza humanitarian crisis deepens without aid access",
+  "Oil markets spike on Hormuz strait disruption risk",
 ];
 
 function buildMarquee(){
@@ -2164,6 +2164,7 @@ setInterval(updateTemp, 1800);
 
 
 
-<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-11-16 23:57:55", "nuclear_risk": 3, "hormuz": "partial", "us_forces": "CENTCOM base in Bahrain targeted; reinforcements likely; regional posture defensive-reactive", "oil_impact": "Moderate upward pressure; Hormuz/Red Sea disruption fears; global supply chain anxiety rising", "diplomacy": "Minimal; UK/allies humanitarian appeals ineffective; no active US-Iran backchannel; regional isolation deepening", "tickers": ["Iran drone strike Bahrain base", "Houthi Yemen port advance destabilizes shipping", "Bahrain sectarian crackdown (Shia clerics sentenced)", "Red Sea/Hormuz chokepoint vulnerability increasing", "Oil markets respond to escalating regional chaos"]};</script>
+
+<script>var SENSOR_DATA_VAR = {"temperatura": 72.5, "trend": "rising", "last_update": "2026-11-17 07:23:45", "nuclear_risk": 4, "hormuz": "partial", "us_forces": "CENTCOM bases under direct Iranian attack; naval presence reinforced; air defense systems activated", "oil_impact": "Rising due to Hormuz chokepoint threat and Houthi naval activities; +3-5% volatility expected", "diplomacy": "Minimal; UK humanitarian appeals ineffective; no active US-Iran negotiations; regional allies divided", "tickers": ["Iran drone strike Bahrain CENTCOM base", "Houthi Yemen advance threatens shipping lanes", "Bahrain mass Shia sentencing inflames sectarian tensions", "Gaza humanitarian crisis deepens without aid access", "Oil markets spike on Hormuz strait disruption risk"]};</script>
 </body>
 </html>
